@@ -1,0 +1,19 @@
+{
+  "name": "translationwords_check_plugin",
+  "version": "1.0.0",
+  "description": "The translationWords check works by providing translators with clear, concise definitions and translation suggestions for every important word in the Bible.",
+  "title": "translationWords Check",
+  "main": "View.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "include": [
+    "proposed_changes_module",
+    "t_pane",
+    "comment_box"
+  ],
+  "dependencies": {
+    "babel-preset-react": "^6.16.0"
+  }
+}
