@@ -11,7 +11,7 @@
   "license": "ISC",
   "include": [
     "proposed_changes_module",
-    "t_pane",
+    "TPane",
     "comment_box"
   ],
   "dependencies": {
