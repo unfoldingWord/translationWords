@@ -10,7 +10,7 @@
   "display": "app",
   "license": "ISC",
   "include": [
-    "proposed_changes_module",
+    "ProposedChanges",
     "TPane",
     "CommentBox"
   ],
