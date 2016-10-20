@@ -12,7 +12,7 @@
   "include": [
     "proposed_changes_module",
     "TPane",
-    "comment_box"
+    "CommentBox"
   ],
   "dependencies": {
     "babel-preset-react": "^6.16.0",
