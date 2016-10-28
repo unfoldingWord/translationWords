@@ -18,6 +18,11 @@ class TranslationWordsFetcher {
     this.caseSensitiveAliases = new Set();
   }
 
+  getWordList() {
+    this.wordList = require('../static/WordList.json').wordList;
+    return this.wordList;
+  }
+
 /**
 * Gets the list of words using github api this must be called before getWord
 * will work!
@@ -25,7 +30,7 @@ class TranslationWordsFetcher {
 * the door43 github repo
 * @param {function} callback - called with (error, data) once operation is finished
 */
-  getWordList(url, callback = () => ({})) {
+  oldGetWordList(url, callback = () => ({})) {
     var link = url || GITHUB_API_URL;
 
     var request = new XMLHttpRequest();
@@ -121,7 +126,7 @@ else {
 
   getAliases(progCallback = () => {}, callback = () => {}) {
     /**
-     * This is a convenience class that is used as a set, but the 
+     * This is a convenience class that is used as a set, but the
      * collisions are based on lowercased strings
      */
     class LowercasedSet {
@@ -156,13 +161,13 @@ else {
       }
       var callsNow = calls.slice(start, end);
       iterateOver(
-        callsNow, 
+        callsNow,
         function(listItem, report) {
           listItem(function() {
             report();
             progCallback(++numberDone, calls.length);
           });
-        }, 
+        },
         function() {
           if (end == calls.length) {
             callback();
@@ -175,21 +180,21 @@ else {
     }
 
     var _this = this;
-    for (let word of this.wordList) {
-      calls.push(function(report) {
-        _this.getWord(word.name, (err, file) => {
-          if (err) {
-            console.error(err);
-            report(err);
-            return;
-          }
-          else {
-            word.aliases = parseFile(file);
-          }
-          report(); // for the progCallback
-        });
-      });
-    }
+    // for (let word of this.wordList) {
+    //   calls.push(function(report) {
+    //     _this.getWord(word.name, (err, file) => {
+    //       if (err) {
+    //         console.error(err);
+    //         report(err);
+    //         return;
+    //       }
+    //       else {
+    //         word.aliases = parseFile(file);
+    //       }
+    //       report(); // for the progCallback
+    //     });
+    //   });
+    // }
 
     function parseFile(file) {
       const aliasReg = new RegExp("=+\\s*([^=]+)=+");
@@ -204,12 +209,12 @@ else {
       }
       // split by comma and take off hanging spaces
       let res = aliasRes.split(aliasRes.indexOf(';') != -1 ? ";" : ',').map(str => str.trim());
-      for (var al of res) { 
+      for (var al of res) {
         if (!aliases.has(al)) {
           aliases.add(al);
         }
         else {
-          /* We need to add both aliases to the case sensitive set, because they only 
+          /* We need to add both aliases to the case sensitive set, because they only
            * differ in case
            */
           _this.caseSensitiveAliases.add(al);
