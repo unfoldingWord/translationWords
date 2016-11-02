@@ -10,9 +10,9 @@
   "display": "app",
   "license": "ISC",
   "include": [
-    "proposed_changes_module",
-    "t_pane",
-    "comment_box"
+    "ProposedChanges",
+    "TPane",
+    "CommentBox"
   ],
   "dependencies": {
     "babel-preset-react": "^6.16.0",
