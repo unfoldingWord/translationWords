@@ -34,44 +34,34 @@ function getData(params, progressCallback, callback) {
 
   function parseDataFromBook(bookData) {
     var tWFetcher = new TranslationWordsFetcher();
-    var wordList;
-    tWFetcher.getWordList(undefined,
-      function(error, data) {
-        if (error) {
-          console.error('TWFetcher throwing error');
-          callback(error);
-        }
-        else {
-          wordList = data;
-          tWFetcher.getAliases(function(done, total) {
-            progressCallback(((done / total) * 50) + 50);
-          }, function(error) {
-            if (error) {
-              callback(error);
-            }
-            else {
-              var actualWordList = BookWordTest(tWFetcher.wordList, bookData,
-                tWFetcher.caseSensitiveAliases);
-              var mappedBook = mapVerses(bookData);
+    var wordList = tWFetcher.getWordList();
+    tWFetcher.getAliases(function(done, total) {
+      progressCallback(((done / total) * 50) + 50);
+    }, function(error) {
+      if (error) {
+        callback(error);
+      }
+      else {
+        var actualWordList = BookWordTest(tWFetcher.wordList, bookData,
+          tWFetcher.caseSensitiveAliases);
+        var mappedBook = mapVerses(bookData);
 
-              // var checkObject = findWordsInBook(bookData, actualWordList);
-              var checkObject = findWords(bookData, mappedBook, actualWordList);
-              checkObject.TranslationWordsChecker.sort(function(first, second) {
-                  return stringCompare(first.group, second.group);
-              });
+        // var checkObject = findWordsInBook(bookData, actualWordList);
+        var checkObject = findWords(bookData, mappedBook, actualWordList);
+        checkObject.TranslationWordsChecker.sort(function(first, second) {
+            return stringCompare(first.group, second.group);
+        });
 
-              api.putDataInCheckStore('TranslationWordsChecker', 'book',
-              api.convertToFullBookName(params.bookAbbr));
-              api.putDataInCheckStore('TranslationWordsChecker', 'groups', checkObject['TranslationWordsChecker']);
-              api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
-              api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
-              api.putDataInCheckStore('TranslationWordsChecker', 'wordList', wordList);
-              //TODO: This shouldn't be put in the check store because we don't want this saved to disk
-              callback(null);
-            }
-          });
-        }
-      });
+        api.putDataInCheckStore('TranslationWordsChecker', 'book',
+        api.convertToFullBookName(params.bookAbbr));
+        api.putDataInCheckStore('TranslationWordsChecker', 'groups', checkObject['TranslationWordsChecker']);
+        api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
+        api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
+        api.putDataInCheckStore('TranslationWordsChecker', 'wordList', wordList);
+        //TODO: This shouldn't be put in the check store because we don't want this saved to disk
+        callback(null);
+      }
+    });
   }
 
   Door43Fetcher.getBook(params.bookAbbr, function(done, total) {
