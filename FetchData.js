@@ -115,7 +115,7 @@ function getData(params, progressCallback, callback) {
 function getULBFromDoor43Static(bookAbr) {
   var ULB = {};
   ULB['chapters'] = [];
-  const pathBase = __dirname + 'static/Door43/notes/';
+  const pathBase = __dirname + '/static/Door43/notes/';
   var bookFolder = fs.readdirSync(pathBase + bookAbr);
   for (var chapter in bookFolder) {
     var currentChapter = [];
