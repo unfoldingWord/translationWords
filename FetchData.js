@@ -7,11 +7,12 @@
 */
 
 const api = window.ModuleApi;
+const fs = require('fs');
 
 //node modules
 const XRegExp = require('xregexp');
 const natural = require('natural');
-const tokenizer = new natural.RegexpTokenizer({pattern: new XRegExp('\\PL')});
+const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 
 // User imports
 const Door43DataFetcher = require('./Door43DataFetcher.js');
@@ -28,32 +29,29 @@ const BookWordTest = require('./translation_words/WordTesterScript.js');
 * if error ocurred it's called with an error, 2nd argument carries the result
 */
 function getData(params, progressCallback, callback) {
-// Get Bible
+  // Get Bible
   var bookData;
   var Door43Fetcher = new Door43DataFetcher();
 
   function parseDataFromBook(bookData) {
     var tWFetcher = new TranslationWordsFetcher();
     var wordList = tWFetcher.getWordList();
-    tWFetcher.getAliases(function(done, total) {
-      progressCallback(((done / total) * 50) + 50);
-    }, function(error) {
+    tWFetcher.getAliases(function (done, total) {
+      progressCallback(done / total * 50 + 50);
+    }, function (error) {
       if (error) {
         callback(error);
-      }
-      else {
-        var actualWordList = BookWordTest(tWFetcher.wordList, bookData,
-          tWFetcher.caseSensitiveAliases);
+      } else {
+        var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
         var mappedBook = mapVerses(bookData);
 
         // var checkObject = findWordsInBook(bookData, actualWordList);
         var checkObject = findWords(bookData, mappedBook, actualWordList);
-        checkObject.TranslationWordsChecker.sort(function(first, second) {
-            return stringCompare(first.group, second.group);
+        checkObject.TranslationWordsChecker.sort(function (first, second) {
+          return stringCompare(first.group, second.group);
         });
 
-        api.putDataInCheckStore('TranslationWordsChecker', 'book',
-        api.convertToFullBookName(params.bookAbbr));
+        api.putDataInCheckStore('TranslationWordsChecker', 'book', api.convertToFullBookName(params.bookAbbr));
         api.putDataInCheckStore('TranslationWordsChecker', 'groups', checkObject['TranslationWordsChecker']);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
@@ -63,64 +61,84 @@ function getData(params, progressCallback, callback) {
       }
     });
   }
-
-  Door43Fetcher.getBook(params.bookAbbr, function(done, total) {
-    progressCallback((done / total) * 50);}, function(error, data) {
-      if (error) {
-        console.error('Door43Fetcher throwing error');
-        callback(error);
+  var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
+  var bookData;
+  /*
+   * we found the gatewayLanguage already loaded, now we must convert it
+   * to the format needed by the parsers
+   */
+  if (gatewayLanguage) {
+    var reformattedBookData = { chapters: [] };
+    for (var chapter in gatewayLanguage) {
+      var chapterObject = {
+        verses: [],
+        num: parseInt(chapter)
+      };
+      for (var verse in gatewayLanguage[chapter]) {
+        var verseObject = {
+          num: parseInt(verse),
+          text: gatewayLanguage[chapter][verse]
+        };
+        chapterObject.verses.push(verseObject);
       }
-      else {
-        var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
-        var bookData;
-        /*
-         * we found the gatewayLanguage already loaded, now we must convert it
-         * to the format needed by the parsers
-         */
-        if (gatewayLanguage) {
-          var reformattedBookData = {chapters: []};
-          for (var chapter in gatewayLanguage) {
-            var chapterObject = {
-              verses: [],
-              num: parseInt(chapter)
-            }
-            for (var verse in gatewayLanguage[chapter]) {
-              var verseObject = {
-                num: parseInt(verse),
-                text: gatewayLanguage[chapter][verse]
-              }
-              chapterObject.verses.push(verseObject);
-            }
-            chapterObject.verses.sort(function(first, second) {
-              return first.num - second.num;
-            });
-            reformattedBookData.chapters.push(chapterObject);
-          }
-          reformattedBookData.chapters.sort(function(first, second) {
-            return first.num - second.num;
-          });
-          parseDataFromBook(reformattedBookData);
-        }
-        // We need to load the data, and then reformat it for the store and store it
-        else {
-          bookData = Door43Fetcher.getULBFromBook(data);
-          //reformat
-          var newBookData = {};
-          for (var chapter of bookData.chapters) {
-            newBookData[chapter.num] = {};
-            for (var verse of chapter.verses) {
-              newBookData[chapter.num][verse.num] = verse.text;
-            }
-          }
-          newBookData.title = api.convertToFullBookName(params.bookAbbr);
-          //load it into checkstore
-          api.putDataInCommon('gatewayLanguage', newBookData);
-          //resume fetchData
-          parseDataFromBook(bookData);
-        }
+      chapterObject.verses.sort(function (first, second) {
+        return first.num - second.num;
+      });
+      reformattedBookData.chapters.push(chapterObject);
+    }
+    reformattedBookData.chapters.sort(function (first, second) {
+      return first.num - second.num;
+    });
+    parseDataFromBook(reformattedBookData);
+  }
+  // We need to load the data, and then reformat it for the store and store it
+  else {
+    var data = getULBFromDoor43Static(params.bookAbbr);
+    //hijack load
+    bookData = Door43Fetcher.getULBFromBook(data);
+    //reformat
+    var newBookData = {};
+    for (var chapter of bookData.chapters) {
+      newBookData[chapter.num] = {};
+      for (var verse of chapter.verses) {
+        newBookData[chapter.num][verse.num] = verse.text;
       }
     }
-  );
+    newBookData.title = api.convertToFullBookName(params.bookAbbr);
+    //load it into checkstore
+    api.putDataInCommon('gatewayLanguage', newBookData);
+    //resume fetchData
+    parseDataFromBook(bookData);
+  }
+}
+
+function getULBFromDoor43Static(bookAbr) {
+  var ULB = {};
+  ULB['chapters'] = [];
+  const pathBase = __dirname + 'static/Door43/notes/';
+  var bookFolder = fs.readdirSync(pathBase + bookAbr);
+  for (var chapter in bookFolder) {
+    var currentChapter = [];
+    if (isNaN(bookFolder[chapter])) continue;
+    var chapterFolder = fs.readdirSync(pathBase + bookAbr + '/' + bookFolder[chapter]);
+    var currentChapterPath = pathBase + bookAbr + '/' + bookFolder[chapter];
+    currentChapter['num'] = bookFolder[chapter];
+    currentChapter['verses'] = [];
+    for (var verse in chapterFolder) {
+      if (isNaN(chapterFolder[verse][0])) continue;
+      var currentVerse = {};
+      try {
+        var data = fs.readFileSync(currentChapterPath + "/" + chapterFolder[verse]);
+        currentVerse['file'] = data.toString();
+        currentVerse['num'] = chapterFolder[verse].split('.')[0];
+        currentChapter['verses'].push(currentVerse);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    if (currentChapter['verses'].length > 0) ULB['chapters'].push(currentChapter);
+  }
+  return ULB;
 }
 
 /**
@@ -140,7 +158,7 @@ function mapVerseToObject(verse) {
      * returns an invalid index within the context of the entire verse
      */
     currentIndex += index;
-    returnObject[currentIndex] = {'word': word, 'marked': false};
+    returnObject[currentIndex] = { 'word': word, 'marked': false };
     currentIndex += word.length;
     currentText = verse.slice(currentIndex);
   }
@@ -162,11 +180,11 @@ function mapVerseToObject(verse) {
  * currently searching for, primary key for this methods are the wordObject's regexes
  */
 function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject) {
-  var checkArray = []
+  var checkArray = [];
   var sortOrder = 0;
   for (var regex of wordObject.regex) {
     var match = verseObject.text.match(regex);
-    while(match) {
+    while (match) {
       if (!checkIfWordsAreMarked(match, mappedVerseObject)) {
         checkArray.push({
           "chapter": chapterNumber,
@@ -175,7 +193,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "retained": "",
           "sortOrder": sortOrder++,
           "word": match[0],
-          "index": match.index,
+          "index": match.index
         });
       }
       match = stringMatch(verseObject.text, regex, match.index + incrementIndexByWord(match));
@@ -239,12 +257,10 @@ function checkIfWordsAreMarked(match, verseObject) {
     if (verseObject[index]) {
       if (verseObject[index].marked) {
         return true;
-      }
-      else {
+      } else {
         matchedWordObjects.push(verseObject[index]);
       }
-    }
-    else {
+    } else {
       console.error("Can't find index: " + index + " in verseObject");
       console.dir(verseObject);
     }
@@ -273,7 +289,6 @@ function mapVerses(bookData) {
   return mapVerse;
 }
 
-
 /**
  * @description - This does a {@link findWordInVerse} for every word given in wordList and returns
  * the list of checks for the TranslationWordsChecker
@@ -295,8 +310,7 @@ function findWords(bookData, mapBook, wordList) {
     };
     for (var chapter of bookData.chapters) {
       for (var verse of chapter.verses) {
-        for (var item of findWordInVerse(chapter.num, verse,
-          mapBook[chapter.num][verse.num], word)) {
+        for (var item of findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word)) {
           wordReturnObject.checks.push(item);
         }
       }
@@ -304,9 +318,9 @@ function findWords(bookData, mapBook, wordList) {
     if (wordReturnObject.checks.length <= 0) {
       continue;
     }
-    wordReturnObject.checks.sort(function(first, second) {
+    wordReturnObject.checks.sort(function (first, second) {
       if (first.chapter != second.chapter) {
-          return first.chapter - second.chapter;
+        return first.chapter - second.chapter;
       }
       if (first.verse != second.verse) {
         return first.verse - second.verse;
@@ -326,11 +340,9 @@ function findWords(bookData, mapBook, wordList) {
 function stringCompare(first, second) {
   if (first < second) {
     return -1;
-  }
-  else if (first > second) {
+  } else if (first > second) {
     return 1;
-  }
-else {
+  } else {
     return 0;
   }
 }
@@ -351,15 +363,13 @@ function search(list, boolFunction, first = 0, last = -1) {
   if (first > last) {
     return;
   }
-  var mid = Math.floor(((first - last) * 0.5)) + last;
+  var mid = Math.floor((first - last) * 0.5) + last;
   var result = boolFunction(list[mid]);
   if (result < 0) {
     return search(list, boolFunction, first, mid - 1);
-  }
-  else if (result > 0) {
+  } else if (result > 0) {
     return search(list, boolFunction, mid + 1, last);
-  }
-else {
+  } else {
     return list[mid];
   }
 }
