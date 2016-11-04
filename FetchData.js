@@ -65,9 +65,9 @@ function getData(params, progressCallback, callback) {
     });
   }
   for (var i in BooksOfBible) {
-    console.log('downloading i');
   Door43Fetcher.getBook(i, function(done, total) {
     progressCallback((done / total) * 50);}, function(error, data) {
+      console.log('downloading ' + i);
       if (error) {
         console.error('Door43Fetcher throwing error');
         callback(error);
@@ -119,7 +119,7 @@ function getData(params, progressCallback, callback) {
           api.putDataInCommon('gatewayLanguage', null);
           //resume fetchData
           parseDataFromBook(bookData);
-          fs.writeFile(i+'.json', newBookData);
+          fs.writeFile('staitc/' + i+'.json', newBookData);
         }
       }
     }
