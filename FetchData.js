@@ -12,6 +12,7 @@ const api = window.ModuleApi;
 const XRegExp = require('xregexp');
 const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({pattern: new XRegExp('\\PL')});
+const fs = require('fs');
 
 // User imports
 const Door43DataFetcher = require('./Door43DataFetcher.js');
@@ -63,8 +64,9 @@ function getData(params, progressCallback, callback) {
       }
     });
   }
-
-  Door43Fetcher.getBook(params.bookAbbr, function(done, total) {
+  for (var i in BooksOfBible) {
+    console.log('downloading i');
+  Door43Fetcher.getBook(i, function(done, total) {
     progressCallback((done / total) * 50);}, function(error, data) {
       if (error) {
         console.error('Door43Fetcher throwing error');
@@ -114,13 +116,16 @@ function getData(params, progressCallback, callback) {
           }
           newBookData.title = api.convertToFullBookName(params.bookAbbr);
           //load it into checkstore
-          api.putDataInCommon('gatewayLanguage', newBookData);
+          api.putDataInCommon('gatewayLanguage', null);
           //resume fetchData
           parseDataFromBook(bookData);
+          fs.writeFile(i+'.json', newBookData);
         }
       }
     }
   );
+}
+  //End fetch
 }
 
 /**
