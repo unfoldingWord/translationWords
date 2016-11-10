@@ -52,10 +52,17 @@ function getData(params, progressCallback, callback) {
         checkObject.TranslationWordsChecker.sort(function(first, second) {
             return stringCompare(first.group, second.group);
         });
-
-        api.putDataInCheckStore('TranslationWordsChecker', 'book',
-        api.convertToFullBookName(params.bookAbbr));
-        api.putDataInCheckStore('TranslationWordsChecker', 'groups', checkObject['TranslationWordsChecker']);
+        var groups = checkObject['TranslationWordsChecker'];
+        var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
+          for (var group in groups) {
+            for (var item in groups[group].checks) {
+              var co = groups[group].checks[item];
+              var gatewayAtVerse = gatewayLanguage[co.chapter][co.verse];
+              groups[group].checks[item].gatewayLanguage = gatewayAtVerse;
+            }
+          }
+        api.putDataInCheckStore('TranslationWordsChecker', 'book', api.convertToFullBookName(params.bookAbbr));
+        api.putDataInCheckStore('TranslationWordsChecker', 'groups', groups);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
         api.putDataInCheckStore('TranslationWordsChecker', 'wordList', wordList);
