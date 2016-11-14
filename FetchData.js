@@ -7,12 +7,12 @@
 */
 
 const api = window.ModuleApi;
-const fs = require('fs');
 
 //node modules
 const XRegExp = require('xregexp');
 const natural = require('natural');
-const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
+const tokenizer = new natural.RegexpTokenizer({pattern: new XRegExp('\\PL')});
+const fs = require('fs');
 
 // User imports
 const Door43DataFetcher = require('./Door43DataFetcher.js');
@@ -50,9 +50,17 @@ function getData(params, progressCallback, callback) {
         checkObject.TranslationWordsChecker.sort(function (first, second) {
           return stringCompare(first.group, second.group);
         });
-
+        var groups = checkObject['TranslationWordsChecker'];
+        var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
+          for (var group in groups) {
+            for (var item in groups[group].checks) {
+              var co = groups[group].checks[item];
+              var gatewayAtVerse = gatewayLanguage[co.chapter][co.verse];
+              groups[group].checks[item].gatewayLanguage = gatewayAtVerse;
+            }
+          }
         api.putDataInCheckStore('TranslationWordsChecker', 'book', api.convertToFullBookName(params.bookAbbr));
-        api.putDataInCheckStore('TranslationWordsChecker', 'groups', checkObject['TranslationWordsChecker']);
+        api.putDataInCheckStore('TranslationWordsChecker', 'groups', groups);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
         api.putDataInCheckStore('TranslationWordsChecker', 'wordList', wordList);
@@ -139,6 +147,8 @@ function getULBFromDoor43Static(bookAbr) {
     if (currentChapter['verses'].length > 0) ULB['chapters'].push(currentChapter);
   }
   return ULB;
+}
+  //End fetch
 }
 
 /**
