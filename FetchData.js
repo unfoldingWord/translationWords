@@ -271,7 +271,7 @@ function checkIfWordsAreMarked(match, verseObject) {
         matchedWordObjects.push(verseObject[index]);
       }
     } else {
-      console.error("Can't find index: " + index + " in verseObject");
+      console.log("Can't find index: " + index + " in verseObject");
       console.dir(verseObject);
     }
   }
