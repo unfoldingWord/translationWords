@@ -149,7 +149,6 @@ function getULBFromDoor43Static(bookAbr) {
   return ULB;
 }
   //End fetch
-}
 
 /**
  * @description - This creates an object from a string, in this case it'll always be a verse.
