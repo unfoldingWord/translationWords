@@ -101,16 +101,6 @@ class View extends React.Component {
     if (currentCheck) {
       //Let T Pane know to scroll to are current verse
       api.emitEvent('goToVerse', {chapterNumber: currentCheck.chapter, verseNumber: currentCheck.verse});
-      //Tell ProposedChanges what it should be displaying if we already have a proposed change there
-      if (this.refs.ProposedChanges) {
-        this.refs.ProposedChanges.update(this.refs.TargetVerseDisplay.getWords());
-      }
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.refs.ProposedChanges) {
-      this.refs.ProposedChanges.update(this.refs.TargetVerseDisplay.getWords());
     }
   }
 
@@ -160,9 +150,6 @@ class View extends React.Component {
   }
 
   updateSelectedWords(selectedWords, selectedWordsRaw, selectionRange = [0,0]) {
-    if (this.refs.ProposedChanges) {
-      this.refs.ProposedChanges.update(selectedWords);
-    }
     var currentCheck = this.getCurrentCheck();
     currentCheck.selectedWords = selectedWords;
     //This is needed to make the display persistent, but won't be needed in reports
@@ -176,18 +163,12 @@ class View extends React.Component {
    * @param {object} newCheckIndex - the group index of the check selected in the navigation menu
    */
   changeCurrentCheckInCheckStore(newGroupIndex, newCheckIndex) {
-    //Get the proposed changes and add it to the check
-    let proposedChanges = this.refs.ProposedChanges.getProposedChanges();
     let comment = this.refs.CommentBox.getComment();
     let currentCheck = this.getCurrentCheck();
     let loggedInUser = api.getLoggedInUser();
     let userName = loggedInUser ? loggedInUser.userName : 'GUEST_USER';
 
     if (currentCheck) {
-      if (proposedChanges && proposedChanges != "") {
-        currentCheck.proposedChanges = proposedChanges;
-        this.refs.ProposedChanges.setNewWord("");
-      }
       if (comment && comment != "") {
         currentCheck.comment = comment;
         this.refs.CommentBox.setComment("");
@@ -232,7 +213,7 @@ class View extends React.Component {
         ', group: ' + currentGroupIndex + ', check: ' + currentCheckIndex;
     api.saveProject(commitMessage);
     //Display toast notification
-    if(currentCheck.checkStatus !== 'UNCHECKED' || currentCheck.comment != undefined || currentCheck.proposedChanges !== undefined){
+    if(currentCheck.checkStatus !== 'UNCHECKED' || currentCheck.comment != undefined){
       api.Toast.success('Check data was successfully saved', '', 2);
     }
     // Update state to render the next check
@@ -262,7 +243,6 @@ class View extends React.Component {
     });
     if (this.refs.CommentBox) {
       this.refs.CommentBox.setComment(currentCheck.comment || "");
-      this.refs.ProposedChanges.setNewWord(currentCheck.proposedChanges || "");
     }
     api.emitEvent('goToVerse', {chapterNumber: currentCheck.chapter, verseNumber: currentCheck.verse});
   }
@@ -374,7 +354,7 @@ class View extends React.Component {
               <CheckStatusButtons updateCheckStatus={this.updateCheckStatus.bind(this)}
                                   getCurrentCheck={this.getCurrentCheck.bind(this)}
               />
-              <ProposedChanges val={this.state.currentCheck.proposedChanges || ""} ref={"ProposedChanges"} />
+              <ProposedChanges getCurrentCheck={this.getCurrentCheck.bind(this)}/>
             </Col>
             <Col sm={6} md={6} lg={6} style={{paddingLeft: '2.5px'}}>
               <TranslationWordsDisplay file={this.state.currentFile}/>
