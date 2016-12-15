@@ -6,7 +6,7 @@ const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
 
 //Modules not defined within translationWords_Check_plugin
-var TPane = null;
+var ScripturePane = null;
 var ProposedChanges = null;
 var CommentBox = null;
 
@@ -45,7 +45,7 @@ class View extends React.Component {
         currentCheck: null,
         currentTranslationWordFile: null
     }
-    TPane = api.getModule('TPane');
+    ScripturePane = api.getModule('ScripturePane');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
 
