@@ -1,6 +1,6 @@
 {
   "name": "TranslationWordsChecker",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "The translationWords check works by providing translators with clear, concise definitions and translation suggestions for every important word in the Bible.",
   "title": "translationWords Check",
   "main": "View.js",
@@ -10,7 +10,7 @@
   "display": "app",
   "license": "ISC",
   "include": {
-    "ProposedChanges": "1.0.1",
+    "ProposedChanges": "1.0.0",
     "ScripturePane": "1.0.0",
     "CommentBox": "1.0.0"
   },
