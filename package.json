@@ -11,7 +11,7 @@
   "license": "ISC",
   "include": {
     "ProposedChanges": "1.0.0",
-    "TPane": "1.0.0",
+    "ScripturePane": "1.0.0",
     "CommentBox": "1.0.0"
   },
   "dependencies": {
