@@ -15,11 +15,13 @@ class CheckStatusButtons extends React.Component{
     return (
       <div>
         <ButtonGroup style={{width:'100%', paddingBottom: "2.5px"}}>
-          <Button style={{width:'50%'}} bsStyle="success" className={checkStatus == 'CORRECT' ? 'active':''} onClick={
-            function() {this.props.updateCheckStatus('CORRECT');}}>
+          <Button style={{width:'50%'}} bsStyle="success"
+                  className={checkStatus == 'CORRECT' ? 'active':''}
+                  onClick={this.props.updateCheckStatus.bind(this, 'CORRECT')}>
             <Glyphicon glyph="ok" /> {CORRECT}</Button>
-          <Button style={{width:'50%'}} bsStyle="danger" className={checkStatus == 'FLAGGED' ? 'active':''} onClick={
-            function() {this.props.updateCheckStatus('FLAGGED');}}>
+          <Button style={{width:'50%'}} bsStyle="danger"
+                  className={checkStatus == 'FLAGGED' ? 'active':''}
+                  onClick={this.props.updateCheckStatus.bind(this, 'FLAGGED')}>
             <Glyphicon glyph="flag" /> {FLAGGED}</Button>
         </ButtonGroup>
       </div>
