@@ -7,9 +7,9 @@ const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
 
 //Modules not defined within translationWords_Check_plugin
-var ScripturePane = null;
-var ProposedChanges = null;
-var CommentBox = null;
+var ScripturePane = require(window.__base + '../scripturePane/View').view;
+var ProposedChanges = require(window.__base + '../proposed_changes_module/View').view;
+var CommentBox = require(window.__base + '../comment_box/View').view;
 
 //Bootstrap consts
 const Row = ReactBootstrap.Row;
@@ -43,9 +43,9 @@ class View extends React.Component {
         currentCheck: null,
         currentTranslationWordFile: null,
     }
-    ScripturePane = api.getModule('ScripturePane');
-    ProposedChanges = api.getModule('ProposedChanges');
-    CommentBox = api.getModule('CommentBox');
+    //ScripturePane = api.getModule('ScripturePane');
+    //ProposedChanges = api.getModule('ProposedChanges');
+    //CommentBox = api.getModule('CommentBox');
     this.updateState = this.updateState.bind(this);
     this.changeCurrentCheckInCheckStore = this.changeCurrentCheckInCheckStore.bind(this);
     this.updateCheckStatus = this.updateCheckStatus.bind(this);
@@ -296,6 +296,45 @@ class View extends React.Component {
     }
   }
 
+   render() {
+    var _this = this;
+    if (!this.state.currentCheck) {
+      return (<div></div>);
+    }
+    else {
+      var gatewayVerse = this.getVerse('gatewayLanguage');
+      var checkStatus = this.state.currentCheck.checkStatus;
+      return (
+        <div>
+          <ScripturePane />
+          <Row className="show-grid" style={{marginTop: '25px'}}>
+            <h3 style={{margin: '5px 0 5px 20px', width: '100%', fontWeight: 'bold', fontSize: '28px'}}>
+              <span style={{color: '#44c6ff'}}>
+                  translationWords
+                </span> Check
+            </h3>
+            <Col sm={6} md={6} lg={6} style={{paddingRight: '2.5px'}}>
+              <GatewayVerseDisplay
+                check={this.state.currentCheck}
+                verse={gatewayVerse}
+              />
+              {this.getTargetVerseDisplay()}
+              <CheckStatusButtons updateCheckStatus={this.updateCheckStatus.bind(this)}
+                                  currentCheck={this.state.currentCheck}
+              />
+              <ProposedChanges currentCheck={this.state.currentCheck}/>
+            </Col>
+            <Col sm={6} md={6} lg={6} style={{paddingLeft: '2.5px'}}>
+              <TranslationWordsDisplay file={this.state.currentFile}/>
+            </Col>
+          </Row>
+            <CommentBox val={this.state.currentCheck.comment || ""} ref={"CommentBox"} />
+        </div>
+      );
+    }
+  }
+}
+
 
   /**
   * Compares two string alphabetically
@@ -343,44 +382,6 @@ class View extends React.Component {
     }
   }
 
-   render() {
-    var _this = this;
-    if (!this.state.currentCheck) {
-      return (<div></div>);
-    }
-    else {
-      var gatewayVerse = this.getVerse('gatewayLanguage');
-      var checkStatus = this.state.currentCheck.checkStatus;
-      return (
-        <div>
-          <ScripturePane />
-          <Row className="show-grid" style={{marginTop: '25px'}}>
-            <h3 style={{margin: '5px 0 5px 20px', width: '100%', fontWeight: 'bold', fontSize: '28px'}}>
-              <span style={{color: '#44c6ff'}}>
-                  translationWords
-                </span> Check
-            </h3>
-            <Col sm={6} md={6} lg={6} style={{paddingRight: '2.5px'}}>
-              <GatewayVerseDisplay
-                check={this.state.currentCheck}
-                verse={gatewayVerse}
-              />
-              {this.getTargetVerseDisplay()}
-              <CheckStatusButtons updateCheckStatus={this.updateCheckStatus.bind(this)}
-                                  currentCheck={this.state.currentCheck}}
-              />
-              <ProposedChanges getCurrentCheck={this.getCurrentCheck.bind(this)}/>
-            </Col>
-            <Col sm={6} md={6} lg={6} style={{paddingLeft: '2.5px'}}>
-              <TranslationWordsDisplay file={this.state.currentFile}/>
-            </Col>
-          </Row>
-            <CommentBox val={this.state.currentCheck.comment || ""} ref={"CommentBox"} />
-        </div>
-      );
-    }
-  }
-}
 
 module.exports = {
   name: NAMESPACE,
