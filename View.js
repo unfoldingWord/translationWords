@@ -7,9 +7,9 @@ const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
 
 //Modules not defined within translationWords_Check_plugin
-var ScripturePane = require(window.__base + '../scripturePane/View').view;
-var ProposedChanges = require(window.__base + '../proposed_changes_module/View').view;
-var CommentBox = require(window.__base + '../comment_box/View').view;
+var ScripturePane = null;
+var ProposedChanges = null;
+var CommentBox = null;
 
 //Bootstrap consts
 const Row = ReactBootstrap.Row;
@@ -43,9 +43,9 @@ class View extends React.Component {
         currentCheck: null,
         currentTranslationWordFile: null,
     }
-    //ScripturePane = api.getModule('ScripturePane');
-    //ProposedChanges = api.getModule('ProposedChanges');
-    //CommentBox = api.getModule('CommentBox');
+    ScripturePane = api.getModule('ScripturePane');
+    ProposedChanges = api.getModule('ProposedChanges');
+    CommentBox = api.getModule('CommentBox');
     this.updateState = this.updateState.bind(this);
     this.changeCurrentCheckInCheckStore = this.changeCurrentCheckInCheckStore.bind(this);
     this.updateCheckStatus = this.updateCheckStatus.bind(this);
