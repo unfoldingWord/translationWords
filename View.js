@@ -1,5 +1,6 @@
-  //View.js//
-
+/**
+ * @description - This class defines the entire view for the TranslationWords Check Plugin
+ */
 //Api Consts
 const api = window.ModuleApi;
 const React = api.React;
@@ -19,9 +20,9 @@ const Glyphicon = ReactBootstrap.Glyphicon;
 
 //Modules that are defined within translationWords_Check_plugin
 const TranslationWordsDisplay = require('./translation_words/TranslationWordsDisplay');
-const GatewayVerseDisplay = require('./GatewayVerseDisplay.js');
+const GatewayVerseDisplay = require('./subcomponents/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./subcomponents/CheckStatusButtons');
-const WordComponent = require('./WordComponent.js');
+const WordComponent = require('./subcomponents/WordComponent.js');
 const EventListeners = require('./ViewEventListeners.js');
 
 //String constants
@@ -32,24 +33,19 @@ const NAMESPACE = "TranslationWordsChecker",
 
 //Other constants
 const extensionRegex = new RegExp('\\.\\w+\\s*$');
-const DragTargetVerseDisplay = require('./BareTargetVerseDisplay.js');
-const ClickTargetVerseDisplay = require('./TargetVerseDisplay');
+const DragTargetVerseDisplay = require('./subcomponents/BareTargetVerseDisplay.js');
+const ClickTargetVerseDisplay = require('./subcomponents/TargetVerseDisplay');
 
-/**
- * @description - This class defines the entire view for the TranslationWords Check Plugin
- */
 class View extends React.Component {
 	constructor() {
 		super();
     this.state = {
         currentCheck: null,
-        currentTranslationWordFile: null
+        currentTranslationWordFile: null,
     }
     ScripturePane = api.getModule('ScripturePane');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
-
-
     this.updateState = this.updateState.bind(this);
     this.changeCurrentCheckInCheckStore = this.changeCurrentCheckInCheckStore.bind(this);
     this.updateCheckStatus = this.updateCheckStatus.bind(this);
@@ -59,35 +55,11 @@ class View extends React.Component {
     this.changeCheckTypeListener = EventListeners.changeCheckType.bind(this);
 	}
 
-  /**
-   * @description - This method is a lifecycle method of a react component and will
-   * be called before the component mounts to the DOM. It's used to register event
-   * callbacks using the API
-   */
-	componentWillMount() {
-
-    /*
-     * This event will  increment the checkIndex by one,
-     * and might increment the group index if needed. Because no parameters are given
-     * from the event, we have to get the current indexes from the store and increment it
-     * manually before updating the store
-     */
+  componentWillMount() {
     api.registerEventListener('goToNext', this.goToNextListener);
     api.registerEventListener('goToPrevious', this.goToPreviousListener);
-
-    /*
-     * This event listens for an event that will tell us another check to go to.
-     * This and the above listener need to be two
-     * seperate listeners because the 'gotoNext' event won't have parameters attached to it
-     */
     api.registerEventListener('goToCheck', this.goToCheckListener);
-
-    /**
-     * This event listens for an event to change the check type, checks if we're switching to
-     * TranslationWordsCheck, then updates our state if we are
-     */
     api.registerEventListener('changeCheckType', this.changeCheckTypeListener);
-
     this.updateState();
   }
 
@@ -324,9 +296,53 @@ class View extends React.Component {
     }
   }
 
+
   /**
-   * @description - Defines how the entire page will display, minus the Menu and Navbar
-   */
+  * Compares two string alphabetically
+  * @param {string} first - string to be compared against
+  * @param {string} second - string to be compared with
+  */
+  function stringCompare(first, second) {
+    if (first < second) {
+      return -1;
+    }
+    else if (first > second) {
+      return 1;
+    }
+  else {
+      return 0;
+    }
+  }
+
+  /**
+  * @description - Binary search of the list. I couldn't find this in the native methods of an array so
+  * I wrote it
+  * @param {array} list - array of items to be searched
+  * @param {function} boolFunction - returns # < 0, # > 0. or 0 depending on which path the
+  * search should take
+  * @param {int} first - beginnging of the current partition of the list
+  * @param {int} second - end of the current partition of the list
+  */
+  function search(list, boolFunction, first = 0, last = -1) {
+    if (last == -1) {
+      last = list.length;
+    }
+    if (first > last) {
+      return;
+    }
+    var mid = Math.floor(((first - last) * 0.5)) + last;
+    var result = boolFunction(list[mid]);
+    if (result < 0) {
+      return search(list, boolFunction, first, mid - 1);
+    }
+    else if (result > 0) {
+      return search(list, boolFunction, mid + 1, last);
+    }
+  else {
+      return list[mid];
+    }
+  }
+
    render() {
     var _this = this;
     if (!this.state.currentCheck) {
@@ -346,13 +362,12 @@ class View extends React.Component {
             </h3>
             <Col sm={6} md={6} lg={6} style={{paddingRight: '2.5px'}}>
               <GatewayVerseDisplay
-                wordObject={this.getWordObject(this.state.currentWord)}
                 check={this.state.currentCheck}
                 verse={gatewayVerse}
               />
               {this.getTargetVerseDisplay()}
               <CheckStatusButtons updateCheckStatus={this.updateCheckStatus.bind(this)}
-                                  getCurrentCheck={this.getCurrentCheck.bind(this)}
+                                  currentCheck={this.state.currentCheck}}
               />
               <ProposedChanges getCurrentCheck={this.getCurrentCheck.bind(this)}/>
             </Col>
@@ -364,52 +379,6 @@ class View extends React.Component {
         </div>
       );
     }
-  }
-}
-
-/**
-* Compares two string alphabetically
-* @param {string} first - string to be compared against
-* @param {string} second - string to be compared with
-*/
-function stringCompare(first, second) {
-  if (first < second) {
-    return -1;
-  }
-  else if (first > second) {
-    return 1;
-  }
-else {
-    return 0;
-  }
-}
-
-/**
-* @description - Binary search of the list. I couldn't find this in the native methods of an array so
-* I wrote it
-* @param {array} list - array of items to be searched
-* @param {function} boolFunction - returns # < 0, # > 0. or 0 depending on which path the
-* search should take
-* @param {int} first - beginnging of the current partition of the list
-* @param {int} second - end of the current partition of the list
-*/
-function search(list, boolFunction, first = 0, last = -1) {
-  if (last == -1) {
-    last = list.length;
-  }
-  if (first > last) {
-    return;
-  }
-  var mid = Math.floor(((first - last) * 0.5)) + last;
-  var result = boolFunction(list[mid]);
-  if (result < 0) {
-    return search(list, boolFunction, first, mid - 1);
-  }
-  else if (result > 0) {
-    return search(list, boolFunction, mid + 1, last);
-  }
-else {
-    return list[mid];
   }
 }
 
