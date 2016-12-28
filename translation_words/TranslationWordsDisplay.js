@@ -8,19 +8,6 @@ const Markdown = require('react-remarkable');
 // const fileRegex = new RegExp("=*\\s*([^=]+)\\W*(?:Definition|Facts):\\W*([^=]*)", 'g');
 
 class TranslationWordsDisplay extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            file: null
-        };
-    }
-
-    changeFile(file) {
-        this.setState({
-            'file': file
-        });
-    }
-
     convertToMarkdown(src) {
         return src.replace(/(=+)([^=]+)\1/g, function(match, equals, header) {
             switch(equals.length) {
