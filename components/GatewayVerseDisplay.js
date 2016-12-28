@@ -15,14 +15,14 @@ class GatewayVerseDisplay extends React.Component {
      * will never be found in the Bible
      */
     var first, last;
-    var newStr = replaceFrom(this.props.verse, this.props.check.index,
-      this.props.check.index + this.props.check.word.length, '|');
+    var newStr = replaceFrom(this.props.gatewayVerse, this.props.currentCheck.index,
+      this.props.currentCheck.index + this.props.currentCheck.word.length, '|');
     [first, last] = newStr.split('|');
     /* this return every up to the word, then the word itself with highlighting,
      * the rest of the verse until the end
      */
     return [<span key={0}>{first}</span>,
-      <span key={1} className={"text-primary"}>{this.props.check.word}</span>,
+      <span key={1} className={"text-primary"}>{this.props.currentCheck.word}</span>,
       <span key={2}>{last}</span>];
   }
 
