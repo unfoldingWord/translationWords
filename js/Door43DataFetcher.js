@@ -5,9 +5,7 @@
  * represents the most up-to-date information.
  * @author - Samuel Faulkner, Evan Wiederspan
  */
-// This file should probably be moved to a new location later
-const USFMParser = require('./USFMParse');
-
+const USFMParser = require('usfm-parser');
 const suppress = true;
 
 class Door43DataFetcher {

@@ -15,7 +15,7 @@ const tokenizer = new natural.RegexpTokenizer({pattern: new XRegExp('\\PL')});
 const fs = require('fs');
 
 // User imports
-const Door43DataFetcher = require('./Door43DataFetcher.js');
+const Door43DataFetcher = require('./js/Door43DataFetcher.js');
 const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
 const BookWordTest = require('./translation_words/WordTesterScript.js');
 
