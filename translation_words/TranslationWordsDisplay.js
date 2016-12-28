@@ -35,7 +35,7 @@ class TranslationWordsDisplay extends React.Component {
     }
 
     render() {
-        var source = this.props.file;
+        var source = this.props.currentFile;
         if (source) {
             return (
                 <div style={{overflowY: "scroll", minWidth: "100%", padding: '9px', minHeight: "438px", maxHeight: "438px"}}>
