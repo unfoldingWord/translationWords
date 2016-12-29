@@ -2,7 +2,7 @@
 
 const api = window.ModuleApi;
 const React = api.React;
-const ReactBootstrap = api.ReactBootstrap;
+const TargetWord = require('./TargetWord');
 
 var natural = require('natural');
 var XRegExp = require('xregexp');
@@ -11,129 +11,14 @@ var nonUnicodeLetter = XRegExp('\\PL');
 //Wordlength tokenizer
 const tokenizer = new natural.RegexpTokenizer({pattern: nonUnicodeLetter});
 
-/* Contains a word from the target language, defines a lot of listeners for clicks */
-const TargetWord = React.createClass({
-  // highlighted: false,
-  getInitialState: function() {
-    return {
-      highlighted: false,
-      wordObj: { // this is required to pass into our callbacks
-        'word': this.props.word,
-        'key': this.props.keyId,
-      }
-    };
-  },
-
-  removeHighlight: function() {
-    if (this.state.highlighted) {
-      this.setState({
-        highlighted: false
-      });
-    }
-  },
-
-  setHighlight: function() {
-    if (!this.state.highlighted) {
-      this.setState({
-        highlighted: true
-      });
-    }
-  },
-
-  componentWillReceiveProps: function(nextProps) {
-    this.setState({
-      wordObj: {
-        'word': nextProps.word,
-        'key': this.props.keyId
-      }
-    });
-  },
-
-  toggleHighlight: function() {
-    if (!this.state.highlighted) {
-      this.props.selectCallback(this.state.wordObj);
-    }
-    else {
-      this.props.removeCallback(this.state.wordObj);
-    }
-    this.setState({highlighted: !this.state.highlighted}); // this sets React to re-render the component
-  },
-
-  render: function() {
-
-    return (
-      <span
-        className={this.state.highlighted ? 'text-primary-highlighted' : 'text-muted'}
-        onClick={this.toggleHighlight}
-        style={this.props.style}
-      >
-        {this.props.word}
-      </span>
-      );
-    }
-});
-
-const TargetLanguageSelectBox = React.createClass({
-  selectedWords: [], // holds wordObjects, each have {'word', 'key'} attributes
-
-  cursorPointerStyle: {
-    // TODO: Make this changed based on an api.settings property
-    cursor: 'pointer'
-  },
-
-  componentWillMount: function() {
-    this.fetchSelectedWords();
-  },
-
-  /**
-   * @description - This looks to see if selected words are already in the check store, so to be persistent
-   * we have to go and look for those
-   */
-  fetchSelectedWords: function() {
-    var currentCheckIndex = api.getDataFromCheckStore('TranslationWordsChecker', 'currentCheckIndex');
-    var currentGroupIndex = api.getDataFromCheckStore('TranslationWordsChecker', 'currentGroupIndex');
-    if (currentCheckIndex != null && currentGroupIndex != null) {
-      var currentCheck = api.getDataFromCheckStore('TranslationWordsChecker', 'groups')[currentGroupIndex].checks[currentCheckIndex];
-      if (currentCheck) {
-        if (currentCheck.selectedWordsRaw) {
-          this.selectedWords = currentCheck.selectedWordsRaw;
-        }
-      }
-    }
-  },
-
-  componentDidMount: function() {
-    for (var word of this.selectedWords) {
-      var targetWord = this.refs[word.key];
-      if (targetWord) {
-        targetWord.setHighlight();
-      }
-    }
-  },
-
-  shouldComponentUpdate: function(nextProps, nextState) {
-    //remove everybody's highlighting
-    for (key in this.refs) {
-      this.refs[key].removeHighlight();
-    }
+class TargetLanguageSelectBox extends React.Component {
+  constructor(){
+    super();
     this.selectedWords = [];
+  }
 
-    //Maybe we've already done this check? If we have update the highlighting on the selected words
-    this.fetchSelectedWords();
-
-    return true;
-  },
-
-  componentDidUpdate: function(prevProps, prevState) {
-    for (var word of this.selectedWords) {
-      var targetWord = this.refs[word.key];
-      if (targetWord) {
-        targetWord.setHighlight();
-      }
-    }
-  },
-
-  generateWordArray: function() {
+  
+  generateWordArray() {
     if (this.props.verse) {
       var words = tokenizer.tokenize(this.props.verse);
     } else {
@@ -149,20 +34,32 @@ const TargetLanguageSelectBox = React.createClass({
         wordArray.push(
           <span
             key={wordKey++}
-            style={this.cursorPointerStyle}
+            style={{cursor: 'pointer'}}
           >
             {this.props.verse.substring(index, wordIndex)}
           </span>
         );
       }
+      let highlighted = false;
+      console.log(this.props.currentCheck.selectedWordsRaw);
+      if(this.props.currentCheck.selectedWordsRaw){
+        let selectedWordsRaw = this.props.currentCheck.selectedWordsRaw;
+        for(var foundWord in selectedWordsRaw){
+          if(selectedWordsRaw[foundWord].word === word && selectedWordsRaw[foundWord].key === tokenKey){
+            highlighted = true;
+          }
+        }
+      }
+      console.log(highlighted);
       wordArray.push(
         <TargetWord
           word={word}
           key={wordKey++}
           keyId={tokenKey}
-          style={this.cursorPointerStyle}
-          selectCallback={this.addSelectedWord}
-          removeCallback={this.removeFromSelectedWords}
+          style={{cursor: 'pointer'}}
+          addSelectedWord={this.addSelectedWord.bind(this)}
+          removeSelectedWord={this.removeFromSelectedWords.bind(this)}
+          highlighted={highlighted}
           ref={tokenKey.toString()}
         />
       );
@@ -170,9 +67,20 @@ const TargetLanguageSelectBox = React.createClass({
       index = wordIndex + word.length;
     }
     return wordArray;
-  },
+  }
+/*
 
-  addSelectedWord: function(wordObj) {
+  toggleHighlight() {
+    if (!this.state.highlighted) {
+      this.props.selectCallback(this.state.wordObj);
+    }
+    else {
+      this.props.removeCallback(this.state.wordObj);
+    }
+    this.setState({highlighted: !this.state.highlighted}); // this sets React to re-render the component
+  }*/
+
+  addSelectedWord(wordObj) {
     // check to see if we already have this word
     // an inefficient search, but shouldn't have >20 words to search through
     var idFound = false;
@@ -186,20 +94,9 @@ const TargetLanguageSelectBox = React.createClass({
       this.sortSelectedWords();
     }
     this.props.onWordSelected(this.getWords(), this.getWordsRaw());
+  }
 
-    /* This is used for if you want to enable disabled buttons after the user has
-     * selected at least one word
-     */
-    // if (this.selectedWords.length > 0) {
-    //   this.props.buttonEnableCallback();
-    // }
-  },
-
-  addHighlightedString: function(selection){
-    this.props.onWordSelected([selection],[selection]);
-  },
-
-  removeFromSelectedWords: function(wordObj) {
+  removeFromSelectedWords(wordObj) {
   // get the word's index
     var index = -1;
     for (var i = 0; i < this.selectedWords.length; i++) {
@@ -216,20 +113,20 @@ const TargetLanguageSelectBox = React.createClass({
     // if (this.selectedWords.length <= 0) {
     //   this.props.buttonDisableCallback();
     // }
-  },
+  }
 
 /* Sorts the selected words by their 'key' attribute */
-  sortSelectedWords: function() {
+  sortSelectedWords() {
     this.selectedWords.sort(function(first, next) {
       return first.key - next.key;
     });
-  },
+  }
 
   /**
    * @description - This returns the currently selected words, but formats in
    * an array with adjacent words concatenated into one string
    */
-  getWords: function() {
+  getWords() {
     var lastKey = -100;
     var returnArray = [];
     for (var wordObj of this.selectedWords){
@@ -245,16 +142,16 @@ const TargetLanguageSelectBox = React.createClass({
       }
     }
     return returnArray;
-  },
+  }
 
   /**
    * @description - This returns the array object of word objects so that the data can be persistent
    */
-  getWordsRaw: function() {
+  getWordsRaw() {
     return this.selectedWords;
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div
         bsSize={'small'}
@@ -276,6 +173,6 @@ const TargetLanguageSelectBox = React.createClass({
       </div>
     );
   }
-});
+}
 
 module.exports = TargetLanguageSelectBox;
