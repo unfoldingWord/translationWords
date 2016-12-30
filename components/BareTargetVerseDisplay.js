@@ -93,17 +93,9 @@ class TargetVerseDisplay extends React.Component{
         return [this.state.selection];
     }
 
-    getCurrentCheck() {
-        var groups = api.getDataFromCheckStore('TranslationWordsChecker', 'groups');
-        var currentGroupIndex = api.getDataFromCheckStore('TranslationWordsChecker', 'currentGroupIndex');
-        var currentCheckIndex = api.getDataFromCheckStore('TranslationWordsChecker', 'currentCheckIndex');
-        var currentCheck = groups[currentGroupIndex]['checks'][currentCheckIndex];
-        return currentCheck;
-    }
-
     getHighlightedWords(){
         let verse = this.props.verse
-        let range = this.getCurrentCheck().selectionRange;
+        let range = this.props.currentCheck.selectionRange;
         if(range){
             let before = verse.substring(0, range[0]);
             let highlighted = verse.substring(range[0], range[1]);
@@ -140,14 +132,14 @@ class TargetVerseDisplay extends React.Component{
             <div style={{
               padding: '9px',
               minHeight: '128px',
-              direction: api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl',
+              direction: this.props.direction,
               width: '100%',
               marginBottom: '5px',
               WebkitUserSelect: 'text'
             }}>
                 {/*This is the only way to use CSS psuedoclasses inline JSX*/}
                 <style dangerouslySetInnerHTML={{
-                    __html: [
+                      __html: [
                         '.highlighted::selection {',
                         '  background: yellow;',
                         '}'
