@@ -65,6 +65,7 @@ class Container extends React.Component {
     var currentGroupIndex = api.getDataFromCheckStore(NAMESPACE, 'currentGroupIndex');
     var currentCheckIndex = api.getDataFromCheckStore(NAMESPACE, 'currentCheckIndex');
     var currentCheck = groups[currentGroupIndex]['checks'][currentCheckIndex];
+    this.setState(currentCheck);
     return currentCheck;
   }
 
@@ -98,12 +99,81 @@ class Container extends React.Component {
     api.Toast.info('Current check was marked as:', newCheckStatus, 2);
   }
 
-  updateSelectedWords(selectedWords, selectedWordsRaw, selectionRange = [0,0]) {
-    var currentCheck = this.getCurrentCheck();
-    currentCheck.selectedWords = selectedWords;
-    //This is needed to make the display persistent, but won't be needed in reports
-    currentCheck.selectedWordsRaw = selectedWordsRaw;
-    currentCheck.selectionRange = selectionRange;
+  updateSelectedWords(wordObj, remove) {
+    let currentCheck = this.getCurrentCheck();
+    if(remove){
+      this.removeFromSelectedWords(wordObj, currentCheck);
+    }else{
+      this.addSelectedWord(wordObj, currentCheck);
+    }
+    //the code below dont seen be needed
+    //currentCheck.selectedWords = selectedWords;
+    //currentCheck.selectionRange = selectionRange;
+  }
+
+  addSelectedWord(wordObj, currentCheck){
+    console.log(wordObj);
+    let selectedWords = [];
+    let idFound = false;
+    if(currentCheck.selectedWordsRaw){
+      for (var i in currentCheck.selectedWordsRaw) {
+        if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
+          idFound = true;
+        }
+      }
+      if (!idFound) {
+        currentCheck.selectedWordsRaw.push(wordObj);
+        this.sortSelectedWords(currentCheck.selectedWordsRaw);
+      }
+    }else{
+      selectedWords.push(wordObj);
+      currentCheck.selectedWordsRaw = selectedWords;
+    }
+    console.log(currentCheck.selectedWordsRaw);
+  }
+
+  removeFromSelectedWords(wordObj, currentCheck) {
+    let index = -1;
+    console.log(currentCheck.selectedWordsRaw);
+    if(currentCheck.selectedWordsRaw){
+      for (var i in currentCheck.selectedWordsRaw) {
+        if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
+          index = i;
+        }
+      }
+      if (index != -1) {
+        currentCheck.selectedWordsRaw.splice(index, 1);
+        console.log(currentCheck.selectedWordsRaw);
+      }
+    }
+  }
+
+  sortSelectedWords(selectedWords) {
+    selectedWords.sort(function(first, next) {
+      return first.key - next.key;
+    });
+  }
+
+  /**
+   * @description - This returns the currently selected words, but formats in
+   * an array with adjacent words concatenated into one string
+   */
+  getWords() {
+    var lastKey = -100;
+    var returnArray = [];
+    for (var wordObj of this.selectedWords){
+      if (lastKey < wordObj.key - 1) {
+        returnArray.push(wordObj.word);
+        lastKey = wordObj.key
+      }
+      else if (lastKey == wordObj.key - 1) {
+        var lastWord = returnArray.pop();
+        lastWord += ' ' + wordObj.word;
+        returnArray.push(lastWord);
+        lastKey = wordObj.key
+      }
+    }
+    return returnArray;
   }
 
   /**
@@ -246,6 +316,8 @@ class Container extends React.Component {
   }
 
    render() {
+     let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
+     console.log(this.state.currentCheck);
     if (!this.state.currentCheck) {
       return (<div></div>);
     }
@@ -263,6 +335,7 @@ class Container extends React.Component {
           gatewayVerse={gatewayVerse}
           targetVerse={targetVerse}
           dragToSelect={dragToSelect}
+          direction={direction}
           updateSelectedWords={this.updateSelectedWords.bind(this)}
           updateCheckStatus={this.updateCheckStatus.bind(this)}
         />
