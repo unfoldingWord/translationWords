@@ -304,8 +304,11 @@ class Container extends React.Component {
   }
 
    render() {
+     //this may be temporary
+     let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
+     //this may be temporary
+     let commentBoxStore = api.getDataFromCheckStore('CommentBox');
      let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
-     console.log(this.state.currentCheck);
     if (!this.state.currentCheck) {
       return (<div></div>);
     }
@@ -326,6 +329,8 @@ class Container extends React.Component {
           direction={direction}
           updateSelectedWords={this.updateSelectedWords.bind(this)}
           updateCheckStatus={this.updateCheckStatus.bind(this)}
+          proposedChangesStore={proposedChangesStore}
+          commentBoxStore={commentBoxStore}
         />
       );
     }
