@@ -30,13 +30,15 @@ class View extends React.Component {
                               onWordSelected={this.props.updateSelectedWords.bind(this)}
                               style={{minHeight: '120px', margin: '0 2.5px 5px 0'}}
                               currentCheck={this.props.currentCheck}
+                              direction={this.props.direction}
                             />
     }else {
       TargetVerseDisplay = <ClickTargetVerseDisplay
                               verse={this.props.targetVerse}
-                              onWordSelected={this.props.updateSelectedWords.bind(this)}
+                              updateSelectedWords={this.props.updateSelectedWords.bind(this)}
                               style={{minHeight: '120px', margin: '0 2.5px 5px 0'}}
                               currentCheck={this.props.currentCheck}
+                              direction={this.props.direction}
                             />
     }
     return (
