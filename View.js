@@ -56,13 +56,15 @@ class View extends React.Component {
             <CheckStatusButtons updateCheckStatus={this.props.updateCheckStatus.bind(this)}
                                 currentCheck={this.props.currentCheck}
             />
-            <ProposedChanges currentCheck={this.props.currentCheck}/>
+            <ProposedChanges currentCheck={this.props.currentCheck}
+                             proposedChangesStore={this.props.proposedChangesStore} />
           </Col>
           <Col sm={6} md={6} lg={6} style={{paddingLeft: '2.5px'}}>
             <TranslationWordsDisplay currentFile={this.props.currentFile}/>
           </Col>
         </Row>
-          <CommentBox currentCheck={this.props.currentCheck} />
+          <CommentBox currentCheck={this.props.currentCheck}
+                      commentBoxStore={this.props.commentBoxStore} />
       </div>
     );
   }
