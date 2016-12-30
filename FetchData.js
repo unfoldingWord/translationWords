@@ -206,6 +206,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "grammar": false,
           "other": false,
           "proposedChanges": "",
+          "comment": "",
           "sortOrder": sortOrder++,
           "word": match[0],
           "index": match.index
