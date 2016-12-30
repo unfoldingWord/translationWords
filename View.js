@@ -62,7 +62,7 @@ class View extends React.Component {
             <TranslationWordsDisplay currentFile={this.props.currentFile}/>
           </Col>
         </Row>
-          <CommentBox val={this.props.currentCheck.comment || ""} ref={"CommentBox"} />
+          <CommentBox currentCheck={this.props.currentCheck} />
       </div>
     );
   }
