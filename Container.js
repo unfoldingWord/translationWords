@@ -182,18 +182,9 @@ class Container extends React.Component {
    * @param {object} newCheckIndex - the group index of the check selected in the navigation menu
    */
   changeCurrentCheckInCheckStore(newGroupIndex, newCheckIndex) {
-    let comment = this.refs.CommentBox.getComment();
     let currentCheck = this.getCurrentCheck();
     let loggedInUser = api.getLoggedInUser();
     let userName = loggedInUser ? loggedInUser.userName : 'GUEST_USER';
-
-    if (currentCheck) {
-      if (comment && comment != "") {
-        currentCheck.comment = comment;
-        this.refs.CommentBox.setComment("");
-      }
-    }
-
     var groups = api.getDataFromCheckStore(NAMESPACE, 'groups');
     var currentGroupIndex = api.getDataFromCheckStore(NAMESPACE, 'currentGroupIndex');
     var currentCheckIndex = api.getDataFromCheckStore(NAMESPACE, 'currentCheckIndex');
@@ -232,7 +223,7 @@ class Container extends React.Component {
         ', group: ' + currentGroupIndex + ', check: ' + currentCheckIndex;
     api.saveProject(commitMessage);
     //Display toast notification
-    if(currentCheck.checkStatus !== 'UNCHECKED' || currentCheck.comment != undefined){
+    if(currentCheck.checkStatus !== 'UNCHECKED'){
       api.Toast.success('Check data was successfully saved', '', 2);
     }
     // Update state to render the next check
@@ -260,9 +251,6 @@ class Container extends React.Component {
       currentWord: currentWord,
       currentFile: this.getWordFile(currentWord)
     });
-    if (this.refs.CommentBox) {
-      this.refs.CommentBox.setComment(currentCheck.comment || "");
-    }
     api.emitEvent('goToVerse', {chapterNumber: currentCheck.chapter, verseNumber: currentCheck.verse});
   }
 
