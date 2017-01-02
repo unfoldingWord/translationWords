@@ -37,7 +37,7 @@ class Door43DataFetcher {
                     }
                     continue;
                 }
-                let parsed = USFMParser.toJson(regRes).chapters[0];
+                let parsed = USFMParser.toJSON(regRes).chapters[0];
                 if (parsed.num != -1) chap.num = parsed.num;
                 chap.verses = chap.verses.concat(parsed.verses);
             }
