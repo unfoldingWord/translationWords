@@ -5,7 +5,7 @@
  * represents the most up-to-date information.
  * @author - Samuel Faulkner, Evan Wiederspan
  */
-const USFMParser = require('usfm-parser');
+const USFMParser = require("../USFMParse");
 const suppress = true;
 
 class Door43DataFetcher {
@@ -37,7 +37,7 @@ class Door43DataFetcher {
                     }
                     continue;
                 }
-                let parsed = USFMParser.toJSON(regRes).chapters[0];
+                let parsed = USFMParser(regRes).chapters[0];
                 if (parsed.num != -1) chap.num = parsed.num;
                 chap.verses = chap.verses.concat(parsed.verses);
             }
