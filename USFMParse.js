@@ -5,29 +5,26 @@
  * @return {string} A string that is the parsed version of the USFM input.
 *******************************************************************************/
 
-
 function usfmToJSON(usfm_in) {
   var usfm = usfm_in.replace(/\\[abd-uw-z][\w\*]*\s?|\+\s/gi, "");
 
   const chapterNumberExpression = /^\s*(\d+)\s+/;
   const verseNumberExpression = /^\s*(\d+)\s+/;
 
-  let bookData = {bookAbbr: "???", chapters: []};
+  let bookData = { bookAbbr: "???", chapters: [] };
   let chapters = usfm.split("\\c ");
   for (let ch in chapters) {
     if (/ [A-Za-z]+ /.test(chapters[ch]) == false) continue;
     if (/\\h /.test(chapters[ch])) {
       bookData.header = chapters[ch];
-    }
-    else {
+    } else {
       let chapNum;
-      let newChap = {verses: []};
+      let newChap = { verses: [] };
       var chapNumReg = chapterNumberExpression;
 
       try {
-        [,chapNum] = chapNumReg.exec(chapters[ch]);
-      }
-      catch (e) {
+        [, chapNum] = chapNumReg.exec(chapters[ch]);
+      } catch (e) {
         chapNum = "-1";
       }
 
@@ -44,8 +41,7 @@ function usfmToJSON(usfm_in) {
         // this should work the majority of the time
         try {
           [, verseNum] = verseNumReg.exec(verses[v]);
-        }
-        catch (e) {
+        } catch (e) {
           verseNum = "-1";
         }
         newVerse.num = parseInt(verseNum);
@@ -53,8 +49,7 @@ function usfmToJSON(usfm_in) {
         newVerse.text = verses[v];
         newChap.verses.push(newVerse);
       }
-      if (newChap.verses.length != 0)
-        bookData.chapters.push(newChap);
+      if (newChap.verses.length != 0) bookData.chapters.push(newChap);
     }
   }
   return bookData;
