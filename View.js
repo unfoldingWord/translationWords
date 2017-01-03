@@ -17,11 +17,17 @@ const TranslationWordsDisplay = require('./translation_words/TranslationWordsDis
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
 
-const ScripturePane = api.getModule('ScripturePane');
-const ProposedChanges = api.getModule('ProposedChanges');
-const CommentBox = api.getModule('CommentBox');
+let ScripturePane = null;
+let ProposedChanges = null;
+let CommentBox = null;
 
 class View extends React.Component {
+  constructor(){
+    super();
+    ScripturePane = api.getModule('ScripturePane');
+    ProposedChanges = api.getModule('ProposedChanges');
+    CommentBox = api.getModule('CommentBox');
+  }
   render(){
     let TargetVerseDisplay = null;
     if(this.props.dragToSelect){
