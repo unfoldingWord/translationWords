@@ -49,7 +49,7 @@ class View extends React.Component {
     }
     return (
       <div>
-        <ScripturePane />
+        <ScripturePane currentCheck={this.props.currentCheck} />
         <Row className="show-grid" style={{marginTop: '25px'}}>
           <h3 style={{margin: '5px 0 5px 20px', width: '100%', fontWeight: 'bold', fontSize: '28px'}}>
             <span style={{color: '#44c6ff'}}>translationWords</span> Check
