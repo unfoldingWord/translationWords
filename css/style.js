@@ -7,6 +7,13 @@ var style = {
     maxHeight: "430px",
     backgroundColor: "#c4c4c4"
   },
+  targetVerseDisplayContent: {
+    fontSize: "20px",
+    overflowY: "scroll",
+    minHeight: '128px',
+    marginBottom: '5px',
+    padding: '9px'
+  },
 };
 
 module.exports = style;
