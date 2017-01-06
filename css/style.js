@@ -14,6 +14,19 @@ var style = {
     marginBottom: '5px',
     padding: '9px'
   },
+  checkStatusComponent: {
+    buttonGroup:{
+      width:'100.5%',
+      paddingBottom: "2.5px"
+    },
+    buttons:{
+      width:'50%',
+      borderRadius: "0px",
+      padding: "10px"
+    },
+  },
+
+
 };
 
 module.exports = style;
