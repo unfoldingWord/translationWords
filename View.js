@@ -16,6 +16,7 @@ const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
 const TranslationWordsDisplay = require('./translation_words/TranslationWordsDisplay');
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
+const style = require('./css/Style');
 
 let ScripturePane = null;
 let ProposedChanges = null;
@@ -40,7 +41,7 @@ class View extends React.Component {
       TargetVerseDisplay = <DragTargetVerseDisplay
                               verse={this.props.targetVerse}
                               onWordSelected={this.props.updateSelectedWords.bind(this)}
-                              style={{minHeight: '120px', margin: '0 2.5px 5px 0'}}
+                              style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
                             />
@@ -48,7 +49,7 @@ class View extends React.Component {
       TargetVerseDisplay = <ClickTargetVerseDisplay
                               verse={this.props.targetVerse}
                               updateSelectedWords={this.props.updateSelectedWords.bind(this)}
-                              style={{minHeight: '120px', margin: '0 2.5px 5px 0'}}
+                              style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
                             />
@@ -60,9 +61,7 @@ class View extends React.Component {
         <ScripturePane currentCheck={this.props.currentCheck} />
         <Row className="show-grid" style={{marginTop: '0px'}}>
         <Col sm={8} md={8} lg={8} style={{padding: '0px'}}>
-            <div style={{width: "100%", height: "40px",
-                backgroundColor: "#333333", color: "#FFFFFF", padding: "7px",
-                boxSizing: "border-box", fontSize: "20px"}}>
+            <div style={style.currentWordDiv}>
               {this.props.currentCheck.word}
             </div>
           <Col sm={6} md={6} lg={6} style={{padding: '0px'}}>
@@ -84,26 +83,26 @@ class View extends React.Component {
                     bsStyle='pills'
                     style={{backgroundColor: "#747474"}}>
                 <Tab eventKey={1} title={proposedChangesGlyph}
-                                  style={{borderRadius: "0px", backgroundColor: "#333333"}}>
+                                  style={style.tabStyling}>
                     <ProposedChanges currentCheck={this.props.currentCheck}
                                      proposedChangesStore={this.props.proposedChangesStore} />
                 </Tab>
                 <Tab eventKey={2} title={commentGlyph}
-                                  style={{borderRadius: "0px", backgroundColor: "#333333"}}>
+                                  style={style.tabStyling}>
                     <CommentBox currentCheck={this.props.currentCheck}
                                 commentBoxStore={this.props.commentBoxStore} />
                 </Tab>
               </Tabs>
-              <div style={{width: "40px", height: "390px", backgroundColor: "#747474", boxSizing: "border-box"}}>
+              <div style={style.buttonsDivPanel}>
                   <button onClick={this.props.goToPrevious}
                           title="Click to go to the previous check"
-                          style={{backgroundColor: "#333", border: "none", width: "100%", height: "40px", }}>
-                    <Glyphicon glyph="chevron-up" style={{color: "#FFFFFF", fontSize: "28px"}} />
+                          style={style.goToPreviousButton}>
+                    <Glyphicon glyph="chevron-up" style={style.buttonGlyphicons} />
                   </button>
                   <button onClick={this.props.goToNext}
                           title="Click to go to the next check"
-                          style={{backgroundColor: "#000", border: "none", width: "100%", height: "40px", transform: "translate(0, 310px)"}}>
-                    <Glyphicon glyph="chevron-down" style={{color: "#FFFFFF", fontSize: "28px"}} />
+                          style={style.goToNextButton}>
+                    <Glyphicon glyph="chevron-down" style={style.buttonGlyphicons} />
                   </button>
               </div>
             </Col>
