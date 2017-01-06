@@ -2,10 +2,8 @@
 const api = window.ModuleApi;
 const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
-
 const Markdown = require('react-remarkable');
-
-// const fileRegex = new RegExp("=*\\s*([^=]+)\\W*(?:Definition|Facts):\\W*([^=]*)", 'g');
+const style = require('./css/style');
 
 class TranslationWordsDisplay extends React.Component {
     convertToMarkdown(src) {
