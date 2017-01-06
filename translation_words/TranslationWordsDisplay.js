@@ -3,7 +3,7 @@ const api = window.ModuleApi;
 const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
 const Markdown = require('react-remarkable');
-const style = require('./css/style');
+const style = require('../css/style');
 
 class TranslationWordsDisplay extends React.Component {
     convertToMarkdown(src) {
