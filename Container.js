@@ -21,7 +21,8 @@ class Container extends React.Component {
         currentTranslationWordFile: null,
         book: null,
         currentWord: null,
-        currentFile: null
+        currentFile: null,
+        tabKey: 1
     }
     this.updateState = this.updateState.bind(this);
     this.changeCurrentCheckInCheckStore = this.changeCurrentCheckInCheckStore.bind(this);
@@ -307,6 +308,10 @@ class Container extends React.Component {
     api.emitEvent('goToNext');
   }
 
+  handleSelectTab(tabKey){
+     this.setState({tabKey});
+  }
+
    render() {
      //this may be temporary
      let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
@@ -333,10 +338,12 @@ class Container extends React.Component {
           direction={direction}
           updateSelectedWords={this.updateSelectedWords.bind(this)}
           updateCheckStatus={this.updateCheckStatus.bind(this)}
+          handleSelectTab={this.handleSelectTab.bind(this)}
           proposedChangesStore={proposedChangesStore}
           commentBoxStore={commentBoxStore}
           goToPrevious={this.goToPrevious.bind(this)}
           goToNext={this.goToNext.bind(this)}
+          tabKey={this.state.tabKey}
         />
       );
     }

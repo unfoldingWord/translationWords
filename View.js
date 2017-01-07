@@ -25,15 +25,9 @@ let CommentBox = null;
 class View extends React.Component {
   constructor(){
     super();
-    this.state = {
-      tabKey: 1
-    }
     ScripturePane = api.getModule('ScripturePane');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
-  }
-  handleSelect(tabKey){
-     this.setState({tabKey});
   }
   render(){
     let TargetVerseDisplay = null;
@@ -77,8 +71,8 @@ class View extends React.Component {
             </Col>
           </Col>
           <Col sm={6} md={6} lg={6} style={{padding: '0px', display: "flex"}}>
-              <Tabs activeKey={this.state.tabKey}
-                    onSelect={this.handleSelect.bind(this)}
+              <Tabs activeKey={this.props.tabKey}
+                    onSelect={e => this.props.handleSelectTab(e)}
                     id="controlled-tab-example"
                     bsStyle='pills'
                     style={{backgroundColor: "#747474"}}>
