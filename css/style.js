@@ -47,7 +47,7 @@ var style = {
     height: "390px",
     backgroundColor: "#747474",
     boxSizing: "border-box",
-  }
+  },
   goToPreviousButton:{
     backgroundColor: "#333",
     border: "none",
