@@ -21,7 +21,8 @@ class Container extends React.Component {
         currentTranslationWordFile: null,
         book: null,
         currentWord: null,
-        currentFile: null
+        currentFile: null,
+        tabKey: 1
     }
     this.updateState = this.updateState.bind(this);
     this.changeCurrentCheckInCheckStore = this.changeCurrentCheckInCheckStore.bind(this);
@@ -112,7 +113,6 @@ class Container extends React.Component {
   }
 
   addSelectedWord(wordObj, currentCheck){
-    console.log(wordObj);
     let selectedWords = [];
     let idFound = false;
     if(currentCheck.selectedWordsRaw){
@@ -129,12 +129,10 @@ class Container extends React.Component {
       selectedWords.push(wordObj);
       currentCheck.selectedWordsRaw = selectedWords;
     }
-    console.log(currentCheck.selectedWordsRaw);
   }
 
   removeFromSelectedWords(wordObj, currentCheck) {
     let index = -1;
-    console.log(currentCheck.selectedWordsRaw);
     if(currentCheck.selectedWordsRaw){
       for (var i in currentCheck.selectedWordsRaw) {
         if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
@@ -143,7 +141,6 @@ class Container extends React.Component {
       }
       if (index != -1) {
         currentCheck.selectedWordsRaw.splice(index, 1);
-        console.log(currentCheck.selectedWordsRaw);
       }
     }
   }
@@ -303,6 +300,18 @@ class Container extends React.Component {
     }
   }
 
+  goToPrevious() {
+    api.emitEvent('goToPrevious');
+  }
+
+  goToNext() {
+    api.emitEvent('goToNext');
+  }
+
+  handleSelectTab(tabKey){
+     this.setState({tabKey});
+  }
+
    render() {
      //this may be temporary
      let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
@@ -329,8 +338,12 @@ class Container extends React.Component {
           direction={direction}
           updateSelectedWords={this.updateSelectedWords.bind(this)}
           updateCheckStatus={this.updateCheckStatus.bind(this)}
+          handleSelectTab={this.handleSelectTab.bind(this)}
           proposedChangesStore={proposedChangesStore}
           commentBoxStore={commentBoxStore}
+          goToPrevious={this.goToPrevious.bind(this)}
+          goToNext={this.goToNext.bind(this)}
+          tabKey={this.state.tabKey}
         />
       );
     }

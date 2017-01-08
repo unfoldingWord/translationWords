@@ -8,7 +8,7 @@ const React = api.React;
 const RB = api.ReactBootstrap;
 
 //Bootstrap consts
-const {Row, Col} = RB;
+const {Row, Col, Tabs, Tab, Glyphicon} = RB;
 
 //Components
 const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js');
@@ -16,6 +16,7 @@ const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
 const TranslationWordsDisplay = require('./translation_words/TranslationWordsDisplay');
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
+const style = require('./css/Style');
 
 let ScripturePane = null;
 let ProposedChanges = null;
@@ -34,7 +35,7 @@ class View extends React.Component {
       TargetVerseDisplay = <DragTargetVerseDisplay
                               verse={this.props.targetVerse}
                               onWordSelected={this.props.updateSelectedWords.bind(this)}
-                              style={{minHeight: '120px', margin: '0 2.5px 5px 0'}}
+                              style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
                             />
@@ -42,35 +43,68 @@ class View extends React.Component {
       TargetVerseDisplay = <ClickTargetVerseDisplay
                               verse={this.props.targetVerse}
                               updateSelectedWords={this.props.updateSelectedWords.bind(this)}
-                              style={{minHeight: '120px', margin: '0 2.5px 5px 0'}}
+                              style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
                             />
     }
+    let proposedChangesGlyph = <Glyphicon glyph="pencil" style={{color: "#FFFFFF"}} />;
+    let commentGlyph = <Glyphicon glyph="comment" style={{color: "#FFFFFF"}} />;
     return (
       <div>
         <ScripturePane currentCheck={this.props.currentCheck} />
-        <Row className="show-grid" style={{marginTop: '25px'}}>
-          <h3 style={{margin: '5px 0 5px 20px', width: '100%', fontWeight: 'bold', fontSize: '28px'}}>
-            <span style={{color: '#44c6ff'}}>translationWords</span> Check
-          </h3>
-          <Col sm={6} md={6} lg={6} style={{paddingRight: '2.5px'}}>
-            <GatewayVerseDisplay  currentCheck={this.props.currentCheck}
-                                  gatewayVerse={this.props.gatewayVerse}
-            />
-            {TargetVerseDisplay}
-            <CheckStatusButtons updateCheckStatus={this.props.updateCheckStatus.bind(this)}
-                                currentCheck={this.props.currentCheck}
-            />
-            <ProposedChanges currentCheck={this.props.currentCheck}
-                             proposedChangesStore={this.props.proposedChangesStore} />
+        <Row className="show-grid" style={{marginTop: '0px'}}>
+        <Col sm={8} md={8} lg={8} style={{padding: '0px'}}>
+            <div style={style.currentWordDiv}>
+              {this.props.currentCheck.word}
+            </div>
+          <Col sm={6} md={6} lg={6} style={{padding: '0px'}}>
+            <Col sm={12} md={12} lg={12} style={{padding: '0px', height: "348px"}}>
+              {TargetVerseDisplay}
+            </Col>
+            <Col sm={12} md={12} lg={12} style={{padding: '0px'}}>
+              <div>
+                <CheckStatusButtons updateCheckStatus={this.props.updateCheckStatus.bind(this)}
+                                    currentCheck={this.props.currentCheck}
+                />
+              </div>
+            </Col>
           </Col>
-          <Col sm={6} md={6} lg={6} style={{paddingLeft: '2.5px'}}>
-            <TranslationWordsDisplay currentFile={this.props.currentFile}/>
-          </Col>
+          <Col sm={6} md={6} lg={6} style={{padding: '0px', display: "flex"}}>
+              <Tabs activeKey={this.props.tabKey}
+                    onSelect={e => this.props.handleSelectTab(e)}
+                    id="controlled-tab-example"
+                    bsStyle='pills'
+                    style={{backgroundColor: "#747474"}}>
+                <Tab eventKey={1} title={proposedChangesGlyph}
+                                  style={style.tabStyling}>
+                    <ProposedChanges currentCheck={this.props.currentCheck}
+                                     proposedChangesStore={this.props.proposedChangesStore} />
+                </Tab>
+                <Tab eventKey={2} title={commentGlyph}
+                                  style={style.tabStyling}>
+                    <CommentBox currentCheck={this.props.currentCheck}
+                                commentBoxStore={this.props.commentBoxStore} />
+                </Tab>
+              </Tabs>
+              <div style={style.buttonsDivPanel}>
+                  <button onClick={this.props.goToPrevious}
+                          title="Click to go to the previous check"
+                          style={style.goToPreviousButton}>
+                    <Glyphicon glyph="chevron-up" style={style.buttonGlyphicons} />
+                  </button>
+                  <button onClick={this.props.goToNext}
+                          title="Click to go to the next check"
+                          style={style.goToNextButton}>
+                    <Glyphicon glyph="chevron-down" style={style.buttonGlyphicons} />
+                  </button>
+              </div>
+            </Col>
+        </Col>
+        <Col sm={4} md={4} lg={4} style={{padding: "0px"}}>
+          <TranslationWordsDisplay currentFile={this.props.currentFile}/>
+        </Col>
         </Row>
-          <CommentBox currentCheck={this.props.currentCheck}
-                      commentBoxStore={this.props.commentBoxStore} />
       </div>
     );
   }

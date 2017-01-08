@@ -2,11 +2,12 @@
 
 const api = window.ModuleApi;
 const React = api.React;
-const TargetWord = require('./TargetWord');
-
 var natural = require('natural');
 var XRegExp = require('xregexp');
 var nonUnicodeLetter = XRegExp('\\PL');
+const TargetWord = require('./TargetWord');
+const style = require('../css/style');
+
 
 //Wordlength tokenizer
 const tokenizer = new natural.RegexpTokenizer({pattern: nonUnicodeLetter});
@@ -68,7 +69,7 @@ class TargetLanguageSelectBox extends React.Component {
   render() {
     return (
       <div bsSize={'small'}
-           style={{overflowY: "scroll", minHeight: '128px', marginBottom: '5px', padding: '9px'}}>
+           style={style.targetVerseDisplayContent}>
         <div style={{direction: this.props.direction}}
              onMouseUp={this.textSelected}
              className="TargetVerseSelectionArea">

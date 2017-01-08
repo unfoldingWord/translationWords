@@ -2,10 +2,8 @@
 const api = window.ModuleApi;
 const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
-
 const Markdown = require('react-remarkable');
-
-// const fileRegex = new RegExp("=*\\s*([^=]+)\\W*(?:Definition|Facts):\\W*([^=]*)", 'g');
+const style = require('../css/style');
 
 class TranslationWordsDisplay extends React.Component {
     convertToMarkdown(src) {
@@ -25,7 +23,7 @@ class TranslationWordsDisplay extends React.Component {
         var source = this.props.currentFile;
         if (source) {
             return (
-                <div style={{overflowY: "scroll", minWidth: "100%", padding: '9px', minHeight: "438px", maxHeight: "438px"}}>
+                <div style={style.translationHelpsContent}>
                     <div>
                         <Markdown source={this.convertToMarkdown(source)} />
                     </div>
