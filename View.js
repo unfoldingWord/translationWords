@@ -38,6 +38,7 @@ class View extends React.Component {
                               style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
+                              bookName={this.props.bookName}
                             />
     }else {
       TargetVerseDisplay = <ClickTargetVerseDisplay
@@ -46,6 +47,7 @@ class View extends React.Component {
                               style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
+                              bookName={this.props.bookName}
                             />
     }
     let proposedChangesGlyph = <Glyphicon glyph="pencil" style={{color: "#FFFFFF"}} />;
@@ -57,7 +59,7 @@ class View extends React.Component {
           <div style={style.currentWordDiv}>
             {this.props.currentCheck.word}
           </div>
-          <Col sm={4} md={4} lg={4} style={{padding: '0px'}}>
+          <Col sm={12} md={6} lg={4} style={{padding: '0px'}}>
             <div style={{padding: '0px', height: "348px"}}>
               {TargetVerseDisplay}
             </div>
@@ -67,7 +69,7 @@ class View extends React.Component {
                 />
             </div>
           </Col>
-          <Col sm={4} md={4} lg={4} style={{padding: '0px', display: "flex"}}>
+          <Col sm={12} md={6} lg={4} style={{padding: '0px', display: "flex"}}>
               <Tabs activeKey={this.props.tabKey}
                     onSelect={e => this.props.handleSelectTab(e)}
                     id="controlled-tab-example"
@@ -97,7 +99,7 @@ class View extends React.Component {
                   </button>
               </div>
             </Col>
-        <Col sm={4} md={4} lg={4} style={{padding: "0px"}}>
+        <Col sm={12} md={6} lg={4} style={{padding: "0px"}}>
           <TranslationWordsDisplay currentFile={this.props.currentFile}/>
         </Col>
         </Row>

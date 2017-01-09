@@ -67,6 +67,7 @@ class TargetLanguageSelectBox extends React.Component {
   }
 
   render() {
+    let { chapter, verse} = this.props.currentCheck;
     return (
       <div bsSize={'small'}
            style={style.targetVerseDisplayContent}>
@@ -74,6 +75,10 @@ class TargetLanguageSelectBox extends React.Component {
              onMouseUp={this.textSelected}
              className="TargetVerseSelectionArea">
              {this.generateWordArray()}
+             <br />
+             <div style={{float: "right"}}>
+              {this.props.bookName + " " + chapter + ":" + verse}
+             </div>
         </div>
       </div>
     );
