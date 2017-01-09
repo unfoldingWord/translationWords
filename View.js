@@ -38,6 +38,7 @@ class View extends React.Component {
                               style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
+                              bookName={this.props.bookName}
                             />
     }else {
       TargetVerseDisplay = <ClickTargetVerseDisplay
@@ -46,6 +47,7 @@ class View extends React.Component {
                               style={style.targetVerse}
                               currentCheck={this.props.currentCheck}
                               direction={this.props.direction}
+                              bookName={this.props.bookName}
                             />
     }
     let proposedChangesGlyph = <Glyphicon glyph="pencil" style={{color: "#FFFFFF"}} />;

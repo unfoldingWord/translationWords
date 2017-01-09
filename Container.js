@@ -313,6 +313,7 @@ class Container extends React.Component {
   }
 
    render() {
+     let bookName = api.getDataFromCommon("tcManifest").ts_project.name;
      //this may be temporary
      let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
      //this may be temporary
@@ -344,6 +345,7 @@ class Container extends React.Component {
           goToPrevious={this.goToPrevious.bind(this)}
           goToNext={this.goToNext.bind(this)}
           tabKey={this.state.tabKey}
+          bookName={bookName}
         />
       );
     }
