@@ -10,9 +10,9 @@
   "display": "app",
   "license": "ISC",
   "include": {
-    "ProposedChanges": "1.0.1",
-    "ScripturePane": "1.0.1",
-    "CommentBox": "1.0.1"
+    "ProposedChanges": "1.0.2",
+    "ScripturePane": "1.0.2",
+    "CommentBox": "1.0.2"
   },
   "dependencies": {
     "babel-preset-react": "^6.16.0",
