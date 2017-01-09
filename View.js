@@ -54,23 +54,20 @@ class View extends React.Component {
       <div>
         <ScripturePane currentCheck={this.props.currentCheck} />
         <Row className="show-grid" style={{marginTop: '0px'}}>
-        <Col sm={8} md={8} lg={8} style={{padding: '0px'}}>
-            <div style={style.currentWordDiv}>
-              {this.props.currentCheck.word}
-            </div>
-          <Col sm={6} md={6} lg={6} style={{padding: '0px'}}>
-            <Col sm={12} md={12} lg={12} style={{padding: '0px', height: "348px"}}>
+          <div style={style.currentWordDiv}>
+            {this.props.currentCheck.word}
+          </div>
+          <Col sm={4} md={4} lg={4} style={{padding: '0px'}}>
+            <div style={{padding: '0px', height: "348px"}}>
               {TargetVerseDisplay}
-            </Col>
-            <Col sm={12} md={12} lg={12} style={{padding: '0px'}}>
-              <div>
+            </div>
+            <div style={{padding: '0px'}}>
                 <CheckStatusButtons updateCheckStatus={this.props.updateCheckStatus.bind(this)}
                                     currentCheck={this.props.currentCheck}
                 />
-              </div>
-            </Col>
+            </div>
           </Col>
-          <Col sm={6} md={6} lg={6} style={{padding: '0px', display: "flex"}}>
+          <Col sm={4} md={4} lg={4} style={{padding: '0px', display: "flex"}}>
               <Tabs activeKey={this.props.tabKey}
                     onSelect={e => this.props.handleSelectTab(e)}
                     id="controlled-tab-example"
@@ -100,7 +97,6 @@ class View extends React.Component {
                   </button>
               </div>
             </Col>
-        </Col>
         <Col sm={4} md={4} lg={4} style={{padding: "0px"}}>
           <TranslationWordsDisplay currentFile={this.props.currentFile}/>
         </Col>
