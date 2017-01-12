@@ -13,7 +13,7 @@
     "ProposedChanges": "1.0.2",
     "ScripturePane": "1.0.2",
     "CommentBox": "1.0.2",
-    "translationHelps": "1.0.0"
+    "TranslationHelps": "1.0.0"
   },
   "dependencies": {
     "babel-preset-react": "^6.16.0",
