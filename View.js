@@ -21,6 +21,7 @@ const style = require('./css/Style');
 let ScripturePane = null;
 let ProposedChanges = null;
 let CommentBox = null;
+var TranslationHelps = null;
 
 class View extends React.Component {
   constructor(){
@@ -28,6 +29,7 @@ class View extends React.Component {
     ScripturePane = api.getModule('ScripturePane');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
+    TranslationHelps = api.getModule('TranslationHelps');
   }
   render(){
     let TargetVerseDisplay = null;
@@ -100,7 +102,7 @@ class View extends React.Component {
               </div>
             </Col>
         <Col sm={12} md={6} lg={4} style={{padding: "0px"}}>
-          <TranslationWordsDisplay currentFile={this.props.currentFile}/>
+          <TranslationHelps currentFile={this.props.currentFile} />
         </Col>
         </Row>
       </div>

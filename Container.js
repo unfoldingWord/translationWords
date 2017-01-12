@@ -270,7 +270,7 @@ class Container extends React.Component {
    * @param {string} word - the word's object to be retrieved from the CheckStore
    */
   getWordObject(word) {
-    var wordList = api.getDataFromCheckStore(NAMESPACE, 'wordList');
+    var wordList = api.getDataFromCheckStore('TranslationHelps', 'wordList');
     if (wordList) {
       var wordObject = search(wordList, function(item) {
           return stringCompare(word ,item.name);
