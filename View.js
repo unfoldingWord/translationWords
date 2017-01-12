@@ -13,7 +13,6 @@ const {Row, Col, Tabs, Tab, Glyphicon} = RB;
 //Components
 const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js');
 const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
-const TranslationWordsDisplay = require('./translation_words/TranslationWordsDisplay');
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
 const style = require('./css/Style');
