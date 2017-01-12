@@ -29,7 +29,7 @@ class View extends React.Component {
     ScripturePane = api.getModule('ScripturePane');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
-    TranslationHelps=api.getModule('TranslationHelps');
+    TranslationHelps = api.getModule('TranslationHelps');
   }
   render(){
     let TargetVerseDisplay = null;
@@ -102,7 +102,7 @@ class View extends React.Component {
               </div>
             </Col>
         <Col sm={12} md={6} lg={4} style={{padding: "0px"}}>
-          <TranslationHelps currentFile={this.props.currentFile} style={{ width: "100%" }}/>
+          <TranslationHelps currentFile={this.props.currentFile} />
         </Col>
         </Row>
       </div>
