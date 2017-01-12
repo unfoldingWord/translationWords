@@ -63,7 +63,7 @@ function getData(params, progressCallback, callback) {
         api.putDataInCheckStore('TranslationWordsChecker', 'groups', groups);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
         api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
-        api.putDataInCheckStore('TranslationWordsChecker', 'wordList', wordList);
+        api.putDataInCheckStore('TranslationHelps', 'wordList', wordList);
         //TODO: This shouldn't be put in the check store because we don't want this saved to disk
         callback(null);
       }
@@ -207,8 +207,8 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "other": false,
           "proposedChanges": "",
           "comment": "",
+          "groupName": match[0],
           "sortOrder": sortOrder++,
-          "word": match[0],
           "index": match.index
         });
       }
