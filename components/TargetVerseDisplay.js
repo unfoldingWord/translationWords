@@ -2,9 +2,9 @@
 
 const api = window.ModuleApi;
 const React = api.React;
-var natural = require('natural');
-var XRegExp = require('xregexp');
-var nonUnicodeLetter = XRegExp('\\PL');
+const natural = require('natural');
+const XRegExp = require('xregexp');
+const nonUnicodeLetter = XRegExp('\\PL');
 const TargetWord = require('./TargetWord');
 const style = require('../css/style');
 
@@ -56,8 +56,8 @@ class TargetLanguageSelectBox extends React.Component {
           keyId={tokenKey}
           wordObj={wordObj}
           style={{cursor: 'pointer'}}
-          updateSelectedWords={this.props.updateSelectedWords.bind(this)}
           highlighted={highlighted}
+          updateSelectedWords={this.props.updateSelectedWords.bind(this)}
         />
       );
       tokenKey++;

@@ -6,10 +6,13 @@
 const api = window.ModuleApi;
 const React = api.React;
 const RB = api.ReactBootstrap;
-
 //Bootstrap consts
 const {Row, Col, Tabs, Tab, Glyphicon} = RB;
-
+//Modules not defined within TranslationWords
+let ScripturePane = null;
+let ProposedChanges = null;
+let CommentBox = null;
+let TranslationHelps = null;
 //Components
 const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js');
 const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
@@ -17,10 +20,6 @@ const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
 const style = require('./css/Style');
 
-let ScripturePane = null;
-let ProposedChanges = null;
-let CommentBox = null;
-var TranslationHelps = null;
 
 class View extends React.Component {
   constructor(){
@@ -58,7 +57,7 @@ class View extends React.Component {
         <ScripturePane currentCheck={this.props.currentCheck} />
         <Row className="show-grid" style={{marginTop: '0px'}}>
           <div style={style.currentWordDiv}>
-            {this.props.currentCheck.word}
+            {this.props.currentCheck.groupName}
           </div>
           <Col sm={12} md={6} lg={4} style={{padding: '0px'}}>
             <div style={{padding: '0px', height: "348px"}}>
@@ -101,7 +100,9 @@ class View extends React.Component {
               </div>
             </Col>
         <Col sm={12} md={6} lg={4} style={{padding: "0px"}}>
-          <TranslationHelps currentFile={this.props.currentFile} />
+          <div style={{height: "390px"}}>
+            <TranslationHelps currentFile={this.props.currentFile} />
+          </div>
         </Col>
         </Row>
       </div>

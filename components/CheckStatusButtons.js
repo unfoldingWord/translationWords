@@ -11,8 +11,8 @@ const CORRECT = "Correct in Context",
 class CheckStatusButtons extends React.Component{
 
   render(){
-    let currentCheck = this.props.currentCheck;
-    let checkStatus = currentCheck.checkStatus;
+    let { currentCheck } = this.props;
+    let { checkStatus } = currentCheck;
     return (
       <div>
         <ButtonGroup style={style.checkStatusComponent.buttonGroup}>

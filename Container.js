@@ -49,7 +49,7 @@ class Container extends React.Component {
     //this should already be set in the state from componentWillMount
     var currentCheck = this.state.currentCheck;
     if (currentCheck) {
-      //Let T Pane know to scroll to are current verse
+      //Let Scripture Pane know to scroll to are current verse
       api.emitEvent('goToVerse', {chapterNumber: currentCheck.chapter, verseNumber: currentCheck.verse});
     }
   }
@@ -182,10 +182,9 @@ class Container extends React.Component {
     let currentCheck = this.getCurrentCheck();
     let loggedInUser = api.getLoggedInUser();
     let userName = loggedInUser ? loggedInUser.userName : 'GUEST_USER';
-    var groups = api.getDataFromCheckStore(NAMESPACE, 'groups');
-    var currentGroupIndex = api.getDataFromCheckStore(NAMESPACE, 'currentGroupIndex');
-    var currentCheckIndex = api.getDataFromCheckStore(NAMESPACE, 'currentCheckIndex');
-
+    let groups = api.getDataFromCheckStore(NAMESPACE, 'groups');
+    let currentGroupIndex = api.getDataFromCheckStore(NAMESPACE, 'currentGroupIndex');
+    let currentCheckIndex = api.getDataFromCheckStore(NAMESPACE, 'currentCheckIndex');
     //error check to make sure we're going to a legal group/check index
     if (newGroupIndex !== undefined && newCheckIndex !== undefined) {
       if (newGroupIndex < groups.length && newGroupIndex >= 0) {
@@ -205,7 +204,7 @@ class Container extends React.Component {
           * of the group, we decrement the group.
           */
         else if (newCheckIndex == -1 && currentGroupIndex > 0) {
-          var newGroupLength = groups[currentGroupIndex - 1].checks.length;
+          let newGroupLength = groups[currentGroupIndex - 1].checks.length;
           api.putDataInCheckStore(NAMESPACE, 'currentGroupIndex', currentGroupIndex - 1);
           api.putDataInCheckStore(NAMESPACE, 'currentCheckIndex', newGroupLength - 1);
         }
@@ -313,12 +312,6 @@ class Container extends React.Component {
   }
 
    render() {
-     let bookName = api.getDataFromCommon("tcManifest").ts_project.name;
-     //this may be temporary
-     let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
-     //this may be temporary
-     let commentBoxStore = api.getDataFromCheckStore('CommentBox');
-     let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
     if (!this.state.currentCheck) {
       return (<div></div>);
     }
@@ -327,25 +320,29 @@ class Container extends React.Component {
       if(api.getSettings('textSelect') === 'drag'){
         dragToSelect = true;
       }
-      var gatewayVerse = this.getVerse('gatewayLanguage');
-      var targetVerse = this.getVerse('targetLanguage');
+      let bookName = api.getDataFromCommon("tcManifest").ts_project.name;
+      let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
+      let commentBoxStore = api.getDataFromCheckStore('CommentBox');
+      let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
+      let gatewayVerse = this.getVerse('gatewayLanguage');
+      let targetVerse = this.getVerse('targetLanguage');
       return (
         <View
           currentCheck={this.state.currentCheck}
+          bookName={bookName}
           currentFile={this.state.currentFile}
           gatewayVerse={gatewayVerse}
           targetVerse={targetVerse}
           dragToSelect={dragToSelect}
           direction={direction}
+          tabKey={this.state.tabKey}
+          commentBoxStore={commentBoxStore}
+          proposedChangesStore={proposedChangesStore}
           updateSelectedWords={this.updateSelectedWords.bind(this)}
           updateCheckStatus={this.updateCheckStatus.bind(this)}
           handleSelectTab={this.handleSelectTab.bind(this)}
-          proposedChangesStore={proposedChangesStore}
-          commentBoxStore={commentBoxStore}
           goToPrevious={this.goToPrevious.bind(this)}
           goToNext={this.goToNext.bind(this)}
-          tabKey={this.state.tabKey}
-          bookName={bookName}
         />
       );
     }
