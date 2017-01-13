@@ -1,10 +1,9 @@
 //GatewayVerseDisplay.js//
 
-const XRegExp = require('xregexp');
-
 const api = window.ModuleApi;
 const React = api.React;
 const ReactBootstrap = api.ReactBootstrap;
+const XRegExp = require('xregexp');
 
 
 class GatewayVerseDisplay extends React.Component {
