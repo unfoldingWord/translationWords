@@ -57,10 +57,10 @@ class View extends React.Component {
     return (
       <div>
         <ScripturePane currentCheck={this.props.currentCheck} />
-        <Row className="show-grid" style={{marginTop: '0px'}}>
-          <Col sm={12} md={6} lg={8} style={{height: "455px", padding: '0px',
+        <Row className="show-grid" style={{marginTop: '0px', bottom: "0px",  height: "calc(100vh - 256px)", backgroundColor: "#333333"}}>
+          <Col sm={12} md={6} lg={8} style={{height: "100%", padding: '0px',
            borderLeft: "20px solid #0277BD", borderTop: "20px solid #0277BD", borderRight: "20px solid #0277BD"}}>
-            <div style={{padding: '10px', display: "flex"}}>
+            <div style={{padding: '10px', display: "flex", backgroundColor: "#FFFFFF"}}>
               <div style={{padding: '0px', display: "box"}}>
                 <h4>Target Language</h4>
                 {TargetVerseDisplay}
@@ -78,7 +78,7 @@ class View extends React.Component {
                     style={{backgroundColor: "#747474", width: "100%"}}>
                 <Tab eventKey={1} title={toolGlyph}
                                   style={style.tabStyling}>
-                  <div style={{height: "193px", backgroundColor: "#333333", boxSizing: "border-box"}}>
+                  <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <div style={style.currentWord}>
                       <h4 style={{color: "#FFFFFF"}}>translationWords</h4><br />
                       {'"' + this.props.currentCheck.groupName + '"'}
@@ -87,28 +87,28 @@ class View extends React.Component {
                 </Tab>
                 <Tab eventKey={2} title={proposedChangesGlyph}
                                   style={style.tabStyling}>
-                  <div style={{height: "190px", backgroundColor: "#333333", boxSizing: "border-box"}}>
+                  <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <ProposedChanges currentCheck={this.props.currentCheck}
                                      proposedChangesStore={this.props.proposedChangesStore} />
                   </div>
                 </Tab>
                 <Tab eventKey={3} title={commentGlyph}
                                   style={style.tabStyling}>
-                  <div style={{height: "193px", backgroundColor: "#333333", boxSizing: "border-box"}}>
+                  <div style={{height: "calc(100vh - 518px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <CommentBox currentCheck={this.props.currentCheck}
                                 commentBoxStore={this.props.commentBoxStore} />
                   </div>
                 </Tab>
                 <Tab eventKey={4} title={questionGlyph}
                                       style={style.tabStyling}>
-                  <div style={{height: "193px", backgroundColor: "#333333", boxSizing: "border-box"}}>
+                  <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
 
                   </div>
                 </Tab>
               </Tabs>
             </Col>
           <Col sm={12} md={6} lg={4} style={{padding: "0px"}}>
-            <div style={{height: "455px"}}>
+            <div style={{height: "calc(100vh - 256px)"}}>
               <TranslationHelps currentFile={this.props.currentFile} />
             </div>
           </Col>
