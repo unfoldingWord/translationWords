@@ -50,10 +50,10 @@ class View extends React.Component {
                               bookName={this.props.bookName}
                             />
     }
-    let toolGlyph = <img src="images/tWIcon.png" style={{height: "22px"}}/>;
-    let proposedChangesGlyph = <Glyphicon glyph="pencil" style={{color: "#FFFFFF"}} />;
-    let commentGlyph = <Glyphicon glyph="comment" style={{color: "#FFFFFF"}} />;
-    let questionGlyph = <Glyphicon glyph="question-sign" style={{color: "#FFFFFF"}} />;
+    let toolGlyph = <img src="images/tWIcon.png" style={{height: "25px"}}/>;
+    let proposedChangesGlyph = <Glyphicon glyph="pencil" style={{color: "#FFFFFF", fontSize: "20px"}} />;
+    let commentGlyph = <Glyphicon glyph="comment" style={{color: "#FFFFFF", fontSize: "20px"}} />;
+    let questionGlyph = <Glyphicon glyph="question-sign" style={{color: "#FFFFFF", fontSize: "20px"}} />;
     return (
       <div>
         <ScripturePane currentCheck={this.props.currentCheck} />
@@ -74,8 +74,8 @@ class View extends React.Component {
               <Tabs activeKey={this.props.tabKey}
                     onSelect={e => this.props.handleSelectTab(e)}
                     id="controlled-tab-example"
-                    bsStyle='pills'
-                    style={{backgroundColor: "#747474", width: "100%"}}>
+                    bsClass="newTabs"
+                    style={{backgroundColor: "#FFFFFF", width: "100%"}}>
                 <Tab eventKey={1} title={toolGlyph}
                                   style={style.tabStyling}>
                   <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
@@ -94,7 +94,7 @@ class View extends React.Component {
                 </Tab>
                 <Tab eventKey={3} title={commentGlyph}
                                   style={style.tabStyling}>
-                  <div style={{height: "calc(100vh - 518px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
+                  <div style={{height: "calc(100vh - 511px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <CommentBox currentCheck={this.props.currentCheck}
                                 commentBoxStore={this.props.commentBoxStore} />
                   </div>
