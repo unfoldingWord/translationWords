@@ -45,7 +45,7 @@ class CheckStatusButtons extends React.Component{
             background-color: #fdd910;
           }
           .btn-darkGrey:hover {
-            background-color: #4bc7ed;
+            background-color: #0277BD;
           }
         `}
       </style>
