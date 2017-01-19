@@ -23,16 +23,11 @@ const style = require('./css/Style');
 
 class View extends React.Component {
   constructor(){
-    super();/*
+    super();
     ScripturePane = api.getModule('ScripturePane');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
-    TranslationHelps = api.getModule('TranslationHelps');*/
-    ScripturePane = require(window.__base + '../scripturePane/Container').container;
-    ProposedChanges = require(window.__base + '../proposed_changes_module/Container').container;
-    CommentBox = require(window.__base + '../Comment_box/Container').container;
-    TranslationHelps = require(window.__base + '../translationHelps/Container').container;
-
+    TranslationHelps = api.getModule('TranslationHelps');
   }
   render(){
     let TargetVerseDisplay = null;
