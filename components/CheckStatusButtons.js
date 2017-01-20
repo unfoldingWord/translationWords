@@ -12,7 +12,6 @@ bootstrapUtils.addStyle(Button, 'correctActive');
 bootstrapUtils.addStyle(Button, 'flagActive');
 
 class CheckStatusButtons extends React.Component{
-
   render(){
     let { currentCheck } = this.props;
     let { checkStatus } = currentCheck;
