@@ -314,6 +314,14 @@ class Container extends React.Component {
      this.setState({tabKey});
   }
 
+  updateCurrentCheck(newCurrentCheck, proposedChangesField){
+    let currentCheck = this.getCurrentCheck();
+    currentCheck.proposedChanges = newCurrentCheck.proposedChanges;
+    currentCheck.comment = newCurrentCheck.comment;
+    currentCheck[proposedChangesField] = newCurrentCheck[proposedChangesField];
+    api.saveProject();
+  }
+
    render() {
     if (!this.state.currentCheck) {
       return (<div></div>);
@@ -332,6 +340,7 @@ class Container extends React.Component {
       return (
         <View
           currentCheck={this.state.currentCheck}
+          updateCurrentCheck={this.updateCurrentCheck.bind(this)}
           bookName={bookName}
           currentFile={this.state.currentFile}
           gatewayVerse={gatewayVerse}
