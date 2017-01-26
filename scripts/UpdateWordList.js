@@ -3,8 +3,6 @@
 var fs = require('fs');
 var path = require('path')
 var wordList = require('../static/WordList.json').wordList;
-var availableFiles = fs.readdirSync('./scripts/words');
-// console.log(availableFiles);
 for (var i in wordList) {
   wordList[i].link = undefined;
   var originalFile = wordList[i].name;
