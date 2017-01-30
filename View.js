@@ -18,6 +18,7 @@ const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js')
 const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
+const HelpInfo = require('./components/HelpInfo');
 const style = require('./css/style');
 
 
@@ -104,7 +105,7 @@ class View extends React.Component {
                 <Tab eventKey={4} title={questionGlyph}
                                       style={style.tabStyling}>
                   <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
-
+                    <HelpInfo />
                   </div>
                 </Tab>
               </Tabs>
