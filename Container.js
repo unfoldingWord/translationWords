@@ -5,7 +5,7 @@ const EventListeners = require('./js/ViewEventListeners.js');
 const View = require('./View.js');
 
 //String constants
-const NAMESPACE = "TranslationWordsChecker",
+const NAMESPACE = "ImportantWords",
   UNABLE_TO_FIND_LANGUAGE = "Unable to find language from the store",
   UNABLE_TO_FIND_ITEM_IN_STORE = "Unable to find key in namespace",
   UNABLE_TO_FIND_WORD = "Unable to find wordobject";
@@ -42,7 +42,7 @@ class Container extends React.Component {
   }
 
   /**
-   * This method is necessary because on the first mount of the TranslationWordsChecker all of it's listeners
+   * This method is necessary because on the first mount of the ImportantWords all of it's listeners
    * won't be mounted yet, so necessary to emit its events
    */
   componentDidMount() {
@@ -239,7 +239,7 @@ class Container extends React.Component {
     var currentGroupIndex = api.getDataFromCheckStore(NAMESPACE, 'currentGroupIndex');
     var currentCheckIndex = api.getDataFromCheckStore(NAMESPACE, 'currentCheckIndex');
     if (currentGroupIndex === null || currentCheckIndex === null) {
-      console.warn("TranslationWords Check wasn't able to retrieve its indices");
+      console.warn("ImportantWords Check wasn't able to retrieve its indices");
       return;
     }
     var currentCheck = api.getDataFromCheckStore(NAMESPACE, 'groups')[currentGroupIndex]['checks'][currentCheckIndex];
@@ -255,7 +255,7 @@ class Container extends React.Component {
 
   /**
    * @description - This retrieves the translationWord file from the store so that we
-   * can pass it as a prop to the translationWords display
+   * can pass it as a prop to the ImportantWords display
    */
   getWordFile(word) {
     var wordObject = this.getWordObject(word);

@@ -12,7 +12,7 @@ const GITHUB_API_URL = "https://api.github.com/repos/Door43/d43-en/contents/obe?
   UNKNOWN_TYPE = "Unknown type: ",
   WORD_NOT_FOUND = "Word not found in list";
 
-class TranslationWordsFetcher {
+class ImportantWordsFetcher {
   constructor() {
     this.wordList = [];
     this.caseSensitiveAliases = new Set();
@@ -293,4 +293,4 @@ function iterateOver(list, iterator, callback) {
   }
 }
 
-module.exports = TranslationWordsFetcher;
+module.exports = ImportantWordsFetcher;
