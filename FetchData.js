@@ -47,10 +47,10 @@ function getData(params, progressCallback, callback) {
 
         // var checkObject = findWordsInBook(bookData, actualWordList);
         var checkObject = findWords(bookData, mappedBook, actualWordList);
-        checkObject.TranslationWordsChecker.sort(function (first, second) {
+        checkObject.ImportantWords.sort(function (first, second) {
           return stringCompare(first.group, second.group);
         });
-        var groups = checkObject['TranslationWordsChecker'];
+        var groups = checkObject['ImportantWords'];
         var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
           for (var group in groups) {
             for (var item in groups[group].checks) {
@@ -59,10 +59,10 @@ function getData(params, progressCallback, callback) {
               groups[group].checks[item].gatewayLanguage = gatewayAtVerse;
             }
           }
-        api.putDataInCheckStore('TranslationWordsChecker', 'book', api.convertToFullBookName(params.bookAbbr));
-        api.putDataInCheckStore('TranslationWordsChecker', 'groups', groups);
-        api.putDataInCheckStore('TranslationWordsChecker', 'currentCheckIndex', 0);
-        api.putDataInCheckStore('TranslationWordsChecker', 'currentGroupIndex', 0);
+        api.putDataInCheckStore('ImportantWords', 'book', api.convertToFullBookName(params.bookAbbr));
+        api.putDataInCheckStore('ImportantWords', 'groups', groups);
+        api.putDataInCheckStore('ImportantWords', 'currentCheckIndex', 0);
+        api.putDataInCheckStore('ImportantWords', 'currentGroupIndex', 0);
         api.putDataInCheckStore('TranslationHelps', 'wordList', wordList);
         //TODO: This shouldn't be put in the check store because we don't want this saved to disk
         callback(null);
@@ -307,7 +307,7 @@ function mapVerses(bookData) {
 
 /**
  * @description - This does a {@link findWordInVerse} for every word given in wordList and returns
- * the list of checks for the TranslationWordsChecker
+ * the list of checks for the ImportantWords
  * @param {object} bookData - This is the data returned by Door43DataFetcher after downloading
  * an entire book of the Bible
  * @param {array} mapBook - This is the array containing arrays of mappedVerses. See {@link mapVerses}
@@ -317,7 +317,7 @@ function mapVerses(bookData) {
  */
 function findWords(bookData, mapBook, wordList) {
   var returnObject = {};
-  returnObject['TranslationWordsChecker'] = [];
+  returnObject['ImportantWords'] = [];
 
   for (var word of wordList) {
     var wordReturnObject = {
@@ -343,7 +343,7 @@ function findWords(bookData, mapBook, wordList) {
       }
       return first.sortOrder - second.sortOrder;
     });
-    returnObject.TranslationWordsChecker.push(wordReturnObject);
+    returnObject.ImportantWords.push(wordReturnObject);
   }
   return returnObject;
 }

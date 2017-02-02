@@ -28,10 +28,10 @@ class TargetVerseDisplay extends React.Component{
     }
 
     getSelectedWords(){
-        var checkIndex = api.getDataFromCheckStore('TranslationWordsChecker', 'currentCheckIndex');
-        var groupIndex = api.getDataFromCheckStore('TranslationWordsChecker', 'currentGroupIndex');
+        var checkIndex = api.getDataFromCheckStore('ImportantWords', 'currentCheckIndex');
+        var groupIndex = api.getDataFromCheckStore('ImportantWords', 'currentGroupIndex');
         if(checkIndex != null && groupIndex != null){
-            var check = api.getDataFromCheckStore('TranslationWordsChecker', 'groups')[groupIndex].checks[checkIndex];
+            var check = api.getDataFromCheckStore('ImportantWords', 'groups')[groupIndex].checks[checkIndex];
             if(check && check.selectionRange){
                 this.setState({
                     start: check.selectionRange[0],

@@ -1,6 +1,6 @@
 
 const api = window.ModuleApi;
-const NAMESPACE = "TranslationWordsChecker";
+const NAMESPACE = "ImportantWords";
 
 module.exports = {
   /*
