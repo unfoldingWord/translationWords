@@ -202,8 +202,6 @@ class Container extends React.Component {
       currentFile = wordObject.file;
     }catch(e){
     }
-    console.log(this.props.currentCheck);
-    console.log(this.props);
     return (
       <View
         currentCheck={this.props.currentCheck}
