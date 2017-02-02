@@ -208,6 +208,15 @@ class ReportItem extends React.Component {
       </div>
     )
   }
+  targetLanguage() {
+    if(!this.props.check.targetLanguage)
+      return undefined;
+    return (
+      <div>
+        <span style={{fontWeight: "bold"}}>Target Verse: </span><br />{this.props.check.targetLanguage}
+      </div>
+    )
+  }
   footerDiv() {
     let user;
     if(this.props.check.user) {
@@ -238,6 +247,7 @@ class ReportItem extends React.Component {
         <Row className="show-grid">
         <Col xs={12} md={12} lg={12}>
           {this.gatewayLanguage()}
+          {this.targetLanguage()}
         </Col>
         <Col xs={4} md={4} lg={4}>
           {this.selectedWordsDiv()}

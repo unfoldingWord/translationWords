@@ -48,6 +48,7 @@ class Container extends React.Component {
   componentDidMount() {
     //this should already be set in the state from componentWillMount
     var currentCheck = this.state.currentCheck;
+    this.addTargetLanguageToChecks();
     if (currentCheck) {
       //Let Scripture Pane know to scroll to are current verse
       api.emitEvent('goToVerse', {chapterNumber: currentCheck.chapter, verseNumber: currentCheck.verse});
@@ -59,6 +60,19 @@ class Container extends React.Component {
     api.removeEventListener('goToPrevious', this.goToPreviousListener);
     api.removeEventListener('goToCheck', this.goToCheckListener);
     api.removeEventListener('changeCheckType', this.changeCheckTypeListener);
+  }
+
+  addTargetLanguageToChecks() {
+    let groups = api.getDataFromCheckStore(NAMESPACE, 'groups');
+    var targetLanguage = api.getDataFromCommon('targetLanguage');
+    for (var group in groups) {
+      for (var item in groups[group].checks) {
+        var co = groups[group].checks[item];
+        var targetAtVerse = targetLanguage[co.chapter][co.verse];
+        groups[group].checks[item].targetLanguage = targetAtVerse;
+      }
+    }
+    api.putDataInCheckStore(NAMESPACE, 'groups', groups);
   }
 
   getCurrentCheck() {
