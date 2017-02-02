@@ -1,7 +1,5 @@
 //TargetVerseDisplay.js//
-
-const api = window.ModuleApi;
-const React = api.React;
+const React = require('react');
 const natural = require('natural');
 const XRegExp = require('xregexp');
 const nonUnicodeLetter = XRegExp('\\PL');
@@ -12,7 +10,7 @@ const style = require('../css/style');
 //Wordlength tokenizer
 const tokenizer = new natural.RegexpTokenizer({pattern: nonUnicodeLetter});
 
-class TargetLanguageSelectBox extends React.Component {
+class TargetVerseDisplay extends React.Component {
 
   generateWordArray() {
     if (this.props.verse) {
@@ -71,14 +69,13 @@ class TargetLanguageSelectBox extends React.Component {
     return (
       <div bsSize={'small'}
            style={style.targetVerseDisplayContent}>
-        <div style={{direction: this.props.direction}}
-             onMouseUp={this.textSelected}
-             className="TargetVerseSelectionArea">
-             {verse + " "}{this.generateWordArray()}
+        <div style={{direction: this.props.direction, width: "100%"}}
+             onMouseUp={this.textSelected}>
+             {chapter + ":" + verse + " "}{this.generateWordArray()}
         </div>
       </div>
     );
   }
 }
 
-module.exports = TargetLanguageSelectBox;
+module.exports = TargetVerseDisplay;

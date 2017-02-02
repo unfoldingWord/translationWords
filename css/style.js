@@ -11,6 +11,7 @@ var style = {
     fontSize: "16px",
     overflowY: "scroll",
     minHeight: '128px',
+    Width: '482px',
     marginBottom: '5px',
     padding: '9px'
   },
