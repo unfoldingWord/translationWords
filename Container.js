@@ -39,7 +39,7 @@ class Container extends React.Component {
   }
 
   addTargetLanguageToChecks() {
-    let groups = api.getDataFromCheckStore(NAMESPACE, 'groups');
+    let groups = this.props.groups;
     var targetLanguage = api.getDataFromCommon('targetLanguage');
     for (var group in groups) {
       for (var item in groups[group].checks) {
@@ -215,8 +215,6 @@ class Container extends React.Component {
       currentFile = wordObject.file;
     }catch(e){
     }
-    console.log(this.props.currentCheck);
-    console.log(this.props);
     return (
       <View
         currentCheck={this.props.currentCheck}
