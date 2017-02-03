@@ -20,6 +20,7 @@ class Container extends React.Component {
   }
 
   componentWillMount(){
+    this.addTargetLanguageToChecks();
     let checkStatus = this.props.currentCheck.checkStatus;
     if(checkStatus === "UNCHECKED"){
       this.setState({tabKey: 1});
@@ -37,6 +38,18 @@ class Container extends React.Component {
     }
   }
 
+  addTargetLanguageToChecks() {
+    let groups = this.props.groups;
+    var targetLanguage = api.getDataFromCommon('targetLanguage');
+    for (var group in groups) {
+      for (var item in groups[group].checks) {
+        var co = groups[group].checks[item];
+        var targetAtVerse = targetLanguage[co.chapter][co.verse];
+        groups[group].checks[item].targetLanguage = targetAtVerse;
+      }
+    }
+    api.putDataInCheckStore(NAMESPACE, 'groups', groups);
+  }
 
   saveProjectAndTimestamp(){
     let { currentCheck, userdata, currentGroupIndex, currentCheckIndex} = this.props;
