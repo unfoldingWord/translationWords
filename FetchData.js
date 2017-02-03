@@ -208,6 +208,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "proposedChanges": "",
           "comment": "",
           "groupName": match[0],
+          "selectionRange": [0, 0],
           "sortOrder": sortOrder++,
           "index": match.index
         });
