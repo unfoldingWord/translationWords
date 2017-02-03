@@ -44,8 +44,12 @@ class Container extends React.Component {
     for (var group in groups) {
       for (var item in groups[group].checks) {
         var co = groups[group].checks[item];
-        var targetAtVerse = targetLanguage[co.chapter][co.verse];
-        groups[group].checks[item].targetLanguage = targetAtVerse;
+        try {
+          var targetAtVerse = targetLanguage[co.chapter][co.verse];
+          groups[group].checks[item].targetLanguage = targetAtVerse;
+        } catch (err) {
+          //Happens with incomplete books.
+        }
       }
     }
     api.putDataInCheckStore(NAMESPACE, 'groups', groups);
