@@ -22,19 +22,19 @@ class Container extends React.Component {
   componentWillMount(){
     this.addTargetLanguageToChecks();
     let checkStatus = this.props.currentCheck.checkStatus;
-    if(checkStatus === "UNCHECKED"){
-      this.setState({tabKey: 1});
-    }else {
+    if(checkStatus === "FLAGGED"){
       this.setState({tabKey: 2});
+    }else {
+      this.setState({tabKey: 1});
     }
   }
 
   componentWillReceiveProps(nextProps) {
     let checkStatus = nextProps.currentCheck.checkStatus;
-    if(checkStatus === "UNCHECKED"){
-      this.setState({tabKey: 1});
-    }else {
+    if(checkStatus === "FLAGGED"){
       this.setState({tabKey: 2});
+    }else {
+      this.setState({tabKey: 1});
     }
   }
 
