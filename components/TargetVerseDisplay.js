@@ -2,7 +2,7 @@
 const React = require('react');
 const natural = require('natural');
 const XRegExp = require('xregexp');
-const nonUnicodeLetter = XRegExp('\\PL');
+const nonUnicodeLetter = XRegExp('[^\\pL\\pM]+?');
 const TargetWord = require('./TargetWord');
 const style = require('../css/style');
 
@@ -13,53 +13,44 @@ const tokenizer = new natural.RegexpTokenizer({pattern: nonUnicodeLetter});
 class TargetVerseDisplay extends React.Component {
 
   generateWordArray() {
+    let words = [];
     if (this.props.verse) {
-      var words = tokenizer.tokenize(this.props.verse);
-    } else {
-      var words = [];
+      var tokens = this.props.verse.split(nonUnicodeLetter);
+      let _sentence = this.props.verse;
+      var response = "";
+      tokens.forEach(function(token) {
+        var regex = XRegExp('^(.*?)('+token+')');
+        var match = _sentence.match(regex, '');
+        _sentence = _sentence.replace(regex, '');
+        words.push(match[1] + match[2]);
+      })
+    }else {
+      words = [];
     }
-    var wordArray = [],
-      index = 0,
-      tokenKey = 1,
-      wordKey = 0;
-    for (var word of words) {
-      var wordIndex = this.props.verse.indexOf(word, index);
-      if (wordIndex > index) {
-        wordArray.push(
-          <span
-            key={wordKey++}
-            style={{cursor: 'pointer'}}
-          >
-            {this.props.verse.substring(index, wordIndex)}
-          </span>
-        );
-      }
+    var wordArray = [];
+    for (var index in words) {
       let highlighted = false;
       if(this.props.currentCheck.selectedWordsRaw){
-        let selectedWordsRaw = this.props.currentCheck.selectedWordsRaw;
-        for(var foundWord in selectedWordsRaw){
-          if(selectedWordsRaw[foundWord].word === word && selectedWordsRaw[foundWord].key === tokenKey){
-            highlighted = true;
-          }
-        }
+       let selectedWordsRaw = this.props.currentCheck.selectedWordsRaw;
+       for(var i in selectedWordsRaw){
+         if(selectedWordsRaw[i].word === words[index] && selectedWordsRaw[i].key === index){
+           highlighted = true;
+         }
+       }
       }
-      let wordObj = {
-        word: word,
-        key: tokenKey
-      }
+     let wordObj = {
+       word: words[index],
+       key: index,
+     }
       wordArray.push(
         <TargetWord
-          word={word}
-          key={wordKey++}
-          keyId={tokenKey}
+          key={index}
+          word={words[index]}
           wordObj={wordObj}
-          style={{cursor: 'pointer'}}
           highlighted={highlighted}
           updateSelectedWords={this.props.updateSelectedWords.bind(this)}
         />
       );
-      tokenKey++;
-      index = wordIndex + word.length;
     }
     return wordArray;
   }
