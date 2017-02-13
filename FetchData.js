@@ -207,7 +207,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "other": false,
           "proposedChanges": "",
           "comment": "",
-          "groupName": match[0],
+          "phrase": match[0],
           "selectionRange": [0, 0],
           "selectedWordsRaw": [],
           "sortOrder": sortOrder++,
@@ -322,8 +322,10 @@ function findWords(bookData, mapBook, wordList) {
   returnObject['ImportantWords'] = [];
 
   for (var word of wordList) {
+    var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
     var wordReturnObject = {
       "group": word.name,
+      "groupName": groupName,
       "checks": []
     };
     for (var chapter of bookData.chapters) {
