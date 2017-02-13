@@ -82,7 +82,7 @@ class View extends React.Component {
                   <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <div style={style.currentWord}>
                       <h4 style={{color: "#FFFFFF"}}>Important Words</h4><br />
-                      {'"' + this.props.currentCheck.groupName + '"'}
+                      {'"' + this.props.groups[this.props.currentGroupIndex]['groupName'] + '"'}
                     </div>
                   </div>
                 </Tab>
