@@ -55,7 +55,7 @@ function getData(params, progressCallback, callback) {
           for (var group in groups) {
             for (var item in groups[group].checks) {
               var co = groups[group].checks[item];
-              var gatewayAtVerse = gatewayLanguage[co.chapter][co.verse];
+              var gatewayAtVerse = gatewayLanguage[co.chapter][co.verse].replace(/\n.*/, '');
               groups[group].checks[item].gatewayLanguage = gatewayAtVerse;
             }
           }
@@ -109,7 +109,7 @@ function getData(params, progressCallback, callback) {
     for (var chapter of bookData.chapters) {
       newBookData[chapter.num] = {};
       for (var verse of chapter.verses) {
-        newBookData[chapter.num][verse.num] = verse.text;
+        newBookData[chapter.num][verse.num] = verse.text.replace(/\n.*/, '');
       }
     }
     newBookData.title = api.convertToFullBookName(params.bookAbbr);
