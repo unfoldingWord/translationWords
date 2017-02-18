@@ -214,7 +214,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "proposedChanges": "",
           "comment": "",
           "phrase": match[0],
-          "wordOccurence": occurenceNumber,
+          "wordOccurrence": occurenceNumber,
           "wordIndex": match.index,
           "selectionRange": [0, 0],
           "selectedWordsRaw": [],
