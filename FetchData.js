@@ -191,10 +191,16 @@ function mapVerseToObject(verse) {
 function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject) {
   var checkArray = [];
   var sortOrder = 0;
+  let previousWord = '';
+  let occurenceNumber = 1;
   for (var regex of wordObject.regex) {
     var match = verseObject.text.match(regex);
     while (match) {
       if (!checkIfWordsAreMarked(match, mappedVerseObject)) {
+        if(match[0] === previousWord){
+          occurenceNumber++
+        }
+        previousWord = match[0];
         checkArray.push({
           "chapter": chapterNumber,
           "verse": verseObject.num,
@@ -208,10 +214,11 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "proposedChanges": "",
           "comment": "",
           "phrase": match[0],
+          "wordOccurence": occurenceNumber,
+          "wordIndex": match.index,
           "selectionRange": [0, 0],
           "selectedWordsRaw": [],
           "sortOrder": sortOrder++,
-          "index": match.index
         });
       }
       match = stringMatch(verseObject.text, regex, match.index + incrementIndexByWord(match));
