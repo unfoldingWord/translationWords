@@ -223,6 +223,10 @@ class Container extends React.Component {
     }
     try{
       currentFile = wordObject.file;
+      if(!this.props.online){
+        let parsedFile = currentFile.replace(/\[([^\)]+)\)/g, "**Link Redacted, go online to enable links**");
+        currentFile = parsedFile;
+      }
     }catch(e){
     }
     return (
