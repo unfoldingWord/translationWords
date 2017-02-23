@@ -216,7 +216,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
           "phrase": match[0],
           "wordOccurrence": occurenceNumber,
           "wordIndex": match.index,
-          "selectionRange": [0, 0],
+          "selectedText": [],
           "selectedWordsRaw": [],
           "sortOrder": sortOrder++,
         });
