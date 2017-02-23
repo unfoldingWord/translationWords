@@ -6,126 +6,72 @@ const React = require('react');
 const style = require('../css/style');
 
 class TargetVerseDisplay extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            selection: "",
-            start: 0,
-            end: 0
-        }
-        this.textSelected = this.textSelected.bind(this);
-        this.getWords = this.getWords.bind(this);
-        this.clearSelection = this.getWords.bind(this);
+
+  getSelectionText() {
+    let verseText = this.props.verse;
+    let text = "";
+    var selection = window.getSelection();
+    var indexOfTextSelection = selection.getRangeAt(0).startOffset;
+    if (selection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
     }
-
-    componentWillReceiveProps(nextProps){
-      this.setState({
-          start: nextProps.currentCheck.selectionRange[0],
-          end: nextProps.currentCheck.selectionRange[1]
-      });
+    let expression = '/' + text + '/g';
+    let wordOccurencesArray = verseText.match(eval(expression));
+    let occurrences = wordOccurencesArray.length;
+    let occurrence;
+    let textBeforeSelection = verseText.slice(0, indexOfTextSelection);
+    if(textBeforeSelection.match(eval(expression))){
+      occurrence = textBeforeSelection.match(eval(expression)).length + 1;
+    }else{
+      occurrence = 1;
     }
-
-    clearSelection(){
-        this.setState({
-            selection: "",
-            start: 0,
-            end: 0
-        });
+    let selectedText = {
+                        text: text,
+                        occurrence: occurrence,
+                        occurrences: occurrences
+                       };
+    let newSelectedTextArray = this.props.currentCheck.selectedText;
+    let foundRepeatedSelection = newSelectedTextArray.find(item => item.text === text && item.occurrence === occurrence );
+    if(foundRepeatedSelection){
+      //dont add object to array
+    }else {
+      newSelectedTextArray.push(selectedText);
     }
+    let currentCheck = this.props.currentCheck;
+    currentCheck.selectedText = newSelectedTextArray;
+    this.props.updateCurrentCheck(currentCheck);
+  }
 
-    textSelected(selectionRelativity){
-        //We reset the state here so that you cant highlight
-        //something that is already highlighted (which caus
-        //es a bug where the highlighted text renders twice)
-        this.clearSelection();
-        var text = "";
-        var selection = window.getSelection();
-        if(selection) {
-            text = selection.toString();
-        } else if(document.selection && document.selection.type != "Control") {
-            text = document.selection.createRange().text;
-        }
+  displayText(){
+    let verseText = '';
+    let { currentCheck } = this.props;
+    if(currentCheck.selectedText.length > 0){
 
-        var beginsAt = selection.getRangeAt(0).startOffset;
-        var endsAt = selection.getRangeAt(0).endOffset;
-
-        if(selectionRelativity == "post"){
-            beginsAt += this.state.end;
-            endsAt += this.state.end;
-        }
-
-        if(selectionRelativity == "in"){
-          beginsAt = 0;
-          endsAt = 0;
-          selection = "";
-        }
-        this.setState({
-            selection: text,
-            start: beginsAt,
-            end: endsAt
-        });
-        let currentCheck = this.props.currentCheck;
-        currentCheck.selectionRange = [beginsAt, endsAt];
-        this.props.updateCurrentCheck(currentCheck);
+      return(
+        <span onMouseUp={() => this.getSelectionText()}>
+          {verseText}
+        </span>
+      );
+    }else {
+      verseText = this.props.verse;
+      return(
+        <span onMouseUp={() => this.getSelectionText()}>
+          {verseText}
+        </span>
+      );
     }
+  }
 
-    getWords(){
-        //More refactoring could remove this method but we need it because it is reffed
-        //by our View.js for the translation Words app
-        return [this.state.selection];
-    }
-
-    getHighlightedWords(){
-        let { currentCheck, chapter, verse, selectionRange } = this.props.currentCheck;
-        let verseText = this.props.verse;
-        let range = selectionRange;
-        if(range){
-            let before = verseText.substring(0, range[0]);
-            let highlighted = verseText.substring(range[0], range[1]);
-            let after = verseText.substring(range[1], verseText.length);
-            return(
-                <div style={style.targetVerseDisplayContent}>
-                    {chapter + ":" + verse + " "}
-                    <span onMouseUp={() => this.textSelected("pre")}>
-                        {before}
-                    </span>
-                    <span
-                        style={{backgroundColor: '#FDD910', fontWeight: 'bold'}}
-                        onMouseUp = {() => this.textSelected("in")}
-                        >
-                        {highlighted}
-                    </span>
-                    <span onMouseUp={() => this.textSelected("post")}>
-                        {after}
-                    </span>
-                </div>
-            )
-        }else{
-            return(
-              <span onMouseUp={() => this.textSelected()}>
-                   {chapter + ":" + verse + " " + verseText}
-              </span>
-            );
-        }
-    }
     render(){
+      console.log(this.props.currentCheck.selectedText);
+      let { chapter, verse } = this.props.currentCheck;
       return (
-          <div bsSize={'small'}
-               style={{WebkitUserSelect: 'text', userSelect: "none"}}>
-           {/*This is the only way to use CSS psuedoclasses inline JSX*/}
-           <style dangerouslySetInnerHTML={{
-               __html: [
-                   '.highlighted::selection {',
-                   '  background: #FDD910;',
-                   '}'
-                   ].join('\n')
-               }}>
-           </style>
-            <div className='highlighted' style={{direction: this.props.direction}}>
-                 {this.getHighlightedWords()}
-            </div>
-          </div>
-        )
+        <div className='highlighted' style={{direction: this.props.direction}}>
+          {chapter + ":" + verse + " "}{this.displayText()}
+        </div>
+      )
     }
 
 }
