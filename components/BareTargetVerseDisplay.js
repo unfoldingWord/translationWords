@@ -17,38 +17,52 @@ class TargetVerseDisplay extends React.Component{
     } else if (document.selection && document.selection.type != "Control") {
         text = document.selection.createRange().text;
     }
-    let expression = '/' + text + '/g';
-    let wordOccurencesArray = verseText.match(eval(expression));
-    let occurrences = wordOccurencesArray.length;
-    let occurrence;
-    let textBeforeSelection = verseText.slice(0, indexOfTextSelection);
-    if(textBeforeSelection.match(eval(expression))){
-      occurrence = textBeforeSelection.match(eval(expression)).length + 1;
+    if (text === "" || text === " " ) {
+      //do nothing since an empty space was selected
     }else{
-      occurrence = 1;
+      let expression = '/' + text + '/g';
+      let wordOccurencesArray = verseText.match(eval(expression));
+      let occurrences = wordOccurencesArray.length;
+      let occurrence;
+      let textBeforeSelection = verseText.slice(0, indexOfTextSelection);
+      if(textBeforeSelection.match(eval(expression))){
+        occurrence = textBeforeSelection.match(eval(expression)).length + 1;
+      }else{
+        occurrence = 1;
+      }
+
+      let selectedText = {
+                          text: text,
+                          occurrence: occurrence,
+                          occurrences: occurrences
+                         };
+      let newSelectedTextArray = this.props.currentCheck.selectedText;
+      let foundRepeatedSelection = newSelectedTextArray.find(item => item.text === text && item.occurrence === occurrence );
+      if(foundRepeatedSelection){
+        //dont add object to array
+      }else {
+        newSelectedTextArray.push(selectedText);
+      }
+      let currentCheck = this.props.currentCheck;
+      currentCheck.selectedText = newSelectedTextArray;
+      this.props.updateCurrentCheck(currentCheck);
     }
-    let selectedText = {
-                        text: text,
-                        occurrence: occurrence,
-                        occurrences: occurrences
-                       };
-    let newSelectedTextArray = this.props.currentCheck.selectedText;
-    let foundRepeatedSelection = newSelectedTextArray.find(item => item.text === text && item.occurrence === occurrence );
-    if(foundRepeatedSelection){
-      //dont add object to array
-    }else {
-      newSelectedTextArray.push(selectedText);
-    }
-    let currentCheck = this.props.currentCheck;
-    currentCheck.selectedText = newSelectedTextArray;
-    this.props.updateCurrentCheck(currentCheck);
   }
 
   displayText(){
     let verseText = '';
     let { currentCheck } = this.props;
     if(currentCheck.selectedText.length > 0){
-
+      verseText = [];
+      for(let i in currentCheck.selectedText){
+        let textSelected = currentCheck.selectedText[i].text;
+        verseText = this.props.verse.split(textSelected);
+        verseText.splice(1, 0,
+          <span key={1} style={{backgroundColor: '#FDD910', fontWeight: 'bold'}}>
+              {textSelected}
+          </span>
+        );
+      }
       return(
         <span onMouseUp={() => this.getSelectionText()}>
           {verseText}
