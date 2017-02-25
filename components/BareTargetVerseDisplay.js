@@ -4,6 +4,7 @@
  */
 const React = require('react');
 const style = require('../css/style');
+const SelectionHelpers = require('../utils/selectionHelpers')
 
 class TargetVerseDisplay extends React.Component{
 
@@ -53,16 +54,13 @@ class TargetVerseDisplay extends React.Component{
     let verseText = '';
     let { currentCheck } = this.props;
     if(currentCheck.selectedText.length > 0){
-      verseText = [];
-      for(let i in currentCheck.selectedText){
-        let textSelected = currentCheck.selectedText[i].text;
-        verseText = this.props.verse.split(textSelected);
-        verseText.splice(1, 0,
-          <span key={1} style={{backgroundColor: '#FDD910', fontWeight: 'bold'}}>
-              {textSelected}
-          </span>
-        );
-      }
+      var selectionArray = SelectionHelpers.selectionArray(this.props.verse, currentCheck.selectedText)
+      verseText = selectionArray.map((selection, index) =>
+        <span key={index} style={selection.selected ? {backgroundColor: '#FDD910', fontWeight: 'bold'} : {}}>
+            {selection.text}
+        </span>
+      )
+
       return(
         <span onMouseUp={() => this.getSelectionText()}>
           {verseText}
