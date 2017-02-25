@@ -80,8 +80,10 @@ class TargetVerseDisplay extends React.Component{
       console.log(this.props.currentCheck.selectedText);
       let { chapter, verse } = this.props.currentCheck;
       return (
-        <div className='highlighted' style={{direction: this.props.direction}}>
-          {chapter + ":" + verse + " "}{this.displayText()}
+        <div style={style.targetVerseDisplayContent}>
+          <div style={{direction: this.props.direction}}>
+            {chapter + ":" + verse + " "}{this.displayText()}
+          </div>
         </div>
       )
     }
