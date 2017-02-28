@@ -50,13 +50,24 @@ class TargetVerseDisplay extends React.Component{
     }
   }
 
+  removeSelection(selectionObject){
+    var newSelectedTextArray = [];
+    var currentCheck = this.props.currentCheck;
+    newSelectedTextArray = currentCheck.selectedText.filter(selection =>
+                                    selection.occurrence !== selectionObject.occurrence || selection.text !== selectionObject.text
+                                  )
+    currentCheck.selectedText = newSelectedTextArray;
+    this.props.updateCurrentCheck(currentCheck);
+  }
+
   displayText(){
     let verseText = '';
     let { currentCheck } = this.props;
     if(currentCheck.selectedText.length > 0){
       var selectionArray = SelectionHelpers.selectionArray(this.props.verse, currentCheck.selectedText)
       verseText = selectionArray.map((selection, index) =>
-        <span key={index} style={selection.selected ? {backgroundColor: '#FDD910', fontWeight: 'bold'} : {}}>
+        <span key={index} style={selection.selected ? {backgroundColor: '#FDD910', cursor: 'pointer', fontWeight: 'bold'} : {}}
+              onClick={selection.selected ? () => this.removeSelection(selection) : () => {}}>
             {selection.text}
         </span>
       )
