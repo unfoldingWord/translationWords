@@ -12,7 +12,8 @@ module.exports.spliceStringOnRanges = function(string, ranges) {
   // concat overlaps - should not be a concern here but might help rendering bugs
   var remainingString = string
   var rangeShift = 0
-  ranges.forEach(function(range) {
+  ranges.forEach(function(rangeObject) {
+    var range = rangeObject.range
     var subString = remainingString.slice(range[0]-rangeShift,range[1]+1-rangeShift)
     var splitArray = remainingString.split(subString)
     var beforeSelection = splitArray[0]
@@ -21,7 +22,12 @@ module.exports.spliceStringOnRanges = function(string, ranges) {
     var afterSelection = splitArray.slice(1).join(subString)
     // console.log('afterSelection: ', afterSelection)
     selectionArray.push({text: beforeSelection, selected: false})
-    selectionArray.push({text: subString, selected: true})
+    selectionArray.push({
+                          text: subString,
+                          selected: true,
+                          occurrence: rangeObject.occurrence,
+                          occurrences: rangeObject.occurrences
+                        })
     rangeShift += beforeSelection.length
     rangeShift += subString.length
     remainingString = afterSelection
@@ -39,7 +45,12 @@ module.exports.selectionsToRanges = function(string, selections) {
         var beforeSelection = splitArray.slice(0,selection.occurrence).join(selection.text)
         var start = beforeSelection.length
         var end = start + selection.text.length - 1
-        ranges.push([start,end])
+        var rangesObject = {
+                            range: [start,end],
+                            occurrence: selection.occurrence,
+                            occurrences: selection.occurrences
+                           }
+        ranges.push(rangesObject)
       }
     })
   return ranges
