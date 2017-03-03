@@ -45,7 +45,7 @@ class TargetVerseDisplay extends React.Component{
         newSelectedTextArray.push(selectedText);
       }
       let currentCheck = this.props.currentCheck;
-      currentCheck.selectedText = newSelectedTextArray;
+      currentCheck.selectedText = SelectionHelpers.optimizeSelections(verseText, newSelectedTextArray);
       this.props.updateCurrentCheck(currentCheck);
     }
   }
@@ -56,7 +56,7 @@ class TargetVerseDisplay extends React.Component{
     newSelectedTextArray = currentCheck.selectedText.filter(selection =>
                                     selection.occurrence !== selectionObject.occurrence || selection.text !== selectionObject.text
                                   )
-    currentCheck.selectedText = newSelectedTextArray;
+    currentCheck.selectedText = SelectionHelpers.optimizeSelections(this.props.verse, newSelectedTextArray);
     this.props.updateCurrentCheck(currentCheck);
   }
 
