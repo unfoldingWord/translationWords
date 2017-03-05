@@ -12,6 +12,8 @@ module.exports.spliceStringOnRanges = function(string, ranges) {
   // sort ranges - this ensures we build the string correctly and don't miss selections
   // concat overlaps - should not be a concern here but might help rendering bugs
   var remainingString = string
+  // shift the range since the loop is destructive
+  // by working on the remainingString and not original string
   var rangeShift = 0
   ranges.forEach(function(rangeObject) {
     var range = rangeObject.range
@@ -29,9 +31,11 @@ module.exports.spliceStringOnRanges = function(string, ranges) {
                           occurrence: rangeObject.occurrence,
                           occurrences: rangeObject.occurrences
                         })
+    // next iteration is using remaining string
+    remainingString = afterSelection
+    // shift the range up to last char of substring (before+sub)
     rangeShift += beforeSelection.length
     rangeShift += subString.length
-    remainingString = afterSelection
   })
   selectionArray.push({text: remainingString, selected: false})
   // remove empty text from selectionArray
