@@ -65,7 +65,7 @@ class TargetVerseDisplay extends React.Component{
   displayText(){
     let verseText = '';
     let { currentCheck } = this.props;
-    if(currentCheck.selectedText.length > 0){
+    if(currentCheck.selectedText && currentCheck.selectedText.length > 0){
       var selectionArray = SelectionHelpers.selectionArray(this.props.verse, currentCheck.selectedText)
       verseText = selectionArray.map((selection, index) =>
         <span key={index} style={selection.selected ? {backgroundColor: '#FDD910', cursor: 'pointer', fontWeight: 'bold'} : {}}
