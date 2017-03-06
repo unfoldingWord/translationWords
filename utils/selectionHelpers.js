@@ -111,8 +111,9 @@ module.exports.optimizeRanges = function(ranges) {
   ranges = _.sortBy(ranges, function(range) { return range[0] })// order ranges by start char index as primary
   ranges = _.uniq(ranges) // remove duplicates
   // combine overlapping and contiguous ranges
-  var _range = [0,0]
+  var _range = []
   ranges.forEach(function(range, index) {
+    if (_range == []) {_range = range}
     if (range[0] >= _range[0] && range[0] <= _range[1]+1) { // the start occurs in the running range and +1 handles contiguous
       if (range[1] >= _range[0] && range[1] <= _range[1]) { // if the start occurs inside running range then let's check the end
         // if the end occurs inside the running range then it's inside it and doesn't matter
@@ -131,7 +132,7 @@ module.exports.optimizeRanges = function(ranges) {
 }
 //
 // Use the following lines to test the previous function
-// var ranges = [[5,9],[3,4],[2,3],[7,10],[20,40],[15,16],[14,17]]
+// var ranges = [[1,2],[5,9],[3,4],[7,10],[20,40],[15,16],[14,17]]
 // console.log(module.exports.optimizeRanges(ranges))
 // => [ [ 2, 10 ], [ 14, 17 ], [ 20, 40 ] ]
 //
