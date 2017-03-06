@@ -111,6 +111,7 @@ class View extends React.Component {
             </Col>
           <Col sm={12} md={6} lg={4} style={{padding: "0px"}}>
             <div style={{height: "calc(100vh - 256px)"}}>
+              <Glyphicon glyph={"chevron-right"} style={style.tHelpsOpen} />
               <TranslationHelps currentFile={this.props.currentFile}
                                 online={this.props.online}/>
             </div>
