@@ -90,7 +90,6 @@ class TargetVerseDisplay extends React.Component{
   }
 
     render(){
-      console.log(this.props.currentCheck.selectedText);
       let { chapter, verse } = this.props.currentCheck;
       return (
         <div style={style.targetVerseDisplayContent}>
