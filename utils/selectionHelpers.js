@@ -113,7 +113,6 @@ module.exports.optimizeRanges = function(ranges) {
   // combine overlapping and contiguous ranges
   var _range = []
   ranges.forEach(function(range, index) {
-    if (_range == []) {_range = range}
     if (range[0] >= _range[0] && range[0] <= _range[1]+1) { // the start occurs in the running range and +1 handles contiguous
       if (range[1] >= _range[0] && range[1] <= _range[1]) { // if the start occurs inside running range then let's check the end
         // if the end occurs inside the running range then it's inside it and doesn't matter
@@ -121,10 +120,10 @@ module.exports.optimizeRanges = function(ranges) {
         _range[1] = range[1] // extend running range
       }
     } else { // the start does not occur in the running range
-      if (_range[1] - _range[0] > 0) optimizedRanges.push(_range) // the running range is closed push it to optimizedRanges
+      if (_range.length != 0) optimizedRanges.push(_range) // the running range is closed push it to optimizedRanges
       _range = range // reset the running range to this one
     }
-    if (ranges.length === index + 1 && _range[1] - _range[0] > 0) { // this is the last one and it isn't blank
+    if (ranges.length === index + 1 && _range[1] - _range[0] >= 0) { // this is the last one and it isn't blank
       optimizedRanges.push(_range) // push the last one to optimizedRanges
     }
   })
@@ -132,10 +131,9 @@ module.exports.optimizeRanges = function(ranges) {
 }
 //
 // Use the following lines to test the previous function
-// var ranges = [[1,2],[5,9],[3,4],[7,10],[20,40],[15,16],[14,17]]
-// console.log(module.exports.optimizeRanges(ranges))
-// => [ [ 2, 10 ], [ 14, 17 ], [ 20, 40 ] ]
-//
+var ranges = [[1,1],[5,9],[3,4],[7,10],[20,40],[15,16],[14,17]]
+console.log(module.exports.optimizeRanges(ranges))
+// => [ [ 1, 1 ], [ 3, 10 ], [ 14, 17 ], [ 20, 40 ] ]
 
 /**
  * This converts ranges to array of selection objects
