@@ -71,11 +71,10 @@ class View extends React.Component {
                                   goToPrevious={this.props.goToPrevious}
               />
             </div>
-              <Tabs activeKey={this.props.tabKey}
-                    onSelect={e => this.props.handleSelectTab(e)}
-                    id="controlled-tab-example"
-                    bsClass="newTabs"
-                    style={{backgroundColor: "#FFFFFF", width: "100%"}}>
+            <Tabs activeKey={this.props.tabKey}
+                  onSelect={(e) => this.props.handleSelectTab(e)}
+                  id="tabs"
+                  style={{backgroundColor: "#FFFFFF", width: "100%"}}>
                 <Tab eventKey={1} title={toolGlyph}
                                   style={style.tabStyling}>
                   <div style={{height: "100%", backgroundColor: "#333333", boxSizing: "border-box"}}>
