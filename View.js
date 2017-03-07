@@ -120,6 +120,7 @@ class View extends React.Component {
                 <div style={{display: this.props.showHelps ? "block" : "none"}}>
                   <TranslationHelps currentFile={this.props.currentFile}
                                   online={this.props.online}/>
+                </div>
             </div>
           </Col>
         </Row>
