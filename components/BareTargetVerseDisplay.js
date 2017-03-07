@@ -96,7 +96,7 @@ class TargetVerseDisplay extends React.Component {
   }
   
 
-  // onMouseLeave={()=>this.inDisplayBox("pre", false)} onMouseEnter={()=>this.inDisplayBox("pre", true)}
+
   inDisplayBox(insideDisplayBox) {
     this.setState({ inBox: insideDisplayBox });
     if (!insideDisplayBox && Math.abs(window.getSelection().extentOffset - window.getSelection().baseOffset) > 0) {
