@@ -15,11 +15,7 @@ let ProposedChanges = null;
 let CommentBox = null;
 let TranslationHelps = null;
 //Components
-const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js');
-const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
-const CheckStatusButtons = require('./components/CheckStatusButtons');
-const HelpInfo = require('./components/HelpInfo');
 const style = require('./css/style');
 
 
@@ -28,34 +24,10 @@ class View extends React.Component {
     super();
     ScripturePane = api.getModule('ScripturePane');
     VerseCheck = api.getModule('VerseCheck');
-    ProposedChanges = api.getModule('ProposedChanges');
-    CommentBox = api.getModule('CommentBox');
     TranslationHelps = api.getModule('TranslationHelps');
   }
   render(){
-    let TargetVerseDisplay = null;
-    if(this.props.dragToSelect){
-      TargetVerseDisplay = <DragTargetVerseDisplay
-                              verse={this.props.targetVerse}
-                              updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
-                              style={style.targetVerse}
-                              currentCheck={this.props.currentCheck}
-                              direction={this.props.direction}
-                              bookName={this.props.bookName}
-                            />
-    }else {
-      TargetVerseDisplay = <ClickTargetVerseDisplay
-                              verse={this.props.targetVerse}
-                              updateSelectedWords={this.props.updateSelectedWords.bind(this)}
-                              style={style.targetVerse}
-                              currentCheck={this.props.currentCheck}
-                              direction={this.props.direction}
-                              bookName={this.props.bookName}
-                            />
-    }
     let toolGlyph = <img src="images/tWIcon.png" style={{height: "25px", marginLeft: "10px"}}/>;
-    let proposedChangesGlyph = <Glyphicon glyph="pencil" style={{color: "#FFFFFF", fontSize: "20px", marginLeft: "12px"}} />;
-    let commentGlyph = <Glyphicon glyph="comment" style={{color: "#FFFFFF", fontSize: "20px", marginLeft: "12px"}} />;
     let questionGlyph = <Glyphicon glyph="question-sign" style={{color: "#FFFFFF", fontSize: "20px", marginLeft: "12px"}} />;
     return (
         <Row className="show-grid" style={{margin: '0px', bottom: "0px",  height: "100%"}}>
