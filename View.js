@@ -16,8 +16,9 @@ let CommentBox = null;
 let TranslationHelps = null;
 //Components
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
+const CheckInfoCard = require('./components/CheckInfoCard.js');
 const style = require('./css/style');
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class View extends React.Component {
   constructor(){
@@ -30,9 +31,11 @@ class View extends React.Component {
     let toolGlyph = <img src="images/tWIcon.png" style={{height: "25px", marginLeft: "10px"}}/>;
     let questionGlyph = <Glyphicon glyph="question-sign" style={{color: "#FFFFFF", fontSize: "20px", marginLeft: "12px"}} />;
     return (
+      <MuiThemeProvider>
         <Row className="show-grid" style={{margin: '0px', bottom: "0px",  height: "100%"}}>
           <Col sm={12} md={6} lg={9} style={{height: "100%", padding: '0px'}}>
             <ScripturePane currentCheck={this.props.currentCheck} />
+            <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.currentCheck.phrase} file={this.props.currentFile}/>
             <VerseCheck
               updateCheckStatus={this.props.updateCheckStatus.bind(this)}
               updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
@@ -56,6 +59,7 @@ class View extends React.Component {
             </div>
           </Col>
         </Row>
+      </MuiThemeProvider>
     );
   }
 }
