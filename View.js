@@ -2,36 +2,21 @@
  * @description:
  *  This class defines the entire view for TranslationWords tool
  */
-//Api Consts
-const api = window.ModuleApi;
-const React = api.React;
-const RB = api.ReactBootstrap;
-//Bootstrap consts
-const {Row, Col, Tabs, Tab, Glyphicon} = RB;
-//Modules not defined within TranslationWords
-let ScripturePane = null;
-let ProposedChanges = null;
-let CommentBox = null;
-let TranslationHelps = null;
-//Components
-const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js');
-const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
-const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
-const CheckInfoCard = require('./components/CheckInfoCard.js');
-const CheckStatusButtons = require('./components/CheckStatusButtons');
-const HelpInfo = require('./components/HelpInfo');
-const style = require('./css/style');
+import React from 'react'
+import {Row, Col, Tabs, Tab, Glyphicon} from 'react-bootstrap'
+import DragTargetVerseDisplay from './components/BareTargetVerseDisplay.js'
+import ClickTargetVerseDisplay from './components/TargetVerseDisplay'
+import GatewayVerseDisplay from './components/GatewayVerseDisplay.js'
+import CheckInfoCard from './components/CheckInfoCard.js'
+import CheckStatusButtons from './components/CheckStatusButtons'
+import HelpInfo from './components/HelpInfo'
+import style from './css/style'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class View extends React.Component {
-  constructor(){
-    super();
-    ScripturePane = api.getModule('ScripturePane');
-    ProposedChanges = api.getModule('ProposedChanges');
-    CommentBox = api.getModule('CommentBox');
-    TranslationHelps = api.getModule('TranslationHelps');
-  }
   render(){
+    //Modules not defined within translationWords
+    const { ScripturePane, ProposedChanges, CommentBox, TranslationHelps } = this.props.modules;
     let TargetVerseDisplay = null;
     if(this.props.dragToSelect){
       TargetVerseDisplay = <DragTargetVerseDisplay
@@ -95,7 +80,7 @@ class View extends React.Component {
                   <div style={{height: "calc(100vh - 531px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <ProposedChanges currentCheck={this.props.currentCheck}
                                      updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
-                                     proposedChangesStore={this.props.proposedChangesStore} />
+                    />
                   </div>
                 </Tab>
                 <Tab eventKey={3} title={commentGlyph}
@@ -103,7 +88,7 @@ class View extends React.Component {
                   <div style={{height: "calc(100vh - 531px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
                     <CommentBox currentCheck={this.props.currentCheck}
                                 updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
-                                commentBoxStore={this.props.commentBoxStore} />
+                    />
                   </div>
                 </Tab>
                 <Tab eventKey={4} title={questionGlyph}

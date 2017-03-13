@@ -1,10 +1,9 @@
 /**
- * A more organic implementation of the Target Verse Display
- * Author: Luke Wilson
+ * @description A more organic implementation of the Target Verse Display
  */
-const React = require('react');
-const style = require('../css/style');
-const SelectionHelpers = require('../utils/selectionHelpers')
+import React from 'react'
+import style from '../css/style'
+import SelectionHelpers from '../utils/selectionHelpers'
 
 class TargetVerseDisplay extends React.Component {
   constructor() {
@@ -94,7 +93,7 @@ class TargetVerseDisplay extends React.Component {
       );
     }
   }
-  
+
 
 
   inDisplayBox(insideDisplayBox) {

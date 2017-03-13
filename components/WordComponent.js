@@ -1,8 +1,5 @@
-const api = window.ModuleApi;
-
-const React = api.React;
-const ReactBootstrap = api.ReactBootstrap;
-
+import React from 'react'
+//constant declaration
 const CURRENT_WORD= "CurrentWord: ";
 
 class WordComponent extends React.Component {
