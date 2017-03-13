@@ -5,7 +5,7 @@
  * into memory in case JSON.parse doesn't do it correctly
  */
 
-const XRegExp = require('xregexp');
+import XRegExp from 'xregexp'
 
 module.exports = function(data) {
   for (var wordObject of data.wordList) {
@@ -18,4 +18,3 @@ module.exports = function(data) {
     }
   }
 }
-    

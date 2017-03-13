@@ -1,8 +1,7 @@
 //Api Consts
 const api = window.ModuleApi;
-const React = require('react');
-//Modules that are defined within translationNotes_Check_plugin
-const View = require('./View.js');
+import React from 'react'
+import View from './View.js'
 //String constants
 const NAMESPACE = "ImportantWords",
       UNABLE_TO_FIND_ITEM_IN_STORE = "Unable to find key in namespace",
@@ -209,8 +208,6 @@ class Container extends React.Component {
     if(this.props.currentSettings.textSelect === 'drag'){
       dragToSelect = true;
     }
-    let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
-    let commentBoxStore = api.getDataFromCheckStore('CommentBox');
     let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
     let gatewayVerse = '';
     let targetVerse = '';
@@ -245,8 +242,6 @@ class Container extends React.Component {
         dragToSelect={dragToSelect}
         direction={direction}
         tabKey={this.state.tabKey}
-        commentBoxStore={commentBoxStore}
-        proposedChangesStore={proposedChangesStore}
         updateSelectedWords={this.updateSelectedWords.bind(this)}
         updateCheckStatus={this.updateCheckStatus.bind(this)}
         handleSelectTab={this.handleSelectTab.bind(this)}
