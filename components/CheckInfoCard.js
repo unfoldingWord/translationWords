@@ -22,7 +22,7 @@ class CheckInfoCard extends React.Component {
           finalArray.push(splitLine[i])
         }
       }
-      let maxLength = 140;
+      let maxLength = 135;
       let finalString = "";
       let chosenString = finalArray[0];
       let splitString = chosenString.split(' ');
