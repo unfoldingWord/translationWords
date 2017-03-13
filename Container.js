@@ -208,8 +208,6 @@ class Container extends React.Component {
     if(this.props.currentSettings.textSelect === 'drag'){
       dragToSelect = true;
     }
-    let proposedChangesStore = api.getDataFromCheckStore('ProposedChanges');
-    let commentBoxStore = api.getDataFromCheckStore('CommentBox');
     let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
     let gatewayVerse = '';
     let targetVerse = '';
@@ -244,8 +242,6 @@ class Container extends React.Component {
         dragToSelect={dragToSelect}
         direction={direction}
         tabKey={this.state.tabKey}
-        commentBoxStore={commentBoxStore}
-        proposedChangesStore={proposedChangesStore}
         updateSelectedWords={this.updateSelectedWords.bind(this)}
         updateCheckStatus={this.updateCheckStatus.bind(this)}
         handleSelectTab={this.handleSelectTab.bind(this)}
