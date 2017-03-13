@@ -1,9 +1,11 @@
-//GatewayVerseDisplay.js//
-
-const api = window.ModuleApi;
-const React = api.React;
-const ReactBootstrap = api.ReactBootstrap;
-const XRegExp = require('xregexp');
+///GatewayVerseDisplay.js//
+import React from 'react'
+import natural from 'natural'
+import XRegExp from 'xregexp'
+//nonUnicodeLetter declaration
+const nonUnicodeLetter = XRegExp('\\PL');
+//declaration of Wordlength tokenizer
+const tokenizer = new natural.RegexpTokenizer({pattern: nonUnicodeLetter});
 
 
 class GatewayVerseDisplay extends React.Component {
