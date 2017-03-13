@@ -17,10 +17,11 @@ let TranslationHelps = null;
 const DragTargetVerseDisplay = require('./components/BareTargetVerseDisplay.js');
 const ClickTargetVerseDisplay = require('./components/TargetVerseDisplay');
 const GatewayVerseDisplay = require('./components/GatewayVerseDisplay.js');
+const CheckInfoCard = require('./components/CheckInfoCard.js');
 const CheckStatusButtons = require('./components/CheckStatusButtons');
 const HelpInfo = require('./components/HelpInfo');
 const style = require('./css/style');
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 class View extends React.Component {
   constructor(){
@@ -56,9 +57,11 @@ class View extends React.Component {
     let commentGlyph = <Glyphicon glyph="comment" style={{color: "#FFFFFF", fontSize: "20px", marginLeft: "12px"}} />;
     let questionGlyph = <Glyphicon glyph="question-sign" style={{color: "#FFFFFF", fontSize: "20px", marginLeft: "12px"}} />;
     return (
+      <MuiThemeProvider>
         <Row className="show-grid" style={{margin: '0px', bottom: "0px",  height: "100%"}}>
           <Col sm={12} md={6} lg={9} style={{height: "100%", padding: '0px'}}>
             <ScripturePane {...this.props} currentCheck={this.props.currentCheck} />
+            <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.currentCheck.phrase} file={this.props.currentFile}/>
             <Col sm={12} md={12} lg={12} style={{height: "100%", padding: '0px', border: "20px solid #0277BD"}}>
               <div style={{padding: '10px', display: "flex", backgroundColor: "#FFFFFF"}}>
                 <div style={{padding: '0px', display: "box", width: "500px"}}>
@@ -124,6 +127,7 @@ class View extends React.Component {
             </div>
           </Col>
         </Row>
+        </MuiThemeProvider>
     );
   }
 }
