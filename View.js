@@ -10,6 +10,7 @@ const RB = api.ReactBootstrap;
 const {Row, Col, Tabs, Tab, Glyphicon} = RB;
 //Modules not defined within TranslationWords
 let ScripturePane = null;
+let VerseCheck = null;
 let ProposedChanges = null;
 let CommentBox = null;
 let TranslationHelps = null;
@@ -26,6 +27,7 @@ class View extends React.Component {
   constructor(){
     super();
     ScripturePane = api.getModule('ScripturePane');
+    VerseCheck = api.getModule('VerseCheck');
     ProposedChanges = api.getModule('ProposedChanges');
     CommentBox = api.getModule('CommentBox');
     TranslationHelps = api.getModule('TranslationHelps');
@@ -59,58 +61,16 @@ class View extends React.Component {
         <Row className="show-grid" style={{margin: '0px', bottom: "0px",  height: "100%"}}>
           <Col sm={12} md={6} lg={9} style={{height: "100%", padding: '0px'}}>
             <ScripturePane currentCheck={this.props.currentCheck} />
-            <Col sm={12} md={12} lg={12} style={{height: "100%", padding: '0px', border: "20px solid #0277BD"}}>
-              <div style={{padding: '10px', display: "flex", backgroundColor: "#FFFFFF"}}>
-                <div style={{padding: '0px', display: "box", width: "500px"}}>
-                  <h4>Target Language</h4>
-                  {TargetVerseDisplay}
-                </div>
-                <CheckStatusButtons updateCheckStatus={this.props.updateCheckStatus.bind(this)}
-                                    currentCheck={this.props.currentCheck}
-                                    goToNext={this.props.goToNext}
-                                    goToPrevious={this.props.goToPrevious}
-                />
-              </div>
-              <Tabs
-                activeKey={this.props.tabKey}
-                onSelect={(e) => this.props.handleSelectTab(e)}
-                id="tabs"
-                style={{backgroundColor: "#FFFFFF", width: "100%"}}>
-                <Tab
-                  eventKey={1}
-                  title={toolGlyph}
-                  style={style.tabStyling}>
-                  <div style={{height: "calc(100vh - 531px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
-                    <div style={style.currentWord}>
-                      <h4 style={{color: "#FFFFFF"}}>Important Words</h4><br />
-                      {'"' + this.props.currentCheck.phrase + '"'}
-                    </div>
-                  </div>
-                </Tab>
-                <Tab eventKey={2} title={proposedChangesGlyph}
-                                  style={style.tabStyling}>
-                  <div style={{height: "calc(100vh - 531px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
-                    <ProposedChanges currentCheck={this.props.currentCheck}
-                                     updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
-                                     proposedChangesStore={this.props.proposedChangesStore} />
-                  </div>
-                </Tab>
-                <Tab eventKey={3} title={commentGlyph}
-                                  style={style.tabStyling}>
-                  <div style={{height: "calc(100vh - 531px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
-                    <CommentBox currentCheck={this.props.currentCheck}
-                                updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
-                                commentBoxStore={this.props.commentBoxStore} />
-                  </div>
-                </Tab>
-                <Tab eventKey={4} title={questionGlyph}
-                                      style={style.tabStyling}>
-                  <div style={{padding: '10px', height: "calc(100vh - 531px)", backgroundColor: "#333333", boxSizing: "border-box"}}>
-                    <HelpInfo />
-                  </div>
-                </Tab>
-              </Tabs>
-            </Col>
+            <VerseCheck
+              updateCheckStatus={this.props.updateCheckStatus.bind(this)}
+              updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
+              currentCheck={this.props.currentCheck}
+              goToNext={this.props.goToNext}
+              goToPrevious={this.props.goToPrevious}
+              verse={this.props.targetVerse}
+              direction={this.props.direction}
+              bookName={this.props.bookName}
+            />
           </Col>
           <Col sm={12} md={6} lg={3} style={{height: "100%", padding: "0px"}}>
             <div style={{height: "100vh"}}>
