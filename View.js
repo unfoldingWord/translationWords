@@ -16,11 +16,11 @@ class View extends React.Component {
       <MuiThemeProvider>
         <Row className="show-grid" style={{margin: '0px', bottom: "0px",  height: "100%"}}>
           <Col sm={12} md={6} lg={9} style={{height: "100%", padding: '0px'}}>
-            <ScripturePane currentCheck={this.props.currentCheck} />
+            <ScripturePane {...this.props} currentCheck={this.props.currentCheck} />
             <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.currentCheck.phrase} file={this.props.currentFile}/>
             <VerseCheck
-              updateCheckStatus={this.props.updateCheckStatus.bind(this)}
-              updateCurrentCheck={this.props.updateCurrentCheck.bind(this)}
+              updateCheckStatus={this.props.updateCheckStatus}
+              updateCurrentCheck={this.props.updateCurrentCheck}
               currentCheck={this.props.currentCheck}
               goToNext={this.props.goToNext}
               goToPrevious={this.props.goToPrevious}
