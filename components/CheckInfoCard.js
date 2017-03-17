@@ -22,7 +22,7 @@ class CheckInfoCard extends React.Component {
           finalArray.push(splitLine[i])
         }
       }
-      let maxLength = 115;
+      let maxLength = 135;
       let finalString = "";
       let chosenString = finalArray[0];
       let splitString = chosenString.split(' ');
@@ -39,7 +39,7 @@ class CheckInfoCard extends React.Component {
     render() {
       return (
         <div style={{margin: '10px'}}>
-        <Card zDepth={2} style={{ background: '#03A9F4', padding: "20px"}}>
+        <Card zDepth={2} style={{ background: '#2196F3', padding: "20px"}}>
           <Row>
             <Col md={4} style={{borderRight: '1px solid #FFFFFF'}}>
               <div style={styles.title}>
