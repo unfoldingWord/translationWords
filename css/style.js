@@ -32,16 +32,14 @@ var style = {
     borderRadius: "5px 0px 0px 5px"
   },
   linkActive: {
-    fontWeight: 'bold',
     color: '#FFFFFF',
-    marginTop: '3em',
+    marginTop: '3.2em',
     textAlign: 'right',
     cursor: 'pointer'
   },
   linkInactive: {
-    fontWeight: 'bold',
     color: '#e7e7e7',
-    marginTop: '3em',
+    marginTop: '3.2em',
     textAlign: 'right',
     cursor: 'not-allowed'
   },
