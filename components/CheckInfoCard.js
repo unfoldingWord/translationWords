@@ -39,9 +39,9 @@ class CheckInfoCard extends React.Component {
     render() {
       return (
         <div style={{margin: '10px'}}>
-        <Card zDepth={2} style={{ background: '#2196F3', padding: "20px"}}>
+        <Card zDepth={2} style={{ background: '#2196F3', padding: "10px"}}>
           <Row>
-            <Col md={4} style={{borderRight: '1px solid #FFFFFF'}}>
+            <Col md={4} style={{height: '4.3em', borderRight: '1px solid #FFFFFF'}}>
               <div style={styles.title}>
                 {this.props.title}
               </div>
