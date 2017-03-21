@@ -3,7 +3,6 @@
 /**
 * @description: This file defines the function that
 * fetches the data and populates a list of checks
-* @author Sam Faulkner
 */
 
 const api = window.ModuleApi;
@@ -27,10 +26,11 @@ const BookWordTest = require('./translation_words/WordTesterScript.js');
 * the fetch, with params (itemsDone/maxItems)
 * @param {function} callback - callback that gets called when function is finished,
 * if error ocurred it's called with an error, 2nd argument carries the result
-* @param {callback} addNewBible - redux action to save a bible to
+* @param {function} addNewBible (callback) - callback that uses a redux action to save a bible to
 * the resources reducer.
 *        @example take in two arguments bible name/version and bible data
-* @param {callback} addNewResource -
+* @param {function} addNewResource (callback) - callback that uses a redux action to save a resource to
+* the resources reducer.
 *        @example take in two arguments resource name and resource data
 */
 function getData(params, progressCallback, callback, addNewBible, addNewResource) {
