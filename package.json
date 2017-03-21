@@ -10,10 +10,8 @@
   "display": "app",
   "license": "ISC",
   "include": {
-    "ProposedChanges": "1.0.2",
     "ScripturePane": "1.0.2",
     "VerseCheck": "1.0.0",
-    "CommentBox": "1.0.2",
     "TranslationHelps": "1.0.0"
   },
   "dependencies": {
