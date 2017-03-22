@@ -3,7 +3,6 @@
 /**
 * @description: This file defines the function that
 * fetches the data and populates a list of checks
-* @author Sam Faulkner
 */
 
 const api = window.ModuleApi;
@@ -27,8 +26,14 @@ const BookWordTest = require('./translation_words/WordTesterScript.js');
 * the fetch, with params (itemsDone/maxItems)
 * @param {function} callback - callback that gets called when function is finished,
 * if error ocurred it's called with an error, 2nd argument carries the result
+* @param {function} addNewBible (callback) - callback that uses a redux action to save a bible to
+* the resources reducer.
+*        @example take in two arguments bible name/version and bible data
+* @param {function} addNewResource (callback) - callback that uses a redux action to save a resource to
+* the resources reducer.
+*        @example take in two arguments resource name and resource data
 */
-function getData(params, progressCallback, callback) {
+function getData(params, progressCallback, callback, addNewBible, addNewResource) {
   // Get Bible
   var bookData;
   var Door43Fetcher = new Door43DataFetcher();
@@ -63,6 +68,8 @@ function getData(params, progressCallback, callback) {
         api.putDataInCheckStore('ImportantWords', 'groups', groups);
         api.putDataInCheckStore('ImportantWords', 'currentCheckIndex', 0);
         api.putDataInCheckStore('ImportantWords', 'currentGroupIndex', 0);
+        //this is used to replace api.putDataInCheckStore for TranslationHelps
+        addNewResource('translationWords', wordList);
         api.putDataInCheckStore('TranslationHelps', 'wordList', wordList);
         //TODO: This shouldn't be put in the check store because we don't want this saved to disk
         callback(null);
@@ -113,6 +120,8 @@ function getData(params, progressCallback, callback) {
       }
     }
     newBookData.title = api.convertToFullBookName(params.bookAbbr);
+    //this is used to replace the api.putDataInCommon below
+    addNewBible('ULB', newBookData);
     //load it into checkstore
     api.putDataInCommon('gatewayLanguage', newBookData);
     //resume fetchData
