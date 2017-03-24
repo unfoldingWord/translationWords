@@ -2,257 +2,273 @@
 const api = window.ModuleApi;
 import React from 'react'
 import View from './View.js'
+import FetchData from './FetchData';
+import ScripturePaneFetchData from '../ScripturePane/FetchData';
+import VerseCheckFetchData from '../VerseCheck/FetchData';
+import TranslationHelpsFetchData from '../TranslationHelps/FetchData';
+
 //String constants
 const NAMESPACE = "ImportantWords",
-      UNABLE_TO_FIND_ITEM_IN_STORE = "Unable to find key in namespace",
-      UNABLE_TO_FIND_WORD = "Unable to find wordobject";
+  UNABLE_TO_FIND_ITEM_IN_STORE = "Unable to find key in namespace",
+  UNABLE_TO_FIND_WORD = "Unable to find wordobject";
 
-class Container extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentFile: null,
-      tabKey: 1,
-      showHelps: true
-    }
-    this.saveProjectAndTimestamp = this.saveProjectAndTimestamp.bind(this);
-    this.onCurrentCheckChange = this.onCurrentCheckChange.bind(this);
-  }
 
-  componentWillMount(){
-    this.addTargetLanguageToChecks();
-    let checkStatus = this.props.currentCheck.checkStatus;
-    this.currentCheck = this.props.currentCheck;
-    if(checkStatus === "FLAGGED"){
-      this.setState({tabKey: 2});
-    }else {
-      this.setState({tabKey: 1});
+  //Store Container in store to display
+  class Container extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        currentFile: null,
+        tabKey: 1,
+        showHelps: true
+      }
+      this.saveProjectAndTimestamp = this.saveProjectAndTimestamp.bind(this);
+      this.onCurrentCheckChange = this.onCurrentCheckChange.bind(this);
     }
-  }
 
-  componentWillReceiveProps(nextProps) {
-    let checkStatus = nextProps.currentCheck.checkStatus;
-    nextProps.currentCheck.isCurrentItem = true;
-    if (JSON.stringify(this.currentCheck) === JSON.stringify(nextProps.currentCheck)) {
-      return;
-    } else {
-      this.currentCheck = nextProps.currentCheck;
+    componentWillMount() {
+      const { progress, addNewBible, addNewResource } = this.props;
+      ScripturePaneFetchData(addNewBible, addNewResource, this.props, progress);
+      TranslationHelpsFetchData(progress);
+      VerseCheckFetchData(progress);
+      FetchData(addNewBible, addNewResource, this.props, progress);
+      this.addTargetLanguageToChecks(this.props.bibles);
+      let checkStatus = this.props.currentCheck ?  this.props.currentCheck.checkStatus : null;
+      this.currentCheck = this.props.currentCheck;
+      if (checkStatus === "FLAGGED") {
+        this.setState({ tabKey: 2 });
+      } else {
+        this.setState({ tabKey: 1 });
+      }
     }
-    if(checkStatus === "FLAGGED"){
-      this.setState({tabKey: 2});
-    }else {
-      this.setState({tabKey: 1});
-    }
-  }
 
-  addTargetLanguageToChecks() {
-    let groups = this.props.groups;
-    var targetLanguage = api.getDataFromCommon('targetLanguage');
-    for (var group in groups) {
-      for (var item in groups[group].checks) {
-        var co = groups[group].checks[item];
-        try {
-          var targetAtVerse = targetLanguage[co.chapter][co.verse];
-          groups[group].checks[item].targetLanguage = targetAtVerse;
-        } catch (err) {
-          //Happens with incomplete books.
+    componentWillReceiveProps(nextProps) {
+      if (!nextProps.currentCheck) return;
+      let checkStatus = nextProps.currentCheck.checkStatus;
+      nextProps.currentCheck.isCurrentItem = true;
+      if (JSON.stringify(this.currentCheck) === JSON.stringify(nextProps.currentCheck)) {
+        return;
+      } else {
+        this.currentCheck = nextProps.currentCheck;
+      }
+      if (checkStatus === "FLAGGED") {
+        this.setState({ tabKey: 2 });
+      } else {
+        this.setState({ tabKey: 1 });
+      }
+    }
+
+    addTargetLanguageToChecks(bibles) {
+      var targetLanguage = bibles.targetLanguage;
+      let groups = this.props.groups;
+      for (var group in groups) {
+        for (var item in groups[group].checks) {
+          var co = groups[group].checks[item];
+          try {
+            var targetAtVerse = targetLanguage[co.chapter][co.verse];
+            groups[group].checks[item].targetLanguage = targetAtVerse;
+          } catch (err) {
+            //Happens with incomplete books.
+          }
         }
       }
+      api.putDataInCheckStore(NAMESPACE, 'groups', groups);
     }
-    api.putDataInCheckStore(NAMESPACE, 'groups', groups);
-  }
 
-  saveProjectAndTimestamp(){
-    let { currentCheck, userdata, currentGroupIndex, currentCheckIndex} = this.props;
-    let currentUser;
-    if(userdata){
-      currentUser = userdata.username;
-    }else {
-      currentUser = "unknown";
-    }
-    let timestamp = new Date();
-    currentCheck.user = currentUser;
-    currentCheck.timestamp = timestamp;
-    var commitMessage = 'user: ' + currentUser + ', namespace: ' + NAMESPACE +
-      ', group: ' + currentGroupIndex + ', check: ' + currentCheckIndex;
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
-    api.saveProject(commitMessage);
-  }
-
-  /**
-   * @description - updates the status of the current check in the
-   * checkStoreReducer
-   * @param {object} newCheckStatus - the new check status for the check
-   */
-  updateCheckStatus(newCheckStatus) {
-    let { currentCheck, currentGroupIndex, currentCheckIndex } = this.props;
-    if (currentCheck.checkStatus) {
-      if(currentCheck.checkStatus === newCheckStatus){
-        currentCheck.checkStatus = "UNCHECKED";
-        newCheckStatus = "UNCHECKED";
-      }else {
-        currentCheck.checkStatus = newCheckStatus;
+    saveProjectAndTimestamp() {
+      let { currentCheck, userdata, currentGroupIndex, currentCheckIndex } = this.props;
+      let currentUser;
+      if (userdata) {
+        currentUser = userdata.username;
+      } else {
+        currentUser = "unknown";
       }
-      api.emitEvent('changedCheckStatus', {
-        groupIndex: currentGroupIndex,
-        checkIndex: currentCheckIndex,
-        checkStatus: newCheckStatus,
-      });
+      let timestamp = new Date();
+      currentCheck.user = currentUser;
+      currentCheck.timestamp = timestamp;
+      var commitMessage = 'user: ' + currentUser + ', namespace: ' + NAMESPACE +
+        ', group: ' + currentGroupIndex + ', check: ' + currentCheckIndex;
+      this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+      api.saveProject(commitMessage);
+    }
+
+    /**
+     * @description - updates the status of the current check in the
+     * checkStoreReducer
+     * @param {object} newCheckStatus - the new check status for the check
+     */
+    updateCheckStatus(newCheckStatus) {
+      let { currentCheck, currentGroupIndex, currentCheckIndex } = this.props;
+      if (currentCheck.checkStatus) {
+        if (currentCheck.checkStatus === newCheckStatus) {
+          currentCheck.checkStatus = "UNCHECKED";
+          newCheckStatus = "UNCHECKED";
+        } else {
+          currentCheck.checkStatus = newCheckStatus;
+        }
+        api.emitEvent('changedCheckStatus', {
+          groupIndex: currentGroupIndex,
+          checkIndex: currentCheckIndex,
+          checkStatus: newCheckStatus,
+        });
+        this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+        this.saveProjectAndTimestamp();
+      }
+      let message = 'Current check was marked as: ' + newCheckStatus;
+      this.props.showNotification(message, 4);
+      this.handleSelectTab(2);
+    }
+
+    updateSelectedWords(wordObj, remove) {
+      let currentCheck = this.props.currentCheck;
+      if (remove) {
+        this.removeFromSelectedWords(wordObj, currentCheck);
+      } else {
+        this.addSelectedWord(wordObj, currentCheck);
+      }
+    }
+
+    addSelectedWord(wordObj, currentCheck) {
+      let idFound = false;
+      if (currentCheck.selectedWordsRaw.length > 0) {
+        for (var i in currentCheck.selectedWordsRaw) {
+          if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
+            idFound = true;
+          }
+        }
+        if (!idFound) {
+          currentCheck.selectedWordsRaw.push(wordObj);
+          this.sortSelectedWords(currentCheck.selectedWordsRaw);
+        }
+      } else {
+        currentCheck.selectedWordsRaw.push(wordObj);
+      }
       this.props.updateCurrentCheck(NAMESPACE, currentCheck);
       this.saveProjectAndTimestamp();
     }
-    let message = 'Current check was marked as: ' + newCheckStatus;
-    this.props.showNotification(message, 4);
-    this.handleSelectTab(2);
-  }
 
-  updateSelectedWords(wordObj, remove) {
-    let currentCheck = this.props.currentCheck;
-    if(remove){
-      this.removeFromSelectedWords(wordObj, currentCheck);
-    }else{
-      this.addSelectedWord(wordObj, currentCheck);
-    }
-  }
-
-  addSelectedWord(wordObj, currentCheck){
-    let idFound = false;
-    if(currentCheck.selectedWordsRaw.length > 0){
-      for (var i in currentCheck.selectedWordsRaw) {
-        if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
-          idFound = true;
+    removeFromSelectedWords(wordObj, currentCheck) {
+      let index = -1;
+      if (currentCheck.selectedWordsRaw) {
+        for (var i in currentCheck.selectedWordsRaw) {
+          if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
+            index = i;
+          }
+        }
+        if (index != -1) {
+          currentCheck.selectedWordsRaw.splice(index, 1);
         }
       }
-      if (!idFound) {
-        currentCheck.selectedWordsRaw.push(wordObj);
-        this.sortSelectedWords(currentCheck.selectedWordsRaw);
-      }
-    }else{
-      currentCheck.selectedWordsRaw.push(wordObj);
+      this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+      this.saveProjectAndTimestamp();
     }
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
-    this.saveProjectAndTimestamp();
-  }
 
-  removeFromSelectedWords(wordObj, currentCheck) {
-    let index = -1;
-    if(currentCheck.selectedWordsRaw){
-      for (var i in currentCheck.selectedWordsRaw) {
-        if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
-          index = i;
-        }
-      }
-      if (index != -1) {
-        currentCheck.selectedWordsRaw.splice(index, 1);
-      }
-    }
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
-    this.saveProjectAndTimestamp();
-  }
-
-  sortSelectedWords(selectedWords) {
-    selectedWords.sort(function(first, next) {
-      return first.key - next.key;
-    });
-  }
-
-  getVerse(language) {
-    var currentCheck = this.props.currentCheck;
-    var currentVerseNumber = currentCheck.verse;
-    var verseEnd = currentCheck.verseEnd || currentVerseNumber;
-    var currentChapterNumber = currentCheck.chapter;
-    var desiredLanguage = api.getDataFromCommon(language);
-    try {
-      if (desiredLanguage) {
-        let verse = "";
-        for (let v = currentVerseNumber; v <= verseEnd; v++) {
-          verse += (desiredLanguage[currentChapterNumber][v] + " \n ");
-        }
-        return verse;
-      }
-    }
-    catch (e) {
-    }
-  }
-
-  goToPrevious() {
-    this.props.handleGoToPrevious(NAMESPACE);
-  }
-
-  goToNext() {
-    this.props.handleGoToNext(NAMESPACE);
-  }
-
-  handleSelectTab(tabKey){
-     this.setState({tabKey});
-  }
-
-  onCurrentCheckChange(newCurrentCheck, proposedChangesField){
-    let currentCheck = this.props.currentCheck;
-    currentCheck.proposedChanges = newCurrentCheck.proposedChanges;
-    currentCheck.comment = newCurrentCheck.comment;
-    if(proposedChangesField){
-      currentCheck[proposedChangesField] = newCurrentCheck[proposedChangesField];
-    }
-    this.currentCheck = currentCheck;
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
-    this.saveProjectAndTimestamp();
-  }
-
-  toggleHelps(){
-    this.setState({showHelps: !this.state.showHelps});
-  }
-
-  render(){
-    let dragToSelect = false;
-    if(this.props.currentSettings.textSelect === 'drag'){
-      dragToSelect = true;
-    }
-    let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
-    let gatewayVerse = '';
-    let targetVerse = '';
-    if(this.props.currentCheck){
-      gatewayVerse = this.getVerse('gatewayLanguage');
-      targetVerse = this.getVerse('targetLanguage');
-    }
-    var currentWord = this.props.groups[this.props.currentGroupIndex].group;
-    var wordObject;
-    let currentFile = '';
-    var wordList = api.getDataFromCheckStore('TranslationHelps', 'wordList');
-    if (wordList && currentWord) {
-      wordObject = search(wordList, function(item) {
-          return stringCompare(currentWord,item.name);
+    sortSelectedWords(selectedWords) {
+      selectedWords.sort(function (first, next) {
+        return first.key - next.key;
       });
     }
-    try{
-      currentFile = wordObject.file;
-    }catch(e){
+
+    getVerse(language) {
+      var currentCheck = this.props.currentCheck;
+      var currentVerseNumber = currentCheck.verse;
+      var verseEnd = currentCheck.verseEnd || currentVerseNumber;
+      var currentChapterNumber = currentCheck.chapter;
+      debugger;
+      var desiredLanguage = this.props.bibles[desiredLanguage];
+      try {
+        if (desiredLanguage) {
+          let verse = "";
+          for (let v = currentVerseNumber; v <= verseEnd; v++) {
+            verse += (desiredLanguage[currentChapterNumber][v] + " \n ");
+          }
+          return verse;
+        }
+      }
+      catch (e) {
+      }
     }
-    return (
-      <View
-        {...this.props}
-        currentCheck={this.props.currentCheck}
-        updateCurrentCheck={(newCurrentCheck, proposedChangesField) => {
-          this.onCurrentCheckChange(newCurrentCheck, proposedChangesField)
-        }}
-        bookName={this.props.book}
-        currentFile={currentFile}
-        gatewayVerse={gatewayVerse}
-        targetVerse={targetVerse}
-        dragToSelect={dragToSelect}
-        direction={direction}
-        tabKey={this.state.tabKey}
-        updateSelectedWords={this.updateSelectedWords.bind(this)}
-        updateCheckStatus={this.updateCheckStatus.bind(this)}
-        handleSelectTab={this.handleSelectTab.bind(this)}
-        goToPrevious={this.goToPrevious.bind(this)}
-        goToNext={this.goToNext.bind(this)}
-        showHelps={this.state.showHelps}
-        toggleHelps={this.toggleHelps.bind(this)}
-      />
-    );
+
+    goToPrevious() {
+      this.props.handleGoToPrevious(NAMESPACE);
+    }
+
+    goToNext() {
+      this.props.handleGoToNext(NAMESPACE);
+    }
+
+    handleSelectTab(tabKey) {
+      this.setState({ tabKey });
+    }
+
+    onCurrentCheckChange(newCurrentCheck, proposedChangesField) {
+      let currentCheck = this.props.currentCheck;
+      currentCheck.proposedChanges = newCurrentCheck.proposedChanges;
+      currentCheck.comment = newCurrentCheck.comment;
+      if (proposedChangesField) {
+        currentCheck[proposedChangesField] = newCurrentCheck[proposedChangesField];
+      }
+      this.currentCheck = currentCheck;
+      this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+      this.saveProjectAndTimestamp();
+    }
+
+    toggleHelps() {
+      this.setState({ showHelps: !this.state.showHelps });
+    }
+
+    render() {
+      console.log(this.props);
+      if (!this.props.groups) return <div></div>;
+      let dragToSelect = false;
+      if (this.props.currentSettings.textSelect === 'drag') {
+        dragToSelect = true;
+      }
+      let direction = this.props.params.direction == 'ltr' ? 'ltr' : 'rtl';
+      let gatewayVerse = '';
+      let targetVerse = '';
+      if (this.props.currentCheck) {
+        gatewayVerse = this.getVerse('gatewayLanguage');
+        targetVerse = this.getVerse('targetLanguage');
+      }
+      var currentWord = this.props.groups[this.props.currentGroupIndex].group;
+      var wordObject;
+      let currentFile = '';
+      var wordList = this.props.translationWords ? this.props.translationWords.wordList : null;
+      if (wordList && currentWord) {
+        wordObject = search(wordList, function (item) {
+          return stringCompare(currentWord, item.name);
+        });
+      }
+      try {
+        currentFile = wordObject.file;
+      } catch (e) {
+      }
+      return (
+        <View
+          {...this.props}
+          currentCheck={this.props.currentCheck}
+          updateCurrentCheck={(newCurrentCheck, proposedChangesField) => {
+            this.onCurrentCheckChange(newCurrentCheck, proposedChangesField)
+          }}
+          bookName={this.props.book}
+          currentFile={currentFile}
+          gatewayVerse={gatewayVerse}
+          targetVerse={targetVerse}
+          dragToSelect={dragToSelect}
+          direction={direction}
+          tabKey={this.state.tabKey}
+          updateSelectedWords={this.updateSelectedWords.bind(this)}
+          updateCheckStatus={this.updateCheckStatus.bind(this)}
+          handleSelectTab={this.handleSelectTab.bind(this)}
+          goToPrevious={this.goToPrevious.bind(this)}
+          goToNext={this.goToNext.bind(this)}
+          showHelps={this.state.showHelps}
+          toggleHelps={this.toggleHelps.bind(this)}
+        />
+      );
+    }
   }
-}
 
 
 
@@ -268,7 +284,7 @@ class Container extends React.Component {
     else if (first > second) {
       return 1;
     }
-  else {
+    else {
       return 0;
     }
   }
@@ -297,7 +313,7 @@ class Container extends React.Component {
     else if (result > 0) {
       return search(list, boolFunction, mid + 1, last);
     }
-  else {
+    else {
       return list[mid];
     }
   }
