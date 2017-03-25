@@ -2,7 +2,7 @@
 const api = window.ModuleApi;
 import React from 'react'
 import View from './View.js'
-import FetchData from './FetchData';
+import TranslationWordsFetchData from './FetchData';
 import ScripturePaneFetchData from '../ScripturePane/FetchData';
 import VerseCheckFetchData from '../VerseCheck/FetchData';
 import TranslationHelpsFetchData from '../TranslationHelps/FetchData';
@@ -19,7 +19,6 @@ const NAMESPACE = "ImportantWords",
       super();
       this.state = {
         currentFile: null,
-        tabKey: 1,
         showHelps: true
       }
       this.saveProjectAndTimestamp = this.saveProjectAndTimestamp.bind(this);
@@ -31,48 +30,7 @@ const NAMESPACE = "ImportantWords",
       ScripturePaneFetchData(addNewBible, addNewResource, this.props, progress);
       TranslationHelpsFetchData(progress);
       VerseCheckFetchData(progress);
-      FetchData(addNewBible, addNewResource, this.props, progress);
-      this.addTargetLanguageToChecks(this.props.bibles);
-      let checkStatus = this.props.currentCheck ?  this.props.currentCheck.checkStatus : null;
-      this.currentCheck = this.props.currentCheck;
-      if (checkStatus === "FLAGGED") {
-        this.setState({ tabKey: 2 });
-      } else {
-        this.setState({ tabKey: 1 });
-      }
-    }
-
-    componentWillReceiveProps(nextProps) {
-      if (!nextProps.currentCheck) return;
-      let checkStatus = nextProps.currentCheck.checkStatus;
-      nextProps.currentCheck.isCurrentItem = true;
-      if (JSON.stringify(this.currentCheck) === JSON.stringify(nextProps.currentCheck)) {
-        return;
-      } else {
-        this.currentCheck = nextProps.currentCheck;
-      }
-      if (checkStatus === "FLAGGED") {
-        this.setState({ tabKey: 2 });
-      } else {
-        this.setState({ tabKey: 1 });
-      }
-    }
-
-    addTargetLanguageToChecks(bibles) {
-      var targetLanguage = bibles.targetLanguage;
-      let groups = this.props.groups;
-      for (var group in groups) {
-        for (var item in groups[group].checks) {
-          var co = groups[group].checks[item];
-          try {
-            var targetAtVerse = targetLanguage[co.chapter][co.verse];
-            groups[group].checks[item].targetLanguage = targetAtVerse;
-          } catch (err) {
-            //Happens with incomplete books.
-          }
-        }
-      }
-      api.putDataInCheckStore(NAMESPACE, 'groups', groups);
+      TranslationWordsFetchData(addNewBible, addNewResource, this.props, progress, ()=>this.forceUpdate());
     }
 
     saveProjectAndTimestamp() {
@@ -89,7 +47,6 @@ const NAMESPACE = "ImportantWords",
       var commitMessage = 'user: ' + currentUser + ', namespace: ' + NAMESPACE +
         ', group: ' + currentGroupIndex + ', check: ' + currentCheckIndex;
       this.props.updateCurrentCheck(NAMESPACE, currentCheck);
-      api.saveProject(commitMessage);
     }
 
     /**
@@ -106,11 +63,6 @@ const NAMESPACE = "ImportantWords",
         } else {
           currentCheck.checkStatus = newCheckStatus;
         }
-        api.emitEvent('changedCheckStatus', {
-          groupIndex: currentGroupIndex,
-          checkIndex: currentCheckIndex,
-          checkStatus: newCheckStatus,
-        });
         this.props.updateCurrentCheck(NAMESPACE, currentCheck);
         this.saveProjectAndTimestamp();
       }
@@ -174,8 +126,7 @@ const NAMESPACE = "ImportantWords",
       var currentVerseNumber = currentCheck.verse;
       var verseEnd = currentCheck.verseEnd || currentVerseNumber;
       var currentChapterNumber = currentCheck.chapter;
-      debugger;
-      var desiredLanguage = this.props.bibles[desiredLanguage];
+      var desiredLanguage = this.props.bibles[language];
       try {
         if (desiredLanguage) {
           let verse = "";
@@ -234,7 +185,7 @@ const NAMESPACE = "ImportantWords",
       var currentWord = this.props.groups[this.props.currentGroupIndex].group;
       var wordObject;
       let currentFile = '';
-      var wordList = this.props.translationWords ? this.props.translationWords.wordList : null;
+      var wordList = this.props.translationWords || null;
       if (wordList && currentWord) {
         wordObject = search(wordList, function (item) {
           return stringCompare(currentWord, item.name);

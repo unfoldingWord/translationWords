@@ -12,6 +12,7 @@ class View extends React.Component {
   render(){
     //Modules not defined within translationWords
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.modules;
+    debugger;
     return (
       <MuiThemeProvider>
         <Row className="show-grid" style={{margin: '0px', bottom: "0px",  height: "100%"}}>
