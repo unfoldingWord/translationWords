@@ -129,6 +129,7 @@ const NAMESPACE = "ImportantWords",
       var desiredLanguage = this.props.bibles[language];
       try {
         if (desiredLanguage) {
+          debugger;
           let verse = "";
           for (let v = currentVerseNumber; v <= verseEnd; v++) {
             verse += (desiredLanguage[currentChapterNumber][v] + " \n ");
