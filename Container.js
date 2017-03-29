@@ -5,6 +5,10 @@ const api = window.ModuleApi;
 // String constants
 const NAMESPACE = "ImportantWords";
 
+const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
+const tWFetcher = new TranslationWordsFetcher();
+const wordList = tWFetcher.getWordList();
+
 class Container extends React.Component {
   constructor() {
     super();
@@ -17,42 +21,6 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    this.addTargetLanguageToChecks();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    let checkStatus = nextProps.currentCheck.checkStatus;
-    nextProps.currentCheck.isCurrentItem = true;
-    if (JSON.stringify(this.currentCheck) === JSON.stringify(nextProps.currentCheck)) {
-      return;
-    } else {
-      this.currentCheck = nextProps.currentCheck;
-    }
-    if (checkStatus === "FLAGGED") {
-      this.setState({tabKey: 2});
-    } else {
-      this.setState({tabKey: 1});
-    }
-  }
-
-  addTargetLanguageToChecks() {
-    let {
-      checkStoreReducer
-    } = this.props;
-    let groups = checkStoreReducer.groups;
-    var targetLanguage = api.getDataFromCommon('targetLanguage');
-    for (var group in groups) {
-      for (var item in groups[group].checks) {
-        var co = groups[group].checks[item];
-        try {
-          var targetAtVerse = targetLanguage[co.chapter][co.verse];
-          groups[group].checks[item].targetLanguage = targetAtVerse;
-        } catch (err) {
-          // Happens with incomplete books.
-        }
-      }
-    }
-    api.putDataInCheckStore(NAMESPACE, 'groups', groups);
   }
 
   saveProjectAndTimestamp() {
@@ -72,31 +40,6 @@ class Container extends React.Component {
     currentCheck.user = currentUser;
     currentCheck.timestamp = timestamp;
     actions.updateCurrentCheck(NAMESPACE, currentCheck);
-  }
-
-  /**
-   * @description - updates the status of the current check in the
-   * checkStoreReducer
-   * @param {object} newCheckStatus - the new check status for the check
-   */
-  updateCheckStatus(newCheckStatus) {
-    let {
-      checkStoreReducer,
-      actions
-    } = this.props;
-    let {currentCheck} = checkStoreReducer;
-    if (currentCheck.checkStatus) {
-      if (currentCheck.checkStatus === newCheckStatus) {
-        currentCheck.checkStatus = "UNCHECKED";
-        newCheckStatus = "UNCHECKED";
-      } else {
-        currentCheck.checkStatus = newCheckStatus;
-      }
-      actions.updateCurrentCheck(NAMESPACE, currentCheck);
-      this.saveProjectAndTimestamp();
-    }
-    let message = 'Current check was marked as: ' + newCheckStatus;
-    actions.showNotification(message, 4);
   }
 
   updateSelectedWords(wordObj, remove) {
@@ -210,36 +153,31 @@ class Container extends React.Component {
   }
 
   toggleHelps() {
-    this.setState({showHelps: !this.state.showHelps});
+    this.setState({showHelps: !this.state.showHelps})
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props)
     let {
       checkStoreReducer,
-      settingsReducer
-    } = this.props;
-    let dragToSelect = false;
-    if (settingsReducer.currentSettings.textSelect === 'drag') {
-      dragToSelect = true;
-    }
-    // let direction = api.getDataFromCommon('params').direction ?  === 'ltr' ? 'ltr' : 'rtl';
-    let direction = 'ltr';
-    let gatewayVerse = '';
-    let targetVerse = '';
-    if (checkStoreReducer.currentCheck) {
-      gatewayVerse = this.getVerse('gatewayLanguage');
-      targetVerse = this.getVerse('targetLanguage');
-    }
-    var currentWord = checkStoreReducer.groups[checkStoreReducer.currentGroupIndex].group;
-    var wordObject;
-    let currentFile = '';
-    var wordList = api.getDataFromCheckStore('TranslationHelps', 'wordList');
-    if (wordList && currentWord) {
-      wordObject = search(wordList, function(item) {
-        return stringCompare(currentWord, item.name);
-      });
-    }
+      settingsReducer,
+      resourcesReducer,
+      contextIdReducer
+    } = this.props
+    let reference = contextIdReducer.contextId.reference
+    let bibles = resourcesReducer.bibles
+    let gatewayVerse = ''
+    let targetVerse = bibles.targetLanguage[reference.chapter][reference.verse]
+
+    let currentWord = this.props.contextIdReducer.contextId.quote
+    var wordObject
+    let currentFile = ''
+    console.log(currentWord, wordList)
+    // if (wordList && currentWord) {
+    //   wordObject = search(wordList, function(item) {
+    //     return stringCompare(currentWord, item.name);
+    //   })
+    // }
     try {
       currentFile = wordObject.file;
     } catch (e) {
@@ -247,18 +185,9 @@ class Container extends React.Component {
     return (
       <View
         {...this.props}
-        updateCurrentCheck={(newCurrentCheck, proposedChangesField) => {
-          this.onCurrentCheckChange(newCurrentCheck, proposedChangesField);
-        }}
         currentFile={currentFile}
         gatewayVerse={gatewayVerse}
         targetVerse={targetVerse}
-        dragToSelect={dragToSelect}
-        direction={direction}
-        tabKey={this.state.tabKey}
-        updateSelectedWords={this.updateSelectedWords.bind(this)}
-        updateCheckStatus={this.updateCheckStatus.bind(this)}
-        handleSelectTab={this.handleSelectTab.bind(this)}
         goToPrevious={this.goToPrevious.bind(this)}
         goToNext={this.goToNext.bind(this)}
         showHelps={this.state.showHelps}
