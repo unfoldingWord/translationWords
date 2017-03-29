@@ -10,7 +10,7 @@ const api = window.ModuleApi;
 //node modules
 const XRegExp = require('xregexp');
 const natural = require('natural');
-const tokenizer = new natural.RegexpTokenizer({pattern: new XRegExp('\\PL')});
+const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
 
 // User imports
@@ -33,19 +33,21 @@ const BookWordTest = require('./translation_words/WordTesterScript.js');
 * the resources reducer.
 *        @example take in two arguments resource name and resource data
 */
-function getData(params, progressCallback, callback, addNewBible, addNewResource) {
+function getData(addNewBible, addNewResource, props, progressCallback, done) {
+  const params = props.params;
+  const bibles = props.bibles;
   // Get Bible
   var bookData;
   var Door43Fetcher = new Door43DataFetcher();
 
-  function parseDataFromBook(bookData) {
+  function parseDataFromBook(bookData, gatewayLanguage) {
     var tWFetcher = new TranslationWordsFetcher();
     var wordList = tWFetcher.getWordList();
     tWFetcher.getAliases(function (done, total) {
       progressCallback(done / total * 50 + 50);
     }, function (error) {
       if (error) {
-        callback(error);
+        console.log(error)
       } else {
         var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
         var mappedBook = mapVerses(bookData);
@@ -56,27 +58,27 @@ function getData(params, progressCallback, callback, addNewBible, addNewResource
           return stringCompare(first.group, second.group);
         });
         var groups = checkObject['ImportantWords'];
-        var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
-          for (var group in groups) {
-            for (var item in groups[group].checks) {
-              var co = groups[group].checks[item];
-              var gatewayAtVerse = gatewayLanguage[co.chapter][co.verse].replace(/\n.*/, '');
-              groups[group].checks[item].gatewayLanguage = gatewayAtVerse;
-            }
+        for (var group in groups) {
+          for (var item in groups[group].checks) {
+            var co = groups[group].checks[item];
+            var gatewayAtVerse = gatewayLanguage[co.chapter][co.verse].replace(/\n.*/, '');
+            groups[group].checks[item].gatewayLanguage = gatewayAtVerse;
           }
-        api.putDataInCheckStore('ImportantWords', 'book', api.convertToFullBookName(params.bookAbbr));
-        api.putDataInCheckStore('ImportantWords', 'groups', groups);
-        api.putDataInCheckStore('ImportantWords', 'currentCheckIndex', 0);
-        api.putDataInCheckStore('ImportantWords', 'currentGroupIndex', 0);
+        }
+        addNewResource('currentCheckIndex', 0);
+        addNewResource('currentGroupIndex', 0);
+        addNewResource('book', api.convertToFullBookName(params.bookAbbr));
+        addNewResource('groups', groups);
         //this is used to replace api.putDataInCheckStore for TranslationHelps
         addNewResource('translationWords', wordList);
-        api.putDataInCheckStore('TranslationHelps', 'wordList', wordList);
+
         //TODO: This shouldn't be put in the check store because we don't want this saved to disk
-        callback(null);
+        progressCallback(100);
+        done();
       }
     });
   }
-  var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
+  var gatewayLanguage = bibles.gatewayLanguage;
   var bookData;
   /*
    * we found the gatewayLanguage already loaded, now we must convert it
@@ -104,7 +106,7 @@ function getData(params, progressCallback, callback, addNewBible, addNewResource
     reformattedBookData.chapters.sort(function (first, second) {
       return first.num - second.num;
     });
-    parseDataFromBook(reformattedBookData);
+    parseDataFromBook(reformattedBookData, gatewayLanguage);
   }
   // We need to load the data, and then reformat it for the store and store it
   else {
@@ -122,10 +124,10 @@ function getData(params, progressCallback, callback, addNewBible, addNewResource
     newBookData.title = api.convertToFullBookName(params.bookAbbr);
     //this is used to replace the api.putDataInCommon below
     addNewBible('ULB', newBookData);
+    addNewBible('gatewayLanguage', newBookData);
     //load it into checkstore
-    api.putDataInCommon('gatewayLanguage', newBookData);
     //resume fetchData
-    parseDataFromBook(bookData);
+    parseDataFromBook(bookData, newBookData);
   }
 }
 
@@ -157,7 +159,7 @@ function getULBFromDoor43Static(bookAbr) {
   }
   return ULB;
 }
-  //End fetch
+//End fetch
 
 /**
  * @description - This creates an object from a string, in this case it'll always be a verse.
@@ -206,7 +208,7 @@ function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObje
     var match = verseObject.text.match(regex);
     while (match) {
       if (!checkIfWordsAreMarked(match, mappedVerseObject)) {
-        if(match[0] === previousWord){
+        if (match[0] === previousWord) {
           occurenceNumber++
         }
         previousWord = match[0];
