@@ -1,33 +1,23 @@
-//Api Consts
+import React from 'react';
+import View from './View.js';
+// Api Consts
 const api = window.ModuleApi;
-import React from 'react'
-import View from './View.js'
-//String constants
-const NAMESPACE = "ImportantWords",
-      UNABLE_TO_FIND_ITEM_IN_STORE = "Unable to find key in namespace",
-      UNABLE_TO_FIND_WORD = "Unable to find wordobject";
+// String constants
+const NAMESPACE = "ImportantWords";
 
 class Container extends React.Component {
   constructor() {
     super();
     this.state = {
       currentFile: null,
-      tabKey: 1,
       showHelps: true
-    }
+    };
     this.saveProjectAndTimestamp = this.saveProjectAndTimestamp.bind(this);
     this.onCurrentCheckChange = this.onCurrentCheckChange.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.addTargetLanguageToChecks();
-    let checkStatus = this.props.currentCheck.checkStatus;
-    this.currentCheck = this.props.currentCheck;
-    if(checkStatus === "FLAGGED"){
-      this.setState({tabKey: 2});
-    }else {
-      this.setState({tabKey: 1});
-    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,15 +28,18 @@ class Container extends React.Component {
     } else {
       this.currentCheck = nextProps.currentCheck;
     }
-    if(checkStatus === "FLAGGED"){
+    if (checkStatus === "FLAGGED") {
       this.setState({tabKey: 2});
-    }else {
+    } else {
       this.setState({tabKey: 1});
     }
   }
 
   addTargetLanguageToChecks() {
-    let groups = this.props.groups;
+    let {
+      checkStoreReducer
+    } = this.props;
+    let groups = checkStoreReducer.groups;
     var targetLanguage = api.getDataFromCommon('targetLanguage');
     for (var group in groups) {
       for (var item in groups[group].checks) {
@@ -55,28 +48,30 @@ class Container extends React.Component {
           var targetAtVerse = targetLanguage[co.chapter][co.verse];
           groups[group].checks[item].targetLanguage = targetAtVerse;
         } catch (err) {
-          //Happens with incomplete books.
+          // Happens with incomplete books.
         }
       }
     }
     api.putDataInCheckStore(NAMESPACE, 'groups', groups);
   }
 
-  saveProjectAndTimestamp(){
-    let { currentCheck, userdata, currentGroupIndex, currentCheckIndex} = this.props;
+  saveProjectAndTimestamp() {
+    let {
+      checkStoreReducer,
+      loginReducer,
+      actions
+    } = this.props;
+    let {currentCheck} = checkStoreReducer;
     let currentUser;
-    if(userdata){
-      currentUser = userdata.username;
-    }else {
+    if (loginReducer.userdata) {
+      currentUser = loginReducer.userdata.username;
+    } else {
       currentUser = "unknown";
     }
     let timestamp = new Date();
     currentCheck.user = currentUser;
     currentCheck.timestamp = timestamp;
-    var commitMessage = 'user: ' + currentUser + ', namespace: ' + NAMESPACE +
-      ', group: ' + currentGroupIndex + ', check: ' + currentCheckIndex;
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
-    api.saveProject(commitMessage);
+    actions.updateCurrentCheck(NAMESPACE, currentCheck);
   }
 
   /**
@@ -85,39 +80,43 @@ class Container extends React.Component {
    * @param {object} newCheckStatus - the new check status for the check
    */
   updateCheckStatus(newCheckStatus) {
-    let { currentCheck, currentGroupIndex, currentCheckIndex } = this.props;
+    let {
+      checkStoreReducer,
+      actions
+    } = this.props;
+    let {currentCheck} = checkStoreReducer;
     if (currentCheck.checkStatus) {
-      if(currentCheck.checkStatus === newCheckStatus){
+      if (currentCheck.checkStatus === newCheckStatus) {
         currentCheck.checkStatus = "UNCHECKED";
         newCheckStatus = "UNCHECKED";
-      }else {
+      } else {
         currentCheck.checkStatus = newCheckStatus;
       }
-      api.emitEvent('changedCheckStatus', {
-        groupIndex: currentGroupIndex,
-        checkIndex: currentCheckIndex,
-        checkStatus: newCheckStatus,
-      });
-      this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+      actions.updateCurrentCheck(NAMESPACE, currentCheck);
       this.saveProjectAndTimestamp();
     }
     let message = 'Current check was marked as: ' + newCheckStatus;
-    this.props.showNotification(message, 4);
-    this.handleSelectTab(2);
+    actions.showNotification(message, 4);
   }
 
   updateSelectedWords(wordObj, remove) {
-    let currentCheck = this.props.currentCheck;
-    if(remove){
+    let {
+      checkStoreReducer
+    } = this.props;
+    let {currentCheck} = checkStoreReducer;
+    if (remove) {
       this.removeFromSelectedWords(wordObj, currentCheck);
-    }else{
+    } else {
       this.addSelectedWord(wordObj, currentCheck);
     }
   }
 
-  addSelectedWord(wordObj, currentCheck){
+  addSelectedWord(wordObj, currentCheck) {
+    let {
+      actions
+    } = this.props;
     let idFound = false;
-    if(currentCheck.selectedWordsRaw.length > 0){
+    if (currentCheck.selectedWordsRaw.length > 0) {
       for (var i in currentCheck.selectedWordsRaw) {
         if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
           idFound = true;
@@ -127,16 +126,19 @@ class Container extends React.Component {
         currentCheck.selectedWordsRaw.push(wordObj);
         this.sortSelectedWords(currentCheck.selectedWordsRaw);
       }
-    }else{
+    } else {
       currentCheck.selectedWordsRaw.push(wordObj);
     }
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+    actions.updateCurrentCheck(NAMESPACE, currentCheck);
     this.saveProjectAndTimestamp();
   }
 
   removeFromSelectedWords(wordObj, currentCheck) {
+    let {
+      actions
+    } = this.props;
     let index = -1;
-    if(currentCheck.selectedWordsRaw){
+    if (currentCheck.selectedWordsRaw) {
       for (var i in currentCheck.selectedWordsRaw) {
         if (currentCheck.selectedWordsRaw[i].key == wordObj.key) {
           index = i;
@@ -146,7 +148,7 @@ class Container extends React.Component {
         currentCheck.selectedWordsRaw.splice(index, 1);
       }
     }
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+    actions.updateCurrentCheck(NAMESPACE, currentCheck);
     this.saveProjectAndTimestamp();
   }
 
@@ -157,7 +159,10 @@ class Container extends React.Component {
   }
 
   getVerse(language) {
-    var currentCheck = this.props.currentCheck;
+    let {
+      checkStoreReducer
+    } = this.props;
+    var currentCheck = checkStoreReducer.currentCheck;
     var currentVerseNumber = currentCheck.verse;
     var verseEnd = currentCheck.verseEnd || currentVerseNumber;
     var currentChapterNumber = currentCheck.chapter;
@@ -170,72 +175,81 @@ class Container extends React.Component {
         }
         return verse;
       }
-    }
-    catch (e) {
+    } catch (e) {
     }
   }
 
   goToPrevious() {
-    this.props.handleGoToPrevious(NAMESPACE);
+    let {actions} = this.props;
+    actions.handleGoToPrevious(NAMESPACE);
   }
 
   goToNext() {
-    this.props.handleGoToNext(NAMESPACE);
+    let {actions} = this.props;
+    actions.handleGoToNext(NAMESPACE);
   }
 
-  handleSelectTab(tabKey){
-     this.setState({tabKey});
+  handleSelectTab(tabKey) {
+    this.setState({tabKey});
   }
 
-  onCurrentCheckChange(newCurrentCheck, proposedChangesField){
-    let currentCheck = this.props.currentCheck;
+  onCurrentCheckChange(newCurrentCheck, proposedChangesField) {
+    let {
+      checkStoreReducer,
+      actions
+    } = this.props;
+    let currentCheck = checkStoreReducer.currentCheck;
     currentCheck.proposedChanges = newCurrentCheck.proposedChanges;
     currentCheck.comment = newCurrentCheck.comment;
-    if(proposedChangesField){
+    if (proposedChangesField) {
       currentCheck[proposedChangesField] = newCurrentCheck[proposedChangesField];
     }
     this.currentCheck = currentCheck;
-    this.props.updateCurrentCheck(NAMESPACE, currentCheck);
+    actions.updateCurrentCheck(NAMESPACE, currentCheck);
     this.saveProjectAndTimestamp();
   }
 
-  toggleHelps(){
+  toggleHelps() {
     this.setState({showHelps: !this.state.showHelps});
   }
 
-  render(){
+  render() {
+    console.log(this.props);
+    let {
+      checkStoreReducer,
+      settingsReducer
+    } = this.props;
     let dragToSelect = false;
-    if(this.props.currentSettings.textSelect === 'drag'){
+    if (settingsReducer.currentSettings.textSelect === 'drag') {
       dragToSelect = true;
     }
-    let direction = api.getDataFromCommon('params').direction == 'ltr' ? 'ltr' : 'rtl';
+    // let direction = api.getDataFromCommon('params').direction ?  === 'ltr' ? 'ltr' : 'rtl';
+    let direction = 'ltr';
     let gatewayVerse = '';
     let targetVerse = '';
-    if(this.props.currentCheck){
+    if (checkStoreReducer.currentCheck) {
       gatewayVerse = this.getVerse('gatewayLanguage');
       targetVerse = this.getVerse('targetLanguage');
     }
-    var currentWord = this.props.groups[this.props.currentGroupIndex].group;
+    var currentWord = checkStoreReducer.groups[checkStoreReducer.currentGroupIndex].group;
     var wordObject;
     let currentFile = '';
     var wordList = api.getDataFromCheckStore('TranslationHelps', 'wordList');
     if (wordList && currentWord) {
       wordObject = search(wordList, function(item) {
-          return stringCompare(currentWord,item.name);
+        return stringCompare(currentWord, item.name);
       });
     }
-    try{
+    try {
       currentFile = wordObject.file;
-    }catch(e){
+    } catch (e) {
     }
     return (
       <View
         {...this.props}
-        currentCheck={this.props.currentCheck}
         updateCurrentCheck={(newCurrentCheck, proposedChangesField) => {
-          this.onCurrentCheckChange(newCurrentCheck, proposedChangesField)
+          this.onCurrentCheckChange(newCurrentCheck, proposedChangesField);
         }}
-        bookName={this.props.book}
         currentFile={currentFile}
         gatewayVerse={gatewayVerse}
         targetVerse={targetVerse}
@@ -256,54 +270,50 @@ class Container extends React.Component {
 
 
 
-  /**
-  * Compares two string alphabetically
-  * @param {string} first - string to be compared against
-  * @param {string} second - string to be compared with
-  */
-  function stringCompare(first, second) {
-    if (first < second) {
-      return -1;
-    }
-    else if (first > second) {
-      return 1;
-    }
-  else {
-      return 0;
-    }
+/**
+* @description Compares two string alphabetically.
+* @param {string} first - string to be compared against.
+* @param {string} second - string to be compared with.
+*/
+function stringCompare(first, second) {
+  if (first < second) {
+    return -1;
+  } else if (first > second) {
+    return 1;
+  } else {
+    return 0;
   }
+}
 
-  /**
-  * @description - Binary search of the list. I couldn't find this in the native methods of an array so
-  * I wrote it
-  * @param {array} list - array of items to be searched
-  * @param {function} boolFunction - returns # < 0, # > 0. or 0 depending on which path the
-  * search should take
-  * @param {int} first - beginnging of the current partition of the list
-  * @param {int} second - end of the current partition of the list
-  */
-  function search(list, boolFunction, first = 0, last = -1) {
-    if (last == -1) {
-      last = list.length;
-    }
-    if (first > last) {
-      return;
-    }
-    var mid = Math.floor(((first - last) * 0.5)) + last;
-    var result = boolFunction(list[mid]);
-    if (result < 0) {
-      return search(list, boolFunction, first, mid - 1);
-    }
-    else if (result > 0) {
-      return search(list, boolFunction, mid + 1, last);
-    }
-  else {
-      return list[mid];
-    }
+/**
+* @description - Binary search of the list. I couldn't find this in the native methods of an array so
+* I wrote it
+* @param {array} list - array of items to be searched
+* @param {function} boolFunction - returns # < 0, # > 0. or 0 depending on which path the
+* search should take
+* @param {int} first - beginnging of the current partition of the list
+* @param {int} second - end of the current partition of the list
+*/
+function search(list, boolFunction, first = 0, last = -1) {
+  if (last == -1) {
+    last = list.length;
   }
+  if (first > last) {
+    return;
+  }
+  var mid = Math.floor(((first - last) * 0.5)) + last;
+  var result = boolFunction(list[mid]);
+  if (result < 0) {
+    return search(list, boolFunction, first, mid - 1);
+  } else if (result > 0) {
+    return search(list, boolFunction, mid + 1, last);
+  } else {
+    return list[mid];
+  }
+}
 
 
 module.exports = {
   name: NAMESPACE,
   container: Container
-}
+};
