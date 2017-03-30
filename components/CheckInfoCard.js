@@ -16,6 +16,7 @@ class CheckInfoCard extends React.Component {
      */
     cleanText(text) {
       let splitLine = text.split('\n');
+      if (splitLine.length == 1 && splitLine[0] == "") return ""
       let finalArray = []
       for (let i = 0; i < splitLine.length; i++) {
         if (splitLine[i] !== '' && !~splitLine[i].indexOf("#")) {
@@ -36,6 +37,7 @@ class CheckInfoCard extends React.Component {
       }
       return finalString;
     }
+
     render() {
       return (
         <div style={{margin: '10px'}}>
