@@ -11,7 +11,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 class View extends React.Component {
 
   render() {
-    console.log(this.props);
     // Modules not defined within translationWords
     const {
       ScripturePane,

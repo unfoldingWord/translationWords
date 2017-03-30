@@ -33,13 +33,14 @@ const BookWordTest = require('./translation_words/WordTesterScript.js');
 * the resources reducer.
 *        @example take in two arguments resource name and resource data
 */
-function getData(addNewBible, addNewResource, props, progressCallback, done) {
+function getData(addNewBible, addNewResource, props, progressCallback) {
+  
   const params = props.params;
   const bibles = props.bibles;
   // Get Bible
   var bookData;
   var Door43Fetcher = new Door43DataFetcher();
-
+  //THIS NEEDS TO BE REFACTORED
   function parseDataFromBook(bookData, gatewayLanguage) {
     var tWFetcher = new TranslationWordsFetcher();
     var wordList = tWFetcher.getWordList();
@@ -74,7 +75,6 @@ function getData(addNewBible, addNewResource, props, progressCallback, done) {
 
         //TODO: This shouldn't be put in the check store because we don't want this saved to disk
         progressCallback(100);
-        done();
       }
     });
   }

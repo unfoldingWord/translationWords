@@ -24,16 +24,16 @@ class Container extends React.Component {
 
   componentWillMount() {
     let { resourcesReducer, projectDetailsReducer, actions } = this.props;
-    let { progress, addNewBible, addNewResource } = actions;
+    let { progress, addNewBible, addNewResource, setModuleSettings } = actions;
     let props = {
       params: projectDetailsReducer.params,
       manifest: projectDetailsReducer.manifest,
       bibles: resourcesReducer.bibles
     };
-    ScripturePaneFetchData(addNewBible, addNewResource, props, progress);
+    ScripturePaneFetchData(addNewBible, addNewResource, props, progress, setModuleSettings);
     TranslationHelpsFetchData(progress);
     VerseCheckFetchData(progress);
-    TranslationWordsFetchData(addNewBible, addNewResource, props, progress, () => this.forceUpdate());
+    TranslationWordsFetchData(addNewBible, addNewResource, props, progress);
   }
 
   saveProjectAndTimestamp() {
@@ -166,41 +166,8 @@ class Container extends React.Component {
   }
 
   render() {
-    console.log(this.props)
-    let {
-      checkStoreReducer,
-      settingsReducer,
-      resourcesReducer,
-      contextIdReducer
-    } = this.props
-    let reference = contextIdReducer.contextId.reference
-    let bibles = resourcesReducer.bibles
-    let gatewayVerse = ''
-    let targetVerse = bibles.targetLanguage[reference.chapter][reference.verse]
-    let currentWord = this.props.contextIdReducer.contextId.quote
-    var wordObject
-    let currentFile = ''
-    console.log(currentWord, wordList)
-    // if (wordList && currentWord) {
-    //   wordObject = search(wordList, function(item) {
-    //     return stringCompare(currentWord, item.name);
-    //   })
-    // }
-    try {
-      currentFile = wordObject.file;
-    } catch (e) {
-    }
     return (
-      <View
-        {...this.props}
-        currentFile={currentFile}
-        gatewayVerse={gatewayVerse}
-        targetVerse={targetVerse}
-        goToPrevious={this.goToPrevious.bind(this)}
-        goToNext={this.goToNext.bind(this)}
-        showHelps={this.state.showHelps}
-        toggleHelps={this.toggleHelps.bind(this)}
-      />
+      <div></div>
     );
   }
 }
