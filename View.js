@@ -18,7 +18,9 @@ class View extends React.Component {
       TranslationHelps
     } = this.props.modules;
 
+    // set the scripturePane to empty to handle react/redux when it first renders without required data
     let scripturePane = <div></div>
+    // pupulate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.modulesSettingsReducer.ScripturePane !== undefined) {
       scripturePane = <ScripturePane {...this.props} currentCheck={this.props.checkStoreReducer.currentCheck} />
     }
