@@ -12,6 +12,7 @@ const XRegExp = require('xregexp');
 const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({pattern: new XRegExp('\\PL')});
 const fs = require('fs');
+const path = require('path-extra');
 
 // User imports
 const Door43DataFetcher = require('./js/Door43DataFetcher.js');
@@ -49,13 +50,17 @@ function getData(params, progressCallback, callback, addNewBible, addNewResource
       } else {
         var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
         var mappedBook = mapVerses(bookData);
-
-        // var checkObject = findWordsInBook(bookData, actualWordList);
-        var checkObject = findWords(bookData, mappedBook, actualWordList);
-        checkObject.ImportantWords.sort(function (first, second) {
-          return stringCompare(first.group, second.group);
-        });
-        var groups = checkObject['ImportantWords'];
+        var rules = fs.readdirSync(path.join(__dirname, 'rules'));
+        var groups;
+        if (rules.includes(api.convertToFullBookName(params.bookAbbr) + '.csv')) {
+          groups = getRules(params.bookAbbr);
+        } else {
+          var checkObject = findWords(bookData, mappedBook, actualWordList);
+          checkObject.ImportantWords.sort(function (first, second) {
+            return stringCompare(first.group, second.group);
+          });
+          groups = checkObject['ImportantWords'];
+        }
         var gatewayLanguage = api.getDataFromCommon('gatewayLanguage');
           for (var group in groups) {
             for (var item in groups[group].checks) {
@@ -129,6 +134,16 @@ function getData(params, progressCallback, callback, addNewBible, addNewResource
   }
 }
 
+/**
+ *
+ * @param {string} bookName - The name of the book whose rule is being used
+ * @returns The rule being used
+ *
+ */
+function getRules(bookName) {
+  var rules = fs.readFileSync(path.join(__dirname, 'rules', bookName + '.csv'));
+  return rules;
+}
 function getULBFromDoor43Static(bookAbr) {
   var ULB = {};
   ULB['chapters'] = [];
