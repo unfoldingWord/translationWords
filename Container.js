@@ -31,7 +31,7 @@ class Container extends React.Component {
       bibles: resourcesReducer.bibles
     };
     ScripturePaneFetchData(addNewBible, addNewResource, props, progress, setModuleSettings);
-    TranslationHelpsFetchData(progress);
+    // TranslationHelpsFetchData(progress);
     VerseCheckFetchData(progress);
     TranslationWordsFetchData(addNewBible, addNewResource, props, progress);
   }
@@ -166,56 +166,31 @@ class Container extends React.Component {
   }
 
   render() {
+    console.log("tW Container.js", this.props)
+    let currentFile = ""
+    if (this.props.resourcesReducer.translationWords !== undefined) {
+      let wordsObjectArray = this.props.resourcesReducer.translationWords.filter( (wordObject) => {
+        let word = this.props.contextIdReducer.contextId.quote
+        return wordObject.aliases.includes(word)
+      })
+      currentFile = wordsObjectArray[0].file
+    }
+
     return (
-      <div></div>
+      <View
+        {...this.props}
+        updateCurrentCheck={(newCurrentCheck, proposedChangesField) => {
+          this.onCurrentCheckChange(newCurrentCheck, proposedChangesField);
+        }}
+        currentFile={currentFile}
+        goToPrevious={this.goToPrevious.bind(this)}
+        goToNext={this.goToNext.bind(this)}
+        showHelps={this.state.showHelps}
+        toggleHelps={this.toggleHelps.bind(this)}
+      />
     );
   }
 }
-
-
-
-/**
-* @description Compares two string alphabetically.
-* @param {string} first - string to be compared against.
-* @param {string} second - string to be compared with.
-*/
-function stringCompare(first, second) {
-  if (first < second) {
-    return -1;
-  } else if (first > second) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
-/**
-* @description - Binary search of the list. I couldn't find this in the native methods of an array so
-* I wrote it
-* @param {array} list - array of items to be searched
-* @param {function} boolFunction - returns # < 0, # > 0. or 0 depending on which path the
-* search should take
-* @param {int} first - beginnging of the current partition of the list
-* @param {int} second - end of the current partition of the list
-*/
-function search(list, boolFunction, first = 0, last = -1) {
-  if (last == -1) {
-    last = list.length;
-  }
-  if (first > last) {
-    return;
-  }
-  var mid = Math.floor(((first - last) * 0.5)) + last;
-  var result = boolFunction(list[mid]);
-  if (result < 0) {
-    return search(list, boolFunction, first, mid - 1);
-  } else if (result > 0) {
-    return search(list, boolFunction, mid + 1, last);
-  } else {
-    return list[mid];
-  }
-}
-
 
 module.exports = {
   name: NAMESPACE,
