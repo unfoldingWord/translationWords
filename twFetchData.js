@@ -33,11 +33,11 @@ const BookWordTest = require('./translation_words/WordTesterScript.js');
 * the resources reducer.
 *        @example take in two arguments resource name and resource data
 */
-export default function fetchData(projectDetails, bibles, actions) {
+export default function fetchData(projectDetails, bibles, actions, progress) {
     return new Promise(function (resolve, reject) {
         const params = projectDetails.params;
         const tcManifest = params.manifest;
-        const { addNewBible, addNewResource, progress, setModuleSettings, addGroupData, addGroupIndex } = actions;
+        const { addNewBible, addNewResource, setModuleSettings, addGroupData, addGroupIndex } = actions;
         var bookData;
         var Door43Fetcher = new Door43DataFetcher();
         function parseDataFromBook(bookData, gatewayLanguage, addGroupData, addGroupIndex) {
@@ -53,6 +53,7 @@ export default function fetchData(projectDetails, bibles, actions) {
                     var mappedBook = mapVerses(bookData);
                     findWords(bookData, mappedBook, actualWordList, addGroupData, addGroupIndex, params);
                     addNewResource('book', api.convertToFullBookName(params.bookAbbr));
+                    progress(100);
                     resolve();
                 }
             });
