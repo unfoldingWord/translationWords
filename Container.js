@@ -164,12 +164,31 @@ class Container extends React.Component {
   }
 
   render() {
+    console.log("tW Container.js", this.props)
+    let currentFile = ""
+    if (this.props.resourcesReducer.translationWords !== undefined) {
+      let wordsObjectArray = this.props.resourcesReducer.translationWords.filter( (wordObject) => {
+        let word = this.props.contextIdReducer.contextId.quote
+        return wordObject.aliases.includes(word)
+      })
+      currentFile = wordsObjectArray[0].file
+    }
+
     return (
-      <div></div>
+      <View
+        {...this.props}
+        updateCurrentCheck={(newCurrentCheck, proposedChangesField) => {
+          this.onCurrentCheckChange(newCurrentCheck, proposedChangesField);
+        }}
+        currentFile={currentFile}
+        goToPrevious={this.goToPrevious.bind(this)}
+        goToNext={this.goToNext.bind(this)}
+        showHelps={this.state.showHelps}
+        toggleHelps={this.toggleHelps.bind(this)}
+      />
     );
   }
 }
-
 
 module.exports = {
   name: NAMESPACE,

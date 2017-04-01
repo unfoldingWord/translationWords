@@ -17,19 +17,25 @@ class View extends React.Component {
       VerseCheck,
       TranslationHelps
     } = this.props.modules;
+
+    // set the scripturePane to empty to handle react/redux when it first renders without required data
+    let scripturePane = <div></div>
+    // pupulate scripturePane so that when required data is preset that it renders as intended.
+    if (this.props.modulesSettingsReducer.ScripturePane !== undefined) {
+      scripturePane = <ScripturePane {...this.props} currentCheck={this.props.checkStoreReducer.currentCheck} />
+    }
+    let verseCheck = <div></div>
+
     return (
       <MuiThemeProvider>
         <Row className="show-grid" style={{margin: '0px', bottom: "0px", height: "100%"}}>
           <Col sm={12} md={6} lg={9} style={{height: "100%", padding: '0px'}}>
-            <ScripturePane {...this.props} currentCheck={this.props.checkStoreReducer.currentCheck} />
+            {scripturePane}
             <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.contextIdReducer.contextId.quote} file={this.props.currentFile}/>
             <VerseCheck
               {...this.props}
-              currentCheck={this.props.checkStoreReducer.currentCheck}
               goToNext={this.props.goToNext}
               goToPrevious={this.props.goToPrevious}
-              verse={this.props.targetVerse}
-              bookName={this.props.checkStoreReducer.book}
             />
           </Col>
           <Col sm={12} md={6} lg={3} style={{height: "100%", padding: "0px"}}>
