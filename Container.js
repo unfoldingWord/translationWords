@@ -4,7 +4,7 @@ import View from './View.js';
 // import ScripturePaneFetchData from '../ScripturePane/FetchData';
 // import VerseCheckFetchData from '../VerseCheck/FetchData';
 // import TranslationHelpsFetchData from '../TranslationHelps/FetchData';
-import FetchData from './FetchData'
+import FetchData from './FetchData/main'
 // Api Consts
 const api = window.ModuleApi;
 const NAMESPACE = "ImportantWords";

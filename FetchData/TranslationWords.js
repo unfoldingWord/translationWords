@@ -5,8 +5,6 @@
 * fetches the data and populates a list of checks
 */
 
-const api = window.ModuleApi;
-
 //node modules
 const XRegExp = require('xregexp');
 const natural = require('natural');
@@ -14,9 +12,9 @@ const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
 
 // User imports
-const Door43DataFetcher = require('./js/Door43DataFetcher.js');
-const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
-const BookWordTest = require('./translation_words/WordTesterScript.js');
+const Door43DataFetcher = require('../js/Door43DataFetcher.js');
+const TranslationWordsFetcher = require('../translation_words/TranslationWordsFetcher.js');
+const BookWordTest = require('../translation_words/WordTesterScript.js');
 
 /**
 * @description exported function that returns the JSON array of a list
@@ -52,14 +50,13 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                     var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
                     var mappedBook = mapVerses(bookData);
                     findWords(bookData, mappedBook, actualWordList, addGroupData, addGroupIndex, params);
-                    addNewResource('book', api.convertToFullBookName(params.bookAbbr));
+                    addNewResource('book', convertToFullBookName(params.bookAbbr));
                     progress(100);
                     resolve();
                 }
             });
         }
         var gatewayLanguage = bibles.gatewayLanguage;
-        var bookData;
         /*
          * we found the gatewayLanguage already loaded, now we must convert it
          * to the format needed by the parsers
@@ -101,12 +98,9 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                     newBookData[chapter.num][verse.num] = verse.text.replace(/\n.*/, '');
                 }
             }
-            newBookData.title = api.convertToFullBookName(params.bookAbbr);
-            //this is used to replace the api.putDataInCommon below
+            newBookData.title = convertToFullBookName(params.bookAbbr);
             addNewBible('ULB', newBookData);
             addNewBible('gatewayLanguage', newBookData);
-            //load it into checkstore
-            //resume fetchData
             parseDataFromBook(bookData, newBookData, addGroupData, addGroupIndex);
         }
     })
@@ -114,7 +108,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     function getULBFromDoor43Static(bookAbr) {
         var ULB = {};
         ULB['chapters'] = [];
-        const pathBase = __dirname + '/static/Door43/notes/';
+        const pathBase = __dirname + '/../static/Door43/notes/';
         var bookFolder = fs.readdirSync(pathBase + bookAbr);
         for (var chapter in bookFolder) {
             var currentChapter = [];
@@ -332,44 +326,12 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     }
 
     /**
-    * Compares two string alphabetically
-    * @param {string} first - string to be compared against
-    * @param {string} second - string to be compared with
-    */
-    function stringCompare(first, second) {
-        if (first < second) {
-            return -1;
-        } else if (first > second) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
-
-    /**
-    * Binary search of the list. I couldn't find this in the native methods of an array so
-    * I wrote it
-    * @param {array} list - array of items to be searched
-    * @param {function} boolFunction - returns # < 0, # > 0. or 0 depending on which path the
-    * search should take
-    * @param {int} first - beginnging of the current partition of the list
-    * @param {int} second - end of the current partition of the list
-    */
-    function search(list, boolFunction, first = 0, last = -1) {
-        if (last == -1) {
-            last = list.length;
-        }
-        if (first > last) {
-            return;
-        }
-        var mid = Math.floor((first - last) * 0.5) + last;
-        var result = boolFunction(list[mid]);
-        if (result < 0) {
-            return search(list, boolFunction, first, mid - 1);
-        } else if (result > 0) {
-            return search(list, boolFunction, mid + 1, last);
-        } else {
-            return list[mid];
-        }
+ * @description - Method to convert a book abbreviation to the full name
+ * 
+ * @param {string} bookAbbr 
+ */
+    function convertToFullBookName(bookAbbr) {
+        if (!bookAbbr) return;
+        return BooksOfBible[bookAbbr.toString().toLowerCase()];
     }
 }

@@ -1,5 +1,5 @@
-import scripturePaneData from '../ScripturePane/FetchData';
-import tWFetchData from './tWFetchData'
+import scripturePaneData from './ScripturePane';
+import tWFetchData from './TranslationWords'
 const TOTAL_FETCH_DATAS = 2;
 var FETCH_DATAS_FINISHED = 0;
 
