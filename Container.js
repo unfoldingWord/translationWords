@@ -1,9 +1,5 @@
 import React from 'react';
 import View from './View.js';
-// import TranslationWordsFetchData from './FetchData';
-// import ScripturePaneFetchData from '../ScripturePane/FetchData';
-// import VerseCheckFetchData from '../VerseCheck/FetchData';
-// import TranslationHelpsFetchData from '../TranslationHelps/FetchData';
 import FetchData from './FetchData/main'
 // Api Consts
 const api = window.ModuleApi;
@@ -24,13 +20,6 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    let { resourcesReducer, projectDetailsReducer, actions } = this.props;
-    let { progress, addNewBible, addNewResource, setModuleSettings, addGroupData, addGroupIndex } = actions;
-    let props = {
-      params: projectDetailsReducer.params,
-      manifest: projectDetailsReducer.manifest,
-      bibles: resourcesReducer.bibles
-    };
     FetchData(this.props);
   }
 
