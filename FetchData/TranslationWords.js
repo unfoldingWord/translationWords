@@ -301,8 +301,8 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
-        "group": word.name,
-        "groupName": groupName.trim(),
+        group: word.name,
+        groupName: groupName.trim()
       };
       indexList.push({
         id: wordReturnObject.group,
