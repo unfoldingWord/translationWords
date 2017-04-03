@@ -21,7 +21,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     return new Promise(function (resolve, reject) {
         const params = projectDetails.params;
         const tcManifest = params.manifest;
-        const { addNewBible, addNewResource, setModuleSettings, addGroupData, setGroupsIndex } = actions;
+        const { addNewBible, addNewResource, setModuleSettings, addGroupData, setGroupsIndex, setProjectDetail } = actions;
         var bookData;
         var Door43Fetcher = new Door43DataFetcher();
 
@@ -37,6 +37,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                     var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
                     var mappedBook = mapVerses(bookData);
                     findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
+                    setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
                     addNewResource('book', convertToFullBookName(params.bookAbbr));
                     progress(100);
                     resolve();
