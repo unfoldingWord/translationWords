@@ -24,5 +24,3 @@ export default function fetchAllData(props) {
     totalProgress(value / (TOTAL_FETCH_DATAS - FETCH_DATAS_FINISHED));
   }
 }
-
-//TODO data persistence
