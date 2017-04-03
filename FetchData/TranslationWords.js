@@ -35,10 +35,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     return new Promise(function (resolve, reject) {
         const params = projectDetails.params;
         const tcManifest = params.manifest;
-        const { addNewBible, addNewResource, setModuleSettings, addGroupData, addGroupIndex } = actions;
+        const { addNewBible, addNewResource, setModuleSettings,  addGroupsData, setGroupsIndex } = actions;
         var bookData;
         var Door43Fetcher = new Door43DataFetcher();
-        function parseDataFromBook(bookData, gatewayLanguage, addGroupData, addGroupIndex) {
+
+        function parseDataFromBook(bookData, gatewayLanguage,  addGroupsData, setGroupsIndex) {
             var tWFetcher = new TranslationWordsFetcher();
             var wordList = tWFetcher.getWordList();
             tWFetcher.getAliases(function (done, total) {
@@ -49,7 +50,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                 } else {
                     var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
                     var mappedBook = mapVerses(bookData);
-                    findWords(bookData, mappedBook, actualWordList, addGroupData, addGroupIndex, params);
+                    findWords(bookData, mappedBook, actualWordList,  addGroupsData, setGroupsIndex, params);
                     addNewResource('book', convertToFullBookName(params.bookAbbr));
                     progress(100);
                     resolve();
@@ -83,7 +84,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             reformattedBookData.chapters.sort(function (first, second) {
                 return first.num - second.num;
             });
-            parseDataFromBook(reformattedBookData, gatewayLanguage, addGroupData, addGroupIndex);
+            parseDataFromBook(reformattedBookData, gatewayLanguage,  addGroupsData, setGroupsIndex);
         }
         // We need to load the data, and then reformat it for the store and store it
         else {
@@ -101,7 +102,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             newBookData.title = convertToFullBookName(params.bookAbbr);
             addNewBible('ULB', newBookData);
             addNewBible('gatewayLanguage', newBookData);
-            parseDataFromBook(bookData, newBookData, addGroupData, addGroupIndex);
+            parseDataFromBook(bookData, newBookData,  addGroupsData, setGroupsIndex);
         }
     })
 
@@ -173,20 +174,20 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      * @param {object} wordObject - This is an object containing various fields about the word we're
      * currently searching for, primary key for this methods are the wordObject's regexes
      */
-    function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params) {
+    function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject,  addGroupsData, params) {
         var checkArray = [];
         var sortOrder = 0;
         let previousWord = '';
         let occurenceNumber = 1;
         for (var regex of wordObject.regex) {
-            var match = verseObject.text.match(regex);
-            while (match) {
-                if (!checkIfWordsAreMarked(match, mappedVerseObject)) {
-                    if (match[0] === previousWord) {
+            var groupName = verseObject.text.match(regex);
+            while (groupName) {
+                if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
+                    if (groupName[0] === previousWord) {
                         occurenceNumber++
                     }
-                    previousWord = match[0];
-                    addGroupData(match[0], {
+                    previousWord = groupName[0];
+                     addGroupsData(groupName[0], {
                         "priority": 1,
                         "information": wordObject.file,
                         "contextId": {
@@ -196,13 +197,13 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                                 "verse": verseObject.num
                             },
                             "tool": "ImportantWords",
-                            "group": match[0],
-                            "quote": match.input,
+                            "group": groupName[0],
+                            "quote": groupName.input,
                             "occurrence": occurenceNumber
                         }
                     })
                 }
-                match = stringMatch(verseObject.text, regex, match.index + incrementIndexByWord(match));
+                groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
             }
         }
     }
@@ -304,7 +305,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      * in the book data. This list should be a filtered list from the entire translationWords list as
      * this method has many inner loops
      */
-    function findWords(bookData, mapBook, wordList, addGroupData, addGroupIndex, params) {
+    function findWords(bookData, mapBook, wordList,  addGroupsData, setGroupsIndex, params) {
         var indexList = [];
         for (var word of wordList) {
             var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
@@ -318,11 +319,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             });
             for (var chapter of bookData.chapters) {
                 for (var verse of chapter.verses) {
-                    findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params);
+                    findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word,  addGroupsData, params);
                 }
             }
         }
-        addGroupIndex(indexList);
+        setGroupsIndex(indexList);
     }
 
     /**
