@@ -13,7 +13,6 @@ const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
 const path = require('path-extra');
-const getRules = require('./Rules.js');
 // User imports
 const Door43DataFetcher = require('./js/Door43DataFetcher.js');
 const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
@@ -53,17 +52,6 @@ function getData(addNewBible, addNewResource, props, progressCallback) {
       } else {
         var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
         var mappedBook = mapVerses(bookData);
-        var rules = fs.readdirSync(path.join(__dirname, 'rules'));
-        var groups;
-        if (rules.includes(api.convertToFullBookName(params.bookAbbr) + '.csv')) {
-          groups = getRules(api.convertToFullBookName(params.bookAbbr), wordList);
-        } else {
-          var checkObject = findWords(bookData, mappedBook, actualWordList);
-          checkObject.ImportantWords.sort(function (first, second) {
-            return stringCompare(first.group, second.group);
-          });
-        groups = checkObject['ImportantWords'];
-        }
         for (var group in groups) {
           for (var item in groups[group].checks) {
             var co = groups[group].checks[item];
