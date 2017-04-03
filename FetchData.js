@@ -13,7 +13,7 @@ const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
 const path = require('path-extra');
-
+const getRules = require('./Rules.js');
 // User imports
 const Door43DataFetcher = require('./js/Door43DataFetcher.js');
 const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
@@ -63,7 +63,6 @@ function getData(addNewBible, addNewResource, props, progressCallback) {
             return stringCompare(first.group, second.group);
           });
         groups = checkObject['ImportantWords'];
-        console.log(groups);
         }
         for (var group in groups) {
           for (var item in groups[group].checks) {
@@ -135,68 +134,6 @@ function getData(addNewBible, addNewResource, props, progressCallback) {
     //resume fetchData
     parseDataFromBook(bookData, newBookData);
   }
-}
-
-/**
- *
- * @param {string} bookName - The name of the book whose rule is being used
- * @returns The rule being used
- *
- */
-function getRules(bookName, wordList) {
-  var previousWord = '';
-  var occurenceNumber = 1;
-  var sortOrder = 0;
-  var rules = fs.readFileSync(path.join(__dirname, 'rules', bookName + '.csv'));
-  var lines = rules.split('\n');
-  var matrix = [];
-  var groups = {};
-  for (var i = 0; i < lines.length; i++) {
-    matrix[i] = lines[i].split(',');
-  }
-  for (var i = 0; i < matrix.length; i++) {
-    var currentItem = matrix[i];
-    if (!groups[matrix[i][5]]) {
-      groups[currentItem[5]] = [];
-    }
-    if (previousWord === currentItem[3]) {
-      occurenceNumber++;
-    } else {
-      occurenceNumber = 1;
-      sortOrder = 0;
-    }
-    previousWord = currentItem[3];
-    var match = currentItem[6].match(wordList[currentItem[4]].regex);
-    groups[currentItem[5]].push({
-        "chapter": currentItem[1],
-        "verse": currentItem[2],
-        "checkStatus": "UNCHECKED",
-        "spelling": false,
-        "wordChoice": false,
-        "punctuation": false,
-        "meaning": false,
-        "grammar": false,
-        "other": false,
-        "proposedChanges": "",
-        "comment": "",
-        "phrase": currentItem[3],
-        "wordOccurrence": occurenceNumber,
-        "wordIndex": match.index,
-        "selectedText": [],
-        "selectedWordsRaw": [],
-        "sortOrder": sortOrder++,
-        file: currentItem[4]
-      });
-  }
-  var groupArray = [];
-  for (var groupName in groups) {
-    groupArray.push({
-      checks: groups[groupName],
-      group: groups[groupName][0].file,
-      groupName: groupName
-    })
-  }
-  return matrix;
 }
 
 function getULBFromDoor43Static(bookAbr) {

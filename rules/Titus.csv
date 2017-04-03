@@ -1,287 +1,145 @@
-Book,chapter,verse,Qoute,tW Slug,Word,ULB
-Titus,1,1,God,God.txt,God,"Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,servant,servant.txt," servant, slave, slavery ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,knowledge,know.txt," know, knowledge, make known ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,chosen people,elect.txt," chosen one, choose, chosen people, Chosen One, the elect ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,truth,true.txt," true, truth, come true ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,Jesus Christ,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,faith,faith.txt, faith ,"Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,godliness,godly.txt," godly, godliness ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,1,apostle,apostle.txt," apostle, apostleship ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,
-"
-Titus,1,2,God,God.txt,God,"with the confidence of everlasting life that God, who does not lie, promised before all the ages of time.
-"
-Titus,1,2,life,life.txt," life, live, living, alive ","with the confidence of everlasting life that God, who does not lie, promised before all the ages of time.
-"
-Titus,1,2,confidence,confidence.txt," confidence, confident ","with the confidence of everlasting life that God, who does not lie, promised before all the ages of time.
-"
-Titus,1,2,everlasting,eternity.txt," everlasting, eternal, eternity ","with the confidence of everlasting life that God, who does not lie, promised before all the ages of time.
-"
+Titus,1,1,God,God.txt,God,"Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,servant,servant.txt," servant, slave, slavery ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,knowledge,know.txt," know, knowledge, make known ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,chosen people,elect.txt," chosen one, choose, chosen people, Chosen One, the elect ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,truth,true.txt," true, truth, come true ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,Jesus Christ,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,faith,faith.txt, faith ,"Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,godliness,godly.txt," godly, godliness ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,1,apostle,apostle.txt," apostle, apostleship ","Paul, a servant of God and an apostle of Jesus Christ, for the faith of God's chosen people and the knowledge of the truth that agrees with godliness,"
+Titus,1,2,God,God.txt,God,"with the confidence of everlasting life that God, who does not lie, promised before all the ages of time."
+Titus,1,2,life,life.txt," life, live, living, alive ","with the confidence of everlasting life that God, who does not lie, promised before all the ages of time."
+Titus,1,2,confidence,confidence.txt," confidence, confident ","with the confidence of everlasting life that God, who does not lie, promised before all the ages of time."
+Titus,1,2,everlasting,eternity.txt," everlasting, eternal, eternity ","with the confidence of everlasting life that God, who does not lie, promised before all the ages of time."
 Titus,1,3,trusted,trust.txt," trust, trustworthy, trustworthiness ","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior."
-Titus,1,3,God,God.txt,God,"At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior.
-"
-Titus,1,3,command,command.txt,"command, to command, commandment","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior.
-"
-Titus,1,3,word,wordofgod.txt,"word of God, word of Yahweh, word of the Lord, scripture","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior.
-"
-Titus,1,3,savior,savior.txt, Savior ,"At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior.
-"
-Titus,1,3,deliver,deliverer.txt," deliver, deliverer, deliverance ","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior.
-"
-Titus,1,4,God the Father,godthefather.txt," God the Father, heavenly Father, Father ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,true,true.txt," true, truth, come true ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,Christ Jesus,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,savior,savior.txt, Savior ,"To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,faith,faith.txt, faith ,"To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,Grace,grace.txt," grace, gracious ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,peace,peace.txt," peace, peaceful ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,4,Titus,titus.txt, Titus ,"To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior.
-"
-Titus,1,5,Crete,crete.txt," Crete, Cretan ","For this purpose I left you in Crete, that you might set in order things not yet complete and ordain elders in every city as I directed you.
-"
-Titus,1,6,faithful,faithful.txt," faithful, faithfulness ","An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined.
-"
-Titus,1,6,children,children.txt," children, child ","An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined.
-"
-Titus,1,6,elder,elder.txt, elder ,"An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined.
-"
-Titus,1,6,wicked,evil.txt," evil, wicked, wickedness ","An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined.
-"
-Titus,1,7,God,God.txt,God,"It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man.
-"
-Titus,1,7,household,household.txt, household ,"It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man.
-"
-Titus,1,7,manager,manager.txt," manager, steward ","It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man.
-"
-Titus,1,7,blameless,blameless.txt, blameless ,"It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man.
-"
-Titus,1,8,godly,godly.txt," godly, godliness ","Instead, he should be hospitable, a friend of what is good. He must be sensible, righteous, godly, and self-controlled.
-"
-Titus,1,8,good,good.txt," good, goodness ","Instead, he should be hospitable, a friend of what is good. He must be sensible, righteous, godly, and self-controlled.
-"
-Titus,1,8,righteous,righteous.txt," righteous, righteousness ","Instead, he should be hospitable, a friend of what is good. He must be sensible, righteous, godly, and self-controlled.
-"
-Titus,1,9,good,good.txt," good, goodness ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.
-"
-Titus,1,9,taught,teach.txt," teach, teaching, teacher, taught ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.
-"
-Titus,1,9,teaching,teach.txt," teach, teaching, teacher, taught ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.
-"
-Titus,1,9,trustworthy,trust.txt," trust, trustworthy, trustworthiness ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him.
-"
-Titus,1,10,circumcision,circumcise.txt," circumcise, circumcision ","For there are many rebellious people, especially those of the circumcision. Their words are worthless. They deceive and lead people in the wrong direction.
-"
-Titus,1,10,deceive,deceive.txt," deceive, deceit, deception, deceptive ","For there are many rebellious people, especially those of the circumcision. Their words are worthless. They deceive and lead people in the wrong direction.
-"
-Titus,1,10,worthless,worthy.txt," worthy, worth, unworthy, worthless ","For there are many rebellious people, especially those of the circumcision. Their words are worthless. They deceive and lead people in the wrong direction.
-"
-Titus,1,11,profit,profit.txt," profit, profitable ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families.
-"
-Titus,1,11,shameful,shame.txt," shame, shameful, ashamed ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families.
-"
-Titus,1,11,teach,teach.txt," teach, teaching, teacher, taught ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families.
-"
-Titus,1,11,teach,teach.txt," teach, teaching, teacher, taught ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families.
-"
+Titus,1,3,God,God.txt,God,"At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior."
+Titus,1,3,command,command.txt,"command, to command, commandment","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior."
+Titus,1,3,word,wordofgod.txt,"word of God, word of Yahweh, word of the Lord, scripture","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior."
+Titus,1,3,savior,savior.txt, Savior ,"At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior."
+Titus,1,3,deliver,deliverer.txt," deliver, deliverer, deliverance ","At the right time, he revealed his word by the message that he trusted me to deliver. I was to do this by the command of God our savior."
+Titus,1,4,God the Father,godthefather.txt," God the Father, heavenly Father, Father ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,true,true.txt," true, truth, come true ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,Christ Jesus,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,savior,savior.txt, Savior ,"To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,faith,faith.txt, faith ,"To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,Grace,grace.txt," grace, gracious ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,peace,peace.txt," peace, peaceful ","To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,4,Titus,titus.txt, Titus ,"To Titus, a true son in our common faith. Grace and peace from God the Father and Christ Jesus our savior."
+Titus,1,5,Crete,crete.txt," Crete, Cretan ","For this purpose I left you in Crete, that you might set in order things not yet complete and ordain elders in every city as I directed you."
+Titus,1,6,faithful,faithful.txt," faithful, faithfulness ","An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined."
+Titus,1,6,children,children.txt," children, child ","An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined."
+Titus,1,6,elder,elder.txt, elder ,"An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined."
+Titus,1,6,wicked,evil.txt," evil, wicked, wickedness ","An elder must be without blame, the husband of one wife, with faithful children not accused of being wicked or undisciplined."
+Titus,1,7,God,God.txt,God,"It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man."
+Titus,1,7,household,household.txt, household ,"It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man."
+Titus,1,7,manager,manager.txt," manager, steward ","It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man."
+Titus,1,7,blameless,blameless.txt, blameless ,"It is necessary for the overseer, as God's household manager, to be blameless. He must not be loud or unrestrained. He must not be easily angered, not addicted to wine, not a brawler, and not a greedy man."
+Titus,1,8,godly,godly.txt," godly, godliness ","Instead, he should be hospitable, a friend of what is good. He must be sensible, righteous, godly, and self-controlled."
+Titus,1,8,good,good.txt," good, goodness ","Instead, he should be hospitable, a friend of what is good. He must be sensible, righteous, godly, and self-controlled."
+Titus,1,8,righteous,righteous.txt," righteous, righteousness ","Instead, he should be hospitable, a friend of what is good. He must be sensible, righteous, godly, and self-controlled."
+Titus,1,9,good,good.txt," good, goodness ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him."
+Titus,1,9,taught,teach.txt," teach, teaching, teacher, taught ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him."
+Titus,1,9,teaching,teach.txt," teach, teaching, teacher, taught ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him."
+Titus,1,9,trustworthy,trust.txt," trust, trustworthy, trustworthiness ","He should hold tightly to the trustworthy message that was taught, so that he may be able to encourage others with good teaching and correct those who oppose him."
+Titus,1,10,circumcision,circumcise.txt," circumcise, circumcision ","For there are many rebellious people, especially those of the circumcision. Their words are worthless. They deceive and lead people in the wrong direction."
+Titus,1,10,deceive,deceive.txt," deceive, deceit, deception, deceptive ","For there are many rebellious people, especially those of the circumcision. Their words are worthless. They deceive and lead people in the wrong direction."
+Titus,1,10,worthless,worthy.txt," worthy, worth, unworthy, worthless ","For there are many rebellious people, especially those of the circumcision. Their words are worthless. They deceive and lead people in the wrong direction."
+Titus,1,11,profit,profit.txt," profit, profitable ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families."
+Titus,1,11,shameful,shame.txt," shame, shameful, ashamed ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families."
+Titus,1,11,teach,teach.txt," teach, teaching, teacher, taught ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families."
+Titus,1,11,teach,teach.txt," teach, teaching, teacher, taught ","It is necessary to stop them. They teach what they should not teach for shameful profit and break up whole families."
 Titus,1,12,Cretans,crete.txt," Crete, Cretan ","One of them, a wise man of theirs, said, “Cretans are unceasing liars, bad and dangerous animals, lazy bellies.”"
-Titus,1,12,wise,wise.txt," wise, wisdom ","One of them, a wise man of theirs, said, ""Cretans are unceasing liars, bad and dangerous animals, lazy bellies.""
-"
-Titus,1,13,true,true.txt," true, truth, come true ","This statement is true, so correct them severely so that they may be sound in the faith.
-"
-Titus,1,13,faith,faith.txt, faith ,"This statement is true, so correct them severely so that they may be sound in the faith.
-"
-Titus,1,14,commandment,commandment.txt,"command, to command, commandment",Do not pay any attention to Jewish myths or to the commandments of men who turn back the  truth.
-Titus,1,14,truth,true.txt," true, truth, come true ","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth.
-"
-Titus,1,14,turn back,turn.txt," turn, turn away, turn back ","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth.
-"
-Titus,1,14,Jewish,jew.txt," Jew, Jewish, Jews ","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth.
-"
-Titus,1,15,pure,purify.txt," pure, purify, purification ","To those who are pure, all things are pure. But to those who are stained and unbelieving, nothing is pure. For their minds and consciences have been stained. 
-"
-Titus,1,15,pure,purify.txt," pure, purify, purification ","To those who are pure, all things are pure. But to those who are stained and unbelieving, nothing is pure. For their minds and consciences have been stained. 
-"
-Titus,1,15,pure,purify.txt," pure, purify, purification ","To those who are pure, all things are pure. But to those who are stained and unbelieving, nothing is pure. For their minds and consciences have been stained. 
-"
-Titus,1,16,God,God.txt,God,"They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed.
-"
-Titus,1,16,deed,works.txt," works, deeds, work, acts ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed.
-"
-Titus,1,16,know,know.txt," know, knowledge, make known ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed.
-"
-Titus,1,16,good,good.txt," good, goodness ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed.
-"
-Titus,1,16,deeds,works.txt," works, deeds, work, acts ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed.
-"
-Titus,2,1,faithful,faithful.txt," faithful, faithfulness ","But you, say what fits with faithful instruction.
-"
-Titus,2,1,instruction,instruct.txt," instruct, instruction ","But you, say what fits with faithful instruction.
-"
-Titus,2,2,faith,faith.txt, faith ,"Older men must be temperate, dignified, sensible, sound in faith, in love, and in perseverance.
-"
-Titus,2,2,love,love.txt, love ,"Older men must be temperate, dignified, sensible, sound in faith, in love, and in perseverance.
-"
-Titus,2,3,good,good.txt," good, goodness ","Older women likewise should always present themselves as reverent, not gossips. They should not be enslaved to much wine. They should teach what is good
-"
-Titus,2,3,teach,teach.txt," teach, teaching, teacher, taught ","Older women likewise should always present themselves as reverent, not gossips. They should not be enslaved to much wine. They should teach what is good
-"
-Titus,2,4,children,children.txt," children, child ","in order to train the younger women to sensibly love their own husbands and children. 
-"
-Titus,2,4,love,love.txt, love ,"in order to train the younger women to sensibly love their own husbands and children. 
-"
-Titus,2,5,God,God.txt,God,"They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted.
-"
-Titus,2,5,word,wordofgod.txt,"word of God, word of Yahweh, word of the Lord, scripture","They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted.
-"
-Titus,2,5,good,good.txt," good, goodness ","They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted.
-"
-Titus,2,5,pure,purify.txt," pure, purify, purification ","They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted.
-"
-Titus,2,7,good,good.txt," good, goodness ","In all ways present yourself as a model of good works; and when you teach, show integrity and dignity.
-"
-Titus,2,7,teach,teach.txt," teach, teaching, teacher, taught ","In all ways present yourself as a model of good works; and when you teach, show integrity and dignity.
-"
-Titus,2,7,works,works.txt," works, deeds, work, acts ","In all ways present yourself as a model of good works; and when you teach, show integrity and dignity.
-"
-Titus,2,8,blameless,blameless.txt, blameless ,"Speak a message that is healthy and blameless, so that anyone who is opposed may be put to shame, because he has nothing bad to say about us.
-"
-Titus,2,8,shame,shame.txt," shame, shameful, ashamed ","Speak a message that is healthy and blameless, so that anyone who is opposed may be put to shame, because he has nothing bad to say about us.
-"
-Titus,2,9,slaves,slave.txt," servant, slave, slavery ",Slaves are to obey their masters in all things. They are to please them and not argue with them.
-Titus,2,10,God,God.txt,God,"They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior.
-"
-Titus,2,10,savior,savior.txt, Savior ,"They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior.
-"
-Titus,2,10,good,good.txt," good, goodness ","They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior.
-"
-Titus,2,10,teaching,teach.txt," teach, teaching, teacher, taught ","They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior.
-"
-Titus,2,11,God,God.txt,God,"For the grace of God has appeared to all people. 
-"
-Titus,2,11,grace,grace.txt," grace, gracious ","For the grace of God has appeared to all people. 
-"
-Titus,2,12,godly,godly.txt," godly, godliness ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age
-"
-Titus,2,12,live,life.txt," life, live, living, alive ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age
-"
-Titus,2,12,ungodliness,ungodly.txt," ungodly, godless, ungodliness, godlessness ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age
-"
-Titus,2,12,worldly,world.txt," world, worldly ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age
-"
-Titus,2,13,God,God.txt,God,"while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.
-"
-Titus,2,13,Jesus Christ,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.
-"
-Titus,2,13,Savior,savior.txt, Savior ,"while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.
-"
-Titus,2,13,blessed,bless.txt," bless, blessed, blessing ","while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.
-"
-Titus,2,13,glory,glory.txt," glory, glorious ","while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.
-"
-Titus,2,13,hope,hope.txt, hope ,"while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ.
-"
-Titus,2,14,Jesus,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works.
-"
-Titus,2,14,good,good.txt," good, goodness ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works.
-"
-Titus,2,14,pure,purify.txt," pure, purify, purification ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works.
-"
-Titus,2,14,works,works.txt," works, deeds, work, acts ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works.
-"
-Titus,2,14,redeem,redeem.txt," redeem, redemption, redeemer ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works.
-"
-Titus,2,15,authority,authority.txt, authority ,"Speak of and encourage these things. Give correction with all authority. Let no one disregard you.
-"
-Titus,3,1,good,good.txt," good, goodness ","Remind them to submit to rulers and authorities, to obey them, to be ready for every good work.
-"
-Titus,3,1,work,works.txt," works, deeds, work, acts ","Remind them to submit to rulers and authorities, to obey them, to be ready for every good work.
-"
-Titus,3,3,led astray,astray.txt," astray, go astray, led astray, stray ","For once we ourselves were thoughtless and disobedient. We were led astray and enslaved by various passions and pleasures. We lived in evil and envy. We were detestable and hated one another.
-"
-Titus,3,3,evil,evil.txt," evil, wicked, wickedness ","For once we ourselves were thoughtless and disobedient. We were led astray and enslaved by various passions and pleasures. We lived in evil and envy. We were detestable and hated one another.
-"
-Titus,3,4,God,God.txt,God,"But when the kindness of God our savior and his love for mankind appeared,
-"
-Titus,3,4,savior,savior.txt, Savior ,"But when the kindness of God our savior and his love for mankind appeared,
-"
-Titus,3,4,love,love.txt, love ,"But when the kindness of God our savior and his love for mankind appeared,
-"
-Titus,3,5,Holy Spirit,holyspirit.txt," Holy Spirit, Spirit of God, Spirit of the Lord ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit.
-"
-Titus,3,5,new birth,bornagain.txt," born again, born of God, new birth ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit.
-"
-Titus,3,5,righteousness,righteous.txt," righteous, righteousness ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit.
-"
-Titus,3,5,works,works.txt," works, deeds, work, acts ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit.
-"
-Titus,3,5,mercy,mercy.txt," mercy, merciful ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit.
-"
-Titus,3,6,God,God.txt,God,"God richly poured the Holy Spirit on us through our Savior Jesus Christ.
-"
-Titus,3,6,Holy Spirit,holyspirit.txt," Holy Spirit, Spirit of God, Spirit of the Lord ","God richly poured the Holy Spirit on us through our Savior Jesus Christ.
-"
-Titus,3,6,Jesus Christ,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","God richly poured the Holy Spirit on us through our Savior Jesus Christ.
-"
-Titus,3,6,Savior,savior.txt, Savior ,"God richly poured the Holy Spirit on us through our Savior Jesus Christ.
-"
-Titus,3,7,grace,grace.txt," grace, gracious ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life.
-"
-Titus,3,7,life,life.txt," life, live, living, alive ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life.
-"
-Titus,3,7,confidence,confidence.txt," confidence, confident ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life.
-"
-Titus,3,7,eternal,eternity.txt," everlasting, eternal, eternity ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life.
-"
-Titus,3,8,God,God.txt,God,"This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,8,good,good.txt," good, goodness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,8,good,good.txt," good, goodness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,8,profitable,profit.txt," profit, profitable ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,8,trustworthy,trust.txt," trust, trustworthy, trustworthiness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,8,trust,trust.txt," trust, trustworthy, trustworthiness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,8,works,works.txt," works, deeds, work, acts ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people.
-"
-Titus,3,9,law,lawofmoses.txt," law, law of Moses, God's law, law of Yahweh ","But avoid foolish debates and genealogies and strife and conflict about the law. Those things are worthless and unprofitable.
-"
-Titus,3,9,worthless,worthy.txt," worthy, worth, unworthy, worthless ","But avoid foolish debates and genealogies and strife and conflict about the law. Those things are worthless and unprofitable.
-"
-Titus,3,9,foolish,foolish.txt," fool, foolish, folly ","But avoid foolish debates and genealogies and strife and conflict about the law. Those things are worthless and unprofitable.
-"
-Titus,3,11,know,know.txt," know, knowledge, make known ","and know that such a one has turned from the right way and is sinning and condemns himself.
-"
-Titus,3,11,sinning,sin.txt," sin, sinful, sinner, sinning ","and know that such a one has turned from the right way and is sinning and condemns himself.
-"
-Titus,3,13,law,lawofmoses.txt," law, law of Moses, God's law, law of Yahweh ","Hurry and send Zenas, the expert in law, and Apollos, in a way that they lack nothing.
-"
-Titus,3,13,Apollos,apollos.txt, Apollos ,"Hurry and send Zenas, the expert in law, and Apollos, in a way that they lack nothing.
-"
-Titus,3,14,good,good.txt," good, goodness ","Our people must learn to engage in good works that meet urgent needs so that they may not be unfruitful.
-"
-Titus,3,14,works,works.txt," works, deeds, work, acts ","Our people must learn to engage in good works that meet urgent needs so that they may not be unfruitful.
-"
-Titus,3,15,faith,faith.txt, faith ,"All those who are with me greet you. Greet those who love us in faith. Grace be with all of you.
-"
-Titus,3,15,Grace,grace.txt," grace, gracious ","All those who are with me greet you. Greet those who love us in faith. Grace be with all of you.
-"
-Titus,3,15,love,love.txt, love ,"All those who are with me greet you. Greet those who love us in faith. Grace be with all of you.
-"
+Titus,1,12,wise,wise.txt," wise, wisdom ","One of them, a wise man of theirs, said, “Cretans are unceasing liars, bad and dangerous animals, lazy bellies.”"
+Titus,1,13,true,true.txt," true, truth, come true ","This statement is true, so correct them severely so that they may be sound in the faith."
+Titus,1,13,faith,faith.txt, faith ,"This statement is true, so correct them severely so that they may be sound in the faith."
+Titus,1,14,commandment,commandment.txt,"command, to command, commandment","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth."
+Titus,1,14,truth,true.txt," true, truth, come true ","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth."
+Titus,1,14,turn back,turn.txt," turn, turn away, turn back ","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth."
+Titus,1,14,Jewish,jew.txt," Jew, Jewish, Jews ","Do not pay any attention to Jewish myths or to the commandments of men who turn back the truth."
+Titus,1,15,pure,purify.txt," pure, purify, purification ","To those who are pure, all things are pure. But to those who are stained and unbelieving, nothing is pure. For their minds and consciences have been stained. "
+Titus,1,15,pure,purify.txt," pure, purify, purification ","To those who are pure, all things are pure. But to those who are stained and unbelieving, nothing is pure. For their minds and consciences have been stained. "
+Titus,1,15,pure,purify.txt," pure, purify, purification ","To those who are pure, all things are pure. But to those who are stained and unbelieving, nothing is pure. For their minds and consciences have been stained. "
+Titus,1,16,God,God.txt,God,"They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed."
+Titus,1,16,deed,works.txt," works, deeds, work, acts ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed."
+Titus,1,16,know,know.txt," know, knowledge, make known ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed."
+Titus,1,16,good,good.txt," good, goodness ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed."
+Titus,1,16,deeds,works.txt," works, deeds, work, acts ","They profess to know God, but they deny him by their deeds. They are detestable and disobedient. They are unapproved for any good deed."
+Titus,2,1,faithful,faithful.txt," faithful, faithfulness ","But you, say what fits with faithful instruction."
+Titus,2,1,instruction,instruct.txt," instruct, instruction ","But you, say what fits with faithful instruction."
+Titus,2,2,faith,faith.txt, faith ,"Older men must be temperate, dignified, sensible, sound in faith, in love, and in perseverance."
+Titus,2,2,love,love.txt, love ,"Older men must be temperate, dignified, sensible, sound in faith, in love, and in perseverance."
+Titus,2,3,good,good.txt," good, goodness ","Older women likewise should always present themselves as reverent, not gossips. They should not be enslaved to much wine. They should teach what is good"
+Titus,2,3,teach,teach.txt," teach, teaching, teacher, taught ","Older women likewise should always present themselves as reverent, not gossips. They should not be enslaved to much wine. They should teach what is good"
+Titus,2,4,children,children.txt," children, child ","in order to train the younger women to sensibly love their own husbands and children. "
+Titus,2,4,love,love.txt, love ,"in order to train the younger women to sensibly love their own husbands and children. "
+Titus,2,5,God,God.txt,God,"They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted."
+Titus,2,5,word,wordofgod.txt,"word of God, word of Yahweh, word of the Lord, scripture","They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted."
+Titus,2,5,good,good.txt," good, goodness ","They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted."
+Titus,2,5,pure,purify.txt," pure, purify, purification ","They should train them to be sensible, pure, good housekeepers, and obedient to their own husbands. They should do these things so that God's word may not be insulted."
+Titus,2,7,good,good.txt," good, goodness ","In all ways present yourself as a model of good works; and when you teach, show integrity and dignity."
+Titus,2,7,teach,teach.txt," teach, teaching, teacher, taught ","In all ways present yourself as a model of good works; and when you teach, show integrity and dignity."
+Titus,2,7,works,works.txt," works, deeds, work, acts ","In all ways present yourself as a model of good works; and when you teach, show integrity and dignity."
+Titus,2,8,blameless,blameless.txt, blameless ,"Speak a message that is healthy and blameless, so that anyone who is opposed may be put to shame, because he has nothing bad to say about us."
+Titus,2,8,shame,shame.txt," shame, shameful, ashamed ","Speak a message that is healthy and blameless, so that anyone who is opposed may be put to shame, because he has nothing bad to say about us."
+Titus,2,9,slaves,slave.txt," servant, slave, slavery ","Slaves are to obey their masters in all things. They are to please them and not argue with them."
+Titus,2,10,God,God.txt,God,"They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior."
+Titus,2,10,savior,savior.txt, Savior ,"They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior."
+Titus,2,10,good,good.txt," good, goodness ","They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior."
+Titus,2,10,teaching,teach.txt," teach, teaching, teacher, taught ","They should not pilfer. Instead, they should show all good faith, so that in every way they adorn our teaching about God our savior."
+Titus,2,11,God,God.txt,God,"For the grace of God has appeared to all people. "
+Titus,2,11,grace,grace.txt," grace, gracious ","For the grace of God has appeared to all people. "
+Titus,2,12,godly,godly.txt," godly, godliness ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age"
+Titus,2,12,live,life.txt," life, live, living, alive ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age"
+Titus,2,12,ungodliness,ungodly.txt," ungodly, godless, ungodliness, godlessness ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age"
+Titus,2,12,worldly,world.txt," world, worldly ","It trains us to deny ungodliness and worldly passions. It trains us to live sensibly, righteously, and in a godly way in this age"
+Titus,2,13,God,God.txt,God,"while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ."
+Titus,2,13,Jesus Christ,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ."
+Titus,2,13,Savior,savior.txt, Savior ,"while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ."
+Titus,2,13,blessed,bless.txt," bless, blessed, blessing ","while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ."
+Titus,2,13,glory,glory.txt," glory, glorious ","while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ."
+Titus,2,13,hope,hope.txt, hope ,"while we look forward to receiving our blessed hope, the appearance of the glory of our great God and Savior Jesus Christ."
+Titus,2,14,Jesus,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works."
+Titus,2,14,good,good.txt," good, goodness ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works."
+Titus,2,14,pure,purify.txt," pure, purify, purification ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works."
+Titus,2,14,works,works.txt," works, deeds, work, acts ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works."
+Titus,2,14,redeem,redeem.txt," redeem, redemption, redeemer ","Jesus gave himself for us in order to redeem us from all lawlessness and to make pure, for himself, a special people who are eager to do good works."
+Titus,2,15,authority,authority.txt, authority ,"Speak of and encourage these things. Give correction with all authority. Let no one disregard you."
+Titus,3,1,good,good.txt," good, goodness ","Remind them to submit to rulers and authorities, to obey them, to be ready for every good work."
+Titus,3,1,work,works.txt," works, deeds, work, acts ","Remind them to submit to rulers and authorities, to obey them, to be ready for every good work."
+Titus,3,3,led astray,astray.txt," astray, go astray, led astray, stray ","For once we ourselves were thoughtless and disobedient. We were led astray and enslaved by various passions and pleasures. We lived in evil and envy. We were detestable and hated one another."
+Titus,3,3,evil,evil.txt," evil, wicked, wickedness ","For once we ourselves were thoughtless and disobedient. We were led astray and enslaved by various passions and pleasures. We lived in evil and envy. We were detestable and hated one another."
+Titus,3,4,God,God.txt,God,"But when the kindness of God our savior and his love for mankind appeared,"
+Titus,3,4,savior,savior.txt, Savior ,"But when the kindness of God our savior and his love for mankind appeared,"
+Titus,3,4,love,love.txt, love ,"But when the kindness of God our savior and his love for mankind appeared,"
+Titus,3,5,Holy Spirit,holyspirit.txt," Holy Spirit, Spirit of God, Spirit of the Lord ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit."
+Titus,3,5,new birth,bornagain.txt," born again, born of God, new birth ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit."
+Titus,3,5,righteousness,righteous.txt," righteous, righteousness ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit."
+Titus,3,5,works,works.txt," works, deeds, work, acts ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit."
+Titus,3,5,mercy,mercy.txt," mercy, merciful ","it was not by works of righteousness that we did, but by his mercy that he saved us. He saved us through the washing of new birth and renewal by the Holy Spirit."
+Titus,3,6,God,God.txt,God,"God richly poured the Holy Spirit on us through our Savior Jesus Christ."
+Titus,3,6,Holy Spirit,holyspirit.txt," Holy Spirit, Spirit of God, Spirit of the Lord ","God richly poured the Holy Spirit on us through our Savior Jesus Christ."
+Titus,3,6,Jesus Christ,jesus.txt," Jesus, Jesus Christ, Christ Jesus ","God richly poured the Holy Spirit on us through our Savior Jesus Christ."
+Titus,3,6,Savior,savior.txt, Savior ,"God richly poured the Holy Spirit on us through our Savior Jesus Christ."
+Titus,3,7,grace,grace.txt," grace, gracious ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life."
+Titus,3,7,life,life.txt," life, live, living, alive ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life."
+Titus,3,7,confidence,confidence.txt," confidence, confident ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life."
+Titus,3,7,eternal,eternity.txt," everlasting, eternal, eternity ","He did this in order that, having been justified by his grace, we might become heirs through the confidence of eternal life."
+Titus,3,8,God,God.txt,God,"This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,8,good,good.txt," good, goodness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,8,good,good.txt," good, goodness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,8,profitable,profit.txt," profit, profitable ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,8,trustworthy,trust.txt," trust, trustworthy, trustworthiness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,8,trust,trust.txt," trust, trustworthy, trustworthiness ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,8,works,works.txt," works, deeds, work, acts ","This message is trustworthy. I want you to speak confidently about these things, so that those who trust God may be intent on the good works that he put before them. These things are good and profitable for all people."
+Titus,3,9,law,lawofmoses.txt," law, law of Moses, God's law, law of Yahweh ","But avoid foolish debates and genealogies and strife and conflict about the law. Those things are worthless and unprofitable."
+Titus,3,9,worthless,worthy.txt," worthy, worth, unworthy, worthless ","But avoid foolish debates and genealogies and strife and conflict about the law. Those things are worthless and unprofitable."
+Titus,3,9,foolish,foolish.txt," fool, foolish, folly ","But avoid foolish debates and genealogies and strife and conflict about the law. Those things are worthless and unprofitable."
+Titus,3,11,know,know.txt," know, knowledge, make known ","and know that such a one has turned from the right way and is sinning and condemns himself."
+Titus,3,11,sinning,sin.txt," sin, sinful, sinner, sinning ","and know that such a one has turned from the right way and is sinning and condemns himself."
+Titus,3,13,law,lawofmoses.txt," law, law of Moses, God's law, law of Yahweh ","Hurry and send Zenas, the expert in law, and Apollos, in a way that they lack nothing."
+Titus,3,13,Apollos,apollos.txt, Apollos ,"Hurry and send Zenas, the expert in law, and Apollos, in a way that they lack nothing."
+Titus,3,14,good,good.txt," good, goodness ","Our people must learn to engage in good works that meet urgent needs so that they may not be unfruitful."
+Titus,3,14,works,works.txt," works, deeds, work, acts ","Our people must learn to engage in good works that meet urgent needs so that they may not be unfruitful."
+Titus,3,15,faith,faith.txt, faith ,"All those who are with me greet you. Greet those who love us in faith. Grace be with all of you."
+Titus,3,15,Grace,grace.txt," grace, gracious ","All those who are with me greet you. Greet those who love us in faith. Grace be with all of you."
+Titus,3,15,love,love.txt, love ,"All those who are with me greet you. Greet those who love us in faith. Grace be with all of you."
