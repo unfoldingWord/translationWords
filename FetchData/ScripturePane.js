@@ -44,7 +44,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     }).then(() => {
       progress(100);
       resolve();
-    });
+    }).catch(reject);
 
     /**
      * @description - Gets the target language based on the finished finished_frames
@@ -54,8 +54,12 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      */
     function getTargetLanguage() {
       return new Promise((resolve, reject) => {
-        if (bibles.targetLanguage) resolve();
-        else readInManifest(params.targetLanguagePath, tcManifest, addNewBible, resolve);
+        try {
+          if (bibles.targetLanguage) resolve();
+          else readInManifest(params.targetLanguagePath, tcManifest, addNewBible, resolve);
+        } catch (e) {
+          reject(e);
+        }
       });
     }
 
@@ -67,8 +71,12 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      */
     function getOriginalLanguage() {
       return new Promise((resolve, reject) => {
-        var originalPath = path.join(params.originalLanguagePath, bookAbbreviationToBookPath(params.bookAbbr))
-        readInOriginal(originalPath, params, addNewBible, resolve);
+        try {
+          var originalPath = path.join(params.originalLanguagePath, bookAbbreviationToBookPath(params.bookAbbr))
+          readInOriginal(originalPath, params, addNewBible, resolve);
+        } catch (e) {
+          reject(e);
+        }
       });
     }
 
@@ -80,8 +88,12 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      */
     function getUDB() {
       return new Promise((resolve, reject) => {
-        var gatewayLanguageUDBPath = path.join(window.__base, 'static', 'taggedUDB');
-        parseUSFM(gatewayLanguageUDBPath, params.bookAbbr, addNewBible, resolve)
+        try {
+          var gatewayLanguageUDBPath = path.join(window.__base, 'static', 'taggedUDB');
+          parseUSFM(gatewayLanguageUDBPath, params.bookAbbr, addNewBible, resolve)
+        } catch (e) {
+          reject(e);
+        }
       });
     }
 
