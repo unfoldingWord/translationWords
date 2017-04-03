@@ -36,7 +36,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                 } else {
                     var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
                     var mappedBook = mapVerses(bookData);
-                    findWords(bookData, mappedBook, actualWordList,  addGroupsData, setGroupsIndex, params);
+                    findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
                     addNewResource('book', convertToFullBookName(params.bookAbbr));
                     progress(100);
                     resolve();
@@ -70,7 +70,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             reformattedBookData.chapters.sort(function (first, second) {
                 return first.num - second.num;
             });
-            parseDataFromBook(reformattedBookData, gatewayLanguage,  addGroupData, setGroupsIndex);
+            parseDataFromBook(reformattedBookData, gatewayLanguage, addGroupData, setGroupsIndex);
         }
         // We need to load the data, and then reformat it for the store and store it
         else {
@@ -88,7 +88,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             newBookData.title = convertToFullBookName(params.bookAbbr);
             addNewBible('ULB', newBookData);
             addNewBible('gatewayLanguage', newBookData);
-            parseDataFromBook(bookData, newBookData,  addGroupData, setGroupsIndex);
+            parseDataFromBook(bookData, newBookData, addGroupData, setGroupsIndex);
         }
     })
 
