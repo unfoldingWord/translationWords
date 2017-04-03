@@ -21,11 +21,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     return new Promise(function (resolve, reject) {
         const params = projectDetails.params;
         const tcManifest = params.manifest;
-        const { addNewBible, addNewResource, setModuleSettings,  addGroupData, setGroupsIndex } = actions;
+        const { addNewBible, addNewResource, setModuleSettings, addGroupData, setGroupsIndex } = actions;
         var bookData;
         var Door43Fetcher = new Door43DataFetcher();
 
-        function parseDataFromBook(bookData, gatewayLanguage,  addGroupData, setGroupsIndex) {
+        function parseDataFromBook(bookData, gatewayLanguage, addGroupData, setGroupsIndex) {
             var tWFetcher = new TranslationWordsFetcher();
             var wordList = tWFetcher.getWordList();
             tWFetcher.getAliases(function (done, total) {
