@@ -173,7 +173,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                         occurenceNumber++
                     }
                     previousWord = groupName[0];
-                     addGroupData(groupName[0], {
+                    addGroupData(groupName[0], {
                         "priority": 1,
                         "information": wordObject.file,
                         "contextId": {
