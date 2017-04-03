@@ -38,7 +38,6 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                     var mappedBook = mapVerses(bookData);
                     findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
                     setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
-                    addNewResource('book', convertToFullBookName(params.bookAbbr));
                     progress(100);
                     resolve();
                 }
