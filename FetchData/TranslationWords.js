@@ -16,21 +16,7 @@ const Door43DataFetcher = require('../js/Door43DataFetcher.js');
 const TranslationWordsFetcher = require('../translation_words/TranslationWordsFetcher.js');
 const BookWordTest = require('../translation_words/WordTesterScript.js');
 
-/**
-* @description exported function that returns the JSON array of a list
-* of checks
-* @param {string} bookAbr - 3 letter abbreviation used by git.door43.org to denote books of Bible
-* @param {function} progress - callback that gets called during
-* the fetch, with params (itemsDone/maxItems)
-* @param {function} callback - callback that gets called when function is finished,
-* if error ocurred it's called with an error, 2nd argument carries the result
-* @param {function} addNewBible (callback) - callback that uses a redux action to save a bible to
-* the resources reducer.
-*        @example take in two arguments bible name/version and bible data
-* @param {function} addNewResource (callback) - callback that uses a redux action to save a resource to
-* the resources reducer.
-*        @example take in two arguments resource name and resource data
-*/
+
 export default function fetchData(projectDetails, bibles, actions, progress) {
     return new Promise(function (resolve, reject) {
         const params = projectDetails.params;

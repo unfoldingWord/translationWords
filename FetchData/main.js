@@ -15,10 +15,14 @@ export default function fetchAllData(props) {
       FETCH_DATAS_FINISHED++;
       tWFetchData(projectDetails, bibles, actions, progress);
     })
-    .then(resolve);
+    .then(resolve).catch((e)=>{
+      console.warn(e);
+    });
   })
 
   function progress(value) {
     totalProgress(value / (TOTAL_FETCH_DATAS - FETCH_DATAS_FINISHED));
   }
 }
+
+//TODO data persistence
