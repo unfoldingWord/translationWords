@@ -21,11 +21,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     return new Promise(function (resolve, reject) {
         const params = projectDetails.params;
         const tcManifest = params.manifest;
-        const { addNewBible, addNewResource, setModuleSettings,  addGroupsData, setGroupsIndex } = actions;
+        const { addNewBible, addNewResource, setModuleSettings,  addGroupData, setGroupsIndex } = actions;
         var bookData;
         var Door43Fetcher = new Door43DataFetcher();
 
-        function parseDataFromBook(bookData, gatewayLanguage,  addGroupsData, setGroupsIndex) {
+        function parseDataFromBook(bookData, gatewayLanguage,  addGroupData, setGroupsIndex) {
             var tWFetcher = new TranslationWordsFetcher();
             var wordList = tWFetcher.getWordList();
             tWFetcher.getAliases(function (done, total) {
@@ -70,7 +70,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             reformattedBookData.chapters.sort(function (first, second) {
                 return first.num - second.num;
             });
-            parseDataFromBook(reformattedBookData, gatewayLanguage,  addGroupsData, setGroupsIndex);
+            parseDataFromBook(reformattedBookData, gatewayLanguage,  addGroupData, setGroupsIndex);
         }
         // We need to load the data, and then reformat it for the store and store it
         else {
@@ -88,7 +88,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             newBookData.title = convertToFullBookName(params.bookAbbr);
             addNewBible('ULB', newBookData);
             addNewBible('gatewayLanguage', newBookData);
-            parseDataFromBook(bookData, newBookData,  addGroupsData, setGroupsIndex);
+            parseDataFromBook(bookData, newBookData,  addGroupData, setGroupsIndex);
         }
     })
 
