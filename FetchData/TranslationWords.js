@@ -160,7 +160,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      * @param {object} wordObject - This is an object containing various fields about the word we're
      * currently searching for, primary key for this methods are the wordObject's regexes
      */
-    function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject,  addGroupsData, params) {
+    function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params) {
         var checkArray = [];
         var sortOrder = 0;
         let previousWord = '';
@@ -173,7 +173,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                         occurenceNumber++
                     }
                     previousWord = groupName[0];
-                     addGroupsData(groupName[0], {
+                     addGroupData(groupName[0], {
                         "priority": 1,
                         "information": wordObject.file,
                         "contextId": {
@@ -291,7 +291,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      * in the book data. This list should be a filtered list from the entire translationWords list as
      * this method has many inner loops
      */
-    function findWords(bookData, mapBook, wordList,  addGroupsData, setGroupsIndex, params) {
+    function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
         var indexList = [];
         for (var word of wordList) {
             var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
@@ -305,7 +305,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             });
             for (var chapter of bookData.chapters) {
                 for (var verse of chapter.verses) {
-                    findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word,  addGroupsData, params);
+                    findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params);
                 }
             }
         }
