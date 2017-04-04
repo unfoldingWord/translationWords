@@ -25,11 +25,11 @@ class Container extends React.Component {
     this.setState({showHelps: !this.state.showHelps})
   }
 
-  currentFile(word, wordList) {
+  currentFile(groupId, wordList) {
     let currentFile = ""
     if (wordList.constructor == Array) {
       let wordsObjectArray = wordList.filter( (wordObject) => {
-        return wordObject.aliases.includes(word)
+        return wordObject.name === groupId + '.txt'
       })
       currentFile = wordsObjectArray[0].file
     }

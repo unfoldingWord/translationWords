@@ -26,10 +26,10 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     var Door43Fetcher = new Door43DataFetcher();
     /**
      * @description parses data from book.
-     * @param {*} bookData 
-     * @param {*} gatewayLanguage 
-     * @param {function} addGroupData 
-     * @param {function} setGroupsIndex 
+     * @param {*} bookData
+     * @param {*} gatewayLanguage
+     * @param {function} addGroupData
+     * @param {function} setGroupsIndex
      */
     function parseDataFromBook(bookData, gatewayLanguage, addGroupData, setGroupsIndex) {
       var tWFetcher = new TranslationWordsFetcher();
@@ -178,7 +178,8 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             occurenceNumber++
           }
           previousWord = groupName[0];
-          addGroupData(groupName[0], {
+          let groupId = wordObject.name.replace(/\.txt$/,'')
+          addGroupData(groupId, [{
             priority: 1,
             information: wordObject.file,
             contextId: {
@@ -188,11 +189,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
                 verse: verseObject.num
               },
               tool: "ImportantWords",
-              group: groupName[0],
-              quote: groupName.input,
+              groupId: groupId,
+              quote: groupName[0],
               occurrence: occurenceNumber
             }
-          });
+          }]);
         }
         groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
       }
@@ -301,11 +302,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
-        group: word.name,
+        groupId: word.name.replace(/\.txt$/,''),
         groupName: groupName.trim()
       };
       indexList.push({
-        id: wordReturnObject.group,
+        id: wordReturnObject.groupId,
         name: wordReturnObject.groupName
       });
       for (var chapter of bookData.chapters) {
@@ -319,8 +320,8 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
 
     /**
  * @description - Method to convert a book abbreviation to the full name
- * 
- * @param {string} bookAbbr 
+ *
+ * @param {string} bookAbbr
  */
   function convertToFullBookName(bookAbbr) {
     if (!bookAbbr) return;
