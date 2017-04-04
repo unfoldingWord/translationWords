@@ -22,7 +22,7 @@ class View extends React.Component {
     let scripturePane = <div></div>
     // pupulate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.modulesSettingsReducer.ScripturePane !== undefined) {
-      scripturePane = <ScripturePane {...this.props} currentCheck={this.props.checkStoreReducer.currentCheck} />
+      scripturePane = <ScripturePane {...this.props} />
     }
     let verseCheck = <div></div>
 
