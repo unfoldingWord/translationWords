@@ -165,7 +165,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
      * @param {object} wordObject - This is an object containing various fields about the word we're
      * currently searching for, primary key for this methods are the wordObject's regexes
      */
-  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params) {
+  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params, checkObj) {
     var checkArray = [];
     var sortOrder = 0;
     let previousWord = '';
@@ -178,8 +178,9 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             occurenceNumber++
           }
           previousWord = groupName[0];
-          let groupId = wordObject.name.replace(/\.txt$/,'')
-          addGroupData(groupId, [{
+          let groupId = wordObject.name.replace(/\.txt$/,'');
+          if (!checkObj[groupId]) checkObj[groupId] = [];
+          checkObj[groupId].push({
             priority: 1,
             information: wordObject.file,
             contextId: {
@@ -193,7 +194,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
               quote: groupName[0],
               occurrence: occurenceNumber
             }
-          }]);
+          });
         }
         groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
       }
@@ -299,6 +300,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
    */
   function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
     var indexList = [];
+    var checkObj = {};
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
@@ -311,10 +313,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       });
       for (var chapter of bookData.chapters) {
         for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params);
+          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj);
         }
       }
     }
+    addGroupData(checkObj)
     setGroupsIndex(indexList);
   }
 
