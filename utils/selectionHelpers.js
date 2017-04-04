@@ -1,5 +1,4 @@
 const _ = require('lodash')
-
 /**
  * Splice string into array of ranges, flagging what is selected
  * @param {array}  ranges - array of ranges [[int,int],...]
