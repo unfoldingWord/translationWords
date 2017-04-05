@@ -35,7 +35,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       var tWFetcher = new TranslationWordsFetcher();
       var wordList = tWFetcher.getWordList();
       tWFetcher.getAliases(function (done, total) {
-          progress(done / total * 50 + 50);
+        progress(done / total * 50 + 50);
       }, function (error) {
         if (error) {
           console.log(error)
@@ -84,10 +84,10 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       // reformat
       var newBookData = {};
       for (var chapter of bookData.chapters) {
-          newBookData[chapter.num] = {};
-          for (var verse of chapter.verses) {
-              newBookData[chapter.num][verse.num] = verse.text.replace(/\n.*/, '');
-          }
+        newBookData[chapter.num] = {};
+        for (var verse of chapter.verses) {
+          newBookData[chapter.num][verse.num] = verse.text.replace(/\n.*/, '');
+        }
       }
       newBookData.title = convertToFullBookName(params.bookAbbr);
       addNewBible('ULB', newBookData);
@@ -126,13 +126,13 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
   }
   // End fetch
 
-    /**
-     * @description - This creates an object from a string, in this case it'll always be a verse.
-     * The object's keys are the indices of each word found in the string. The keys' values are objects
-     * that contain the word, and a 'marked' boolean
-     * @param {string} verse - a verse that can be tokenized to create the object
-     * @return {object} returnObject
-     */
+  /**
+   * @description - This creates an object from a string, in this case it'll always be a verse.
+   * The object's keys are the indices of each word found in the string. The keys' values are objects
+   * that contain the word, and a 'marked' boolean
+   * @param {string} verse - a verse that can be tokenized to create the object
+   * @return {object} returnObject
+   */
   function mapVerseToObject(verse) {
     var words = tokenizer.tokenize(verse),
       returnObject = {},
@@ -151,21 +151,21 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     return returnObject;
   }
 
-    /**
-     * @description = This finds a specific word from wordObject within the given verse.
-     * It then will create a new check object when a valid word is found and push it onto
-     * an array which is returned
-     * @param {int} chapterNumber - an integer indicating the current chapter so that it can be
-     * added to the check object once a check object is created
-     * @param {object} verseObject - an object with two fields: 'num' which is an int indicating
-     * the verse number within the current chapter, and 'text' which is a string holding the actual text
-     * of the verse
-     * @param {object} mappedVerseObject - This is an object containing index keys to the individual words
-     * of the verse. See {@link mapVerseToObject}
-     * @param {object} wordObject - This is an object containing various fields about the word we're
-     * currently searching for, primary key for this methods are the wordObject's regexes
-     */
-  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params) {
+  /**
+   * @description = This finds a specific word from wordObject within the given verse.
+   * It then will create a new check object when a valid word is found and push it onto
+   * an array which is returned
+   * @param {int} chapterNumber - an integer indicating the current chapter so that it can be
+   * added to the check object once a check object is created
+   * @param {object} verseObject - an object with two fields: 'num' which is an int indicating
+   * the verse number within the current chapter, and 'text' which is a string holding the actual text
+   * of the verse
+   * @param {object} mappedVerseObject - This is an object containing index keys to the individual words
+   * of the verse. See {@link mapVerseToObject}
+   * @param {object} wordObject - This is an object containing various fields about the word we're
+   * currently searching for, primary key for this methods are the wordObject's regexes
+   */
+  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params, checkObj) {
     var checkArray = [];
     var sortOrder = 0;
     let previousWord = '';
@@ -178,8 +178,9 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             occurenceNumber++
           }
           previousWord = groupName[0];
-          let groupId = wordObject.name.replace(/\.txt$/,'')
-          addGroupData(groupId, [{
+          let groupId = wordObject.name.replace(/\.txt$/, '');
+          if (!checkObj[groupId]) checkObj[groupId] = [];
+          checkObj[groupId].push({
             priority: 1,
             information: wordObject.file,
             contextId: {
@@ -193,7 +194,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
               quote: groupName[0],
               occurrence: occurenceNumber
             }
-          }]);
+          });
         }
         groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
       }
@@ -248,7 +249,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     var matchedWords = tokenizer.tokenize(match[0]);
     var indexes = [];
     for (var word of matchedWords) {
-        indexes.push(match.index + match[0].indexOf(word));
+      indexes.push(match.index + match[0].indexOf(word));
     }
     var matchedWordObjects = [];
     for (var index of indexes) {
@@ -299,10 +300,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
    */
   function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
     var indexList = [];
+    var checkObj = {};
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
-        groupId: word.name.replace(/\.txt$/,''),
+        groupId: word.name.replace(/\.txt$/, ''),
         groupName: groupName.trim()
       };
       indexList.push({
@@ -311,18 +313,21 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       });
       for (var chapter of bookData.chapters) {
         for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params);
+          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj);
         }
       }
     }
+    Object.keys(checkObj).map(function (key, index) {
+      addGroupData(key, checkObj[key]);
+    });
     setGroupsIndex(indexList);
   }
 
-    /**
- * @description - Method to convert a book abbreviation to the full name
- *
- * @param {string} bookAbbr
- */
+  /**
+* @description - Method to convert a book abbreviation to the full name
+*
+* @param {string} bookAbbr
+*/
   function convertToFullBookName(bookAbbr) {
     if (!bookAbbr) return;
     return BooksOfBible[bookAbbr.toString().toLowerCase()];
