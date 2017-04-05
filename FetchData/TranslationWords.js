@@ -10,6 +10,8 @@ const XRegExp = require('xregexp');
 const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
+const getRules = require('../Rules.js');
+const path = require('path');
 
 // User imports
 const Door43DataFetcher = require('../js/Door43DataFetcher.js');
@@ -42,7 +44,12 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
         } else {
           var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
           var mappedBook = mapVerses(bookData);
-          findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
+          var rules = fs.readdirSync(path.join(__dirname, 'rules'));
+          if (rules.includes(convertToFullBookName(params.bookAbbr) + '.csv')) {
+            setGroupsIndex(getRules(convertToFullBookName(params.bookAbbr), wordList));
+          } else {
+            findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
+          }
           setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
           progress(100);
           resolve();
