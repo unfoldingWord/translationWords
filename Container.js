@@ -53,8 +53,6 @@ class Container extends React.Component {
   }
 
   render() {
-    console.log("tW Container.js", this.props)
-
     return (
       this.view()
     );
