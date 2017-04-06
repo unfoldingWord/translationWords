@@ -176,7 +176,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       while (groupName) {
         if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
           if (filter) {
-            var filterIndex = groupName[0];
+            var filterIndex = wordObject.name.replace(/\.txt$/, '');
             var currentFilter = filter[filterIndex];
             var cv = chapterNumber + ':' + verseObject.num;
             if (currentFilter && currentFilter.includes(cv)) {
@@ -313,7 +313,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
   function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
     var indexList = [];
     var checkObj = {};
-    var filters = getFilters(convertToFullBookName(params.bookAbbr));
+    var filters = getFilters(convertToFullBookName(params.bookAbbr)) || {};
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
@@ -326,10 +326,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       });
       for (var chapter of bookData.chapters) {
         for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj, filters);
+          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj, filters.removeChecks);
         }
       }
     }
+    addChecks(checkObj, filters.addChecks, wordList, params);
     Object.keys(checkObj).map(function (key, index) {
       addGroupData(key, checkObj[key]);
     });
@@ -362,17 +363,71 @@ function getFilters(bookName) {
   }
   var lines = filters.split(/,\n/g);
   var i = 0;
-  var matrix = [];
+  var removeChecks = [];
+  var addChecks = [];
   while (i < lines.length) {
-    if (lines[i][0] !== 'F') {
-      lines.splice(i, 1);
-    } else {
-      var lineSplit = lines[i++].split(',');
-      var matrixIndex = lineSplit[2] + ':' + lineSplit[3];
-      var word = lineSplit[4].trim();
-      if (!matrix[word]) matrix[word] = [];
-      matrix[word].push(matrixIndex.trim());
+    var lineSplit;
+    var word;
+    if (lines[i][0] === 'F') {
+      lineSplit = lines[i].split(',');
+      var removeChecksIndex = lineSplit[2] + ':' + lineSplit[3];
+      word = lineSplit[5].replace(/\.txt$/, '').trim();
+      if (!removeChecks[word]) removeChecks[word] = [];
+      removeChecks[word].push(removeChecksIndex.trim());
+    } else if (lines[i].split(',')[0] === 'New') {
+      lineSplit = lines[i].split(',');
+      word = lineSplit[5].replace(/\.txt$/, '').trim();
+      if (!addChecks[word]) addChecks[word] = [];
+      addChecks[word].push(lineSplit);
+    }
+    i++;
+  }
+  return {removeChecks, addChecks};
+}
+
+/**
+ * @description - Adds checks based on filters
+ * @param {Object} checkObj - The check object to update
+ * @param {Object} filters - The filter to reference
+ * @param {Object} wordList - The wordList to reference
+ * @param {Object} params - Parameters to fetch for
+ * @return No return
+ */
+function addChecks(checkObj, filters, wordList, params) {
+  if (!filters) return null;
+  for (var word in filters) {
+    var wordInfo = null;
+    for (var i = 0; i < wordList.length; i++) {
+      if (wordList[i].name === (word + '.txt')) {
+        wordInfo = wordList[i].file;
+        break;
+      }
+    }
+    var prevVerses = [];
+    while (filters[word].length > 0) {
+      var currentIntstance = filters[word].pop();
+      if (!checkObj[word]) checkObj[word] = [];
+      var cv = currentIntstance[2] + ':' + currentIntstance[3];
+      if (prevVerses[cv]) {
+        prevVerses[cv]++;
+      } else {
+        prevVerses[cv] = 1;
+      }
+      checkObj[word].push({
+        contextId: {
+          groupId: word,
+          occurence: prevVerses[cv],
+          quote: currentIntstance[4],
+          reference: {
+            bookId: params.bookAbbr,
+            chapter: parseInt(currentIntstance[2]),
+            verse: parseInt(currentIntstance[3])
+          },
+          tool: 'ImportantWords'
+        },
+        information: wordInfo,
+        priority: 1
+      });
     }
   }
-  return matrix;
 }
