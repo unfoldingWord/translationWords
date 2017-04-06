@@ -56,7 +56,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       return new Promise((resolve, reject) => {
         try {
           if (bibles.targetLanguage) resolve();
-          else readInManifest(params.targetLanguagePath, tcManifest, addNewBible, resolve);
+          else readInManifest(tcManifest, params.targetLanguagePath, addNewBible, resolve);
         } catch (e) {
           reject(e);
         }
