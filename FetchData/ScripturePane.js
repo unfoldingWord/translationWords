@@ -136,7 +136,6 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             console.warn("There was an error getting the UDB")
           }
           var usfmData = data.toString();
-          debugger;
           var parsedUSFM = toJSON(usfmData);
           if (parsedUSFM.headers['id']) parsedUSFM.book = parsedUSFM.headers['id'].split(" ")[0].toLowerCase();
           saveUDBinAPI(parsedUSFM, addNewBible);
@@ -214,7 +213,6 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             done++;
             if (done >= total - missingChunks) {
               missingChunks = 0;
-              debugger;
               addNewBible('targetLanguage', currentJoined);
               callback();
             }
