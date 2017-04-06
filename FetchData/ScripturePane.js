@@ -11,7 +11,7 @@
 import fs from 'fs-extra';
 import pathex from 'path-extra';
 import path from 'path';
-import * as parser from 'usfm-parser';
+import parser from '../scripts/usfm-parse';
 import BooksOfBible from '../utils/BooksOfBible.js';
 const NAMESPACE = "ScripturePane";
 var missingChunks = 0;
@@ -212,6 +212,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             done++;
             if (done >= total - missingChunks) {
               missingChunks = 0;
+              debugger;
               addNewBible('targetLanguage', currentJoined);
               callback();
             }
@@ -268,27 +269,26 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       }
     }
 
-    /**
-    * @description This function saves the chunks locally as a window object;
-    * @param {string} text - The text being read in from chunks
-    ******************************************************************************/
-    function joinChunks(text, currentChapter, currentJoined) {
-      currentChapter = parseInt(currentChapter);
-      if (currentChapter == 0) {
-        currentJoined.title = text;
-      } else {
-        if (currentJoined[currentChapter] === undefined) {
-          currentJoined[currentChapter] = {};
-        }
-        var currentChunk = parser.toJSON(text).chapters[0];
-        for (let verse in currentChunk.verses) {
-          if (currentChunk.verses.hasOwnProperty(verse)) {
-            var currentVerse = currentChunk.verses[verse];
-            currentJoined[currentChapter][verse] = currentVerse;
-          }
-        }
+/**
+ * @description This function saves the chunks locally as a window object;
+ * @param {string} text - The text being read in from chunks
+ ******************************************************************************/
+function joinChunks(text, currentChapter, currentJoined) {
+  if (currentChapter === 0) {
+    currentJoined.title = text;
+  } else {
+    if (currentJoined[currentChapter] === undefined) {
+      currentJoined[currentChapter] = {};
+    }
+    var currentChunk = parser(text);
+    for (let verse in currentChunk.verses) {
+      if (currentChunk.verses.hasOwnProperty(verse)) {
+        var currentVerse = currentChunk.verses[verse];
+        currentJoined[currentChapter][parseInt(verse)] = currentVerse;
       }
     }
+  }
+}
 
 
     /**
