@@ -10,6 +10,7 @@ const XRegExp = require('xregexp');
 const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
+const path = require('path-extra');
 
 // User imports
 const Door43DataFetcher = require('../js/Door43DataFetcher.js');
@@ -165,7 +166,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
    * @param {object} wordObject - This is an object containing various fields about the word we're
    * currently searching for, primary key for this methods are the wordObject's regexes
    */
-  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params, checkObj) {
+  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params, checkObj, filter) {
     var checkArray = [];
     var sortOrder = 0;
     let previousWord = '';
@@ -174,8 +175,19 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
         if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
+          if (filter) {
+            var filterIndex = groupName[0];
+            var currentFilter = filter[filterIndex];
+            var cv = chapterNumber + ':' + verseObject.num;
+            if (currentFilter && currentFilter.includes(cv)) {
+              var indexOfVerse = filter[filterIndex].indexOf(cv);
+              filter[filterIndex].splice(indexOfVerse, 1);
+              groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
+              continue;
+            }
+          }
           if (groupName[0] === previousWord) {
-            occurenceNumber++
+            occurenceNumber++;
           }
           previousWord = groupName[0];
           let groupId = wordObject.name.replace(/\.txt$/, '');
@@ -301,6 +313,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
   function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
     var indexList = [];
     var checkObj = {};
+    var filters = getFilters(convertToFullBookName(params.bookAbbr));
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
@@ -313,7 +326,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       });
       for (var chapter of bookData.chapters) {
         for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj);
+          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj, filters);
         }
       }
     }
@@ -332,4 +345,34 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     if (!bookAbbr) return;
     return BooksOfBible[bookAbbr.toString().toLowerCase()];
   }
+}
+
+/**
+ * @description - Opens a CSV file with True/False check data, uses it to determine whether or not to keep the checks.
+ * @param {String} bookName - The name of the book that checks are being fetched
+ * @return {Object} null if book does not have a filter, otherwise a key based object
+ */
+function getFilters(bookName) {
+  var filters;
+  try {
+    var filterPath = path.join(__dirname, '../filters/', bookName + '.csv');
+    filters = fs.readFileSync(filterPath).toString();
+  } catch (err) {
+    return null;
+  }
+  var lines = filters.split(/,\n/g);
+  var i = 0;
+  var matrix = [];
+  while (i < lines.length) {
+    if (lines[i][0] !== 'F') {
+      lines.splice(i, 1);
+    } else {
+      var lineSplit = lines[i++].split(',');
+      var matrixIndex = lineSplit[2] + ':' + lineSplit[3];
+      var word = lineSplit[4].trim();
+      if (!matrix[word]) matrix[word] = [];
+      matrix[word].push(matrixIndex.trim());
+    }
+  }
+  return matrix;
 }
