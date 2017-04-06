@@ -12,6 +12,7 @@ import fs from 'fs-extra';
 import pathex from 'path-extra';
 import path from 'path';
 import parser from '../scripts/usfm-parse';
+import { toJSON } from 'usfm-parser';
 import BooksOfBible from '../utils/BooksOfBible.js';
 const NAMESPACE = "ScripturePane";
 var missingChunks = 0;
@@ -135,7 +136,8 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
             console.warn("There was an error getting the UDB")
           }
           var usfmData = data.toString();
-          var parsedUSFM = parser.toJSON(usfmData);
+          debugger;
+          var parsedUSFM = toJSON(usfmData);
           if (parsedUSFM.headers['id']) parsedUSFM.book = parsedUSFM.headers['id'].split(" ")[0].toLowerCase();
           saveUDBinAPI(parsedUSFM, addNewBible);
         }
