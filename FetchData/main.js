@@ -8,10 +8,11 @@ export default function fetchAllData(props) {
   const bibles = props.resourcesReducer.bibles;
   const actions = props.actions;
   const totalProgress = actions.progress;
+  const scripturePaneSettings = props.modulesSettingsReducer.ScripturePane ? true : false;
 
   return new Promise(function(resolve, reject) {
     tWFetchData(projectDetails, bibles, actions, progress);
-    scripturePaneData(projectDetails, bibles, actions, progress)
+    scripturePaneData(projectDetails, bibles, actions, progress, scripturePaneSettings)
     .then(()=>{
       FETCH_DATAS_FINISHED++;
     })
