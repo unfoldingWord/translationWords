@@ -11,7 +11,6 @@
 import fs from 'fs-extra';
 import pathex from 'path-extra';
 import path from 'path';
-import parser from '../scripts/usfm-parse';
 import { toJSON } from 'usfm-parser';
 import BooksOfBible from '../utils/BooksOfBible.js';
 const NAMESPACE = "ScripturePane";
@@ -280,7 +279,7 @@ function joinChunks(text, currentChapter, currentJoined) {
     if (currentJoined[currentChapter] === undefined) {
       currentJoined[currentChapter] = {};
     }
-    var currentChunk = parser(text);
+    var currentChunk = parseTargetLanguage(text);
     for (let verse in currentChunk.verses) {
       if (currentChunk.verses.hasOwnProperty(verse)) {
         var currentVerse = currentChunk.verses[verse];
@@ -290,6 +289,31 @@ function joinChunks(text, currentChapter, currentJoined) {
   }
 }
 
+function parseTargetLanguage(usfm) {
+  let chapData = {};
+  let chapters = usfm.split("\\c ");
+  for (let ch in chapters) {
+    if (chapters[ch] === "") continue;
+    if (/\\h /.exec(chapters[ch])) {
+      chapData.header = chapters[ch];
+    } else {
+      let chapNum = "verses";
+      chapData[chapNum] = {};
+      let verses = chapters[ch].split("\\v ");
+      for (let v in verses) {
+        if (verses[v] === "") continue;
+        let verseNum;
+        try { // this shoudl work the majority of the time
+          [, verseNum] = /^(\d+)/.exec(verses[v]);
+        } catch (e) {
+          verseNum = "-1";
+        }
+        chapData[chapNum][verseNum] = verses[v].replace(/^\s*(\d+)\s*/, "");
+      }
+    }
+  }
+  return chapData;
+}
 
     /**
      * @description - Method to parse a JSON string and format by chapter and verse
