@@ -25,16 +25,21 @@ var missingChunks = 0;
  * @param {object} actions - The functions that a tool has access to in order to store data
  * after it is loaded
  * @param {function} progress - Function to send to fetch data container to show progress
+ * @param {boolean} scripturePaneSettings - its true if the scripture pane was preloaded
+ * from the file system otherwise its false.
  * @returns {Promise} - Function that gets called when all the data is finished loading
  */
-export default function fetchData(projectDetails, bibles, actions, progress) {
+export default function fetchData(projectDetails, bibles, actions, progress, scripturePaneSettings) {
   return new Promise(function (resolve, reject) {
     const params = projectDetails.params;
     const tcManifest = projectDetails.manifest;
-    const { addNewBible, addNewResource, setModuleSettings } = actions;
-    const { currentPaneSettings, staticPaneSettings } = getPaneSettings(tcManifest);
-    setModuleSettings(NAMESPACE, 'currentPaneSettings', currentPaneSettings);
-    setModuleSettings(NAMESPACE, 'staticPaneSettings', staticPaneSettings);
+    const { addNewBible, setModuleSettings } = actions;
+    // Only generate ScripturePane settings if they were not previously generated and/or loaded from the filesystem.
+    if (!scripturePaneSettings) {
+      const { currentPaneSettings, staticPaneSettings } = getPaneSettings(tcManifest);
+      setModuleSettings(NAMESPACE, 'currentPaneSettings', currentPaneSettings);
+      setModuleSettings(NAMESPACE, 'staticPaneSettings', staticPaneSettings);
+    }
     getTargetLanguage().then(() => {
       progress(33);
       getOriginalLanguage();
