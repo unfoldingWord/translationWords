@@ -175,12 +175,16 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
         if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
+          // Checks if a filter object is passed
           if (filter) {
+            // Current word
             var filterIndex = wordObject.name.replace(/\.txt$/, '');
             var currentFilter = filter[filterIndex];
             var cv = chapterNumber + ':' + verseObject.num;
+            // If the word has a filter, and the filter includes the current verse
             if (currentFilter && currentFilter.includes(cv)) {
               var indexOfVerse = filter[filterIndex].indexOf(cv);
+              // Remove verse from list, continue onto next instance of word
               filter[filterIndex].splice(indexOfVerse, 1);
               groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
               continue;
@@ -356,6 +360,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
 function getFilters(bookName) {
   var filters;
   try {
+    // See if a filter exists for a book
     var filterPath = path.join(__dirname, '../filters/', bookName + '.csv');
     filters = fs.readFileSync(filterPath).toString();
   } catch (err) {
@@ -365,6 +370,8 @@ function getFilters(bookName) {
   var i = 0;
   var removeChecks = [];
   var addChecks = [];
+  // Converts into two matrices, one has checks to remove, one has checks to add.
+  // Index of matrices is based on the word, either the quote or the group.
   while (i < lines.length) {
     var lineSplit;
     var word;
