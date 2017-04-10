@@ -11,7 +11,7 @@
 import fs from 'fs-extra';
 import pathex from 'path-extra';
 import path from 'path';
-import * as parser from 'usfm-parser';
+import { toJSON } from 'usfm-parser';
 import BooksOfBible from '../utils/BooksOfBible.js';
 const NAMESPACE = "ScripturePane";
 var missingChunks = 0;
@@ -61,7 +61,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, scr
       return new Promise((resolve, reject) => {
         try {
           if (bibles.targetLanguage) resolve();
-          else readInManifest(params.targetLanguagePath, tcManifest, addNewBible, resolve);
+          else readInManifest(tcManifest, params.targetLanguagePath, addNewBible, resolve);
         } catch (e) {
           reject(e);
         }
@@ -140,7 +140,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, scr
             console.warn("There was an error getting the UDB")
           }
           var usfmData = data.toString();
-          var parsedUSFM = parser.toJSON(usfmData);
+          var parsedUSFM = toJSON(usfmData);
           if (parsedUSFM.headers['id']) parsedUSFM.book = parsedUSFM.headers['id'].split(" ")[0].toLowerCase();
           saveUDBinAPI(parsedUSFM, addNewBible);
         }
@@ -273,28 +273,52 @@ export default function fetchData(projectDetails, bibles, actions, progress, scr
       }
     }
 
-    /**
-    * @description This function saves the chunks locally as a window object;
-    * @param {string} text - The text being read in from chunks
-    ******************************************************************************/
-    function joinChunks(text, currentChapter, currentJoined) {
-      currentChapter = parseInt(currentChapter);
-      if (currentChapter == 0) {
-        currentJoined.title = text;
-      } else {
-        if (currentJoined[currentChapter] === undefined) {
-          currentJoined[currentChapter] = {};
-        }
-        var currentChunk = parser.toJSON(text).chapters[0];
-        for (let verse in currentChunk.verses) {
-          if (currentChunk.verses.hasOwnProperty(verse)) {
-            var currentVerse = currentChunk.verses[verse];
-            currentJoined[currentChapter][verse] = currentVerse;
-          }
-        }
+/**
+ * @description This function saves the chunks locally as a window object;
+ * @param {string} text - The text being read in from chunks
+ ******************************************************************************/
+function joinChunks(text, currentChapter, currentJoined) {
+  if (currentChapter === 0) {
+    currentJoined.title = text;
+  } else {
+    if (currentJoined[currentChapter] === undefined) {
+      currentJoined[currentChapter] = {};
+    }
+    var currentChunk = parseTargetLanguage(text);
+    for (let verse in currentChunk.verses) {
+      if (currentChunk.verses.hasOwnProperty(verse)) {
+        var currentVerse = currentChunk.verses[verse];
+        currentJoined[currentChapter][parseInt(verse)] = currentVerse;
       }
     }
+  }
+}
 
+function parseTargetLanguage(usfm) {
+  let chapData = {};
+  let chapters = usfm.split("\\c ");
+  for (let ch in chapters) {
+    if (chapters[ch] === "") continue;
+    if (/\\h /.exec(chapters[ch])) {
+      chapData.header = chapters[ch];
+    } else {
+      let chapNum = "verses";
+      chapData[chapNum] = {};
+      let verses = chapters[ch].split("\\v ");
+      for (let v in verses) {
+        if (verses[v] === "") continue;
+        let verseNum;
+        try { // this shoudl work the majority of the time
+          [, verseNum] = /^(\d+)/.exec(verses[v]);
+        } catch (e) {
+          verseNum = "-1";
+        }
+        chapData[chapNum][verseNum] = verses[v].replace(/^\s*(\d+)\s*/, "");
+      }
+    }
+  }
+  return chapData;
+}
 
     /**
      * @description - Method to parse a JSON string and format by chapter and verse
