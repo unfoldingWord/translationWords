@@ -41,7 +41,7 @@ class Container extends React.Component {
     let {contextId} = this.props.contextIdReducer
     let {translationWords} = this.props.resourcesReducer
 
-    if (contextId !== undefined) {
+    if (contextId !== null) {
       view = <View
         {...this.props}
         currentFile={this.currentFile(contextId.groupId, wordList)}
