@@ -10,10 +10,10 @@ export default function fetchAllData(props) {
   const totalProgress = actions.progress;
 
   return new Promise(function(resolve, reject) {
-    tWFetchData(projectDetails, bibles, actions, progress);
     scripturePaneData(projectDetails, bibles, actions, progress)
     .then(()=>{
       FETCH_DATAS_FINISHED++;
+      tWFetchData(projectDetails, bibles, actions, progress);
     })
     .then(resolve).catch((e)=>{
       console.warn(e);
