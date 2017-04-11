@@ -10,6 +10,7 @@ const XRegExp = require('xregexp');
 const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
+const path = require('path-extra');
 
 // User imports
 const Door43DataFetcher = require('../js/Door43DataFetcher.js');
@@ -165,7 +166,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
    * @param {object} wordObject - This is an object containing various fields about the word we're
    * currently searching for, primary key for this methods are the wordObject's regexes
    */
-  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params, checkObj) {
+  function findWordInVerse(chapterNumber, verseObject, mappedVerseObject, wordObject, addGroupData, params, checkObj, filter) {
     var checkArray = [];
     var sortOrder = 0;
     let previousWord = '';
@@ -174,8 +175,23 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
         if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
+          // Checks if a filter object is passed
+          if (filter) {
+            // Current word
+            var filterIndex = wordObject.name.replace(/\.txt$/, '');
+            var currentFilter = filter[filterIndex];
+            var cv = chapterNumber + ':' + verseObject.num;
+            // If the word has a filter, and the filter includes the current verse
+            if (currentFilter && currentFilter.includes(cv)) {
+              var indexOfVerse = filter[filterIndex].indexOf(cv);
+              // Remove verse from list, continue onto next instance of word
+              filter[filterIndex].splice(indexOfVerse, 1);
+              groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
+              continue;
+            }
+          }
           if (groupName[0] === previousWord) {
-            occurenceNumber++
+            occurenceNumber++;
           }
           previousWord = groupName[0];
           let groupId = wordObject.name.replace(/\.txt$/, '');
@@ -301,6 +317,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
   function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
     var indexList = [];
     var checkObj = {};
+    var filters = getFilters(convertToFullBookName(params.bookAbbr)) || {};
     for (var word of wordList) {
       var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
       var wordReturnObject = {
@@ -313,10 +330,11 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       });
       for (var chapter of bookData.chapters) {
         for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj);
+          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj, filters.removeChecks);
         }
       }
     }
+    addChecks(checkObj, filters.addChecks, wordList, params);
     Object.keys(checkObj).map(function (key, index) {
       addGroupData(key, checkObj[key]);
     });
@@ -331,5 +349,92 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
   function convertToFullBookName(bookAbbr) {
     if (!bookAbbr) return;
     return BooksOfBible[bookAbbr.toString().toLowerCase()];
+  }
+}
+
+/**
+ * @description - Opens a CSV file with True/False check data, uses it to determine whether or not to keep the checks.
+ * @param {String} bookName - The name of the book that checks are being fetched
+ * @return {Object} null if book does not have a filter, otherwise a key based object
+ */
+function getFilters(bookName) {
+  var filters;
+  try {
+    // See if a filter exists for a book
+    var filterPath = path.join(__dirname, '../filters/', bookName + '.csv');
+    filters = fs.readFileSync(filterPath).toString();
+  } catch (err) {
+    return null;
+  }
+  var lines = filters.split(/,\n/g);
+  var i = 0;
+  var removeChecks = [];
+  var addChecks = [];
+  // Converts into two matrices, one has checks to remove, one has checks to add.
+  // Index of matrices is based on the word, either the quote or the group.
+  while (i < lines.length) {
+    var lineSplit;
+    var word;
+    if (lines[i][0] === 'F') {
+      lineSplit = lines[i].split(',');
+      var removeChecksIndex = lineSplit[2] + ':' + lineSplit[3];
+      word = lineSplit[5].replace(/\.txt$/, '').trim();
+      if (!removeChecks[word]) removeChecks[word] = [];
+      removeChecks[word].push(removeChecksIndex.trim());
+    } else if (lines[i].split(',')[0] === 'New') {
+      lineSplit = lines[i].split(',');
+      word = lineSplit[5].replace(/\.txt$/, '').trim();
+      if (!addChecks[word]) addChecks[word] = [];
+      addChecks[word].push(lineSplit);
+    }
+    i++;
+  }
+  return {removeChecks, addChecks};
+}
+
+/**
+ * @description - Adds checks based on filters
+ * @param {Object} checkObj - The check object to update
+ * @param {Object} filters - The filter to reference
+ * @param {Object} wordList - The wordList to reference
+ * @param {Object} params - Parameters to fetch for
+ * @return No return
+ */
+function addChecks(checkObj, filters, wordList, params) {
+  if (!filters) return null;
+  for (var word in filters) {
+    var wordInfo = null;
+    for (var i = 0; i < wordList.length; i++) {
+      if (wordList[i].name === (word + '.txt')) {
+        wordInfo = wordList[i].file;
+        break;
+      }
+    }
+    var prevVerses = [];
+    while (filters[word].length > 0) {
+      var currentIntstance = filters[word].pop();
+      if (!checkObj[word]) checkObj[word] = [];
+      var cv = currentIntstance[2] + ':' + currentIntstance[3];
+      if (prevVerses[cv]) {
+        prevVerses[cv]++;
+      } else {
+        prevVerses[cv] = 1;
+      }
+      checkObj[word].push({
+        contextId: {
+          groupId: word,
+          occurence: prevVerses[cv],
+          quote: currentIntstance[4],
+          reference: {
+            bookId: params.bookAbbr,
+            chapter: parseInt(currentIntstance[2]),
+            verse: parseInt(currentIntstance[3])
+          },
+          tool: 'ImportantWords'
+        },
+        information: wordInfo,
+        priority: 1
+      });
+    }
   }
 }
