@@ -18,17 +18,25 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    FetchData(this.props)
+    FetchData(this.props).then(this.props.actions.doneLoading);
+    this.props.actions.dataFetched(true);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.currentToolReducer.dataFetched) {
+      FetchData(nextProps).then(this.props.actions.doneLoading);
+      nextProps.actions.dataFetched(true);
+    }
   }
 
   toggleHelps() {
-    this.setState({showHelps: !this.state.showHelps})
+    this.setState({ showHelps: !this.state.showHelps })
   }
 
   currentFile(groupId, wordList) {
     let currentFile = ""
     if (wordList.constructor == Array) {
-      let wordsObjectArray = wordList.filter( (wordObject) => {
+      let wordsObjectArray = wordList.filter((wordObject) => {
         return wordObject.name === groupId + '.txt'
       })
       currentFile = wordsObjectArray[0].file
@@ -38,8 +46,8 @@ class Container extends React.Component {
 
   view() {
     let view = <div />
-    let {contextId} = this.props.contextIdReducer
-    let {translationWords} = this.props.resourcesReducer
+    let { contextId } = this.props.contextIdReducer
+    let { translationWords } = this.props.resourcesReducer
 
     if (contextId !== null) {
       view = <View
