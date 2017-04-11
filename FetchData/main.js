@@ -9,12 +9,14 @@ export default function fetchAllData(props) {
   const actions = props.actions;
   const totalProgress = actions.progress;
   const scripturePaneSettings = props.modulesSettingsReducer.ScripturePane ? true : false;
+  const groupsDataLoaded = props.groupsDataReducer.loadedFromFileSystem;
+  const groupsIndexLoaded = props.groupsIndexReducer.loadedFromFileSystem;
 
   return new Promise(function(resolve, reject) {
     scripturePaneData(projectDetails, bibles, actions, progress, scripturePaneSettings)
     .then(()=>{
       FETCH_DATAS_FINISHED++;
-      tWFetchData(projectDetails, bibles, actions, progress);
+      tWFetchData(projectDetails, bibles, actions, progress, groupsIndexLoaded, groupsDataLoaded);
     })
     .then(resolve).catch((e)=>{
       console.warn(e);

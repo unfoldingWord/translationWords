@@ -17,7 +17,7 @@ const TranslationWordsFetcher = require('../translation_words/TranslationWordsFe
 const BookWordTest = require('../translation_words/WordTesterScript.js');
 const BooksOfBible = require('../utils/BooksOfBible');
 
-export default function fetchData(projectDetails, bibles, actions, progress) {
+export default function fetchData(projectDetails, bibles, actions, progress, groupsIndexLoaded, groupsDataLoaded) {
   return new Promise(function (resolve, reject) {
     const params = projectDetails.params;
     const tcManifest = params.manifest;
@@ -42,7 +42,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
         } else {
           var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
           var mappedBook = mapVerses(bookData);
-          findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
+          findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params, groupsIndexLoaded, groupsDataLoaded);
           setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
           progress(100);
           resolve();
@@ -298,31 +298,40 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
    * in the book data. This list should be a filtered list from the entire translationWords list as
    * this method has many inner loops
    */
-  function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
+  function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params, groupsIndexLoaded, groupsDataLoaded) {
     var indexList = [];
     var checkObj = {};
-    for (var word of wordList) {
-      var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
-      var wordReturnObject = {
-        groupId: word.name.replace(/\.txt$/, ''),
-        groupName: groupName.trim()
-      };
-      indexList.push({
-        id: wordReturnObject.groupId,
-        name: wordReturnObject.groupName
-      });
-      for (var chapter of bookData.chapters) {
-        for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj);
+    if (!groupsIndexLoaded || !groupsDataLoaded) {
+      for (var word of wordList) {
+        if (!groupsIndexLoaded) {
+          getGroupsIndex(word, indexList);
+        }
+        if (!groupsDataLoaded) {
+          for (var chapter of bookData.chapters) {
+            for (var verse of chapter.verses) {
+              findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj);
+            }
+          }
         }
       }
+      Object.keys(checkObj).map(function (key, index) {
+        addGroupData(key, checkObj[key]);
+      });
+      setGroupsIndex(indexList);
     }
-    Object.keys(checkObj).map(function (key, index) {
-      addGroupData(key, checkObj[key]);
-    });
-    setGroupsIndex(indexList);
   }
 
+  function getGroupsIndex(word, indexList) {
+    var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
+    var wordReturnObject = {
+      groupId: word.name.replace(/\.txt$/, ''),
+      groupName: groupName.trim()
+    };
+    indexList.push({
+      id: wordReturnObject.groupId,
+      name: wordReturnObject.groupName
+    });
+  }
   /**
 * @description - Method to convert a book abbreviation to the full name
 *
