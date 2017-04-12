@@ -3420,7 +3420,7 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:god)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:god)(?=\\b|\\PL)",
             "flags": ""
           }
         },
@@ -3490,7 +3490,7 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:father)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:father)(?=\\b|\\PL)",
             "flags": ""
           }
         },
@@ -4129,7 +4129,7 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:God)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:God)(?=\\b|\\PL)",
             "flags": ""
           }
         }
@@ -4166,14 +4166,14 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:God the Father|heavenly Father)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:God the Father|heavenly Father)(?=\\b|\\PL)",
             "flags": ""
           }
         },
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:Father)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:Father)(?=\\b|\\PL)",
             "flags": ""
           }
         }
@@ -4748,14 +4748,14 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:Spirit of the Lord|Spirit of God|Holy Spirit)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:Spirit of the Lord|Spirit of God|Holy Spirit)(?=\\b|\\PL)",
             "flags": ""
           }
         },
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:Spirit)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:Spirit)(?=\\b|\\PL)",
             "flags": ""
           }
         }
@@ -9198,7 +9198,7 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:son)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:son)(?=\\b|\\PL)",
             "flags": ""
           }
         }
@@ -9224,7 +9224,7 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:Son)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:Son)(?=\\b|\\PL)",
             "flags": ""
           }
         }
@@ -9318,7 +9318,7 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:spirit)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?-i)(?:spirit)(?=\\b|\\PL)",
             "flags": ""
           }
         }
