@@ -4167,7 +4167,7 @@
           "xregexp": {
             "captureNames": null,
             "source": "(?=\\b|\\PL)(?:God the Father|heavenly Father)(?=\\b|\\PL)",
-            "flags": "i"
+            "flags": ""
           }
         },
         {
@@ -4749,7 +4749,14 @@
           "xregexp": {
             "captureNames": null,
             "source": "(?=\\b|\\PL)(?:Spirit of the Lord|Spirit of God|Holy Spirit)(?=\\b|\\PL)",
-            "flags": "i"
+            "flags": ""
+          }
+        },
+        {
+          "xregexp": {
+            "captureNames": null,
+            "source": "(?=\\b|\\PL)(?:Spirit)(?=\\b|\\PL)",
+            "flags": ""
           }
         }
       ]
@@ -9304,8 +9311,15 @@
         {
           "xregexp": {
             "captureNames": null,
-            "source": "(?=\\b|\\PL)(?:spirit|spiritual)(?=\\b|\\PL)",
+            "source": "(?=\\b|\\PL)(?:spiritual)(?=\\b|\\PL)",
             "flags": "i"
+          }
+        },
+        {
+          "xregexp": {
+            "captureNames": null,
+            "source": "(?=\\b|\\PL)(?:spirit)(?=\\b|\\PL)",
+            "flags": ""
           }
         }
       ]
