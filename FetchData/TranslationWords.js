@@ -144,6 +144,39 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
     for (var regex of wordObject.regex) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
+        var error = false;
+        switch (groupName[0]) {
+          case "Father":
+            if (wordObject.name !== "godthefather.txt") error = true;
+            break;
+          case "father":
+            if (wordObject.name !== "father.txt") error = true;
+            break;
+          case "God":
+            if (wordObject.name !== "god.txt") error = true;
+            break;
+          case "god":
+            if (wordObject.name !== "falsegod.txt") error = true;
+            break;
+          case "Spirit":
+            if (wordObject.name !== "holyspirit.txt") error = true;
+            break;
+          case "spirit":
+            if (wordObject.name !== "spirit.txt") error = true;
+            break;
+          case "Son":
+            if (wordObject.name !== "sonofgod.txt") error = true;
+            break;
+          case "son":
+            if (wordObject.name !== "son.txt") error = true;
+            break;
+          default:
+            error = false;
+        }
+        if (error) {
+          groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
+          continue;
+        }
         if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
           // Checks if a filter object is passed
           if (filter) {
