@@ -50,35 +50,6 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
         }
       });
     }
-    var gatewayLanguage = bibles.gatewayLanguage;
-    /*
-      * we found the gatewayLanguage already loaded, now we must convert it
-      * to the format needed by the parsers
-      */
-    if (gatewayLanguage) {
-      var reformattedBookData = { chapters: [] };
-      for (var chapter in gatewayLanguage) {
-        var chapterObject = {
-          verses: [],
-          num: parseInt(chapter)
-        };
-        for (var verse in gatewayLanguage[chapter]) {
-          var verseObject = {
-            num: parseInt(verse),
-            text: gatewayLanguage[chapter][verse]
-          };
-          chapterObject.verses.push(verseObject);
-        }
-        chapterObject.verses.sort(function (first, second) {
-          return first.num - second.num;
-        });
-        reformattedBookData.chapters.push(chapterObject);
-      }
-      reformattedBookData.chapters.sort(function (first, second) {
-        return first.num - second.num;
-      });
-      parseDataFromBook(reformattedBookData, gatewayLanguage, addGroupData, setGroupsIndex);
-    } else { // We need to load the data, and then reformat it for the store and store it
       var data = getULBFromDoor43Static(params.bookAbbr);
       // hijack load
       bookData = Door43Fetcher.getULBFromBook(data);
@@ -94,7 +65,6 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
       addNewBible('ULB', newBookData);
       addNewBible('gatewayLanguage', newBookData);
       parseDataFromBook(bookData, newBookData, addGroupData, setGroupsIndex);
-    }
   });
 
   function getULBFromDoor43Static(bookAbr) {
