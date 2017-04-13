@@ -60,8 +60,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, scr
     function getTargetLanguage() {
       return new Promise((resolve, reject) => {
         try {
-          if (bibles.targetLanguage) resolve();
-          else readInManifest(tcManifest, params.targetLanguagePath, addNewBible, resolve);
+          readInManifest(tcManifest, params.targetLanguagePath, addNewBible, resolve);
         } catch (e) {
           reject(e);
         }
@@ -208,6 +207,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, scr
       let bookFileName = bookName + '.json';
       let finishedChunks = manifest.finished_chunks || manifest.finished_frames;
       var total = len(finishedChunks);
+      if (total == 0) callback();
       let currentJoined = {};
       var done = 0;
       for (let chapterVerse in finishedChunks) {
