@@ -18,17 +18,32 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    FetchData(this.props)
+    FetchData(this.props).then(this.props.actions.doneLoading);
+    //This will make sure that the anything triggered by the 
+    //DONE_LOADING action will be called at the right time.
+    this.props.actions.isDataFetched(true);
+    //This will make sure that the data will not be fetched twice when 
+    //the component receives new props.
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.currentToolReducer.isDataFetched) {
+      //This will make sure that the data will not be fetched twice
+      FetchData(nextProps).then(this.props.actions.doneLoading);
+      //This will make sure that the anything triggered by the 
+      //DONE_LOADING action will be called at the right time.
+      nextProps.actions.isDataFetched(true);
+    }
   }
 
   toggleHelps() {
-    this.setState({showHelps: !this.state.showHelps})
+    this.setState({ showHelps: !this.state.showHelps })
   }
 
   currentFile(groupId, wordList) {
     let currentFile = ""
     if (wordList.constructor == Array) {
-      let wordsObjectArray = wordList.filter( (wordObject) => {
+      let wordsObjectArray = wordList.filter((wordObject) => {
         return wordObject.name === groupId + '.txt'
       })
       currentFile = wordsObjectArray[0].file
@@ -38,8 +53,8 @@ class Container extends React.Component {
 
   view() {
     let view = <div />
-    let {contextId} = this.props.contextIdReducer
-    let {translationWords} = this.props.resourcesReducer
+    let { contextId } = this.props.contextIdReducer
+    let { translationWords } = this.props.resourcesReducer
 
     if (contextId !== null) {
       view = <View

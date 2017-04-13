@@ -50,35 +50,6 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
         }
       });
     }
-    var gatewayLanguage = bibles.gatewayLanguage;
-    /*
-      * we found the gatewayLanguage already loaded, now we must convert it
-      * to the format needed by the parsers
-      */
-    if (gatewayLanguage) {
-      var reformattedBookData = { chapters: [] };
-      for (var chapter in gatewayLanguage) {
-        var chapterObject = {
-          verses: [],
-          num: parseInt(chapter)
-        };
-        for (var verse in gatewayLanguage[chapter]) {
-          var verseObject = {
-            num: parseInt(verse),
-            text: gatewayLanguage[chapter][verse]
-          };
-          chapterObject.verses.push(verseObject);
-        }
-        chapterObject.verses.sort(function (first, second) {
-          return first.num - second.num;
-        });
-        reformattedBookData.chapters.push(chapterObject);
-      }
-      reformattedBookData.chapters.sort(function (first, second) {
-        return first.num - second.num;
-      });
-      parseDataFromBook(reformattedBookData, gatewayLanguage, addGroupData, setGroupsIndex);
-    } else { // We need to load the data, and then reformat it for the store and store it
       var data = getULBFromDoor43Static(params.bookAbbr);
       // hijack load
       bookData = Door43Fetcher.getULBFromBook(data);
@@ -94,7 +65,6 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
       addNewBible('ULB', newBookData);
       addNewBible('gatewayLanguage', newBookData);
       parseDataFromBook(bookData, newBookData, addGroupData, setGroupsIndex);
-    }
   });
 
   function getULBFromDoor43Static(bookAbr) {
@@ -174,6 +144,39 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
     for (var regex of wordObject.regex) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
+        var error = false;
+        switch (groupName[0]) {
+          case "Father":
+            if (wordObject.name !== "godthefather.txt") error = true;
+            break;
+          case "father":
+            if (wordObject.name !== "father.txt") error = true;
+            break;
+          case "God":
+            if (wordObject.name !== "god.txt") error = true;
+            break;
+          case "god":
+            if (wordObject.name !== "falsegod.txt") error = true;
+            break;
+          case "Spirit":
+            if (wordObject.name !== "holyspirit.txt") error = true;
+            break;
+          case "spirit":
+            if (wordObject.name !== "spirit.txt") error = true;
+            break;
+          case "Son":
+            if (wordObject.name !== "sonofgod.txt") error = true;
+            break;
+          case "son":
+            if (wordObject.name !== "son.txt") error = true;
+            break;
+          default:
+            error = false;
+        }
+        if (error) {
+          groupName = stringMatch(verseObject.text, regex, groupName.index + incrementIndexByWord(groupName));
+          continue;
+        }
         if (!checkIfWordsAreMarked(groupName, mappedVerseObject)) {
           // Checks if a filter object is passed
           if (filter) {
