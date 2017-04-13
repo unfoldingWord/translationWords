@@ -18,7 +18,7 @@ const TranslationWordsFetcher = require('../translation_words/TranslationWordsFe
 const BookWordTest = require('../translation_words/WordTesterScript.js');
 const BooksOfBible = require('../utils/BooksOfBible');
 
-export default function fetchData(projectDetails, bibles, actions, progress) {
+export default function fetchData(projectDetails, bibles, actions, progress, groupsIndexLoaded, groupsDataLoaded) {
   return new Promise(function (resolve, reject) {
     const params = projectDetails.params;
     const tcManifest = params.manifest;
@@ -43,7 +43,7 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
         } else {
           var actualWordList = BookWordTest(tWFetcher.wordList, bookData, tWFetcher.caseSensitiveAliases);
           var mappedBook = mapVerses(bookData);
-          findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params);
+          findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params, groupsIndexLoaded, groupsDataLoaded);
           setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
           progress(100);
           resolve();
@@ -315,32 +315,49 @@ export default function fetchData(projectDetails, bibles, actions, progress) {
    * this method has many inner loops
    */
   function findWords(bookData, mapBook, wordList, addGroupData, setGroupsIndex, params) {
-    var indexList = [];
-    var checkObj = {};
-    var filters = getFilters(convertToFullBookName(params.bookAbbr)) || {};
-    for (var word of wordList) {
-      var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
-      var wordReturnObject = {
-        groupId: word.name.replace(/\.txt$/, ''),
-        groupName: groupName.trim()
-      };
-      indexList.push({
-        id: wordReturnObject.groupId,
-        name: wordReturnObject.groupName
-      });
-      for (var chapter of bookData.chapters) {
-        for (var verse of chapter.verses) {
-          findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj, filters.removeChecks);
+    if (!groupsIndexLoaded || !groupsDataLoaded) {
+      var indexList = [];
+      var checkObj = {};
+      var filters = getFilters(convertToFullBookName(params.bookAbbr)) || {};
+      for (var word of wordList) {
+        if (!groupsIndexLoaded) {
+          var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
+          var wordReturnObject = {
+            groupId: word.name.replace(/\.txt$/, ''),
+            groupName: groupName.trim()
+          };
+          indexList.push({
+            id: wordReturnObject.groupId,
+            name: wordReturnObject.groupName
+          });
+        }
+        if (!groupsDataLoaded) {
+          for (var chapter of bookData.chapters) {
+            for (var verse of chapter.verses) {
+              findWordInVerse(chapter.num, verse, mapBook[chapter.num][verse.num], word, addGroupData, params, checkObj, filters.removeChecks);
+            }
+          }
         }
       }
+      addChecks(checkObj, filters.addChecks, wordList, params);
+      Object.keys(checkObj).map(function (key, index) {
+        addGroupData(key, checkObj[key]);
+      });
+      setGroupsIndex(indexList);
     }
-    addChecks(checkObj, filters.addChecks, wordList, params);
-    Object.keys(checkObj).map(function (key, index) {
-      addGroupData(key, checkObj[key]);
-    });
-    setGroupsIndex(indexList);
   }
 
+  function getGroupsIndex(word, indexList) {
+    var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
+    var wordReturnObject = {
+      groupId: word.name.replace(/\.txt$/, ''),
+      groupName: groupName.trim()
+    };
+    indexList.push({
+      id: wordReturnObject.groupId,
+      name: wordReturnObject.groupName
+    });
+  }
   /**
 * @description - Method to convert a book abbreviation to the full name
 *
@@ -389,7 +406,7 @@ function getFilters(bookName) {
     }
     i++;
   }
-  return {removeChecks, addChecks};
+  return { removeChecks, addChecks };
 }
 
 /**
