@@ -19,13 +19,13 @@ class Container extends React.Component {
 
   componentWillMount() {
     FetchData(this.props).then(this.props.actions.doneLoading);
-    this.props.actions.dataFetched(true);
+    this.props.actions.isDataFetched(true);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.currentToolReducer.dataFetched) {
+    if (!nextProps.currentToolReducer.isDataFetched) {
       FetchData(nextProps).then(this.props.actions.doneLoading);
-      nextProps.actions.dataFetched(true);
+      nextProps.actions.isDataFetched(true);
     }
   }
 
