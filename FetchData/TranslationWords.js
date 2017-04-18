@@ -140,7 +140,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
     var checkArray = [];
     var sortOrder = 0;
     let previousWord = '';
-    let occurenceNumber = 1;
+    let occurrenceNumber = 1;
     for (var regex of wordObject.regex) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
@@ -194,7 +194,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
             }
           }
           if (groupName[0] === previousWord) {
-            occurenceNumber++;
+            occurrenceNumber++;
           }
           previousWord = groupName[0];
           let groupId = wordObject.name.replace(/\.txt$/, '');
@@ -211,7 +211,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
               tool: "ImportantWords",
               groupId: groupId,
               quote: groupName[0],
-              occurrence: occurenceNumber
+              occurrence: occurrenceNumber
             }
           });
         }
@@ -443,7 +443,7 @@ function addChecks(checkObj, filters, wordList, params) {
       checkObj[word].push({
         contextId: {
           groupId: word,
-          occurence: prevVerses[cv],
+          occurrence: prevVerses[cv],
           quote: currentIntstance[4],
           reference: {
             bookId: params.bookAbbr,
