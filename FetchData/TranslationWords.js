@@ -202,6 +202,10 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
           checkObj[groupId].push({
             priority: 1,
             information: wordObject.file,
+            comments: false,
+            reminders: false,
+            selections: false,
+            verseEdits: false,
             contextId: {
               reference: {
                 bookId: params.bookAbbr,
@@ -447,13 +451,17 @@ function addChecks(checkObj, filters, wordList, params) {
           quote: currentIntstance[4],
           reference: {
             bookId: params.bookAbbr,
-            chapter: parseInt(currentIntstance[2]),
-            verse: parseInt(currentIntstance[3])
+            chapter: parseInt(currentIntstance[2], 10),
+            verse: parseInt(currentIntstance[3], 10)
           },
           tool: 'ImportantWords'
         },
         information: wordInfo,
-        priority: 1
+        priority: 1,
+        comments: false,
+        reminders: false,
+        selections: false,
+        verseEdits: false
       });
     }
   }
