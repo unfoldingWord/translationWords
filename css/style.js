@@ -38,13 +38,9 @@ var style = {
     cursor: 'pointer'
   },
   linkInactive: {
-    color: '#e7e7e7',
-    marginTop: '3.2em',
-    textAlign: 'right',
-    cursor: 'not-allowed'
+    display: none,
   },
   title: {
-    textTransform: 'capitalize',
     textAlign: 'center',
     fontSize: '16px',
     fontWeight: 'bold',
