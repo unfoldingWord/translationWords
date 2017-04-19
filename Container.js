@@ -1,9 +1,8 @@
 import React from 'react';
 import View from './View.js';
-import FetchData from './FetchData/main'
-// Api Consts
-const api = window.ModuleApi;
-const NAMESPACE = "ImportantWords";
+import fetchData from './FetchData/main'
+// Constant declarations
+const NAMESPACE = "translationWords";
 const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
 const tWFetcher = new TranslationWordsFetcher();
 const wordList = tWFetcher.getWordList();
@@ -18,20 +17,20 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    FetchData(this.props).then(this.props.actions.doneLoading);
-    //This will make sure that the anything triggered by the 
-    //DONE_LOADING action will be called at the right time.
+    fetchData(this.props).then(this.props.actions.doneLoading);
+    // This will make sure that the anything triggered by the
+    // DONE_LOADING action will be called at the right time.
     this.props.actions.isDataFetched(true);
-    //This will make sure that the data will not be fetched twice when 
-    //the component receives new props.
+    // This will make sure that the data will not be fetched twice when
+    // the component receives new props.
   }
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.currentToolReducer.isDataFetched) {
-      //This will make sure that the data will not be fetched twice
-      FetchData(nextProps).then(this.props.actions.doneLoading);
-      //This will make sure that the anything triggered by the 
-      //DONE_LOADING action will be called at the right time.
+      // This will make sure that the data will not be fetched twice
+      fetchData(nextProps).then(this.props.actions.doneLoading);
+      // This will make sure that the anything triggered by the
+      // DONE_LOADING action will be called at the right time.
       nextProps.actions.isDataFetched(true);
     }
   }
@@ -54,7 +53,6 @@ class Container extends React.Component {
   view() {
     let view = <div />
     let { contextId } = this.props.contextIdReducer
-    let { translationWords } = this.props.resourcesReducer
 
     if (contextId !== null) {
       view = <View

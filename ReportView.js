@@ -7,11 +7,11 @@ const ReportFilters = api.ReportFilters;
 
 
 // TODO: Namespace needs to be hard linked with View.js
-const NAMESPACE = 'ImportantWords';
-const TITLE = 'ImportantWords ';
+const NAMESPACE = 'translationWords';
+const TITLE = 'translationWords ';
 const extensionRegex = new RegExp('\\.\\w+\\s*$');
 
-function ImportantWordsReport(chapter, verse, query) {
+function translationWordsReport(chapter, verse, query) {
   // main header for the whole report
   if (chapter == 0 && verse == 0) {
     let [done, total] = getCheckNumbers();
@@ -285,6 +285,6 @@ class ReportHeader extends React.Component {
 }
 
 module.exports = {
-  view: ImportantWordsReport,
+  view: translationWordsReport,
   namespace: NAMESPACE
 };

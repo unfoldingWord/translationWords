@@ -212,7 +212,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
                 chapter: chapterNumber,
                 verse: verseObject.num
               },
-              tool: "ImportantWords",
+              tool: "translationWords",
               groupId: groupId,
               quote: groupName[0],
               occurrence: occurrenceNumber
@@ -313,7 +313,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
 
   /**
    * @description - This does a {@link findWordInVerse} for every word given in wordList and returns
-   * the list of checks for the ImportantWords
+   * the list of checks for the translationWords
    * @param {object} bookData - This is the data returned by Door43DataFetcher after downloading
    * an entire book of the Bible
    * @param {array} mapBook - This is the array containing arrays of mappedVerses. See {@link mapVerses}
@@ -447,7 +447,7 @@ function addChecks(checkObj, filters, wordList, params) {
             chapter: parseInt(currentInstance[2], 10),
             verse: parseInt(currentInstance[3], 10)
           },
-          tool: 'ImportantWords'
+          tool: 'translationWords'
         },
         information: undefined,
         priority: 1,
