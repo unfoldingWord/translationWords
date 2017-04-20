@@ -32,24 +32,25 @@ var style = {
     borderRadius: "5px 0px 0px 5px"
   },
   linkActive: {
+    fontWeight: 'bold',
     color: '#FFFFFF',
-    marginTop: '3.2em',
+    margin: '10px 20px',
     textAlign: 'right',
     cursor: 'pointer'
   },
   linkInactive: {
-    color: '#e7e7e7',
-    marginTop: '3.2em',
+    fontWeight: 'bold',
+    color: '#2196F3',
+    margin: '10px 20px',
     textAlign: 'right',
-    cursor: 'not-allowed'
+    cursor: 'default'
   },
   title: {
-    textTransform: 'capitalize',
     textAlign: 'center',
     fontSize: '16px',
     fontWeight: 'bold',
     color: '#ffffff',
-    margin: '15px'
+    margin: '20px'
   },
 };
 
