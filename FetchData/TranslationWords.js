@@ -11,7 +11,7 @@ const natural = require('natural');
 const tokenizer = new natural.RegexpTokenizer({ pattern: new XRegExp('\\PL') });
 const fs = require('fs');
 const path = require('path-extra');
-
+import isEqual from 'lodash/isEqual'
 // User imports
 const Door43DataFetcher = require('../js/Door43DataFetcher.js');
 const TranslationWordsFetcher = require('../translation_words/TranslationWordsFetcher.js');
@@ -140,7 +140,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
     var checkArray = [];
     var sortOrder = 0;
     let previousWord = '';
-    let occurenceNumber = 1;
+    let occurrenceNumber = 1;
     for (var regex of wordObject.regex) {
       var groupName = verseObject.text.match(regex);
       while (groupName) {
@@ -194,7 +194,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
             }
           }
           if (groupName[0] === previousWord) {
-            occurenceNumber++;
+            occurrenceNumber++;
           }
           previousWord = groupName[0];
           let groupId = wordObject.name.replace(/\.txt$/, '');
@@ -202,6 +202,10 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
           checkObj[groupId].push({
             priority: 1,
             information: wordObject.file,
+            comments: false,
+            reminders: false,
+            selections: false,
+            verseEdits: false,
             contextId: {
               reference: {
                 bookId: params.bookAbbr,
@@ -211,7 +215,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
               tool: "ImportantWords",
               groupId: groupId,
               quote: groupName[0],
-              occurrence: occurenceNumber
+              occurrence: occurrenceNumber
             }
           });
         }
@@ -423,38 +427,42 @@ function getFilters(bookName) {
 function addChecks(checkObj, filters, wordList, params) {
   if (!filters) return null;
   for (var word in filters) {
-    var wordInfo = null;
-    for (var i = 0; i < wordList.length; i++) {
-      if (wordList[i].name === (word + '.txt')) {
-        wordInfo = wordList[i].file;
-        break;
-      }
-    }
     var prevVerses = [];
     while (filters[word].length > 0) {
-      var currentIntstance = filters[word].pop();
+      var currentInstance = filters[word].pop();
       if (!checkObj[word]) checkObj[word] = [];
-      var cv = currentIntstance[2] + ':' + currentIntstance[3];
+      var cv = currentInstance[2] + ':' + currentInstance[3];
       if (prevVerses[cv]) {
         prevVerses[cv]++;
       } else {
         prevVerses[cv] = 1;
       }
-      checkObj[word].push({
+      let check = {
         contextId: {
           groupId: word,
-          occurence: prevVerses[cv],
-          quote: currentIntstance[4],
+          occurrence: prevVerses[cv],
+          quote: currentInstance[4],
           reference: {
             bookId: params.bookAbbr,
-            chapter: parseInt(currentIntstance[2]),
-            verse: parseInt(currentIntstance[3])
+            chapter: parseInt(currentInstance[2], 10),
+            verse: parseInt(currentInstance[3], 10)
           },
           tool: 'ImportantWords'
         },
-        information: wordInfo,
-        priority: 1
+        information: undefined,
+        priority: 1,
+        comments: false,
+        reminders: false,
+        selections: false,
+        verseEdits: false
+      };
+      let checkAlreadyInThere = false;
+      checkObj[word].forEach(_check => {
+        if (isEqual(_check.contextId, check.contextId)) checkAlreadyInThere = true;
       });
+      if (!checkAlreadyInThere) {
+        checkObj[word].push(check);
+      }
     }
   }
 }
