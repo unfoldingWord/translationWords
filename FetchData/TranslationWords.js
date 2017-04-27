@@ -36,7 +36,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
       var tWFetcher = new TranslationWordsFetcher();
       var wordList = tWFetcher.getWordList();
       tWFetcher.getAliases(function (done, total) {
-        progress(done / total * 50 + 50);
+        progress("translationWords", done / total * 50 + 50);
       }, function (error) {
         if (error) {
           console.log(error)
@@ -45,7 +45,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
           var mappedBook = mapVerses(bookData);
           findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params, groupsIndexLoaded, groupsDataLoaded);
           setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
-          progress(100);
+          progress("translationWords", 100);
           resolve();
         }
       });
