@@ -36,7 +36,6 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
       var tWFetcher = new TranslationWordsFetcher();
       var wordList = tWFetcher.getWordList();
       tWFetcher.getAliases(function (done, total) {
-        progress("translationWords", done / total * 50 + 50);
       }, function (error) {
         if (error) {
           console.log(error)
@@ -45,7 +44,6 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
           var mappedBook = mapVerses(bookData);
           findWords(bookData, mappedBook, actualWordList, addGroupData, setGroupsIndex, params, groupsIndexLoaded, groupsDataLoaded);
           setProjectDetail('bookName', convertToFullBookName(params.bookAbbr));
-          progress("translationWords", 100);
           resolve();
         }
       });
@@ -327,8 +325,11 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
       var checkObj = {};
       var filters = getFilters(convertToFullBookName(params.bookAbbr)) || {};
       for (var word of wordList) {
+        // calculating progress
+        let progressPercentage = wordList.indexOf(word) / (wordList.length - 1) * 100;
+        progress("translationNotes", progressPercentage);
         if (!groupsIndexLoaded) {
-          var groupName = word['file'].match(/# .*/)[0].replace(/#/g, '');
+          var groupName = word["file"].match(/# .*/)[0].replace(/#/g, '');
           var wordReturnObject = {
             groupId: word.name.replace(/\.txt$/, ''),
             groupName: groupName.trim()
