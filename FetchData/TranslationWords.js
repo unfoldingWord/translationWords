@@ -403,7 +403,7 @@ function getFilters(bookName) {
     if (lines[i][0] === 'F') {
       lineSplit = lines[i].split(',');
       var removeChecksIndex = lineSplit[2] + ':' + lineSplit[3];
-      word = lineSplit[5].replace(/\.txt$/, '').trim();
+      word = lineSplit[5].replace(/\.txt$/, '').trim().toLowerCase();
       if (!removeChecks[word]) removeChecks[word] = [];
       removeChecks[word].push(removeChecksIndex.trim());
     } else if (lines[i].split(',')[0] === 'New') {
