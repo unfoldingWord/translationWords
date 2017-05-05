@@ -40,25 +40,21 @@ class CheckInfoCard extends React.Component {
 
     render() {
       return (
-        <div style={{margin: '10px'}}>
-        <Card zDepth={2} style={{background: '#2196F3'}}>
-          <Row style={{marginLeft: '0px', marginRight: '0px', height: "100%"}}>
-            <Col md={4}>
-              <div style={styles.title}>
-                {this.props.title}
-              </div>
-            </Col>
-            <Col md ={8} style={{borderLeft: '1px solid #FFFFFF'}}>
-              <div style={{color: '#FFFFFF', margin: '20px 20px 0 0'}}>
-                {this.cleanText(this.props.file)}
-              </div>
-              <div onClick={this.props.showHelps ? null : this.props.openHelps}
-                   style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
-                See More
-              </div>
-            </Col>
-          </Row>
-        </Card>
+        <div style={{margin: '10px', flex: '0 0 100px', background: 'var(--accent-color)', display: 'flex', color: 'var(--reverse-color)' }}>
+
+          <div style={styles.leftSide}>
+            {this.props.title}
+          </div>
+          <div style={styles.rightSide}>
+            <div>
+              {this.cleanText(this.props.file)}
+            </div>
+            <div onClick={this.props.showHelps ? null : this.props.openHelps}
+                 style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
+              See More
+            </div>
+          </div>
+
         </div>
       );
     }

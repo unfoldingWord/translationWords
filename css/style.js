@@ -33,24 +33,39 @@ var style = {
   },
   linkActive: {
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    display: 'flex',
+    justifyContent: 'flex-end',
     margin: '10px 20px',
-    textAlign: 'right',
     cursor: 'pointer'
   },
   linkInactive: {
     fontWeight: 'bold',
-    color: '#2196F3',
+    color: 'var(--accent-color)',
     margin: '10px 20px',
     textAlign: 'right',
     cursor: 'default'
   },
-  title: {
-    textAlign: 'center',
+  leftSide: {
+
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     fontSize: '16px',
     fontWeight: 'bold',
-    color: '#ffffff',
-    margin: '20px'
+
+
+  },
+  rightSide: {
+
+    flex: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderLeft: '1px solid var(--reverse-color)',
+
+
+
   },
 };
 
