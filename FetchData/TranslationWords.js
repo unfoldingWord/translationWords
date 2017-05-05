@@ -199,7 +199,6 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
           if (!checkObj[groupId]) checkObj[groupId] = [];
           checkObj[groupId].push({
             priority: 1,
-            information: wordObject.file,
             comments: false,
             reminders: false,
             selections: false,
@@ -408,7 +407,7 @@ function getFilters(bookName) {
       removeChecks[word].push(removeChecksIndex.trim());
     } else if (lines[i].split(',')[0] === 'New') {
       lineSplit = lines[i].split(',');
-      word = lineSplit[5].replace(/\.txt$/, '').trim();
+      word = lineSplit[5].replace(/\.txt$/, '').trim().toLowerCase();
       if (!addChecks[word]) addChecks[word] = [];
       addChecks[word].push(lineSplit);
     }
@@ -440,7 +439,7 @@ function addChecks(checkObj, filters, wordList, params) {
       }
       let check = {
         contextId: {
-          groupId: word,
+          groupId: word.toLowerCase(),
           occurrence: prevVerses[cv],
           quote: currentInstance[4],
           reference: {
@@ -450,7 +449,6 @@ function addChecks(checkObj, filters, wordList, params) {
           },
           tool: 'translationWords'
         },
-        information: undefined,
         priority: 1,
         comments: false,
         reminders: false,
