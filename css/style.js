@@ -40,7 +40,7 @@ var style = {
   },
   linkInactive: {
     fontWeight: 'bold',
-    color: '#2196F3',
+    color: 'var(--accent-color-dark)',
     margin: '10px 20px',
     textAlign: 'right',
     cursor: 'default'
