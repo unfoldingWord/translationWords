@@ -40,32 +40,33 @@ var style = {
   },
   linkInactive: {
     fontWeight: 'bold',
-    color: 'var(--accent-color)',
+    color: 'var(--accent-color-dark)',
     margin: '10px 20px',
     textAlign: 'right',
     cursor: 'default'
   },
+  checkInfo: {
+    flex: '0 0 100px',
+    display: 'flex',
+    margin: '10px',
+    color: 'var(--reverse-color)',
+    backgroundColor: 'var(--accent-color-dark)'
+  },
   leftSide: {
-
     flex: 1,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: '16px',
     fontWeight: 'bold',
-
-
   },
   rightSide: {
-
     flex: 2,
     display: 'flex',
     flexDirection: 'column',
+    padding: '20px',
     justifyContent: 'space-between',
     borderLeft: '1px solid var(--reverse-color)',
-
-
-
   },
 };
 
