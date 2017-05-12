@@ -45,7 +45,7 @@ class CheckInfoCard extends React.Component {
             {this.props.title}
           </div>
           <div style={styles.rightSide}>
-            <div>
+            <div style={{margin: '20px 20px 0'}}>
               {this.cleanText(this.props.file)}
             </div>
             <div onClick={this.props.showHelps ? null : this.props.openHelps}

@@ -48,7 +48,7 @@ var style = {
   checkInfo: {
     flex: '0 0 100px',
     display: 'flex',
-    margin: '10px',
+    margin: '0 10px',
     color: 'var(--reverse-color)',
     backgroundColor: 'var(--accent-color-dark)',
     boxShadow: '0 3px 10px var(--background-color)',
@@ -66,7 +66,6 @@ var style = {
     flex: 2,
     display: 'flex',
     flexDirection: 'column',
-    padding: '20px',
     justifyContent: 'space-between',
     borderLeft: '1px solid var(--reverse-color)',
   },
