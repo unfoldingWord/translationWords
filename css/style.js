@@ -50,7 +50,9 @@ var style = {
     display: 'flex',
     margin: '10px',
     color: 'var(--reverse-color)',
-    backgroundColor: 'var(--accent-color-dark)'
+    backgroundColor: 'var(--accent-color-dark)',
+    boxShadow: '0 3px 10px var(--background-color)',
+    borderRadius: '2px',
   },
   leftSide: {
     flex: 1,

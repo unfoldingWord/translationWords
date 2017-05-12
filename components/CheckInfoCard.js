@@ -40,8 +40,7 @@ class CheckInfoCard extends React.Component {
 
     render() {
       return (
-        <div style={{margin: '10px', flex: '0 0 100px', background: 'var(--accent-color)', display: 'flex', color: 'var(--reverse-color)' }}>
-
+        <div style={styles.checkInfo}>
           <div style={styles.leftSide}>
             {this.props.title}
           </div>
@@ -54,7 +53,6 @@ class CheckInfoCard extends React.Component {
               See More
             </div>
           </div>
-
         </div>
       );
     }
