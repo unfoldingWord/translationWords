@@ -17,10 +17,10 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    fetchData(this.props).then(this.props.actions.doneLoading);
+    // fetchData(this.props).then(this.props.actions.doneLoading);
     // This will make sure that the anything triggered by the
     // DONE_LOADING action will be called at the right time.
-    this.props.actions.isDataFetched(true);
+    // this.props.actions.isDataFetched(true);
     // This will make sure that the data will not be fetched twice when
     // the component receives new props.
   }
@@ -74,5 +74,6 @@ class Container extends React.Component {
 
 module.exports = {
   name: NAMESPACE,
-  container: Container
+  container: Container,
+  fetchData: fetchData
 };
