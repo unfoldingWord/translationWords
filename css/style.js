@@ -61,6 +61,8 @@ var style = {
     alignItems: 'center',
     fontSize: '16px',
     fontWeight: 'bold',
+    padding: '0 20px',
+    textAlign: 'center',
   },
   rightSide: {
     flex: 2,
