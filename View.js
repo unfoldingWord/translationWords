@@ -6,7 +6,6 @@ import React from 'react';
 import {Row, Col, Tabs, Tab, Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './components/CheckInfoCard.js';
 import style from './css/style';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class View extends React.Component {
 
@@ -19,17 +18,15 @@ class View extends React.Component {
     } = this.props.modules;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
-    let scripturePane = <div></div>
-    // pupulate scripturePane so that when required data is preset that it renders as intended.
+    let scripturePane = <div></div>;
+    // populate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.modulesSettingsReducer.ScripturePane !== undefined) {
       scripturePane = <ScripturePane {...this.props} />
     }
-    let verseCheck = <div></div>
 
     return (
-      <MuiThemeProvider>
-        <Row className="show-grid" style={{margin: '0px', bottom: "0px", height: "100%"}}>
-          <Col sm={12} md={6} lg={9} style={{height: "100%", padding: '0px'}}>
+        <div style={{display: 'flex', flex: 'auto'}}>
+          <div style={{flex: 3, display: "flex", flexDirection: "column"}}>
             {scripturePane}
             <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.contextIdReducer.contextId.quote} file={this.props.currentFile}/>
             <VerseCheck
@@ -37,8 +34,8 @@ class View extends React.Component {
               goToNext={this.props.goToNext}
               goToPrevious={this.props.goToPrevious}
             />
-          </Col>
-          <Col sm={12} md={6} lg={3} style={{height: "100%", padding: "0px"}}>
+          </div>
+          <div style={{flex: 1}}>
             <div style={{height: "100vh"}}>
               <Glyphicon glyph={this.props.showHelps ? "chevron-right" : "chevron-left"}
                          style={this.props.showHelps ? style.tHelpsOpen : style.tHelpsClosed}
@@ -48,9 +45,8 @@ class View extends React.Component {
                                   online={this.props.statusBarReducer.online}/>
                 </div>
             </div>
-          </Col>
-        </Row>
-      </MuiThemeProvider>
+          </div>
+        </div>
     );
   }
 }
