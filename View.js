@@ -6,7 +6,6 @@ import React from 'react';
 import {Row, Col, Tabs, Tab, Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './components/CheckInfoCard.js';
 import style from './css/style';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class View extends React.Component {
 
