@@ -22,7 +22,7 @@ export default function fetchData(projectDetails, bibles, actions, progress, gro
   return new Promise(function (resolve, reject) {
     const params = projectDetails.params;
     const tcManifest = params.manifest;
-    const { addNewBible, setModuleSettings, addGroupData, setGroupsIndex, setProjectDetail } = actions;
+    const { addNewBible, addGroupData, setGroupsIndex, setProjectDetail } = actions;
     var bookData;
     var Door43Fetcher = new Door43DataFetcher();
     /**
