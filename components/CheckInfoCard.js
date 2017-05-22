@@ -21,7 +21,7 @@ class CheckInfoCard extends React.Component {
           finalArray.push(splitLine[i])
         }
       }
-      let maxLength = 120;
+      let maxLength = 225;
       let finalString = "";
       let chosenString = finalArray[0];
       let splitString = chosenString.split(' ');
@@ -39,11 +39,13 @@ class CheckInfoCard extends React.Component {
     render() {
       return (
         <div style={styles.checkInfo}>
-          <div style={styles.leftSide}>
-            {this.props.title}
-          </div>
+            <div style={styles.leftSide}>
+                <div style={styles.title}>
+                    {this.props.title}
+                </div>
+            </div>
           <div style={styles.rightSide}>
-            <div style={{margin: '20px 20px 0'}}>
+              <div style={styles.phrase}>
               {this.cleanText(this.props.file)}
             </div>
             <div onClick={this.props.showHelps ? null : this.props.openHelps}
