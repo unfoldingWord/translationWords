@@ -1,35 +1,15 @@
 var style = {
-  translationHelpsContent: {
-    overflowY: "scroll",
-    minWidth: "100%",
-    padding: '9px',
-    minHeight: "390px",
-    maxHeight: "390px",
-    backgroundColor: "var(--border-color)"
-  },
-  buttonGlyphicons:{
-    color: "var(--reverse-color)",
-    fontSize: "20px"
-  },
-  tHelpsOpen:{
-    float: "left",
-    marginTop: "50vh",
+  handleIcon:{
     zIndex: "999",
     color: "var(--reverse-color)",
     backgroundColor: "var(--text-color-dark)",
     padding: "10px 0px",
-    marginLeft: "-15px",
     borderRadius: "5px 0px 0px 5px"
   },
-  tHelpsClosed:{
-    float: "right",
-    marginTop: "50vh",
-    zIndex: "999",
-    color: "var(--reverse-color)",
-    backgroundColor: "var(--text-color-dark)",
-    padding: "10px 0px",
-    marginLeft: "-15px",
-    borderRadius: "5px 0px 0px 5px"
+  handleIconDiv: {
+    flex: '0 0 15px',
+    display: 'flex',
+    alignItems: 'center',
   },
   linkActive: {
     fontWeight: 'bold',
