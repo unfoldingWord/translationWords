@@ -39,6 +39,7 @@ class Container extends React.Component {
       view = <View
         {...this.props}
         currentFile={this.currentFile(contextId.groupId, wordList)}
+        dataList={wordList}
         showHelps={this.state.showHelps}
         toggleHelps={this.toggleHelps.bind(this)}
       />

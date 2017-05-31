@@ -17,6 +17,8 @@ class View extends React.Component {
       TranslationHelps
     } = this.props.modules;
 
+    let {dataList, currentFile} = this.props;
+
     // set the scripturePane to empty to handle react/redux when it first renders without required data
     let scripturePane = <div></div>;
     // populate scripturePane so that when required data is preset that it renders as intended.
@@ -42,7 +44,8 @@ class View extends React.Component {
                            onClick={this.props.toggleHelps} />
             </div>
             <div style={{ display: this.props.showHelps ? "flex" : "none", flex: '1 0 360px' }}>
-                <TranslationHelps currentFile={this.props.currentFile}
+                <TranslationHelps currentFile={currentFile}
+                                  dataList={dataList}
                                   online={this.props.statusBarReducer.online} />
             </div>
           </div>
