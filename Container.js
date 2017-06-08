@@ -3,9 +3,7 @@ import View from './View.js';
 import fetchData from './FetchData/main';
 // Constant declarations
 const NAMESPACE = "translationWords";
-const TranslationWordsFetcher = require('./translation_words/TranslationWordsFetcher.js');
-const tWFetcher = new TranslationWordsFetcher();
-const wordList = tWFetcher.getWordList();
+const wordList = require('./static/WordList.json').wordList;
 
 class Container extends React.Component {
   constructor() {
