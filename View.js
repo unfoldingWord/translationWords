@@ -9,18 +9,6 @@ import style from './css/style';
 
 class View extends React.Component {
 
-  componentWillMount() {
-    let articleId = this.props.contextIdReducer.contextId.groupId;
-    this.props.actions.loadResourceArticle('translationWords', articleId);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.contextIdReducer !== nextProps.contextIdReducer) {
-      let articleId = nextProps.contextIdReducer.contextId.groupId;
-      nextProps.actions.loadResourceArticle('translationWords', articleId);
-    }
-  }
-
   render() {
     // Modules not defined within translationWords
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.modules;
