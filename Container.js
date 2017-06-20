@@ -3,52 +3,37 @@ import View from './View.js';
 import fetchData from './FetchData/main';
 // Constant declarations
 const NAMESPACE = "translationWords";
-const wordList = require('./static/WordList.json').wordList;
 
 class Container extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      currentFile: null,
       showHelps: true
-    }
+    };
   }
 
   toggleHelps() {
-    this.setState({ showHelps: !this.state.showHelps })
+    this.setState({ showHelps: !this.state.showHelps });
   }
 
-  currentFile(groupId, wordList) {
-    let currentFile = ""
-    if (wordList.constructor == Array) {
-      let wordsObjectArray = wordList.filter((wordObject) => {
-        return wordObject.name === groupId + '.txt'
-      })
-      currentFile = wordsObjectArray[0].file
+  componentWillReceiveProps(nextProps) {
+    if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
+      let articleId = nextProps.contextIdReducer.contextId.groupId;
+      nextProps.actions.loadResourceArticle('translationWords', articleId);
     }
-    return currentFile
   }
 
-  view() {
-    let view = <div />
-    let { contextId } = this.props.contextIdReducer
-
+  render() {
+    let view = <div />;
+    let { contextId } = this.props.contextIdReducer;
     if (contextId !== null) {
       view = <View
         {...this.props}
-        currentFile={this.currentFile(contextId.groupId, wordList)}
-        dataList={wordList}
         showHelps={this.state.showHelps}
         toggleHelps={this.toggleHelps.bind(this)}
       />
     }
-    return view
-  }
-
-  render() {
-    return (
-      this.view()
-    );
+    return view;
   }
 }
 
