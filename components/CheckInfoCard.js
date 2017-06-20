@@ -37,6 +37,9 @@ class CheckInfoCard extends React.Component {
     }
 
     render() {
+      let cleanText;
+      if (this.props.file) cleanText = this.cleanText(this.props.file);
+
       return (
         <div style={styles.checkInfo}>
             <div style={styles.leftSide}>
@@ -46,7 +49,7 @@ class CheckInfoCard extends React.Component {
             </div>
           <div style={styles.rightSide}>
               <div style={styles.phrase}>
-              {this.cleanText(this.props.file)}
+              {cleanText}
             </div>
             <div onClick={this.props.showHelps ? null : this.props.openHelps}
                  style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
