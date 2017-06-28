@@ -1,6 +1,5 @@
 import React from 'react';
 import View from './View.js';
-import fetchData from './FetchData/main';
 // Constant declarations
 const NAMESPACE = "translationWords";
 
@@ -47,6 +46,5 @@ class Container extends React.Component {
 
 module.exports = {
   name: NAMESPACE,
-  container: Container,
-  fetchData: fetchData
+  container: Container
 };
