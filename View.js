@@ -11,7 +11,7 @@ class View extends React.Component {
 
   render() {
     // Modules not defined within translationWords
-    const { ScripturePane, VerseCheck, TranslationHelps } = this.props.toolViews;
+    const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
     let scripturePane = <div></div>;
