@@ -13,9 +13,7 @@ class Container extends React.Component {
 
   componentWillMount() {
     let { ScripturePane } = this.props.settingsReducer.toolsSettings;
-    console.log(ScripturePane)
     if (!ScripturePane) {
-      console.log("hellooo")
       // initializing the ScripturePane settings if not found.
       this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ["ulb"]);
     }
