@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "A tool to comprehensively check the meaning of all key terms in the Bible using a set of clear, concise definitions and including suggestions for translation.",
   "title": "translationWords (Part 1)",
-  "main": "Container.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

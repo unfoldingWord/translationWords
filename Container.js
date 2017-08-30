@@ -1,7 +1,5 @@
 import React from 'react';
 import View from './View.js';
-// Constant declarations
-const NAMESPACE = "translationWords";
 
 class Container extends React.Component {
   constructor() {
@@ -44,7 +42,4 @@ class Container extends React.Component {
   }
 }
 
-module.exports = {
-  name: NAMESPACE,
-  container: Container
-};
+export default Container;
