@@ -2,8 +2,8 @@
  * @file CheckInfoCard.js
  * @description This component is a display component for the Check Info Cards.
  */
-import React from 'react'
-import styles from '../css/style.js'
+import React from 'react';
+import styles from '../css/style.js';
 
 class CheckInfoCard extends React.Component {
     /**
@@ -14,11 +14,11 @@ class CheckInfoCard extends React.Component {
      */
     cleanText(text) {
       let splitLine = text.split('\n');
-      if (splitLine.length == 1 && splitLine[0] == "") return ""
-      let finalArray = []
+      if (splitLine.length == 1 && splitLine[0] == "") return "";
+      let finalArray = [];
       for (let i = 0; i < splitLine.length; i++) {
         if (splitLine[i] !== '' && !~splitLine[i].indexOf("#")) {
-          finalArray.push(splitLine[i])
+          finalArray.push(splitLine[i]);
         }
       }
       let maxLength = 225;
@@ -27,7 +27,7 @@ class CheckInfoCard extends React.Component {
       let splitString = chosenString.split(' ');
       for (let word of splitString) {
         if ((finalString + ' ' + word).length >= maxLength) {
-          finalString+= '...'
+          finalString+= '...';
           break;
         }
         finalString += ' ';

@@ -36,7 +36,7 @@ class Container extends React.Component {
         {...this.props}
         showHelps={this.state.showHelps}
         toggleHelps={this.toggleHelps.bind(this)}
-      />
+      />;
     }
     return view;
   }
