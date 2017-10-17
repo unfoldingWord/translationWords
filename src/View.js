@@ -17,7 +17,7 @@ class View extends React.Component {
     let scripturePane = <div></div>;
     // populate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.settingsReducer.toolsSettings.ScripturePane !== undefined) {
-      scripturePane = <ScripturePane {...this.props} />
+      scripturePane = <ScripturePane {...this.props} />;
     }
 
     let { translationWords } = this.props.resourcesReducer.translationHelps;

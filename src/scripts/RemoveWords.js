@@ -1,7 +1,7 @@
 //Usage: Just put the words.md files into a directory ./scripts/words
 
 var fs = require('fs');
-var path = require('path')
+var path = require('path');
 var wordList = require('../static/WordList.json').wordList;
 for (var i in wordList) {
   var originalFile = wordList[i].name;

@@ -105,7 +105,7 @@ function constructRegexString(arrayOfWords) {
   for (var i = 0; i < arrayOfWords.length; i++) {
     var word = arrayOfWords[i];
     if (word) {
-      wordRegexString += word
+      wordRegexString += word;
     }
     if (i < arrayOfWords.length - 1) {
       wordRegexString += '|';
