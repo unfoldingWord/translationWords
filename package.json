@@ -1,7 +1,7 @@
 {
   "name": "translationWords",
   "version": "1.0.3",
-  "description": "A tool to comprehensively check the meaning of all key terms in the Bible using a set of clear, concise definitions and including suggestions for translation.",
+  "description": "A tool to comprehensively check the meaning of key terms in the Bible using a set of clear, concise definitions and including suggestions for translation.",
   "title": "translationWords (Part 1)",
   "main": "index.js",
   "scripts": {
