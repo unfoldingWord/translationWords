@@ -4,5 +4,5 @@ Status](https://travis-ci.org/translationCoreApps/translationWords_Check_plugin.
 
 # translationWords
 
-A tool to comprehensively check the meaning of all key terms in the Bible using a set of clear, concise definitions and including suggestions for translation.
+A tool to comprehensively check the meaning of key terms in the Bible using a set of clear, concise definitions and including suggestions for translation.
 
