@@ -14,6 +14,13 @@ class Container extends React.Component {
     if (!ScripturePane) {
       // initializing the ScripturePane settings if not found.
       this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ["ulb"]);
+    } else {
+      for( let i = 0; i < ScripturePane.currentPaneSettings.length; i++) {
+        if (ScripturePane.currentPaneSettings[i] === 'bhp') { // update bhp references to ugnt
+          ScripturePane.currentPaneSettings[i] = 'ugnt';
+          this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ScripturePane.currentPaneSettings);
+        }
+      }      
     }
   }
 
