@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react';
-import View from '../src/View';
+import View from '../src/components/View';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderer from 'react-test-renderer';
 

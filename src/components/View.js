@@ -7,8 +7,8 @@
 
 import React from 'react';
 import {Glyphicon} from 'react-bootstrap';
-import CheckInfoCard from './components/CheckInfoCard.js';
-import style from './css/style';
+import CheckInfoCard from './CheckInfoCard.js';
+import style from '../css/style';
 import PropTypes from 'prop-types';
 
 class View extends React.Component {
