@@ -79,8 +79,8 @@ View.propTypes = {
       quote: PropTypes.string.isRequired
     })
   }),
-  toggleHelps: PropTypes.func.isRequired,
-  showHelps: PropTypes.func.isRequired
+  toggleHelps: PropTypes.any.isRequired,
+  showHelps: PropTypes.any.isRequired
 };
 
 module.exports = View;
