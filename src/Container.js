@@ -60,11 +60,12 @@ Container.propTypes = {
   }),
   contextIdReducer: PropTypes.shape({
     contextId: PropTypes.shape({
-      groupId: PropTypes.any.isRequired
+      groupId: PropTypes.any
     })
   }),
   actions: PropTypes.shape({
-    setToolSettings: PropTypes.func.isRequired
+    setToolSettings: PropTypes.func.isRequired,
+    loadResourceArticle: PropTypes.func.isRequired
   })
 };
 

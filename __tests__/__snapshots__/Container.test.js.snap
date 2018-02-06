@@ -4,6 +4,7 @@ exports[`Container Tests Check Container 1`] = `
 <[View]
   actions={
     Object {
+      "loadResourceArticle": [Function],
       "setToolSettings": [Function],
     }
   }

@@ -18,7 +18,8 @@ describe('Container Tests', () => {
         }
       },
       actions: {
-        setToolSettings: jest.fn()
+        setToolSettings: jest.fn(),
+        loadResourceArticle: jest.fn()
       }
     };
     const component = renderer.create(

@@ -1,36 +1,36 @@
 {
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
-    "react",
-    "jest"
+    "react"
   ],
   "settings": {
     "react": {
-      "createClass": "createReactClass", // Regex for Component Factory to use, default to "createReactClass"
-      "pragma": "React",  // Pragma to use, default to "React"
-      "version": "15.0" // React version, default to the latest React stable release
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "15.0"
     }
   },
   "rules": {
+    "no-useless-escape": "warn",
+    "no-constant-condition": "warn",
+    "no-unused-vars": "warn",
+    "react/prop-types": "warn",
+    "react/no-unescaped-entities": "warn",
+    "react/no-string-refs": "warn",
     "react/no-find-dom-node": "warn",
-    "no-undef": "warn",
     "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
-    "no-console": "off",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "react/no-unescaped-entities": "off"
+    "no-console": "off"
   },
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
-        "jsx": true,
-        "modules": true
+      "jsx": true,
+      "modules": true
     }
   },
   "env": {
     "browser": true,
     "node": true,
-    "es6": true,
-    "jest/globals": true
+    "es6": true
   }
 }
