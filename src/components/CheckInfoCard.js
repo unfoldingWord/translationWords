@@ -67,7 +67,7 @@ CheckInfoCard.propTypes = {
   file: PropTypes.string,
   title: PropTypes.string.isRequired,
   showHelps: PropTypes.bool,
-  openHelps: PropTypes.bool
+  openHelps: PropTypes.func
 };
 
 module.exports = CheckInfoCard;

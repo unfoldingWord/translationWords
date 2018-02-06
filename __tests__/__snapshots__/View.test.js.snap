@@ -21,8 +21,8 @@ exports[`View component Tests Check View component 1`] = `
     [ScripturePane]
     <[CheckInfoCard]
       file="file"
-      openHelps={true}
-      showHelps={true}
+      openHelps={[Function]}
+      showHelps={[Function]}
       title="title"
     />
     [VerseCheck]
@@ -48,7 +48,7 @@ exports[`View component Tests Check View component 1`] = `
     >
       <span
         className="glyphicon glyphicon-chevron-right"
-        onClick={true}
+        onClick={[Function]}
         style={
           Object {
             "backgroundColor": "var(--text-color-dark)",
