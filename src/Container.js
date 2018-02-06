@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import React from 'react';
-import View from './View.js';
+import View from './components/View.js';
 import PropTypes from 'prop-types';
 
 class Container extends React.Component {

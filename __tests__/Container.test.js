@@ -4,7 +4,7 @@ import Container from '../src/Container';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderer from 'react-test-renderer';
 
-jest.mock('../src/View.js', () => '[View]');
+jest.mock('../src/components/View.js', () => '[View]');
 
 describe('Container Tests', () => {
   it('Check Container', () => {
