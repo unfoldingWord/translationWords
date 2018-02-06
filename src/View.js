@@ -1,11 +1,15 @@
+/* eslint-env jest */
+
 /**
  * @description:
  *  This class defines the entire view for TranslationWords tool
  */
+
 import React from 'react';
 import {Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './components/CheckInfoCard.js';
 import style from './css/style';
+import PropTypes from 'prop-types';
 
 class View extends React.Component {
 
@@ -37,9 +41,7 @@ class View extends React.Component {
         </div>
         <div style={{flex: this.props.showHelps ? '1 1 375px' : '0 0 30px', display: 'flex', justifyContent: 'flex-end', marginLeft: '-15px'}}>
           <div style={style.handleIconDiv}>
-              <Glyphicon glyph={this.props.showHelps ? "chevron-right" : "chevron-left"}
-                         style={style.handleIcon}
-                         onClick={this.props.toggleHelps} />
+              <Glyphicon glyph={this.props.showHelps ? "chevron-right" : "chevron-left"} style={style.handleIcon} onClick={this.props.toggleHelps} />
           </div>
           <div style={{ display: this.props.showHelps ? "flex" : "none", flex: '1' }}>
             <TranslationHelps
@@ -53,5 +55,32 @@ class View extends React.Component {
     );
   }
 }
+
+View.propTypes = {
+  currentToolViews: PropTypes.shape({
+    ScripturePane: PropTypes.any,
+    VerseCheck: PropTypes.any,
+    TranslationHelps: PropTypes.any
+  }),
+  settingsReducer: PropTypes.shape({
+    toolsSettings: PropTypes.shape({
+      ScripturePane: PropTypes.any
+    }),
+    online: PropTypes.bool
+  }),
+  resourcesReducer: PropTypes.shape({
+    translationHelps: PropTypes.shape({
+      translationWords: PropTypes.object
+    })
+  }),
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.shape({
+      groupId: PropTypes.any.isRequired,
+      quote: PropTypes.string.isRequired
+    })
+  }),
+  toggleHelps: PropTypes.func.isRequired,
+  showHelps: PropTypes.func.isRequired
+};
 
 module.exports = View;

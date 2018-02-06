@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container Tests Check Container 1`] = `
+<[View]
+  actions={
+    Object {
+      "setToolSettings": [Function],
+    }
+  }
+  contextIdReducer={
+    Object {
+      "contextId": Object {
+        "groupId": "groupId",
+      },
+    }
+  }
+  settingsReducer={
+    Object {
+      "toolsSettings": Object {},
+    }
+  }
+  showHelps={true}
+  toggleHelps={[Function]}
+/>
+`;

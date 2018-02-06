@@ -1,5 +1,8 @@
+/* eslint-env jest */
+
 import React from 'react';
 import View from './View.js';
+import PropTypes from 'prop-types';
 
 class Container extends React.Component {
   constructor() {
@@ -48,5 +51,21 @@ class Container extends React.Component {
     return view;
   }
 }
+
+Container.propTypes = {
+  settingsReducer: PropTypes.shape({
+    toolsSettings: PropTypes.shape({
+      ScripturePane: PropTypes.object
+    })
+  }),
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.shape({
+      groupId: PropTypes.any.isRequired
+    })
+  }),
+  actions: PropTypes.shape({
+    setToolSettings: PropTypes.func.isRequired
+  })
+};
 
 export default Container;

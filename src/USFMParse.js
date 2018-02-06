@@ -1,12 +1,14 @@
+/* eslint-env jest */
+
 /**
  * @author Evan Wiederspan
  * @description takes in usfm file as string
  * @param {string} usfm - A string in the USFM format
  * @return {string} A string that is the parsed version of the USFM input.
-*******************************************************************************/
+ */
 
 function usfmToJSON(usfm_in) {
-  var usfm = usfm_in.replace(/\\[abd-uw-z][\w\*]*\s?|\+\s/gi, "");
+  var usfm = usfm_in.replace(/\\[abd-uw-z][\w*]*\s?|\+\s/gi, "");
 
   const chapterNumberExpression = /^\s*(\d+)\s+/;
   const verseNumberExpression = /^\s*(\d+)\s+/;

@@ -1,9 +1,12 @@
+/* eslint-env jest */
+
 /**
  * @file CheckInfoCard.js
  * @description This component is a display component for the Check Info Cards.
  */
 import React from 'react';
 import styles from '../css/style.js';
+import PropTypes from 'prop-types';
 
 class CheckInfoCard extends React.Component {
     /**
@@ -51,8 +54,7 @@ class CheckInfoCard extends React.Component {
               <div style={styles.phrase}>
               {cleanText}
             </div>
-            <div onClick={this.props.showHelps ? null : this.props.openHelps}
-                 style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
+            <div onClick={this.props.showHelps ? null : this.props.openHelps} style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
               See More
             </div>
           </div>
@@ -60,5 +62,12 @@ class CheckInfoCard extends React.Component {
       );
     }
 }
+
+CheckInfoCard.propTypes = {
+  file: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  showHelps: PropTypes.bool,
+  openHelps: PropTypes.bool
+};
 
 module.exports = CheckInfoCard;
