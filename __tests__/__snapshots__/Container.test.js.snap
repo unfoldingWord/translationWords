@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container Tests Test Container 1`] = `
+<[View]
+  actions={
+    Object {
+      "loadResourceArticle": [Function],
+      "setToolSettings": [Function],
+    }
+  }
+  contextIdReducer={
+    Object {
+      "contextId": Object {
+        "groupId": "groupId1",
+      },
+    }
+  }
+  settingsReducer={
+    Object {
+      "toolsSettings": Object {
+        "ScripturePane": Object {
+          "currentPaneSettings": Array [
+            "ugnt",
+          ],
+        },
+      },
+    }
+  }
+  showHelps={true}
+  toggleHelps={[Function]}
+/>
+`;
