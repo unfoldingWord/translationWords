@@ -46,6 +46,23 @@ describe('Container Tests', () => {
     expect(container.state.showHelps).toBeTruthy();
   });
 
+  it('Test has ScripturePane', () => {
+    const container = shallow(<Container {...props} />).instance();
+    expect(container.props.actions.setToolSettings).toBeCalled();
+    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", props.settingsReducer.toolsSettings.ScripturePane.currentPaneSettings);
+  });
+
+  it('Test does not have ScripturePane', () => {
+    let myProps = JSON.parse(JSON.stringify(props));
+    myProps.settingsReducer.toolsSettings = {};
+    myProps.actions = {
+      setToolSettings: jest.fn(),
+      loadResourceArticle: jest.fn()
+    };
+    const container = shallow(<Container {...myProps} />).instance();
+    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", ['ulb']);
+  });
+
   it('Test Container.componentWillReceiveProps', () => {
     const wrapper = shallow(<Container {...props} />);
     expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(props.contextIdReducer.contextId.groupId);
