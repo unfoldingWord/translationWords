@@ -31,12 +31,16 @@ class View extends React.Component {
     if (translationWords && translationWords[articleId]) {
       currentFile = this.props.resourcesReducer.translationHelps.translationWords[articleId];
     }
+    let title;
+    if (this.props.groupsIndexReducer.groupsIndex) {
+      title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===articleId)[0].name;
+    }
 
     return (
       <div style={{display: 'flex', flex: 'auto'}}>
         <div style={{flex: '2 1 900px', display: "flex", flexDirection: "column"}}>
           {scripturePane}
-          <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.contextIdReducer.contextId.quote} file={currentFile}/>
+          <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={title} file={currentFile}/>
           <VerseCheck {...this.props} />
         </div>
         <div style={{flex: this.props.showHelps ? '1 1 375px' : '0 0 30px', display: 'flex', justifyContent: 'flex-end', marginLeft: '-15px'}}>
