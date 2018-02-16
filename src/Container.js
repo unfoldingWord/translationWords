@@ -42,8 +42,11 @@ class Container extends React.Component {
     let view = <div />;
     let { contextId } = this.props.contextIdReducer;
     if (contextId !== null) {
+      const { groupId } = this.props.contextIdReducer.contextId;
+      const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
       view = <View
         {...this.props}
+        title={title}
         showHelps={this.state.showHelps}
         toggleHelps={this.toggleHelps.bind(this)}
       />;
@@ -62,6 +65,9 @@ Container.propTypes = {
     contextId: PropTypes.shape({
       groupId: PropTypes.any
     })
+  }),
+  groupsIndexReducer: PropTypes.shape({
+    groupsIndex: PropTypes.array.required
   }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,

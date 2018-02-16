@@ -16,6 +16,7 @@ class View extends React.Component {
   render() {
     // Modules not defined within translationWords
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
+    const { title } = this.props;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
     let scripturePane = <div></div>;
@@ -30,10 +31,6 @@ class View extends React.Component {
     let currentFile;
     if (translationWords && translationWords[articleId]) {
       currentFile = this.props.resourcesReducer.translationHelps.translationWords[articleId];
-    }
-    let title;
-    if (this.props.groupsIndexReducer.groupsIndex) {
-      title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===articleId)[0].name;
     }
 
     return (
@@ -83,6 +80,7 @@ View.propTypes = {
       quote: PropTypes.string.isRequired
     })
   }),
+  title: PropTypes.string.isRequired,
   toggleHelps: PropTypes.any.isRequired,
   showHelps: PropTypes.any.isRequired
 };
