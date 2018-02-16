@@ -20,6 +20,9 @@ const props = {
       groupId: 'groupId1'
     }
   },
+  groupsIndexReducer: {
+    groupsIndex: [{'id': 'groupId1', 'name': 'group title'}, {'id': 'groupId2', 'name': 'group title2'}]
+  },
   actions: {
     setToolSettings: jest.fn(),
     loadResourceArticle: jest.fn()

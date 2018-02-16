@@ -31,6 +31,7 @@ describe('View component Tests', () => {
           quote: 'title'
         }
       },
+      title: 'title',
       toggleHelps: jest.fn(),
       showHelps: jest.fn()
     };

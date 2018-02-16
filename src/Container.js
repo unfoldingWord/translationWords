@@ -66,6 +66,9 @@ Container.propTypes = {
       groupId: PropTypes.any
     })
   }),
+  groupsIndexReducer: PropTypes.shape({
+    groupsIndex: PropTypes.array
+  }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,
     loadResourceArticle: PropTypes.func.isRequired
