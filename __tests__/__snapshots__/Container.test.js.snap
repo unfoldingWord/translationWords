@@ -15,6 +15,20 @@ exports[`Container Tests Test Container 1`] = `
       },
     }
   }
+  groupsIndexReducer={
+    Object {
+      "groupsIndex": Array [
+        Object {
+          "id": "groupId1",
+          "name": "group title",
+        },
+        Object {
+          "id": "groupId2",
+          "name": "group title2",
+        },
+      ],
+    }
+  }
   settingsReducer={
     Object {
       "toolsSettings": Object {
@@ -27,6 +41,7 @@ exports[`Container Tests Test Container 1`] = `
     }
   }
   showHelps={true}
+  title="group title"
   toggleHelps={[Function]}
 />
 `;
