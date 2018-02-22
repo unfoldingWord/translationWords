@@ -6,6 +6,7 @@ import React from 'react';
 import {Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './components/CheckInfoCard.js';
 import style from './css/style';
+import PropTypes from 'prop-types';
 
 class View extends React.Component {
 
@@ -14,7 +15,7 @@ class View extends React.Component {
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
-    let scripturePane = <div></div>;
+    let scripturePane = <div/>;
     // populate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.settingsReducer.toolsSettings.ScripturePane !== undefined) {
       scripturePane = <ScripturePane {...this.props} />;
@@ -54,4 +55,13 @@ class View extends React.Component {
   }
 }
 
-module.exports = View;
+View.propTypes = {
+  settingsReducer: PropTypes.object.isRequired,
+  showHelps: PropTypes.func.isRequired,
+  contextIdReducer: PropTypes.object.isRequired,
+  toggleHelps: PropTypes.func.isRequired,
+  resourcesReducer: PropTypes.object.isRequired,
+  currentToolViews: PropTypes.object.isRequired
+};
+
+export default View;

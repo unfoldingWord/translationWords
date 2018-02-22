@@ -1,10 +1,10 @@
-/**
- * @file CheckInfoCard.js
- * @description This component is a display component for the Check Info Cards.
- */
 import React from 'react';
 import styles from '../css/style.js';
+import PropTypes from 'prop-types';
 
+/**
+ * This component is a display component for the Check Info Cards.
+ */
 class CheckInfoCard extends React.Component {
     /**
      * @description This function removes any non paragraph text from the text, then shortens it
@@ -14,7 +14,7 @@ class CheckInfoCard extends React.Component {
      */
     cleanText(text) {
       let splitLine = text.split('\n');
-      if (splitLine.length == 1 && splitLine[0] == "") return "";
+      if (splitLine.length === 1 && splitLine[0] === "") return "";
       let finalArray = [];
       for (let i = 0; i < splitLine.length; i++) {
         if (splitLine[i] !== '' && !~splitLine[i].indexOf("#")) {
@@ -61,4 +61,11 @@ class CheckInfoCard extends React.Component {
     }
 }
 
-module.exports = CheckInfoCard;
+CheckInfoCard.propTypes = {
+  showHelps: PropTypes.func.isRequired,
+  openHelps: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  file: PropTypes.string.isRequired
+};
+
+export default CheckInfoCard;
