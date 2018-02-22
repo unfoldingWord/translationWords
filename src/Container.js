@@ -1,5 +1,11 @@
 import React from 'react';
 import View from './View.js';
+import {connectTool} from 'tc-tool';
+import path from 'path';
+import PropTypes from 'prop-types';
+
+const TOOL_ID='translationWords';
+const LOCALE_DIR=path.join(__dirname, '../locale');
 
 class Container extends React.Component {
   constructor() {
@@ -42,4 +48,11 @@ class Container extends React.Component {
   }
 }
 
-export default Container;
+Container.propTypes = {
+    contextIdReducer: PropTypes.object.isRequired,
+    settingsReducer: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
+};
+
+
+export default connectTool(TOOL_ID, LOCALE_DIR)(Container);
