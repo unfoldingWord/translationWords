@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 class View extends React.Component {
 
   render() {
+    const {translate} = this.props;
     // Modules not defined within translationWords
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
 
@@ -33,7 +34,11 @@ class View extends React.Component {
       <div style={{display: 'flex', flex: 'auto'}}>
         <div style={{flex: '2 1 900px', display: "flex", flexDirection: "column"}}>
           {scripturePane}
-          <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={this.props.contextIdReducer.contextId.quote} file={currentFile}/>
+          <CheckInfoCard openHelps={this.props.toggleHelps}
+                         showHelps={this.props.showHelps}
+                         translate={translate}
+                         title={this.props.contextIdReducer.contextId.quote}
+                         file={currentFile}/>
           <VerseCheck {...this.props} />
         </div>
         <div style={{flex: this.props.showHelps ? '1 1 375px' : '0 0 30px', display: 'flex', justifyContent: 'flex-end', marginLeft: '-15px'}}>
@@ -61,7 +66,8 @@ View.propTypes = {
   contextIdReducer: PropTypes.object.isRequired,
   toggleHelps: PropTypes.func.isRequired,
   resourcesReducer: PropTypes.object.isRequired,
-  currentToolViews: PropTypes.object.isRequired
+  currentToolViews: PropTypes.object.isRequired,
+  translate: PropTypes.func.isRequired
 };
 
 export default View;

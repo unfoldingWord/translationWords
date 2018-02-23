@@ -37,8 +37,9 @@ class CheckInfoCard extends React.Component {
     }
 
     render() {
+      const {file, translate} = this.props;
       let cleanText;
-      if (this.props.file) cleanText = this.cleanText(this.props.file);
+      if (file) cleanText = this.cleanText(file);
 
       return (
         <div style={styles.checkInfo}>
@@ -53,7 +54,7 @@ class CheckInfoCard extends React.Component {
             </div>
             <div onClick={this.props.showHelps ? null : this.props.openHelps}
                  style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
-              See More
+              {translate('see_more')}
             </div>
           </div>
         </div>
@@ -65,7 +66,8 @@ CheckInfoCard.propTypes = {
   showHelps: PropTypes.func.isRequired,
   openHelps: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  file: PropTypes.string.isRequired
+  file: PropTypes.string.isRequired,
+  translate: PropTypes.func.isRequired
 };
 
 export default CheckInfoCard;
