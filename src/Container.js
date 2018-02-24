@@ -29,8 +29,10 @@ class Container extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
-      let articleId = nextProps.contextIdReducer.contextId.groupId;
-      nextProps.actions.loadResourceArticle('translationWords', articleId);
+      const articleId = nextProps.contextIdReducer.contextId.groupId;
+      const { currentToolName } = nextProps.toolsReducer;
+      const languageId = nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
+      nextProps.actions.loadResourceArticle(currentToolName, articleId, languageId);
     }
   }
 
@@ -68,6 +70,9 @@ Container.propTypes = {
   }),
   groupsIndexReducer: PropTypes.shape({
     groupsIndex: PropTypes.array
+  }),
+  projectDetailsReducer: PropTypes.shape({
+    currentProjectToolsSelectedGL: PropTypes.object.isRequired
   }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,
