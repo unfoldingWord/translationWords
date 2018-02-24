@@ -49,7 +49,7 @@
   "dependencies": {
     "natural": "^0.4.0",
     "react-remarkable": "^1.1.1",
-    "tc-tool": "^1.0.0",
+    "tc-tool": "^1.0.3",
     "usfm-parser": "^0.1.6",
     "xregexp": "^3.1.1"
   },
