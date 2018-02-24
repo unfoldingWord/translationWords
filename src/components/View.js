@@ -1,11 +1,14 @@
+/* eslint-env jest */
+
 /**
  * @description:
  *  This class defines the entire view for TranslationWords tool
  */
+
 import React from 'react';
 import {Glyphicon} from 'react-bootstrap';
-import CheckInfoCard from './components/CheckInfoCard.js';
-import style from './css/style';
+import CheckInfoCard from './CheckInfoCard.js';
+import style from '../css/style';
 import PropTypes from 'prop-types';
 
 class View extends React.Component {
@@ -14,6 +17,7 @@ class View extends React.Component {
     const {translate} = this.props;
     // Modules not defined within translationWords
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
+    const { title } = this.props;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
     let scripturePane = <div/>;
@@ -34,18 +38,13 @@ class View extends React.Component {
       <div style={{display: 'flex', flex: 'auto'}}>
         <div style={{flex: '2 1 900px', display: "flex", flexDirection: "column"}}>
           {scripturePane}
-          <CheckInfoCard openHelps={this.props.toggleHelps}
-                         showHelps={this.props.showHelps}
-                         translate={translate}
-                         title={this.props.contextIdReducer.contextId.quote}
-                         file={currentFile}/>
+
+          <CheckInfoCard openHelps={this.props.toggleHelps} translate={translate} showHelps={this.props.showHelps} title={title} file={currentFile}/>
           <VerseCheck {...this.props} />
         </div>
         <div style={{flex: this.props.showHelps ? '1 1 375px' : '0 0 30px', display: 'flex', justifyContent: 'flex-end', marginLeft: '-15px'}}>
           <div style={style.handleIconDiv}>
-              <Glyphicon glyph={this.props.showHelps ? "chevron-right" : "chevron-left"}
-                         style={style.handleIcon}
-                         onClick={this.props.toggleHelps} />
+              <Glyphicon glyph={this.props.showHelps ? "chevron-right" : "chevron-left"} style={style.handleIcon} onClick={this.props.toggleHelps} />
           </div>
           <div style={{ display: this.props.showHelps ? "flex" : "none", flex: '1' }}>
             <TranslationHelps
@@ -61,13 +60,32 @@ class View extends React.Component {
 }
 
 View.propTypes = {
-  settingsReducer: PropTypes.object.isRequired,
-  showHelps: PropTypes.func.isRequired,
-  contextIdReducer: PropTypes.object.isRequired,
-  toggleHelps: PropTypes.func.isRequired,
-  resourcesReducer: PropTypes.object.isRequired,
-  currentToolViews: PropTypes.object.isRequired,
-  translate: PropTypes.func.isRequired
+  translate: PropTypes.func.isRequired,
+  currentToolViews: PropTypes.shape({
+    ScripturePane: PropTypes.any,
+    VerseCheck: PropTypes.any,
+    TranslationHelps: PropTypes.any
+  }),
+  settingsReducer: PropTypes.shape({
+    toolsSettings: PropTypes.shape({
+      ScripturePane: PropTypes.any
+    }),
+    online: PropTypes.bool
+  }),
+  resourcesReducer: PropTypes.shape({
+    translationHelps: PropTypes.shape({
+      translationWords: PropTypes.object
+    })
+  }),
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.shape({
+      groupId: PropTypes.any.isRequired,
+      quote: PropTypes.string.isRequired
+    })
+  }),
+  title: PropTypes.string.isRequired,
+  toggleHelps: PropTypes.any.isRequired,
+  showHelps: PropTypes.any.isRequired
 };
 
-export default View;
+module.exports = View;

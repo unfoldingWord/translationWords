@@ -1,8 +1,11 @@
+/* eslint-env jest */
+
 import React from 'react';
-import View from './View.js';
-import {connectTool} from 'tc-tool';
-import path from 'path';
+
+import View from './components/View.js';
 import PropTypes from 'prop-types';
+import path from 'path';
+import {connectTool} from 'tc-tool';
 
 const TOOL_ID = 'translationWords';
 const LOCALE_DIR = path.join(__dirname, '../locale');
@@ -16,11 +19,18 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    const {actions, settingsReducer} = this.props;
+    const {settingsReducer} = this.props;
     let {ScripturePane} = settingsReducer.toolsSettings;
     if (!ScripturePane) {
       // initializing the ScripturePane settings if not found.
-      actions.setToolSettings('ScripturePane', 'currentPaneSettings', ['ulb']);
+      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ["ulb"]);
+    } else {
+      for( let i = 0; i < ScripturePane.currentPaneSettings.length; i++) {
+        if (ScripturePane.currentPaneSettings[i] === 'bhp') { // update bhp references to ugnt
+          ScripturePane.currentPaneSettings[i] = 'ugnt';
+          this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ScripturePane.currentPaneSettings);
+        }
+      }
     }
   }
 
@@ -41,25 +51,43 @@ class Container extends React.Component {
     let {contextId} = this.props.contextIdReducer;
 
     if (contextId !== null) {
-      return (
-        <View
-          {...this.props}
-          translate={translate}
-          showHelps={this.state.showHelps}
-          toggleHelps={this.toggleHelps.bind(this)}
-        />
-      );
+      const { groupId } = this.props.contextIdReducer.contextId;
+      const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
+      return <View
+        {...this.props}
+        translate={translate}
+        title={title}
+        showHelps={this.state.showHelps}
+        toggleHelps={this.toggleHelps.bind(this)}
+      />;
     } else {
-      return <div/>;
+      return null;
     }
   }
 }
 
 Container.propTypes = {
-  contextIdReducer: PropTypes.object.isRequired,
-  settingsReducer: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
   translate: PropTypes.func,
+  settingsReducer: PropTypes.shape({
+    toolsSettings: PropTypes.shape({
+      ScripturePane: PropTypes.object
+    })
+  }),
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.shape({
+      groupId: PropTypes.any
+    })
+  }),
+  groupsIndexReducer: PropTypes.shape({
+    groupsIndex: PropTypes.array
+  }),
+  actions: PropTypes.shape({
+    setToolSettings: PropTypes.func.isRequired,
+    loadResourceArticle: PropTypes.func.isRequired
+  })
 };
+
+// for testing without tool connection
+exports.Container = Container;
 
 export default connectTool(TOOL_ID, LOCALE_DIR)(Container);

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckInfoCard component Tests check CheckInfoCard 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "var(--accent-color-dark)",
+      "borderRadius": "2px",
+      "boxShadow": "0 3px 10px var(--background-color)",
+      "color": "var(--reverse-color)",
+      "display": "flex",
+      "flex": "0 0 120px",
+      "margin": "0 10px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "fontSize": "16px",
+          "fontWeight": "bold",
+          "maxHeight": "100px",
+          "overflowY": "auto",
+          "padding": "0 20px",
+          "textAlign": "center",
+        }
+      }
+    >
+      title
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "borderLeft": "1px solid var(--reverse-color)",
+        "display": "flex",
+        "flex": 2,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingTop": "10px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "maxHeight": "80px",
+          "overflowY": "auto",
+          "padding": "0 20px",
+          "textAlign": "center",
+        }
+      }
+    >
+       this is a test of the check info card component. this is a test of the check info card component. this is a test of the check info card component. this is a test of the check info card component. this is a test of the check...
+    </div>
+    <div
+      onClick={undefined}
+      style={
+        Object {
+          "cursor": "pointer",
+          "display": "flex",
+          "fontWeight": "bold",
+          "justifyContent": "flex-end",
+          "margin": "5px 20px",
+        }
+      }
+    >
+      see_more
+    </div>
+  </div>
+</div>
+`;

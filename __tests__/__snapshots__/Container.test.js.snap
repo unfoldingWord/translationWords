@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container Tests Test Container 1`] = `
+<[View]
+  actions={
+    Object {
+      "loadResourceArticle": [Function],
+      "setToolSettings": [Function],
+    }
+  }
+  contextIdReducer={
+    Object {
+      "contextId": Object {
+        "groupId": "groupId1",
+      },
+    }
+  }
+  groupsIndexReducer={
+    Object {
+      "groupsIndex": Array [
+        Object {
+          "id": "groupId1",
+          "name": "group title",
+        },
+        Object {
+          "id": "groupId2",
+          "name": "group title2",
+        },
+      ],
+    }
+  }
+  settingsReducer={
+    Object {
+      "toolsSettings": Object {
+        "ScripturePane": Object {
+          "currentPaneSettings": Array [
+            "ugnt",
+          ],
+        },
+      },
+    }
+  }
+  showHelps={true}
+  title="group title"
+  toggleHelps={[Function]}
+  translate={[Function]}
+/>
+`;
