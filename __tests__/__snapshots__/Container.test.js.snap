@@ -43,7 +43,7 @@ exports[`Container Tests Test Container 1`] = `
   showHelps={true}
   title="group title"
   toggleHelps={[Function]}
-  toolsReuder={
+  toolsReducer={
     Object {
       "currentToolName": "translationWords",
     }
