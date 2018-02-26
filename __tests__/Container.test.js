@@ -23,7 +23,7 @@ const props = {
   groupsIndexReducer: {
     groupsIndex: [{'id': 'groupId1', 'name': 'group title'}, {'id': 'groupId2', 'name': 'group title2'}]
   },
-  toolsReuder: {
+  toolsReducer: {
     currentToolName: 'translationWords'
   },
   actions: {
