@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react';
-import {Container} from '../src/Container';
+import Container from '../src/Container';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
@@ -23,6 +23,9 @@ const props = {
   },
   groupsIndexReducer: {
     groupsIndex: [{'id': 'groupId1', 'name': 'group title'}, {'id': 'groupId2', 'name': 'group title2'}]
+  },
+  toolsReducer: {
+    currentToolName: 'translationWords'
   },
   actions: {
     setToolSettings: jest.fn(),
@@ -69,15 +72,28 @@ describe('Container Tests', () => {
 
   it('Test Container.componentWillReceiveProps', () => {
     const wrapper = shallow(<Container {...props} />);
+    const container = wrapper.instance();
     expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(props.contextIdReducer.contextId.groupId);
     const newGroupId = 'groupId2';
-    wrapper.setProps({
+    const nextProps = {
       contextIdReducer: {
         contextId: {
           groupId: newGroupId
         }
+      },
+      toolsReducer: {
+        currentToolName: 'translationWords'
+      },
+      projectDetailsReducer: {
+        currentProjectToolsSelectedGL: {'translationWords': 'en'}
       }
-    });
+    };
+    wrapper.setProps(nextProps);
     expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(newGroupId);
+    expect(container.props.actions.loadResourceArticle).toBeCalledWith(
+      nextProps.toolsReducer.currentToolName,
+      nextProps.contextIdReducer.contextId.groupId,
+      nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[nextProps.toolsReducer.currentToolName]
+    );
   });
 });

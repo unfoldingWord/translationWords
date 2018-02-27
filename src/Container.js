@@ -4,11 +4,6 @@ import React from 'react';
 
 import View from './components/View.js';
 import PropTypes from 'prop-types';
-import path from 'path';
-import {connectTool} from 'tc-tool';
-
-const TOOL_ID = 'translationWords';
-const LOCALE_DIR = path.join(__dirname, '../locale');
 
 class Container extends React.Component {
   constructor() {
@@ -35,10 +30,11 @@ class Container extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.contextIdReducer &&
-      this.props.contextIdReducer !== nextProps.contextIdReducer) {
-      let articleId = nextProps.contextIdReducer.contextId.groupId;
-      nextProps.actions.loadResourceArticle('translationWords', articleId);
+    if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
+      const articleId = nextProps.contextIdReducer.contextId.groupId;
+      const { currentToolName } = nextProps.toolsReducer;
+      const languageId = nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
+      nextProps.actions.loadResourceArticle(currentToolName, articleId, languageId);
     }
   }
 
@@ -68,6 +64,7 @@ class Container extends React.Component {
 
 Container.propTypes = {
   translate: PropTypes.func,
+  toolsReducer: PropTypes.any.isRequired,
   settingsReducer: PropTypes.shape({
     toolsSettings: PropTypes.shape({
       ScripturePane: PropTypes.object
@@ -81,13 +78,13 @@ Container.propTypes = {
   groupsIndexReducer: PropTypes.shape({
     groupsIndex: PropTypes.array
   }),
+  projectDetailsReducer: PropTypes.shape({
+    currentProjectToolsSelectedGL: PropTypes.object.isRequired
+  }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,
     loadResourceArticle: PropTypes.func.isRequired
   })
 };
 
-// for testing without tool connection
-exports.Container = Container;
-
-export default connectTool(TOOL_ID, LOCALE_DIR)(Container);
+export default Container;

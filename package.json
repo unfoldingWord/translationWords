@@ -60,7 +60,7 @@
   "dependencies": {
     "natural": "0.4.0",
     "react-remarkable": "1.1.1",
-    "tc-tool": "1.0.3",
+    "tc-tool": "1.1.0",
     "usfm-parser": "0.1.6",
     "xregexp": "3.2.0",
     "usfm-js": "1.0.0-beta.17.2"
