@@ -4,18 +4,8 @@ exports[`Container Tests Test Container 1`] = `
 <[View]
   actions={
     Object {
-      "loadResourceArticle": [MockFunction],
-      "setToolSettings": [MockFunction] {
-        "calls": Array [
-          Array [
-            "ScripturePane",
-            "currentPaneSettings",
-            Array [
-              "ugnt",
-            ],
-          ],
-        ],
-      },
+      "loadResourceArticle": [Function],
+      "setToolSettings": [Function],
     }
   }
   contextIdReducer={
