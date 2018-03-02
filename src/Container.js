@@ -14,16 +14,12 @@ class Container extends React.Component {
 
   componentWillMount() {
     let { ScripturePane } = this.props.settingsReducer.toolsSettings;
-    if (!ScripturePane) {
+    if (!ScripturePane || ScripturePane.currentPaneSettings.length === 0) {
       // initializing the ScripturePane settings if not found.
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ["ulb"]);
-    } else {
-      for( let i = 0; i < ScripturePane.currentPaneSettings.length; i++) {
-        if (ScripturePane.currentPaneSettings[i] === 'bhp') { // update bhp references to ugnt
-          ScripturePane.currentPaneSettings[i] = 'ugnt';
-          this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ScripturePane.currentPaneSettings);
-        }
-      }      
+      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", [{
+        languageId: 'en',
+        bibleId: 'ulb'
+      }]);
     }
   }
 
@@ -46,12 +42,14 @@ class Container extends React.Component {
     if (contextId !== null) {
       const { groupId } = this.props.contextIdReducer.contextId;
       const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
-      view = <View
-        {...this.props}
-        title={title}
-        showHelps={this.state.showHelps}
-        toggleHelps={this.toggleHelps.bind(this)}
-      />;
+      view = (
+        <View
+          {...this.props}
+          title={title}
+          showHelps={this.state.showHelps}
+          toggleHelps={this.toggleHelps.bind(this)}
+        />
+      );
     }
     return view;
   }
@@ -73,6 +71,9 @@ Container.propTypes = {
   }),
   projectDetailsReducer: PropTypes.shape({
     currentProjectToolsSelectedGL: PropTypes.object.isRequired
+  }),
+  toolsReducer: PropTypes.shape({
+    currentToolName: PropTypes.string.isRequired
   }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,
