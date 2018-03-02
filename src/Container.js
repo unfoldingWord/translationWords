@@ -13,11 +13,23 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    let { ScripturePane } = this.props.settingsReducer.toolsSettings;
-    if (!ScripturePane || ScripturePane.currentPaneSettings.length === 0) {
+    const { currentToolName } = this.props.toolsReducer;
+    const { currentProjectToolsSelectedGL } = this.props.projectDetailsReducer;
+    const languageId = currentProjectToolsSelectedGL[currentToolName];
+    const { ScripturePane } = this.props.settingsReducer.toolsSettings;
+    const currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
+    // making sure the right ulb language is displayed in the scripture pane
+    if (currentPaneSettings && !currentPaneSettings.some(paneSetting => paneSetting.languageId === languageId)) {
+      const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
+        if (paneSetting.bibleId === 'ulb') paneSetting.languageId = languageId;
+        return paneSetting;
+      });
+      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", newCurrentPaneSettings);
+    }
+    if (!ScripturePane || currentPaneSettings.length === 0) {
       // initializing the ScripturePane settings if not found.
       this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", [{
-        languageId: 'en',
+        languageId,
         bibleId: 'ulb'
       }]);
     }
