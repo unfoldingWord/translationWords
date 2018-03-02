@@ -11,7 +11,7 @@ const props = {
   settingsReducer: {
     toolsSettings: {
       ScripturePane: {
-        currentPaneSettings: ['bhp']
+        currentPaneSettings: [{ "bibleId": "ugnt", "languageId": "originalLanguage" }]
       }
     }
   },
@@ -25,6 +25,9 @@ const props = {
   },
   toolsReducer: {
     currentToolName: 'translationWords'
+  },
+  projectDetailsReducer: {
+    currentProjectToolsSelectedGL: {'translationWords': 'en'}
   },
   actions: {
     setToolSettings: jest.fn(),
@@ -66,7 +69,7 @@ describe('Container Tests', () => {
       loadResourceArticle: jest.fn()
     };
     const container = shallow(<Container {...myProps} />).instance();
-    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", ['ulb']);
+    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", [{ "bibleId": "ulb", "languageId": "en" }]);
   });
 
   it('Test Container.componentWillReceiveProps', () => {
@@ -90,8 +93,8 @@ describe('Container Tests', () => {
     wrapper.setProps(nextProps);
     expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(newGroupId);
     expect(container.props.actions.loadResourceArticle).toBeCalledWith(
-      nextProps.toolsReducer.currentToolName, 
-      nextProps.contextIdReducer.contextId.groupId, 
+      nextProps.toolsReducer.currentToolName,
+      nextProps.contextIdReducer.contextId.groupId,
       nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[nextProps.toolsReducer.currentToolName]
     );
   });
