@@ -43,10 +43,13 @@ class Container extends React.Component {
    */
   _reloadArticle(props) {
     const {contextIdReducer, toolsReducer, projectDetailsReducer, actions} = props;
-    const articleId = contextIdReducer.contextId.groupId;
-    const { currentToolName } = toolsReducer;
-    const languageId = projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
-    actions.loadResourceArticle(currentToolName, articleId, languageId);
+    const {contextId} = contextIdReducer;
+    if(contextId) {
+      const articleId = contextId.groupId;
+      const {currentToolName} = toolsReducer;
+      const languageId = projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
+      actions.loadResourceArticle(currentToolName, articleId, languageId);
+    }
   }
 
   toggleHelps() {
