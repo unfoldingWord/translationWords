@@ -27,15 +27,26 @@ class Container extends React.Component {
         }
       }
     }
+    this._reloadArticle(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
-      const articleId = nextProps.contextIdReducer.contextId.groupId;
-      const { currentToolName } = nextProps.toolsReducer;
-      const languageId = nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
-      nextProps.actions.loadResourceArticle(currentToolName, articleId, languageId);
+      this._reloadArticle(nextProps);
     }
+  }
+
+  /**
+   * Loads the resource article
+   * @param props
+   * @private
+   */
+  _reloadArticle(props) {
+    const {contextIdReducer, toolsReducer, projectDetailsReducer, actions} = props;
+    const articleId = contextIdReducer.contextId.groupId;
+    const { currentToolName } = toolsReducer;
+    const languageId = projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
+    actions.loadResourceArticle(currentToolName, articleId, languageId);
   }
 
   toggleHelps() {
