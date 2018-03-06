@@ -9,6 +9,7 @@ jest.mock('../src/components/CheckInfoCard.js', () => '[CheckInfoCard]');
 describe('View component Tests', () => {
   it('Check View component', () => {
     let props = {
+      translate:k=>k,
       currentToolViews: {
         ScripturePane: () => '[ScripturePane]',
         VerseCheck: () => '[VerseCheck]',

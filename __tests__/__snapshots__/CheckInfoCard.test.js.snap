@@ -75,7 +75,7 @@ exports[`CheckInfoCard component Tests check CheckInfoCard 1`] = `
         }
       }
     >
-      See More
+      see_more
     </div>
   </div>
 </div>

@@ -24,6 +24,7 @@ exports[`View component Tests Check View component 1`] = `
       openHelps={[Function]}
       showHelps={[Function]}
       title="title"
+      translate={[Function]}
     />
     [VerseCheck]
   </div>

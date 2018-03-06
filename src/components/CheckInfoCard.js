@@ -8,6 +8,9 @@ import React from 'react';
 import styles from '../css/style.js';
 import PropTypes from 'prop-types';
 
+/**
+ * This component is a display component for the Check Info Cards.
+ */
 class CheckInfoCard extends React.Component {
     /**
      * @description This function removes any non paragraph text from the text, then shortens it
@@ -17,7 +20,7 @@ class CheckInfoCard extends React.Component {
      */
     cleanText(text) {
       let splitLine = text.split('\n');
-      if (splitLine.length == 1 && splitLine[0] == "") return "";
+      if (splitLine.length === 1 && splitLine[0] === "") return "";
       let finalArray = [];
       for (let i = 0; i < splitLine.length; i++) {
         if (splitLine[i] !== '' && !~splitLine[i].indexOf("#")) {
@@ -40,8 +43,9 @@ class CheckInfoCard extends React.Component {
     }
 
     render() {
+      const {file, translate} = this.props;
       let cleanText;
-      if (this.props.file) cleanText = this.cleanText(this.props.file);
+      if (file) cleanText = this.cleanText(file);
 
       return (
         <div style={styles.checkInfo}>
@@ -55,7 +59,7 @@ class CheckInfoCard extends React.Component {
               {cleanText}
             </div>
             <div onClick={this.props.showHelps ? null : this.props.openHelps} style={this.props.showHelps ? styles.linkInactive : styles.linkActive}>
-              See More
+              {translate('see_more')}
             </div>
           </div>
         </div>
@@ -66,6 +70,7 @@ class CheckInfoCard extends React.Component {
 CheckInfoCard.propTypes = {
   file: PropTypes.string,
   title: PropTypes.string.isRequired,
+  translate: PropTypes.func.isRequired,
   showHelps: PropTypes.bool,
   openHelps: PropTypes.func
 };

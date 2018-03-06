@@ -14,12 +14,13 @@ import PropTypes from 'prop-types';
 class View extends React.Component {
 
   render() {
+    const {translate} = this.props;
     // Modules not defined within translationWords
     const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
     const { title } = this.props;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
-    let scripturePane = <div></div>;
+    let scripturePane = <div/>;
     // populate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.settingsReducer.toolsSettings.ScripturePane !== undefined) {
       scripturePane = <ScripturePane {...this.props} />;
@@ -37,7 +38,8 @@ class View extends React.Component {
       <div style={{display: 'flex', flex: 'auto'}}>
         <div style={{flex: '2 1 900px', display: "flex", flexDirection: "column"}}>
           {scripturePane}
-          <CheckInfoCard openHelps={this.props.toggleHelps} showHelps={this.props.showHelps} title={title} file={currentFile}/>
+
+          <CheckInfoCard openHelps={this.props.toggleHelps} translate={translate} showHelps={this.props.showHelps} title={title} file={currentFile}/>
           <VerseCheck {...this.props} />
         </div>
         <div style={{flex: this.props.showHelps ? '1 1 375px' : '0 0 30px', display: 'flex', justifyContent: 'flex-end', marginLeft: '-15px'}}>
@@ -58,6 +60,7 @@ class View extends React.Component {
 }
 
 View.propTypes = {
+  translate: PropTypes.func.isRequired,
   currentToolViews: PropTypes.shape({
     ScripturePane: PropTypes.any,
     VerseCheck: PropTypes.any,

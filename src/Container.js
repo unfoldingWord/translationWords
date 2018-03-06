@@ -1,6 +1,7 @@
 /* eslint-env jest */
 
 import React from 'react';
+
 import View from './components/View.js';
 import PropTypes from 'prop-types';
 
@@ -8,7 +9,7 @@ class Container extends React.Component {
   constructor() {
     super();
     this.state = {
-      showHelps: true
+      showHelps: true,
     };
   }
 
@@ -33,41 +34,59 @@ class Container extends React.Component {
         bibleId: 'ulb'
       }]);
     }
+    this._reloadArticle(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
-      const articleId = nextProps.contextIdReducer.contextId.groupId;
-      const { currentToolName } = nextProps.toolsReducer;
-      const languageId = nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
-      nextProps.actions.loadResourceArticle(currentToolName, articleId, languageId);
+      this._reloadArticle(nextProps);
+    }
+  }
+
+  /**
+   * Loads the resource article
+   * @param props
+   * @private
+   */
+  _reloadArticle(props) {
+    const {contextIdReducer, toolsReducer, projectDetailsReducer, actions} = props;
+    const {contextId} = contextIdReducer;
+    if(contextId) {
+      const articleId = contextId.groupId;
+      const {currentToolName} = toolsReducer;
+      const languageId = projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
+      actions.loadResourceArticle(currentToolName, articleId, languageId);
     }
   }
 
   toggleHelps() {
-    this.setState({ showHelps: !this.state.showHelps });
+    this.setState({showHelps: !this.state.showHelps});
   }
 
   render() {
-    let view = <div />;
-    let { contextId } = this.props.contextIdReducer;
+    const {translate} = this.props;
+    const {contextId} = this.props.contextIdReducer;
+
     if (contextId !== null) {
       const { groupId } = this.props.contextIdReducer.contextId;
       const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
-      view = (
+      return (
         <View
           {...this.props}
+          translate={translate}
           title={title}
           showHelps={this.state.showHelps}
           toggleHelps={this.toggleHelps.bind(this)}
         />
       );
+    } else {
+      return null;
     }
-    return view;
   }
 }
 
 Container.propTypes = {
+  translate: PropTypes.func,
   settingsReducer: PropTypes.shape({
     toolsSettings: PropTypes.shape({
       ScripturePane: PropTypes.object
