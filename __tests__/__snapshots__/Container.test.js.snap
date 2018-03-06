@@ -29,6 +29,11 @@ exports[`Container Tests Test Container 1`] = `
       ],
     }
   }
+  projectDetailsReducer={
+    Object {
+      "currentProjectToolsSelectedGL": Array [],
+    }
+  }
   settingsReducer={
     Object {
       "toolsSettings": Object {

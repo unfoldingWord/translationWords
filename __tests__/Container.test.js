@@ -30,6 +30,9 @@ const props = {
   actions: {
     setToolSettings: jest.fn(),
     loadResourceArticle: jest.fn()
+  },
+  projectDetailsReducer: {
+    currentProjectToolsSelectedGL: []
   }
 };
 
@@ -97,3 +100,4 @@ describe('Container Tests', () => {
     );
   });
 });
+
