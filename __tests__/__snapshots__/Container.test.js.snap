@@ -31,7 +31,7 @@ exports[`Container Tests Test Container 1`] = `
   }
   projectDetailsReducer={
     Object {
-      "currentProjectToolsSelectedGL": Array [],
+      "currentProjectToolsSelectedGL": Object {},
     }
   }
   settingsReducer={
@@ -56,3 +56,5 @@ exports[`Container Tests Test Container 1`] = `
   translate={[Function]}
 />
 `;
+
+exports[`Container Tests Test empty Container 1`] = `null`;

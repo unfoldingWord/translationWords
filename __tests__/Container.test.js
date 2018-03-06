@@ -32,7 +32,7 @@ const props = {
     loadResourceArticle: jest.fn()
   },
   projectDetailsReducer: {
-    currentProjectToolsSelectedGL: []
+    currentProjectToolsSelectedGL: {}
   }
 };
 
@@ -41,6 +41,22 @@ describe('Container Tests', () => {
     const component = renderer.create(
       <MuiThemeProvider>
         <Container {...props} />
+      </MuiThemeProvider>
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('Test empty Container', () => {
+    const myProps = {
+      ...props,
+      contextIdReducer: {
+        contextId: null
+      }
+    };
+    const component = renderer.create(
+      <MuiThemeProvider>
+        <Container {...myProps} />
       </MuiThemeProvider>
     );
     const tree = component.toJSON();
