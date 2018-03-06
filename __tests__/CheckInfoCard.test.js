@@ -7,6 +7,7 @@ import renderer from 'react-test-renderer';
 describe('CheckInfoCard component Tests', () => {
   it('check CheckInfoCard', () => {
     let props = {
+      translate:k=>k,
       file: 'this is a test of the check info card component. this is a test of the check info card component. this is a test of the check info card component. this is a test of the check info card component. this is a test of the check info card component. this is a test of the check info card component. ',
       title: 'title'
     };
