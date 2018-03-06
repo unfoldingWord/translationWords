@@ -14,18 +14,25 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    const {settingsReducer} = this.props;
-    let {ScripturePane} = settingsReducer.toolsSettings;
-    if (!ScripturePane) {
+    const { currentToolName } = this.props.toolsReducer;
+    const { currentProjectToolsSelectedGL } = this.props.projectDetailsReducer;
+    const languageId = currentProjectToolsSelectedGL[currentToolName];
+    const { ScripturePane } = this.props.settingsReducer.toolsSettings;
+    const currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
+    // making sure the right ulb language is displayed in the scripture pane
+    if (currentPaneSettings && !currentPaneSettings.some(paneSetting => paneSetting.languageId === languageId)) {
+      const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
+        if (paneSetting.bibleId === 'ulb') paneSetting.languageId = languageId;
+        return paneSetting;
+      });
+      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", newCurrentPaneSettings);
+    }
+    if (!ScripturePane || currentPaneSettings.length === 0) {
       // initializing the ScripturePane settings if not found.
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ["ulb"]);
-    } else {
-      for( let i = 0; i < ScripturePane.currentPaneSettings.length; i++) {
-        if (ScripturePane.currentPaneSettings[i] === 'bhp') { // update bhp references to ugnt
-          ScripturePane.currentPaneSettings[i] = 'ugnt';
-          this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", ScripturePane.currentPaneSettings);
-        }
-      }
+      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", [{
+        languageId,
+        bibleId: 'ulb'
+      }]);
     }
     this._reloadArticle(this.props);
   }
@@ -58,18 +65,20 @@ class Container extends React.Component {
 
   render() {
     const {translate} = this.props;
-    let {contextId} = this.props.contextIdReducer;
+    const {contextId} = this.props.contextIdReducer;
 
     if (contextId !== null) {
       const { groupId } = this.props.contextIdReducer.contextId;
       const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
-      return <View
-        {...this.props}
-        translate={translate}
-        title={title}
-        showHelps={this.state.showHelps}
-        toggleHelps={this.toggleHelps.bind(this)}
-      />;
+      return (
+        <View
+          {...this.props}
+          translate={translate}
+          title={title}
+          showHelps={this.state.showHelps}
+          toggleHelps={this.toggleHelps.bind(this)}
+        />
+      );
     } else {
       return null;
     }
@@ -78,7 +87,6 @@ class Container extends React.Component {
 
 Container.propTypes = {
   translate: PropTypes.func,
-  toolsReducer: PropTypes.any.isRequired,
   settingsReducer: PropTypes.shape({
     toolsSettings: PropTypes.shape({
       ScripturePane: PropTypes.object
@@ -94,6 +102,9 @@ Container.propTypes = {
   }),
   projectDetailsReducer: PropTypes.shape({
     currentProjectToolsSelectedGL: PropTypes.object.isRequired
+  }),
+  toolsReducer: PropTypes.shape({
+    currentToolName: PropTypes.string.isRequired
   }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,

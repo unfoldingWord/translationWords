@@ -31,7 +31,9 @@ exports[`Container Tests Test Container 1`] = `
   }
   projectDetailsReducer={
     Object {
-      "currentProjectToolsSelectedGL": Object {},
+      "currentProjectToolsSelectedGL": Object {
+        "translationWords": "en",
+      },
     }
   }
   settingsReducer={
@@ -39,7 +41,10 @@ exports[`Container Tests Test Container 1`] = `
       "toolsSettings": Object {
         "ScripturePane": Object {
           "currentPaneSettings": Array [
-            "ugnt",
+            Object {
+              "bibleId": "ugnt",
+              "languageId": "originalLanguage",
+            },
           ],
         },
       },

@@ -12,7 +12,7 @@ const props = {
   settingsReducer: {
     toolsSettings: {
       ScripturePane: {
-        currentPaneSettings: ['bhp']
+        currentPaneSettings: [{ "bibleId": "ugnt", "languageId": "originalLanguage" }]
       }
     }
   },
@@ -27,12 +27,12 @@ const props = {
   toolsReducer: {
     currentToolName: 'translationWords'
   },
+  projectDetailsReducer: {
+    currentProjectToolsSelectedGL: {'translationWords': 'en'}
+  },
   actions: {
     setToolSettings: jest.fn(),
     loadResourceArticle: jest.fn()
-  },
-  projectDetailsReducer: {
-    currentProjectToolsSelectedGL: {}
   }
 };
 
@@ -86,7 +86,7 @@ describe('Container Tests', () => {
       loadResourceArticle: jest.fn()
     };
     const container = shallow(<Container {...myProps} />).instance();
-    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", ['ulb']);
+    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", [{ "bibleId": "ulb", "languageId": "en" }]);
   });
 
   it('Test Container.componentWillReceiveProps', () => {
@@ -116,4 +116,3 @@ describe('Container Tests', () => {
     );
   });
 });
-
