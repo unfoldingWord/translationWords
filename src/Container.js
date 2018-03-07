@@ -64,15 +64,18 @@ class Container extends React.Component {
   }
 
   render() {
-    const {translate} = this.props;
-    const {contextId} = this.props.contextIdReducer;
+    const { translate, projectDetailsReducer: { currentProjectToolsSelectedGL }, toolsReducer: { currentToolName } } = this.props;
+    const { contextId } = this.props.contextIdReducer;
 
     if (contextId !== null) {
+      const languageId = currentProjectToolsSelectedGL[currentToolName];
       const { groupId } = this.props.contextIdReducer.contextId;
       const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
+      const glQuote = this.props.actions.getGLQuote(languageId, groupId, currentToolName);
       return (
         <View
           {...this.props}
+          glQuote={glQuote}
           translate={translate}
           title={title}
           showHelps={this.state.showHelps}
@@ -108,7 +111,8 @@ Container.propTypes = {
   }),
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,
-    loadResourceArticle: PropTypes.func.isRequired
+    loadResourceArticle: PropTypes.func.isRequired,
+    getGLQuote: PropTypes.func.isRequired
   })
 };
 
