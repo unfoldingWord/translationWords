@@ -32,7 +32,8 @@ const props = {
   },
   actions: {
     setToolSettings: jest.fn(),
-    loadResourceArticle: jest.fn()
+    loadResourceArticle: jest.fn(),
+    getGLQuote: jest.fn()
   }
 };
 
