@@ -84,7 +84,8 @@ describe('Container Tests', () => {
     myProps.settingsReducer.toolsSettings = {};
     myProps.actions = {
       setToolSettings: jest.fn(),
-      loadResourceArticle: jest.fn()
+      loadResourceArticle: jest.fn(),
+      getGLQuote: jest.fn()
     };
     const container = shallow(<Container {...myProps} />).instance();
     expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", [{ "bibleId": "ulb", "languageId": "en" }]);

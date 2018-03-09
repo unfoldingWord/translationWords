@@ -4,8 +4,38 @@ exports[`Container Tests Test Container 1`] = `
 <[View]
   actions={
     Object {
-      "loadResourceArticle": [Function],
-      "setToolSettings": [Function],
+      "getGLQuote": [MockFunction] {
+        "calls": Array [
+          Array [
+            "en",
+            "groupId1",
+            "translationWords",
+          ],
+        ],
+      },
+      "loadResourceArticle": [MockFunction] {
+        "calls": Array [
+          Array [
+            "translationWords",
+            "groupId1",
+            "en",
+          ],
+        ],
+      },
+      "setToolSettings": [MockFunction] {
+        "calls": Array [
+          Array [
+            "ScripturePane",
+            "currentPaneSettings",
+            Array [
+              Object {
+                "bibleId": "ugnt",
+                "languageId": "originalLanguage",
+              },
+            ],
+          ],
+        ],
+      },
     }
   }
   contextIdReducer={
@@ -15,6 +45,7 @@ exports[`Container Tests Test Container 1`] = `
       },
     }
   }
+  glQuote={undefined}
   groupsIndexReducer={
     Object {
       "groupsIndex": Array [
