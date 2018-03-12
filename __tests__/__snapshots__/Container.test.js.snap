@@ -4,38 +4,9 @@ exports[`Container Tests Test Container 1`] = `
 <[View]
   actions={
     Object {
-      "getGLQuote": [MockFunction] {
-        "calls": Array [
-          Array [
-            "en",
-            "groupId1",
-            "translationWords",
-          ],
-        ],
-      },
-      "loadResourceArticle": [MockFunction] {
-        "calls": Array [
-          Array [
-            "translationWords",
-            "groupId1",
-            "en",
-          ],
-        ],
-      },
-      "setToolSettings": [MockFunction] {
-        "calls": Array [
-          Array [
-            "ScripturePane",
-            "currentPaneSettings",
-            Array [
-              Object {
-                "bibleId": "ugnt",
-                "languageId": "originalLanguage",
-              },
-            ],
-          ],
-        ],
-      },
+      "getGLQuote": [Function],
+      "loadResourceArticle": [Function],
+      "setToolSettings": [Function],
     }
   }
   contextIdReducer={
