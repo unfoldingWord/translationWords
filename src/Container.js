@@ -29,10 +29,17 @@ class Container extends React.Component {
     }
     if (!ScripturePane || currentPaneSettings.length === 0) {
       // initializing the ScripturePane settings if not found.
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", [{
-        languageId,
-        bibleId: 'ulb'
-      }]);
+      const initialCurrentPaneSettings = [
+        {
+          languageId,
+          bibleId: 'ulb'
+        },
+        {
+          languageId: 'targetLanguage',
+          bibleId: 'targetBible'
+        }
+      ];
+      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", initialCurrentPaneSettings);
     }
     this._reloadArticle(this.props);
   }
