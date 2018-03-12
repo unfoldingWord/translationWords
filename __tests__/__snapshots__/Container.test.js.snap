@@ -4,6 +4,7 @@ exports[`Container Tests Test Container 1`] = `
 <[View]
   actions={
     Object {
+      "getGLQuote": [Function],
       "loadResourceArticle": [Function],
       "setToolSettings": [Function],
     }
@@ -15,6 +16,7 @@ exports[`Container Tests Test Container 1`] = `
       },
     }
   }
+  glQuote={undefined}
   groupsIndexReducer={
     Object {
       "groupsIndex": Array [
