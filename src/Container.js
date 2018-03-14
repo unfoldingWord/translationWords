@@ -19,10 +19,10 @@ class Container extends React.Component {
     const languageId = currentProjectToolsSelectedGL[currentToolName];
     const { ScripturePane } = this.props.settingsReducer.toolsSettings;
     const currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
-    // making sure the right ulb language is displayed in the scripture pane
+    // making sure the right ult language is displayed in the scripture pane
     if (currentPaneSettings && !currentPaneSettings.some(paneSetting => paneSetting.languageId === languageId)) {
       const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
-        if (paneSetting.bibleId === 'ulb') paneSetting.languageId = languageId;
+        if (paneSetting.bibleId === 'ult') paneSetting.languageId = languageId;
         return paneSetting;
       });
       this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", newCurrentPaneSettings);
@@ -32,7 +32,7 @@ class Container extends React.Component {
       const initialCurrentPaneSettings = [
         {
           languageId,
-          bibleId: 'ulb'
+          bibleId: 'ult'
         },
         {
           languageId: 'targetLanguage',
