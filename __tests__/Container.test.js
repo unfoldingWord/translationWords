@@ -88,7 +88,7 @@ describe('Container Tests', () => {
       getGLQuote: jest.fn()
     };
     const container = shallow(<Container {...myProps} />).instance();
-    const initialScripturePaneSettings = [{ "bibleId": "ulb", "languageId": "en" }, {"bibleId": "targetBible", "languageId": "targetLanguage"}];
+    const initialScripturePaneSettings = [{ "bibleId": "ult", "languageId": "en" }, {"bibleId": "targetBible", "languageId": "targetLanguage"}];
     expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", initialScripturePaneSettings);
   });
 
