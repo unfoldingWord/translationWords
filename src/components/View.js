@@ -14,16 +14,33 @@ import PropTypes from 'prop-types';
 class View extends React.Component {
 
   render() {
-    const {translate} = this.props;
+    const {
+      title,
+      translate,
+      projectDetailsReducer,
+      appLanguage,
+      selectionsReducer,
+      currentToolViews,
+      resourcesReducer,
+      contextIdReducer,
+      settingsReducer,
+      actions
+    } = this.props;
     // Modules not defined within translationWords
-    const { ScripturePane, VerseCheck, TranslationHelps } = this.props.currentToolViews;
-    const { title } = this.props;
+    const { ScripturePane, VerseCheck, TranslationHelps } = currentToolViews;
 
     // set the scripturePane to empty to handle react/redux when it first renders without required data
     let scripturePane = <div/>;
     // populate scripturePane so that when required data is preset that it renders as intended.
     if (this.props.settingsReducer.toolsSettings.ScripturePane !== undefined) {
-      scripturePane = <ScripturePane {...this.props} />;
+      scripturePane = <ScripturePane projectDetailsReducer={projectDetailsReducer}
+                                     appLanguage={appLanguage}
+                                     selectionsReducer={selectionsReducer}
+                                     currentToolViews={currentToolViews}
+                                     resourcesReducer={resourcesReducer}
+                                     contextIdReducer={contextIdReducer}
+                                     settingsReducer={settingsReducer}
+                                     actions={actions} />;
     }
 
     let { translationWords } = this.props.resourcesReducer.translationHelps;
@@ -60,6 +77,10 @@ class View extends React.Component {
 }
 
 View.propTypes = {
+  actions: PropTypes.object.isRequired,
+  projectDetailsReducer: PropTypes.object.isRequired,
+  appLanguage: PropTypes.string.isRequired,
+  selectionsReducer: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
   currentToolViews: PropTypes.shape({
     ScripturePane: PropTypes.any,
