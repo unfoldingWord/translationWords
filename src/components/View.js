@@ -10,6 +10,7 @@ import {Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './CheckInfoCard.js';
 import style from '../css/style';
 import PropTypes from 'prop-types';
+import {stripTranslateProperty} from '../helpers/translationHelper';
 
 class View extends React.Component {
 
@@ -51,13 +52,14 @@ class View extends React.Component {
       currentFile = this.props.resourcesReducer.translationHelps.translationWords[articleId];
     }
 
+    const propsNoTranslate = stripTranslateProperty(this.props, ['translate']); // need to remove translate so it doesn't clobber translations in loaded tools
     return (
       <div style={{display: 'flex', flex: 'auto'}}>
         <div style={{flex: '2 1 900px', display: "flex", flexDirection: "column"}}>
           {scripturePane}
 
           <CheckInfoCard openHelps={this.props.toggleHelps} translate={translate} showHelps={this.props.showHelps} title={title} file={currentFile}/>
-          <VerseCheck {...this.props} />
+          <VerseCheck {...propsNoTranslate} />
         </div>
         <div style={{flex: this.props.showHelps ? '1 1 375px' : '0 0 30px', display: 'flex', justifyContent: 'flex-end', marginLeft: '-15px'}}>
           <div style={style.handleIconDiv}>
@@ -65,7 +67,7 @@ class View extends React.Component {
           </div>
           <div style={{ display: this.props.showHelps ? "flex" : "none", flex: '1' }}>
             <TranslationHelps
-              {...this.props}
+              {...propsNoTranslate}
               currentFile={currentFile}
               online={this.props.settingsReducer.online}
             />
