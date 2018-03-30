@@ -10,7 +10,7 @@ import {Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './CheckInfoCard.js';
 import style from '../css/style';
 import PropTypes from 'prop-types';
-import {stripTranslateProperty} from '../helpers/translationHelper'
+import {stripTranslateProperty} from '../helpers/translationHelper';
 
 class View extends React.Component {
 
