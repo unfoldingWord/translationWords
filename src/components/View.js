@@ -10,6 +10,7 @@ import {Glyphicon} from 'react-bootstrap';
 import CheckInfoCard from './CheckInfoCard.js';
 import style from '../css/style';
 import PropTypes from 'prop-types';
+import {stripTranslateProperty} from '../helpers/translationHelper'
 
 class View extends React.Component {
 
@@ -51,7 +52,7 @@ class View extends React.Component {
       currentFile = this.props.resourcesReducer.translationHelps.translationWords[articleId];
     }
 
-    const propsNoTranslate = this.stripTranslateProperty(); // need to remove translate so it doesn't clobber translations in loaded tools
+    const propsNoTranslate = stripTranslateProperty(this.props, ['translate']); // need to remove translate so it doesn't clobber translations in loaded tools
     return (
       <div style={{display: 'flex', flex: 'auto'}}>
         <div style={{flex: '2 1 900px', display: "flex", flexDirection: "column"}}>
@@ -74,16 +75,6 @@ class View extends React.Component {
         </div>
       </div>
     );
-  }
-
-  stripTranslateProperty() {
-    const result = {};
-    for (let key in this.props) {
-      if (this.props.hasOwnProperty(key) && (key !== 'translate')) {
-        result[key] = this.props[key];
-      }
-    }
-    return result;
   }
 }
 
