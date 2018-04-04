@@ -168,4 +168,96 @@ describe('settingsHelper.loadCorrectPaneSettings', () => {
       expect(paneSettings).toEqual(expectedResult);
     });
   });
+
+
+  test('Should render the English ULT if the pane settings is empty and English is selected as the GL', () => {
+    const props = {
+      toolsReducer: {
+        currentToolName: 'translationWords'
+      },
+      projectDetailsReducer: {
+        currentProjectToolsSelectedGL: {
+          translationWords: 'en'
+        }
+      },
+      settingsReducer: {
+        toolsSettings: {
+          ScripturePane: {
+            currentPaneSettings: []
+          }
+        }
+      }
+    };
+    const expectedResult = [
+      {
+        languageId: 'en',
+        bibleId: 'ult'
+      },
+      {
+        languageId: 'targetLanguage',
+        bibleId: 'targetBible'
+      }
+    ];
+    settingsHelper.loadCorrectPaneSettings(props, (toolNamespace, settingsLabel, paneSettings) => {
+      expect(paneSettings).toEqual(expectedResult);
+    });
+  });
+
+  test('Should add the English ULT and target language in a fresh install if English is selected as the GL', () => {
+    const props = {
+      toolsReducer: {
+        currentToolName: 'translationWords'
+      },
+      projectDetailsReducer: {
+        currentProjectToolsSelectedGL: {
+          translationWords: 'en'
+        }
+      },
+      settingsReducer: {
+        toolsSettings: {}
+      }
+    };
+    const expectedResult = [
+      {
+        languageId: 'en',
+        bibleId: 'ult'
+      },
+      {
+        languageId: 'targetLanguage',
+        bibleId: 'targetBible'
+      }
+    ];
+    settingsHelper.loadCorrectPaneSettings(props, (toolNamespace, settingsLabel, paneSettings) => {
+      expect(paneSettings).toEqual(expectedResult);
+    });
+  });
+
+  test('Should add the Hindi ULB and target language in a fresh install if Hindi is selected as the GL', () => {
+    const props = {
+      toolsReducer: {
+        currentToolName: 'translationWords'
+      },
+      projectDetailsReducer: {
+        currentProjectToolsSelectedGL: {
+          translationWords: 'hi'
+        }
+      },
+      settingsReducer: {
+        toolsSettings: {}
+      }
+    };
+    const expectedResult = [
+      {
+        languageId: 'hi',
+        bibleId: 'ulb'
+      },
+      {
+        languageId: 'targetLanguage',
+        bibleId: 'targetBible'
+      }
+    ];
+    settingsHelper.loadCorrectPaneSettings(props, (toolNamespace, settingsLabel, paneSettings) => {
+      expect(paneSettings).toEqual(expectedResult);
+    });
+  });
 });
