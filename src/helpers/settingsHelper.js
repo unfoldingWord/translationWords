@@ -10,7 +10,7 @@ export const loadCorrectPaneSettings = (props, setToolSettings) => {
     return paneSetting.languageId === languageId && (paneSetting.bibleId === 'ulb' || paneSetting.bibleId === 'ult');
   };
   // making sure the right ult or ulb language is displayed in the scripture pane
-  if (currentPaneSettings && !currentPaneSettings.some(paneSeetingsIncludeGLandUlbOrUlt)) {
+  if (currentPaneSettings && !currentPaneSettings.some(paneSeetingsIncludeGLandUlbOrUlt) && currentPaneSettings.length > 0) {
     const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
       const isUlbOrUlt = paneSetting.bibleId === 'ult' || paneSetting.bibleId === 'ulb';
       if (isUlbOrUlt && languageId === 'en') {
