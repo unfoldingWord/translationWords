@@ -1,9 +1,10 @@
 /* eslint-env jest */
-
 import React from 'react';
-
-import View from './components/View.js';
 import PropTypes from 'prop-types';
+// components
+import View from './components/View.js';
+// helpers
+import * as settingsHelper from './helpers/settingsHelper';
 
 class Container extends React.Component {
   constructor() {
@@ -14,39 +15,7 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
-    const { currentToolName } = this.props.toolsReducer;
-    const { currentProjectToolsSelectedGL } = this.props.projectDetailsReducer;
-    const languageId = currentProjectToolsSelectedGL[currentToolName];
-    const { ScripturePane } = this.props.settingsReducer.toolsSettings;
-    const currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
-    // making sure the right ult or ulb language is displayed in the scripture pane
-    if (currentPaneSettings && !currentPaneSettings.some(paneSetting => paneSetting.languageId === languageId)) {
-      const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
-        if (paneSetting.bibleId === 'ult' || paneSetting.bibleId === 'ulb') paneSetting.languageId = languageId;
-        return paneSetting;
-      });
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", newCurrentPaneSettings);
-    }
-    if (!ScripturePane || currentPaneSettings.length === 0) {
-      // initializing the ScripturePane settings if not found.
-      let bibleId;
-      if (languageId === 'en') {
-        bibleId = 'ult';
-      } else { // for hindi is ulb
-        bibleId = 'ulb';
-      }
-      const initialCurrentPaneSettings = [
-        {
-          languageId,
-          bibleId
-        },
-        {
-          languageId: 'targetLanguage',
-          bibleId: 'targetBible'
-        }
-      ];
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", initialCurrentPaneSettings);
-    }
+    settingsHelper.loadCorrectPaneSettings(this.props, this.props.actions.setToolSettings);
     this._reloadArticle(this.props);
   }
 
