@@ -10,7 +10,7 @@ export const loadCorrectPaneSettings = (props, setToolSettings) => {
     return paneSetting.languageId === languageId && (paneSetting.bibleId === 'ulb' || paneSetting.bibleId === 'ult');
   };
   // making sure the right ult or ulb language is displayed in the scripture pane
-  if (currentPaneSettings && !currentPaneSettings.some(paneSetting => paneSeetingsIncludeGLandUlbOrUlt(paneSetting)) && !hasMoreThanOneGlBible(currentPaneSettings, languageId)) {
+  if (currentPaneSettings && !currentPaneSettings.some(paneSeetingsIncludeGLandUlbOrUlt)) {
     const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
       const isUlbOrUlt = paneSetting.bibleId === 'ult' || paneSetting.bibleId === 'ulb';
       if (isUlbOrUlt && languageId === 'en') {
@@ -45,16 +45,3 @@ export const loadCorrectPaneSettings = (props, setToolSettings) => {
     setToolSettings("ScripturePane", "currentPaneSettings", initialCurrentPaneSettings);
   }
 };
-
-
-export function hasMoreThanOneGlBible(currentPaneSettings, languageId) {
-  let hasMoreThanOneGlBible = 0;
-  currentPaneSettings.forEach(paneSetting => {
-    if (paneSetting.languageId === languageId && languageId === 'en' && paneSetting.bibleId === 'ult') {
-      hasMoreThanOneGlBible++;
-    } else if (paneSetting.languageId === languageId && languageId === 'hi' && paneSetting.bibleId === 'ulb') {
-      hasMoreThanOneGlBible++;
-    }
-  });
-  return hasMoreThanOneGlBible > 1;
-}
