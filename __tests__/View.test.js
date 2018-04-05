@@ -9,7 +9,7 @@ jest.mock('../src/components/CheckInfoCard.js', () => '[CheckInfoCard]');
 describe('View component Tests', () => {
   it('Check View component', () => {
     let props = {
-      translate:k=>k,
+      translate:k => k,
       currentToolViews: {
         ScripturePane: () => '[ScripturePane]',
         VerseCheck: () => '[VerseCheck]',
@@ -26,6 +26,8 @@ describe('View component Tests', () => {
           translationWords: {'group1': 'file'}
         }
       },
+      projectDetailsReducer: {},
+      selectionsReducer: {},
       contextIdReducer: {
         contextId: {
           groupId: 'group1',
@@ -34,7 +36,9 @@ describe('View component Tests', () => {
       },
       title: 'title',
       toggleHelps: jest.fn(),
-      showHelps: jest.fn()
+      showHelps: jest.fn(),
+      actions: {},
+      appLanguage: '',
     };
     const component = renderer.create(
       <MuiThemeProvider>
