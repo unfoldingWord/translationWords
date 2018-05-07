@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
 //ui-kit components
-import {GroupMenu} from 'tc-ui-toolkit';
+import {GroupMenu, VerseCheck, ScripturePane, CheckInfoCard} from 'tc-ui-toolkit';
 
 class Container extends React.Component {
   constructor() {
@@ -48,7 +48,7 @@ class Container extends React.Component {
   getGroupProgress(groupIndex, groupsData) {
     let groupId = groupIndex.id;
     let totalChecks = groupsData[groupId].length;
-    const doneChecks = groupsData[groupId].filter(groupData => 
+    const doneChecks = groupsData[groupId].filter(groupData =>
       groupData.selections && !groupData.reminders
     ).length;
 
@@ -76,22 +76,47 @@ class Container extends React.Component {
       const {groupId} = contextId;
       const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
       const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
-      return <GroupMenu
-        getGroupProgress={this.getGroupProgress}
-        alignmentData={alignmentData}
-        groupsDataReducer={groupsDataReducer}
-        groupsIndexReducer={groupsIndexReducer}
-        groupMenuReducer={groupMenuReducer}
-        toolsReducer={toolsReducer}
-        contextIdReducer={{contextId}}
-        projectDetailsReducer={{manifest, projectSaveLocation}}
-        actions={actions} />;
+      return (
+        <div style={{display:'flex', flexDirection:'row'}}>
+          <GroupMenu
+            getGroupProgress={this.getGroupProgress}
+            alignmentData={alignmentData}
+            groupsDataReducer={groupsDataReducer}
+            groupsIndexReducer={groupsIndexReducer}
+            groupMenuReducer={groupMenuReducer}
+            toolsReducer={toolsReducer}
+            contextIdReducer={{contextId}}
+            projectDetailsReducer={{manifest, projectSaveLocation}}
+            actions={actions} />
+          <div style={{display:'flex', flexDirection:'column'}}>
+            <ScripturePane
+              titleLabel="Step 1. Read"
+              closeButtonLabel="Close"
+              expandedScripturePaneTitle="Matthew"
+              expandButtonHoverText="Click to show expanded resource panes" />
+            <CheckInfoCard
+              title="save, saves, saved, safe, salvation"
+              phrase='The term "save" refers to keeping someone from experiencing something bad or harmful. To "be safe" means to be protected from harm or danger.'
+              seeMoreLabel="See More"
+              showSeeMoreButton={true}
+              onSeeMoreClick={() => console.log('CheckInfoCard clicked')} />
+            <VerseCheck />
+          </div>
+        </div>
+      );
     } else {
       return null;
     }
   }
 }
 
+// <VerseEditor
+// onSubmit={() => this.setState({showVersEditor: false})}
+// onCancel={() => this.setState({showVersEditor: false})}
+// open={this.state.showVersEditor}
+// translate={key => key}
+// verseTitle={'Title'}
+// verseText={'Verse Text'} />
 // glQuote={glQuote}
 // translate={translate}
 // title={title}
