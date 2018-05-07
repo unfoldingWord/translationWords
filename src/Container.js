@@ -57,6 +57,21 @@ class Container extends React.Component {
     return progress;
   }
 
+
+  getSelections() {
+    contextIdReducer.contextId = groupItemData.contextId;
+    let loadPath = CheckDataLoadActions.generateLoadPath(projectDetailsReducer, contextIdReducer, 'selections');
+    let selectionsObject = CheckDataLoadActions.loadCheckData(loadPath, groupItemData.contextId);
+    let selectionsArray = [];
+
+    if (selectionsObject) {
+      selectionsObject.selections.forEach((selection) => {
+        selectionsArray.push(selection.text);
+      });
+    }
+    let selections = selectionsArray.join(" ");
+  }
+
   render() {
     const {
       wordAlignmentReducer: {alignmentData},
@@ -68,7 +83,7 @@ class Container extends React.Component {
       toolsReducer: {currentToolName},
       contextIdReducer: {contextId},
       groupsIndexReducer,
-      actions
+      actions,
     } = this.props;
 
     if (contextId !== null) {
@@ -76,9 +91,11 @@ class Container extends React.Component {
       const {groupId} = contextId;
       const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
       const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
+
       return (
         <div style={{display:'flex', flexDirection:'row'}}>
           <GroupMenu
+            getSelections={(contextId) => actions.getSelectionsFromContextId(contextId, projectSaveLocation)}
             getGroupProgress={this.getGroupProgress}
             alignmentData={alignmentData}
             groupsDataReducer={groupsDataReducer}
@@ -147,7 +164,8 @@ Container.propTypes = {
   actions: PropTypes.shape({
     setToolSettings: PropTypes.func.isRequired,
     loadResourceArticle: PropTypes.func.isRequired,
-    getGLQuote: PropTypes.func.isRequired
+    getGLQuote: PropTypes.func.isRequired,
+    getSelectionsFromContextId: PropTypes.func.isRequired
   })
 };
 
