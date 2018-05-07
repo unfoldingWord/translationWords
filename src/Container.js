@@ -1,10 +1,10 @@
 /* eslint-env jest */
 import React from 'react';
 import PropTypes from 'prop-types';
-// components
-import View from './components/View.js';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
+//ui-kit components
+import {GroupMenu} from 'tc-ui-toolkit';
 
 class Container extends React.Component {
   constructor() {
@@ -33,7 +33,7 @@ class Container extends React.Component {
   _reloadArticle(props) {
     const {contextIdReducer, toolsReducer, projectDetailsReducer, actions} = props;
     const {contextId} = contextIdReducer;
-    if(contextId) {
+    if (contextId) {
       const articleId = contextId.groupId;
       const {currentToolName} = toolsReducer;
       const languageId = projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
@@ -45,30 +45,58 @@ class Container extends React.Component {
     this.setState({showHelps: !this.state.showHelps});
   }
 
+  getGroupProgress(groupIndex, groupsData) {
+    let groupId = groupIndex.id;
+    let totalChecks = groupsData[groupId].length;
+    const doneChecks = groupsData[groupId].filter(groupData => 
+      groupData.selections && !groupData.reminders
+    ).length;
+
+    let progress = doneChecks / totalChecks;
+
+    return progress;
+  }
+
   render() {
-    const { translate, projectDetailsReducer: { currentProjectToolsSelectedGL }, toolsReducer: { currentToolName } } = this.props;
-    const { contextId } = this.props.contextIdReducer;
+    const {
+      wordAlignmentReducer: {alignmentData},
+      translate,
+      toolsReducer,
+      groupMenuReducer,
+      groupsDataReducer,
+      projectDetailsReducer: {currentProjectToolsSelectedGL, manifest, projectSaveLocation},
+      toolsReducer: {currentToolName},
+      contextIdReducer: {contextId},
+      groupsIndexReducer,
+      actions
+    } = this.props;
 
     if (contextId !== null) {
       const languageId = currentProjectToolsSelectedGL[currentToolName];
-      const { groupId } = this.props.contextIdReducer.contextId;
-      const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
-      const glQuote = this.props.actions.getGLQuote(languageId, groupId, currentToolName);
-      return (
-        <View
-          {...this.props}
-          glQuote={glQuote}
-          translate={translate}
-          title={title}
-          showHelps={this.state.showHelps}
-          toggleHelps={this.toggleHelps.bind(this)}
-        />
-      );
+      const {groupId} = contextId;
+      const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
+      const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
+      return <GroupMenu
+        getGroupProgress={this.getGroupProgress}
+        alignmentData={alignmentData}
+        groupsDataReducer={groupsDataReducer}
+        groupsIndexReducer={groupsIndexReducer}
+        groupMenuReducer={groupMenuReducer}
+        toolsReducer={toolsReducer}
+        contextIdReducer={{contextId}}
+        projectDetailsReducer={{manifest, projectSaveLocation}}
+        actions={actions} />;
     } else {
       return null;
     }
   }
 }
+
+// glQuote={glQuote}
+// translate={translate}
+// title={title}
+// showHelps={this.state.showHelps}
+// toggleHelps={this.toggleHelps.bind(this)}
 
 Container.propTypes = {
   translate: PropTypes.func,
