@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
+import * as checkAreaHelpers from './helpers/checkAreaHelpers';
 //ui-kit components
 import {GroupMenu, VerseCheck, ScripturePane, CheckInfoCard} from 'tc-ui-toolkit';
 
@@ -72,6 +73,20 @@ class Container extends React.Component {
     let selections = selectionsArray.join(" ");
   }
 
+  getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
+    let alignedGLText = contextId.quote;
+    const selectedGL = currentProjectToolsSelectedGL[currentToolName];
+    if (bibles[selectedGL] && bibles[selectedGL]['ult']) {
+      const verseObjects = bibles[selectedGL]['ult'][contextId.reference.chapter][contextId.reference.verse].verseObjects;
+      const wordsToMatch = contextId.quote.split(' ');
+      const alignedText = checkAreaHelpers.getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
+      if (alignedText) {
+        alignedGLText = alignedText;
+      }
+    }
+    return alignedGLText;
+  }
+
   render() {
     const {
       wordAlignmentReducer: {alignmentData},
@@ -96,6 +111,8 @@ class Container extends React.Component {
       const {groupId} = contextId;
       const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
       const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
+      const alignedGLText = this.getAlignedGLText(
+        currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
 
       return (
         <div style={{display:'flex', flexDirection:'row'}}>
@@ -113,17 +130,18 @@ class Container extends React.Component {
             actions={actions} />
           <div style={{display:'flex', flexDirection:'column', width:'100%'}}>
             <VerseCheck 
-            projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
-            loginReducer={loginReducer}
-            resourcesReducer={resourcesReducer}
-            commentsReducer={commentsReducer}
-            selectionsReducer={{selections}}
-            contextIdReducer={{contextId}}
-            translate={translate}
-            toolsReducer={toolsReducer}
-            groupsDataReducer={groupsDataReducer}
-            remindersReducer={remindersReducer}
-            actions={actions} />
+              alignedGLText={alignedGLText}
+              projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
+              loginReducer={loginReducer}
+              resourcesReducer={resourcesReducer}
+              commentsReducer={commentsReducer}
+              selectionsReducer={{selections}}
+              contextIdReducer={{contextId}}
+              translate={translate}
+              toolsReducer={toolsReducer}
+              groupsDataReducer={groupsDataReducer}
+              remindersReducer={remindersReducer}
+              actions={actions} />
           </div>
         </div>
       );
