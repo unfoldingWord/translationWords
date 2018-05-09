@@ -87,6 +87,35 @@ class Container extends React.Component {
     return alignedGLText;
   }
 
+  getCheckInfoCardText(translationWords, articleId, translationHelps) {
+    let currentFile = '';
+    if (translationWords && translationWords[articleId]) {
+      currentFile = translationHelps.translationWords[articleId];
+    }
+    
+    let splitLine = currentFile.split('\n');
+    if (splitLine.length === 1 && splitLine[0] === "") return "";
+    let finalArray = [];
+    for (let i = 0; i < splitLine.length; i++) {
+      if (splitLine[i] !== '' && !~splitLine[i].indexOf("#")) {
+        finalArray.push(splitLine[i]);
+      }
+    }
+    let maxLength = 225;
+    let finalString = "";
+    let chosenString = finalArray[0];
+    let splitString = chosenString.split(' ');
+    for (let word of splitString) {
+      if ((finalString + ' ' + word).length >= maxLength) {
+        finalString+= '...';
+        break;
+      }
+      finalString += ' ';
+      finalString += word;
+    }
+    return finalString;
+  }
+
   render() {
     const {
       wordAlignmentReducer: {alignmentData},
@@ -104,15 +133,17 @@ class Container extends React.Component {
       resourcesReducer,
       loginReducer,
       actions,
-    } = this.props;
+    } = this.props;    
 
     if (contextId !== null) {
+      let { translationWords } = resourcesReducer.translationHelps;
       const languageId = currentProjectToolsSelectedGL[currentToolName];
       const {groupId} = contextId;
       const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
       const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       const alignedGLText = this.getAlignedGLText(
         currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
+      const checkInfoCardPhrase = this.getCheckInfoCardText(translationWords, contextId.groupId, resourcesReducer.translationHelps)
 
       return (
         <div style={{display:'flex', flexDirection:'row'}}>
@@ -129,6 +160,12 @@ class Container extends React.Component {
             projectDetailsReducer={{manifest, projectSaveLocation}}
             actions={actions} />
           <div style={{display:'flex', flexDirection:'column', width:'100%'}}>
+            <CheckInfoCard
+              title={title}
+              phrase={checkInfoCardPhrase}
+              seeMoreLabel={translate('see_more')}
+              showSeeMoreButton={this.state.showHelps}
+              onSeeMoreClick={this.toggleHelps.bind(this)} />
             <VerseCheck 
               alignedGLText={alignedGLText}
               projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
