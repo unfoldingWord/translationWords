@@ -83,6 +83,11 @@ class Container extends React.Component {
       toolsReducer: {currentToolName},
       contextIdReducer: {contextId},
       groupsIndexReducer,
+      remindersReducer,
+      selectionsReducer:{selections},
+      commentsReducer,
+      resourcesReducer,
+      loginReducer,
       actions,
     } = this.props;
 
@@ -95,6 +100,7 @@ class Container extends React.Component {
       return (
         <div style={{display:'flex', flexDirection:'row'}}>
           <GroupMenu
+            translate={translate}
             getSelections={(contextId) => actions.getSelectionsFromContextId(contextId, projectSaveLocation)}
             getGroupProgress={this.getGroupProgress}
             alignmentData={alignmentData}
@@ -106,7 +112,18 @@ class Container extends React.Component {
             projectDetailsReducer={{manifest, projectSaveLocation}}
             actions={actions} />
           <div style={{display:'flex', flexDirection:'column', width:'100%'}}>
-            <VerseCheck />
+            <VerseCheck 
+            projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
+            loginReducer={loginReducer}
+            resourcesReducer={resourcesReducer}
+            commentsReducer={commentsReducer}
+            selectionsReducer={{selections}}
+            contextIdReducer={{contextId}}
+            translate={translate}
+            toolsReducer={toolsReducer}
+            groupsDataReducer={groupsDataReducer}
+            remindersReducer={remindersReducer}
+            actions={actions} />
           </div>
         </div>
       );
@@ -115,19 +132,6 @@ class Container extends React.Component {
     }
   }
 }
-
-// <VerseEditor
-// onSubmit={() => this.setState({showVersEditor: false})}
-// onCancel={() => this.setState({showVersEditor: false})}
-// open={this.state.showVersEditor}
-// translate={key => key}
-// verseTitle={'Title'}
-// verseText={'Verse Text'} />
-// glQuote={glQuote}
-// translate={translate}
-// title={title}
-// showHelps={this.state.showHelps}
-// toggleHelps={this.toggleHelps.bind(this)}
 
 Container.propTypes = {
   translate: PropTypes.func,
