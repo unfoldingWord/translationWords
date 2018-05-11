@@ -215,26 +215,6 @@ class Container extends React.Component {
     this.setState({selections});
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.contextIdReducer.contextId != this.props.contextIdReducer.contextId) {
-      let selections = Array.from(nextProps.selectionsReducer.selections);
-      const {chapter, verse} = nextProps.contextIdReducer.contextId.reference || {};
-      const {targetBible} = nextProps.resourcesReducer.bibles.targetLanguage || {};
-      let verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
-      if (Array.isArray(verseText)) verseText = verseText[0];
-      // normalize whitespace in case selection has contiguous whitespace _this isn't captured
-      verseText = normalizeString(verseText);
-      const mode = nextProps.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
-      this.setState({
-        mode: mode,
-        comments: undefined,
-        verseText: undefined,
-        selections,
-        tags: []
-      });
-    }
-  }
-
   cancelSelection() {
     this.actions.changeSelectionsInLocalState(this.props.selectionsReducer.selections);
     this.actions.changeMode('default');
@@ -299,6 +279,21 @@ class Container extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
       this._reloadArticle(nextProps);
+      let selections = Array.from(nextProps.selectionsReducer.selections);
+      const {chapter, verse} = nextProps.contextIdReducer.contextId.reference || {};
+      const {targetBible} = nextProps.resourcesReducer.bibles.targetLanguage || {};
+      let verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
+      if (Array.isArray(verseText)) verseText = verseText[0];
+      // normalize whitespace in case selection has contiguous whitespace _this isn't captured
+      verseText = normalizeString(verseText);
+      const mode = nextProps.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
+      this.setState({
+        mode: mode,
+        comments: undefined,
+        verseText: undefined,
+        selections,
+        tags: []
+      });
     }
   }
 
