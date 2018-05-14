@@ -40,3 +40,10 @@ export function getResourceDirByType(type) {
       return type;
   }
 }
+
+
+export function getArticleFromState(resourcesReducer = {}, contextId = {}) {
+  const {translationWords} = resourcesReducer.translationHelps || {};
+  const {groupId} = contextId;
+  return translationWords && groupId ? translationWords[groupId] : '';
+}

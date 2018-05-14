@@ -284,10 +284,12 @@ class Container extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
+    const {contextIdReducer, resourcesReducer} = this.props || {};
+    const nextContextIDReducer = nextProps.contextIdReducer;
+    if (contextIdReducer !== nextContextIDReducer) {
       this._reloadArticle(nextProps);
       let selections = Array.from(nextProps.selectionsReducer.selections);
-      const {chapter, verse} = nextProps.contextIdReducer.contextId.reference || {};
+      const {chapter, verse} = nextContextIDReducer.contextId.reference || {};
       const {targetBible} = nextProps.resourcesReducer.bibles.targetLanguage || {};
       let verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
       if (Array.isArray(verseText)) verseText = verseText[0];
@@ -301,6 +303,17 @@ class Container extends React.Component {
         selections,
         tags: []
       });
+    }
+
+    const {contextId} = contextIdReducer;
+    const nextContextId = nextContextIDReducer.contextId;
+
+    const currentArticle = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
+    const nextArticle = tHelpsHelpers.getArticleFromState(nextProps.resourcesReducer, nextContextId);
+    if (currentArticle !== nextArticle) {
+      debugger;
+      var page = document.getElementById("helpsbody");
+      if (page) page.scrollTop = 0;
     }
   }
 
@@ -432,7 +445,8 @@ class Container extends React.Component {
       loginReducer,
       actions,
     } = this.props;
-
+    window.followLink = this.followTHelpsLink;
+    
     if (contextId !== null) {
       let {translationWords} = resourcesReducer.translationHelps;
       const languageId = currentProjectToolsSelectedGL[currentToolName];
@@ -443,15 +457,10 @@ class Container extends React.Component {
         currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
       const checkInfoCardPhrase = this.getCheckInfoCardText(translationWords, contextId.groupId, resourcesReducer.translationHelps);
       const verseText = usfmjs.removeMarker(this.verseText());
-      let articleId = contextId.groupId;
-      let currentFileMarkdown;
-      let tHelpsModalMarkdown;
-      if (translationWords) {
-        const currentFile = translationWords[articleId];
-        window.followLink = this.followTHelpsLink;
-        currentFileMarkdown = tHelpsHelpers.convertMarkdownLinks(currentFile, languageId);
-        tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
-      }
+      //get tHelps article
+      const currentFile = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
+      const currentFileMarkdown = tHelpsHelpers.convertMarkdownLinks(currentFile, languageId);
+      const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
       return (
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <GroupMenu
