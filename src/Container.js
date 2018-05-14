@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import * as settingsHelper from './helpers/settingsHelper';
 import * as checkAreaHelpers from './helpers/checkAreaHelpers';
 import {optimizeSelections, normalizeString} from './helpers/selectionHelpers';
+import * as tHelpsHelpers from './helpers/tHelpsHelpers';
 import isEqual from 'deep-equal';
 import usfmjs from 'usfm-js';
 
@@ -27,7 +28,9 @@ class Container extends React.Component {
       dialogModalVisibility: false,
       goToNextOrPrevious: null,
       showHelps: false,
-      showHelpsModal: false
+      showHelpsModal: false,
+      articleCategory: '',
+      modalArticle: ''
     };
     this.saveSelection = this.saveSelection.bind(this);
     this.cancelSelection = this.cancelSelection.bind(this);
@@ -37,6 +40,7 @@ class Container extends React.Component {
     this.verseText = this.verseText.bind(this);
     this.toggleHelps = this.toggleHelps.bind(this);
     this.toggleHelpsModal = this.toggleHelpsModal.bind(this);
+    this.followTHelpsLink = this.followTHelpsLink.bind(this);
 
     let _this = this;
 
@@ -379,6 +383,37 @@ class Container extends React.Component {
     return finalString;
   }
 
+  followTHelpsLink(link) {
+    let linkParts = link.split('/'); // link format: <lang>/<resource>/<category>/<article>
+
+    const [lang, type, category, article] = linkParts;
+    const resourceDir = tHelpsHelpers.getResourceDirByType(type);
+
+    this.props.actions.loadResourceArticle(resourceDir, article, lang, category);
+    const articleData = this.props.resourcesReducer.translationHelps[resourceDir][article];
+
+    let newState;
+    const tHelpsModalVisibility = true;
+    const articleCategory = category;
+    if (articleData) {
+      newState = {
+        tHelpsModalVisibility,
+        articleCategory,
+        modalArticle: articleData
+      }
+    } else {
+      newState = {
+        tHelpsModalVisibility,
+        articleCategory,
+        modalArticle: 'Cannot find an article for ' + link
+      }
+    }
+    //todo: Shouldn't need to to set state and return state in the same function
+    // Seems like an anti pattern
+    this.setState(newState);
+    return newState;
+  }
+
   render() {
     const {
       wordAlignmentReducer: {alignmentData},
@@ -408,7 +443,15 @@ class Container extends React.Component {
         currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
       const checkInfoCardPhrase = this.getCheckInfoCardText(translationWords, contextId.groupId, resourcesReducer.translationHelps);
       const verseText = usfmjs.removeMarker(this.verseText());
-
+      let articleId = contextId.groupId;
+      let currentFileMarkdown;
+      let tHelpsModalMarkdown;
+      if (translationWords) {
+        const currentFile = translationWords[articleId];
+        window.followLink = this.followTHelpsLink;
+        currentFileMarkdown = tHelpsHelpers.convertMarkdownLinks(currentFile, languageId);
+        tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
+      }
       return (
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <GroupMenu
@@ -458,7 +501,8 @@ class Container extends React.Component {
             />
           </div>
           <TranslationHelps
-            article={()=> 'Hi'}
+            article={currentFileMarkdown}
+            modalArticle={tHelpsModalMarkdown}
             openExpandedHelpsModal={() => this.toggleHelpsModal()}
             isShowHelpsSidebar={this.state.showHelps}
             sidebarToggle={() => this.toggleHelps()}
