@@ -9,7 +9,7 @@ import isEqual from 'deep-equal';
 import usfmjs from 'usfm-js';
 
 //ui-kit components
-import {GroupMenu, VerseCheck, ScripturePane, CheckInfoCard} from 'tc-ui-toolkit';
+import {GroupMenu, VerseCheck, ScripturePane, CheckInfoCard, TranslationHelps} from 'tc-ui-toolkit';
 
 class Container extends React.Component {
   constructor(props) {
@@ -26,7 +26,8 @@ class Container extends React.Component {
       tags: [],
       dialogModalVisibility: false,
       goToNextOrPrevious: null,
-      showHelps: false
+      showHelps: false,
+      showHelpsModal: false
     };
     this.saveSelection = this.saveSelection.bind(this);
     this.cancelSelection = this.cancelSelection.bind(this);
@@ -34,6 +35,8 @@ class Container extends React.Component {
     this.handleSkip = this.handleSkip.bind(this);
     this.findIfVerseEdited = this.findIfVerseEdited.bind(this);
     this.verseText = this.verseText.bind(this);
+    this.toggleHelps = this.toggleHelps.bind(this);
+    this.toggleHelpsModal = this.toggleHelpsModal.bind(this);
 
     let _this = this;
 
@@ -317,6 +320,10 @@ class Container extends React.Component {
     this.setState({showHelps: !this.state.showHelps});
   }
 
+  toggleHelpsModal() {
+    this.setState({showHelpsModal: !this.state.showHelpsModal});
+  }
+
   getGroupProgress(groupIndex, groupsData) {
     let groupId = groupIndex.id;
     let totalChecks = groupsData[groupId].length;
@@ -450,6 +457,12 @@ class Container extends React.Component {
               handleSkip={this.handleSkip}
             />
           </div>
+          <TranslationHelps
+            article={()=> 'Hi'}
+            openExpandedHelpsModal={() => this.toggleHelpsModal()}
+            isShowHelpsSidebar={this.state.showHelps}
+            sidebarToggle={() => this.toggleHelps()}
+            isShowHelpsExpanded={this.state.showHelpsModal} />
         </div>
       );
     } else {
