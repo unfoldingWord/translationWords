@@ -412,13 +412,13 @@ class Container extends React.Component {
         tHelpsModalVisibility,
         articleCategory,
         modalArticle: articleData
-      }
+      };
     } else {
       newState = {
         tHelpsModalVisibility,
         articleCategory,
         modalArticle: 'Cannot find an article for ' + link
-      }
+      };
     }
     //todo: Shouldn't need to to set state and return state in the same function
     // Seems like an anti pattern
