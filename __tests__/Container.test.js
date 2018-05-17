@@ -3,38 +3,21 @@ import React from 'react';
 import Container from '../src/Container';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-
-jest.mock('../src/components/View.js', () => '[View]');
+import {shallow} from 'enzyme';
 
 const props = {
-  translate: k=>k,
-  settingsReducer: {
-    toolsSettings: {
-      ScripturePane: {
-        currentPaneSettings: [{ "bibleId": "ugnt", "languageId": "originalLanguage" }]
-      }
-    }
-  },
-  contextIdReducer: {
-    contextId: {
-      groupId: 'groupId1'
-    }
-  },
-  groupsIndexReducer: {
-    groupsIndex: [{'id': 'groupId1', 'name': 'group title'}, {'id': 'groupId2', 'name': 'group title2'}]
-  },
-  toolsReducer: {
-    currentToolName: 'translationWords'
-  },
-  projectDetailsReducer: {
-    currentProjectToolsSelectedGL: {'translationWords': 'en'}
-  },
+  ...require('./__fixtures__/basicProps.json'),
   actions: {
     setToolSettings: jest.fn(),
     loadResourceArticle: jest.fn(),
-    getGLQuote: jest.fn()
-  }
+    getGLQuote: jest.fn(),
+    getSelectionsFromContextId: jest.fn(),
+    setFilter: jest.fn(),
+    groupMenuChangeGroup: jest.fn(),
+    groupMenuExpandSubMenu: jest.fn(),
+    getSelectionsFromContextId: () => ''
+  },
+  translate: k => k
 };
 
 describe('Container Tests', () => {
@@ -66,11 +49,11 @@ describe('Container Tests', () => {
 
   it('Test Container.toggleHelps', () => {
     const container = shallow(<Container {...props} />).instance();
-    expect(container.state.showHelps).toBeTruthy();
-    container.toggleHelps();
-    expect(container.state.showHelps).not.toBeTruthy();
+    expect(container.state.showHelps).toBeFalsy();
     container.toggleHelps();
     expect(container.state.showHelps).toBeTruthy();
+    container.toggleHelps();
+    expect(container.state.showHelps).toBeFalsy();
   });
 
   it('Test has ScripturePane', () => {
@@ -80,42 +63,65 @@ describe('Container Tests', () => {
   });
 
   it('Test does not have ScripturePane', () => {
-    let myProps = JSON.parse(JSON.stringify(props));
-    myProps.settingsReducer.toolsSettings = {};
-    myProps.actions = {
-      setToolSettings: jest.fn(),
-      loadResourceArticle: jest.fn(),
-      getGLQuote: jest.fn()
-    };
-    const container = shallow(<Container {...myProps} />).instance();
-    const initialScripturePaneSettings = [{ "bibleId": "ult", "languageId": "en" }, {"bibleId": "targetBible", "languageId": "targetLanguage"}];
+    props.settingsReducer.toolsSettings = {};
+    const container = shallow(<Container {...props} />).instance();
+    const initialScripturePaneSettings = [{"bibleId": "ult", "languageId": "en"}, {"bibleId": "targetBible", "languageId": "targetLanguage"}];
     expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", initialScripturePaneSettings);
   });
 
   it('Test Container.componentWillReceiveProps', () => {
-    const wrapper = shallow(<Container {...props} />);
-    const container = wrapper.instance();
+    const root = shallow(<Container {...props} />);
+    const wrapper = root.childAt(0);
     expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(props.contextIdReducer.contextId.groupId);
     const newGroupId = 'groupId2';
     const nextProps = {
+      ...props,
       contextIdReducer: {
         contextId: {
-          groupId: newGroupId
+          "reference": {
+            "bookId": "tit",
+            "chapter": 1,
+            "verse": 1
+          },
+          "tool": "translationWords",
+          groupId: newGroupId,
+          "quote": "Χριστοῦ",
+          "strong": [
+            "G55470"
+          ],
+          "occurrence": 1,
         }
       },
       toolsReducer: {
         currentToolName: 'translationWords'
       },
       projectDetailsReducer: {
-        currentProjectToolsSelectedGL: {'translationWords': 'en'}
-      }
+        projectSaveLocation: '',
+        currentProjectToolsSelectedGL: {'translationWords': 'en'},
+        manifest: {
+          "project": {
+            "id": "tit",
+            "name": "Titus"
+          }
+        }
+      },
+      groupsIndexReducer: {
+        groupsIndex: [
+          {
+            id: 'groupId2',
+            name: 'groupId2, name'
+          }
+        ],
+        loadedFromFileSystem: true
+      },
     };
-    wrapper.setProps(nextProps);
-    expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(newGroupId);
-    expect(container.props.actions.loadResourceArticle).toBeCalledWith(
-      nextProps.toolsReducer.currentToolName,
-      nextProps.contextIdReducer.contextId.groupId,
-      nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[nextProps.toolsReducer.currentToolName]
-    );
+    root.setProps(nextProps, () => {
+      expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(newGroupId);
+      expect(container.props.actions.loadResourceArticle).toBeCalledWith(
+        nextProps.toolsReducer.currentToolName,
+        nextProps.contextIdReducer.contextId.groupId,
+        nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[nextProps.toolsReducer.currentToolName]
+      );
+    });
   });
 });

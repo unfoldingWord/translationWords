@@ -1,67 +1,544 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container Tests Test Container 1`] = `
-<[View]
-  actions={
+<div
+  style={
     Object {
-      "getGLQuote": [Function],
-      "loadResourceArticle": [Function],
-      "setToolSettings": [Function],
+      "display": "flex",
+      "flexDirection": "row",
     }
   }
-  contextIdReducer={
-    Object {
-      "contextId": Object {
-        "groupId": "groupId1",
-      },
-    }
-  }
-  glQuote={undefined}
-  groupsIndexReducer={
-    Object {
-      "groupsIndex": Array [
-        Object {
-          "id": "groupId1",
-          "name": "group title",
-        },
-        Object {
-          "id": "groupId2",
-          "name": "group title2",
-        },
-      ],
-    }
-  }
-  projectDetailsReducer={
-    Object {
-      "currentProjectToolsSelectedGL": Object {
-        "translationWords": "en",
-      },
-    }
-  }
-  settingsReducer={
-    Object {
-      "toolsSettings": Object {
-        "ScripturePane": Object {
-          "currentPaneSettings": Array [
+>
+  <div
+    id="groups-menu-container"
+  >
+    <div
+      id="groups-menu-top"
+    >
+      <div
+        id="groups-menu-header"
+      >
+        <span
+          id="groups-menu-title"
+        >
+          menu.menu
+        </span>
+        <div
+          className="filter-toggle"
+        >
+          <span
+            className="filter-icon collapsed glyphicon glyphicon-filter"
+            onClick={[Function]}
+          />
+          0
+        </div>
+      </div>
+    </div>
+    <div
+      className="group"
+    >
+      <div
+        className="menu-item-heading-current"
+      >
+        <span
+          className="glyphicon glyphicon-chevron-down"
+          onClick={[Function]}
+          style={
             Object {
-              "bibleId": "ugnt",
-              "languageId": "originalLanguage",
-            },
-          ],
-        },
-      },
+              "float": "right",
+              "marginTop": "3px",
+            }
+          }
+        />
+        <div
+          onClick={[Function]}
+        >
+          <div
+            style={
+              Object {
+                "display": "flex",
+                "float": "left",
+                "height": 20,
+                "justifyContent": "center",
+                "marginRight": "10px",
+                "position": "relative",
+                "width": 20,
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "border": "white solid 3px",
+                  "borderRadius": "50%",
+                  "height": 20,
+                  "width": 20,
+                }
+              }
+            />
+            <div
+              aria-valuenow={25}
+              className="MuiCircularProgress-root-2 MuiCircularProgress-colorPrimary-3"
+              role="progressbar"
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "height": 20,
+                  "position": "absolute",
+                  "transform": "rotate(-90deg)",
+                  "width": 20,
+                }
+              }
+            >
+              <svg
+                className="MuiCircularProgress-svg-5 undefined"
+                viewBox="0 0 50 50"
+              >
+                <circle
+                  className="MuiCircularProgress-circle-7"
+                  cx={25}
+                  cy={25}
+                  fill="none"
+                  r={20}
+                  strokeWidth={10}
+                  style={
+                    Object {
+                      "strokeDasharray": "125.664",
+                      "strokeDashoffset": "94.248px",
+                    }
+                  }
+                />
+              </svg>
+            </div>
+          </div>
+          Christ, Messiah
+        </div>
+      </div>
+      <div
+        className="group-item active active-submenu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="status-badge-wrapper"
+        >
+          <div
+            className="status-badge"
+          >
+            <span
+              className="status-icon-ok glyphicon glyphicon-ok"
+            />
+          </div>
+        </div>
+        <span
+          className="selection"
+          data-class="selection-tooltip"
+          data-delay-hide="100"
+          data-effect="float"
+          data-place="bottom"
+          data-tip=""
+          data-type="dark"
+        >
+          <span
+            className="group-item-text"
+          >
+             Titus 1:1 
+          </span>
+        </span>
+        <div
+          className="__react_component_tooltip place-top type-dark "
+          data-id="tooltip"
+          id={undefined}
+        />
+      </div>
+      <div
+        className="group-item submenu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="status-badge-wrapper"
+        >
+          <div
+            className="status-badge"
+          >
+            <div
+              className="glyphicon glyphicon-blank status-icon-blank"
+            />
+          </div>
+        </div>
+        <span
+          className="selection"
+          data-class="selection-tooltip"
+          data-delay-hide="100"
+          data-effect="float"
+          data-place="bottom"
+          data-tip=""
+          data-type="dark"
+        >
+          <span
+            className="group-item-text"
+          >
+             Titus 1:4 
+          </span>
+        </span>
+        <div
+          className="__react_component_tooltip place-top type-dark "
+          data-id="tooltip"
+          id={undefined}
+        />
+      </div>
+      <div
+        className="group-item submenu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="status-badge-wrapper"
+        >
+          <div
+            className="status-badge"
+          >
+            <div
+              className="glyphicon glyphicon-blank status-icon-blank"
+            />
+          </div>
+        </div>
+        <span
+          className="selection"
+          data-class="selection-tooltip"
+          data-delay-hide="100"
+          data-effect="float"
+          data-place="bottom"
+          data-tip=""
+          data-type="dark"
+        >
+          <span
+            className="group-item-text"
+          >
+             Titus 2:13 
+          </span>
+        </span>
+        <div
+          className="__react_component_tooltip place-top type-dark "
+          data-id="tooltip"
+          id={undefined}
+        />
+      </div>
+      <div
+        className="group-item submenu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="status-badge-wrapper"
+        >
+          <div
+            className="status-badge"
+          >
+            <div
+              className="glyphicon glyphicon-blank status-icon-blank"
+            />
+          </div>
+        </div>
+        <span
+          className="selection"
+          data-class="selection-tooltip"
+          data-delay-hide="100"
+          data-effect="float"
+          data-place="bottom"
+          data-tip=""
+          data-type="dark"
+        >
+          <span
+            className="group-item-text"
+          >
+             Titus 3:6 
+          </span>
+        </span>
+        <div
+          className="__react_component_tooltip place-top type-dark "
+          data-id="tooltip"
+          id={undefined}
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "width": "100%",
+      }
     }
-  }
-  showHelps={true}
-  title="group title"
-  toggleHelps={[Function]}
-  toolsReducer={
-    Object {
-      "currentToolName": "translationWords",
-    }
-  }
-  translate={[Function]}
-/>
+  >
+    <div
+      className="checkInfo"
+    >
+      <div
+        className="leftSide"
+      >
+        <div
+          className="title"
+        >
+          Christ, Messiah
+        </div>
+      </div>
+      <div
+        className="rightSide"
+      >
+        <div
+          className="phrase"
+        >
+           The terms "Messiah" and "Christ" mean "Anointed One" and refer to Jesus, God's Son.
+        </div>
+        <div
+          className="linkInactive"
+          onClick={null}
+        >
+          see_more
+        </div>
+      </div>
+    </div>
+    <div
+      className="verse-check"
+    >
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "height": "100%",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          className="verse-check-card"
+        >
+          <div
+            className="title-bar"
+          >
+            <span>
+              select
+            </span>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <span
+                className="glyphicon glyphicon-ok"
+                style={
+                  Object {
+                    "color": "var(--reverse-color)",
+                    "margin": "0px 20px",
+                    "opacity": 0.2,
+                  }
+                }
+                title="icons.no_selections_found"
+              />
+              <span
+                className="glyphicon glyphicon-pencil"
+                style={
+                  Object {
+                    "color": "var(--reverse-color)",
+                    "margin": "0px 20px",
+                    "opacity": 0.2,
+                  }
+                }
+                title="icons.no_verse_edits_found"
+              />
+              <span
+                className="glyphicon glyphicon-comment"
+                style={
+                  Object {
+                    "color": "var(--reverse-color)",
+                    "margin": "0px 20px",
+                    "opacity": 0.2,
+                  }
+                }
+                title="icons.no_comments_found"
+              />
+              <span
+                className="glyphicon glyphicon-bookmark"
+                style={
+                  Object {
+                    "color": "var(--reverse-color)",
+                    "margin": "0px 20px",
+                    "opacity": 0.2,
+                  }
+                }
+                title="icons.not_bookmarked"
+              />
+            </div>
+          </div>
+          <div
+            className="check-area"
+          >
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <div
+                className="verse-title"
+              >
+                <div
+                  className="pane"
+                  style={
+                    Object {
+                      "display": "flex",
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <span
+                    className="verse-title-title"
+                  >
+                    Bible
+                  </span>
+                  <span
+                    className="verse-title-subtitle"
+                  >
+                    Titus
+                     
+                    1:1
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div
+                  className="ltr-content"
+                >
+                  <div
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                  >
+                    <span>
+                      पौलुसेरे तरफां ज़ै परमेशरेरो दास ते यीशु मसीहेरो प्रेरते, परमेशरेरे च़ूनोरे लोकां केरे विशवास, ते तैस सच़्च़ेरे पिशानानेरे मुताबिक ज़ै भेगतारे मुताबिके|
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "borderLeft": "1px solid var(--border-color)",
+                  "display": "flex",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "overflowY": "auto",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "WebkitUserSelect": "none",
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flex": "1",
+                    "justifyContent": "center",
+                    "overflow": "auto",
+                  }
+                }
+              >
+                <div
+                  className="instructions-area"
+                >
+                  <span>
+                    please_select
+                  </span>
+                  <br />
+                  <span>
+                    <strong
+                      style={
+                        Object {
+                          "color": "var(--accent-color)",
+                        }
+                      }
+                    >
+                      "Christ"
+                    </strong>
+                  </span>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="actions-area"
+          >
+            <button
+              className="btn-second"
+              onClick={[Function]}
+              style={
+                Object {
+                  "alignSelf": "flex-start",
+                }
+              }
+            >
+              cancel
+            </button>
+            <button
+              className="btn-second"
+              disabled={true}
+              onClick={[Function]}
+            >
+              <span
+                className="glyphicon glyphicon-erase"
+                style={
+                  Object {
+                    "marginRight": "10px",
+                  }
+                }
+              />
+              clear_selection
+            </button>
+            <button
+              className="btn-prime"
+              disabled={true}
+              onClick={[Function]}
+            >
+              <span
+                className="glyphicon glyphicon-ok"
+                style={
+                  Object {
+                    "marginRight": "10px",
+                  }
+                }
+              />
+              save
+            </button>
+          </div>
+        </div>
+        <div />
+      </div>
+      <div />
+    </div>
+  </div>
+  <div
+    className="helps-sash-closed"
+    onClick={[Function]}
+  >
+    <span
+      className="glyphicon glyphicon-chevron-left"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    />
+  </div>
+</div>
 `;
 
 exports[`Container Tests Test empty Container 1`] = `null`;

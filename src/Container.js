@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
 import PropTypes from 'prop-types';
+import fs from 'fs-extra';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
 import * as checkAreaHelpers from './helpers/checkAreaHelpers';
@@ -217,11 +218,6 @@ class Container extends React.Component {
     };
   }
 
-  componentWillMount() {
-    let selections = Array.from(this.props.selectionsReducer.selections);
-    this.setState({selections});
-  }
-
   cancelSelection() {
     this.actions.changeSelectionsInLocalState(this.props.selectionsReducer.selections);
     this.actions.changeMode('default');
@@ -242,15 +238,17 @@ class Container extends React.Component {
   }
 
   verseText() {
-    const {chapter, verse, bookId} = this.props.contextIdReducer.contextId.reference;
-    const bookAbbr = this.props.projectDetailsReducer.manifest.project.id;
-    const {targetBible} = this.props.resourcesReducer.bibles.targetLanguage;
     let verseText = "";
-    if (targetBible && targetBible[chapter] && bookId == bookAbbr) {
-      verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
-      if (Array.isArray(verseText)) verseText = verseText[0];
-      // normalize whitespace in case selection has contiguous whitespace _this isn't captured
-      verseText = normalizeString(verseText);
+    if (this.props.contextIdReducer && this.props.contextIdReducer.contextId) {
+      const {chapter, verse, bookId} = this.props.contextIdReducer.contextId.reference;
+      const bookAbbr = this.props.projectDetailsReducer.manifest.project.id;
+      const {targetBible} = this.props.resourcesReducer.bibles.targetLanguage;
+      if (targetBible && targetBible[chapter] && bookId == bookAbbr) {
+        verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
+        if (Array.isArray(verseText)) verseText = verseText[0];
+        // normalize whitespace in case selection has contiguous whitespace _this isn't captured
+        verseText = normalizeString(verseText);
+      }
     }
     return verseText;
   }
@@ -279,6 +277,8 @@ class Container extends React.Component {
   }
 
   componentWillMount() {
+    let selections = Array.from(this.props.selectionsReducer.selections);
+    this.setState({selections});
     settingsHelper.loadCorrectPaneSettings(this.props, this.props.actions.setToolSettings);
     this._reloadArticle(this.props);
   }
@@ -311,7 +311,6 @@ class Container extends React.Component {
     const currentArticle = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
     const nextArticle = tHelpsHelpers.getArticleFromState(nextProps.resourcesReducer, nextContextId);
     if (currentArticle !== nextArticle) {
-      debugger;
       var page = document.getElementById("helpsbody");
       if (page) page.scrollTop = 0;
     }
@@ -446,9 +445,9 @@ class Container extends React.Component {
       actions,
     } = this.props;
     window.followLink = this.followTHelpsLink;
-    
+
     if (contextId !== null) {
-      let {translationWords} = resourcesReducer.translationHelps;
+      let {translationWords} = resourcesReducer.translationHelps ? resourcesReducer.translationHelps : {};
       const languageId = currentProjectToolsSelectedGL[currentToolName];
       const {groupId} = contextId;
       const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
