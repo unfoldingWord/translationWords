@@ -9,10 +9,8 @@ import {optimizeSelections, normalizeString} from './helpers/selectionHelpers';
 import * as tHelpsHelpers from './helpers/tHelpsHelpers';
 import isEqual from 'deep-equal';
 import usfmjs from 'usfm-js';
-
 //ui-kit components
 import {GroupMenu, VerseCheck, ScripturePane, CheckInfoCard, TranslationHelps} from 'tc-ui-toolkit';
-
 class Container extends React.Component {
   constructor(props) {
     super(props);
@@ -43,109 +41,18 @@ class Container extends React.Component {
     this.toggleHelpsModal = this.toggleHelpsModal.bind(this);
     this.followTHelpsLink = this.followTHelpsLink.bind(this);
 
-    let _this = this;
-
-    this.tagList = [
-      ["spelling", "Spelling"],
-      ["punctuation", "Punctuation"],
-      ["grammar", "Grammar"],
-      ["meaning", "Meaning"],
-      ["wordChoice", "Word Choice"],
-      ["other", "Other"]
-    ];
-
     this.actions = {
-      handleGoToNext() {
-        if (!_this.props.loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to save progress");
-          return;
-        }
-        props.actions.goToNext();
-      },
-      handleGoToPrevious() {
-        if (!_this.props.loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to save progress");
-          return;
-        }
-        props.actions.goToPrevious();
-      },
-      handleOpenDialog(goToNextOrPrevious) {
-        _this.setState({goToNextOrPrevious});
-        _this.setState({dialogModalVisibility: true});
-      },
-      handleCloseDialog() {
-        _this.setState({dialogModalVisibility: false});
-      },
-      skipToNext() {
-        _this.setState({dialogModalVisibility: false});
-        props.actions.goToNext();
-      },
-      skipToPrevious() {
-        _this.setState({dialogModalVisibility: false});
-        props.actions.goToPrevious();
-      },
       changeSelectionsInLocalState(selections) {
         _this.setState({selections});
       },
+
       changeMode(mode) {
         _this.setState({
           mode: mode,
           selections: _this.props.selectionsReducer.selections
         });
       },
-      handleComment(e) {
-        const comment = e.target.value;
-        _this.setState({
-          comment: comment
-        });
-      },
-      checkComment(e) {
-        const newcomment = e.target.value || "";
-        const oldcomment = _this.props.commentsReducer.text || "";
-        _this.setState({
-          commentChanged: newcomment !== oldcomment
-        });
-      },
-      cancelComment() {
-        _this.setState({
-          mode: 'default',
-          selections: _this.props.selectionsReducer.selections,
-          comment: undefined,
-          commentChanged: false
-        });
-      },
-      saveComment() {
-        if (!_this.props.loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to leave a comment", 5);
-          return;
-        }
-        _this.props.actions.addComment(_this.state.comment, _this.props.loginReducer.userdata.username);
-        _this.setState({
-          mode: 'default',
-          selections: _this.props.selectionsReducer.selections,
-          comment: undefined,
-          commentChanged: false
-        });
-      },
-      handleTagsCheckbox(tag) {
-        let newState = _this.state;
-        if (newState.tags === undefined) newState.tags = [];
-        if (!newState.tags.includes(tag)) {
-          newState.tags.push(tag);
-        } else {
-          newState.tags = newState.tags.filter(_tag => _tag !== tag);
-        }
-        _this.setState(newState);
-      },
-      handleEditVerse(e) {
-        const verseText = e.target.value;
-        _this.setState({
-          verseText: verseText
-        });
-      },
+
       checkVerse(e) {
         let {chapter, verse} = _this.props.contextIdReducer.contextId.reference;
         const newverse = e.target.value || "";
