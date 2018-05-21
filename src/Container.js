@@ -36,6 +36,7 @@ class Container extends React.Component {
     this.clearSelection = this.clearSelection.bind(this);
     this.handleSkip = this.handleSkip.bind(this);
     this.findIfVerseEdited = this.findIfVerseEdited.bind(this);
+    this.findIfVerseInvalidated = this.findIfVerseInvalidated.bind(this);
     this.verseText = this.verseText.bind(this);
     this.toggleHelps = this.toggleHelps.bind(this);
     this.toggleHelpsModal = this.toggleHelpsModal.bind(this);
@@ -159,19 +160,48 @@ class Container extends React.Component {
     }
     return verseText;
   }
-
-
+  
+  /**
+   * returns true if current verse has been edited
+   * @return {boolean}
+   */
   findIfVerseEdited() {
-    const {contextIdReducer: {contextId}, groupsDataReducer: {groupsData}} = this.props;
-    let result = false;
+    const groupItemData = this.getGroupDatumForCurrentContext();
+    const result = !!groupItemData && groupItemData.verseEdits;
+    return result;
+  }
 
+  /**
+   * returns true if current verse has been invalidated
+   * @return {boolean}
+   */
+  findIfVerseInvalidated() {
+    const groupItemData = this.getGroupDatumForCurrentContext();
+    const result = !!groupItemData && groupItemData.invalidated;
+    return result;
+  }
+
+  /**
+   * finds group data for current context (verse)
+   * @return {*}
+   */
+  getGroupDatumForCurrentContext() {
+    const {
+      contextIdReducer: {
+        contextId
+      },
+      groupsDataReducer: {
+        groupsData
+      }
+    } = this.props;
+
+    let groupItemDatum = null;
     if (groupsData[contextId.groupId]) {
-      let groupData = groupsData[contextId.groupId].filter(groupData => {
+      groupItemDatum = groupsData[contextId.groupId].find(groupData => {
         return isEqual(groupData.contextId, contextId);
       });
-      result = groupData[0].verseEdits;
     }
-    return result;
+    return groupItemDatum;
   }
 
   handleSkip(e) {
@@ -400,12 +430,13 @@ class Container extends React.Component {
               toolsReducer={toolsReducer}
               groupsDataReducer={groupsDataReducer}
               remindersReducer={remindersReducer}
-              actions={this.actions}
+              actions={actions}
               verseText={verseText}
               mode={this.state.mode}
               dialogModalVisibility={this.state.dialogModalVisibility}
               commentChanged={this.state.commentChanged}
               findIfVerseEdited={this.findIfVerseEdited}
+              findIfVerseInvalidated={this.findIfVerseInvalidated}
               tags={this.state.tags}
               verseChanged={this.state.verseChanged}
               selections={this.state.selections}

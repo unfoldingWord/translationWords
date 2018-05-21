@@ -11,10 +11,16 @@ const props = {
     setToolSettings: jest.fn(),
     loadResourceArticle: jest.fn(),
     getGLQuote: jest.fn(),
-    getSelectionsFromContextId: jest.fn(),
     setFilter: jest.fn(),
     groupMenuChangeGroup: jest.fn(),
     groupMenuExpandSubMenu: jest.fn(),
+    changeMode: jest.fn(),
+    cancelSelection: jest.fn(),
+    clearSelection: jest.fn(),
+    saveEditVerse: jest.fn(),
+    cancelEditVerse: jest.fn(),
+    cancelComment: jest.fn(),
+    saveComment: jest.fn(),
     getSelectionsFromContextId: () => ''
   },
   translate: k => k
