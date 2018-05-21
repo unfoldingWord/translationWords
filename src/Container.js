@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import {connect} from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import fs from 'fs-extra';
@@ -9,9 +10,11 @@ import {optimizeSelections, normalizeString} from './helpers/selectionHelpers';
 import * as tHelpsHelpers from './helpers/tHelpsHelpers';
 import isEqual from 'deep-equal';
 import usfmjs from 'usfm-js';
+//containers
+import GroupMenuContainer from './containers/GroupMenuContainer';
 
 //ui-kit components
-import {GroupMenu, VerseCheck, ScripturePane, CheckInfoCard, TranslationHelps} from 'tc-ui-toolkit';
+import {VerseCheck, ScripturePane, CheckInfoCard, TranslationHelps} from 'tc-ui-toolkit';
 
 class Container extends React.Component {
   constructor(props) {
@@ -427,8 +430,8 @@ class Container extends React.Component {
   }
 
   render() {
+    debugger;
     const {
-      wordAlignmentReducer: {alignmentData},
       translate,
       toolsReducer,
       groupMenuReducer,
@@ -460,20 +463,10 @@ class Container extends React.Component {
       const currentFile = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
       const currentFileMarkdown = tHelpsHelpers.convertMarkdownLinks(currentFile, languageId);
       const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
+      debugger;
       return (
         <div style={{display: 'flex', flexDirection: 'row'}}>
-          <GroupMenu
-            translate={translate}
-            getSelections={(contextId) => actions.getSelectionsFromContextId(contextId, projectSaveLocation)}
-            getGroupProgress={this.getGroupProgress}
-            alignmentData={alignmentData}
-            groupsDataReducer={groupsDataReducer}
-            groupsIndexReducer={groupsIndexReducer}
-            groupMenuReducer={groupMenuReducer}
-            toolsReducer={toolsReducer}
-            contextIdReducer={{contextId}}
-            projectDetailsReducer={{manifest, projectSaveLocation}}
-            actions={actions} />
+          <GroupMenuContainer />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
             <CheckInfoCard
               title={title}
@@ -552,4 +545,16 @@ Container.propTypes = {
   })
 };
 
-export default Container;
+const mapStateToProps = (state, ownProps) => {
+  debugger;
+  return ownProps;
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
