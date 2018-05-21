@@ -4,7 +4,6 @@ import {GroupMenu} from 'tc-ui-toolkit';
 
 class GroupMenuContainer extends React.Component {
   render() {
-    debugger;
     const {
       translate,
       actions,
@@ -21,7 +20,7 @@ class GroupMenuContainer extends React.Component {
       <GroupMenu
         translate={translate}
         getSelections={(contextId) => actions.getSelectionsFromContextId(contextId, projectSaveLocation)}
-        getGroupProgress={this.getGroupProgress}
+        getGroupProgress={() => {}}
         alignmentData={alignmentData}
         groupsDataReducer={groupsDataReducer}
         groupsIndexReducer={groupsIndexReducer}
@@ -34,16 +33,4 @@ class GroupMenuContainer extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  debugger;
-  return {
-
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(GroupMenuContainer);
+export default connect()(GroupMenuContainer);

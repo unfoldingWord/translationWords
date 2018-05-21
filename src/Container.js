@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import fs from 'fs-extra';
+//selectors
+import {getAlignmentData, getContextId, getManifest, getProjectSaveLocation} from './selectors';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
 import * as checkAreaHelpers from './helpers/checkAreaHelpers';
@@ -430,7 +432,6 @@ class Container extends React.Component {
   }
 
   render() {
-    debugger;
     const {
       translate,
       toolsReducer,
@@ -463,10 +464,9 @@ class Container extends React.Component {
       const currentFile = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
       const currentFileMarkdown = tHelpsHelpers.convertMarkdownLinks(currentFile, languageId);
       const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
-      debugger;
       return (
         <div style={{display: 'flex', flexDirection: 'row'}}>
-          <GroupMenuContainer />
+          <GroupMenuContainer {...this.props.groupMenu} />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
             <CheckInfoCard
               title={title}
@@ -546,15 +546,21 @@ Container.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
-  return ownProps;
-}
-
-const mapDispatchToProps = (dispatch) => {
   return {
-
+    groupMenu: {
+      toolsReducer: ownProps.tc.toolsReducer,
+      groupsDataReducer :ownProps.tc.groupsDataReducer,
+      groupsIndexReducer: ownProps.tc.groupsIndexReducer,
+      groupMenuReducer: ownProps.tc.groupMenuReducer,
+      translate: ownProps.translate,
+      actions: ownProps.tc.actions,
+      alignmentData: getAlignmentData(ownProps),
+      contextId: getContextId(ownProps),
+      manifest: getManifest(ownProps),
+      projectSaveLocation: getProjectSaveLocation(ownProps)
+    }
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Container);
+export default connect(mapStateToProps)(Container);
