@@ -18,10 +18,6 @@ class VerseCheckContainer extends React.Component {
       tags: [],
       dialogModalVisibility: false,
       goToNextOrPrevious: null,
-      showHelps: false,
-      showHelpsModal: false,
-      articleCategory: '',
-      modalArticle: ''
     };
     this.verseText = this.verseText.bind(this);
     this.saveSelection = this.saveSelection.bind(this);
@@ -198,6 +194,11 @@ class VerseCheckContainer extends React.Component {
         _this.props.actions.selectModalTab(tab, section, vis);
       }
     };
+  }
+
+  componentWillMount() {
+    let selections = [...this.props.selectionsReducer.selections];
+    this.setState({selections});
   }
 
   componentWillReceiveProps(nextProps) {

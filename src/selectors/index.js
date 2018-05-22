@@ -19,3 +19,7 @@ export function getAlignmentData(state) {
 export function getCurrentToolName(state) {
   return state.toolsReducer.currentToolName;
 }
+
+export function getCurrentProjectToolsSelectedGL(state) {
+  return state.projectDetailsReducer.currentProjectToolsSelectedGL;
+}

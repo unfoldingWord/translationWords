@@ -11,7 +11,6 @@ const props = {
     setToolSettings: jest.fn(),
     loadResourceArticle: jest.fn(),
     getGLQuote: jest.fn(),
-    getSelectionsFromContextId: jest.fn(),
     setFilter: jest.fn(),
     groupMenuChangeGroup: jest.fn(),
     groupMenuExpandSubMenu: jest.fn(),
