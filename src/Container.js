@@ -9,7 +9,9 @@ import {
   getManifest,
   getProjectSaveLocation,
   getCurrentToolName,
-  getCurrentProjectToolsSelectedGL
+  getCurrentProjectToolsSelectedGL,
+  getGroupsIndex,
+  getResourceByName
 } from './selectors';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
@@ -17,9 +19,8 @@ import * as settingsHelper from './helpers/settingsHelper';
 import GroupMenuContainer from './containers/GroupMenuContainer';
 import VerseCheckContainer from './containers/VerseCheckContainer';
 import TranslationHelpsContainer from './containers/TranslationHelpsContainer';
+import CheckInfoCardContainer from './containers/CheckInfoCardContainer';
 
-//ui-kit components
-import {CheckInfoCard} from 'tc-ui-toolkit';
 
 class Container extends React.Component {
   constructor(props) {
@@ -33,73 +34,25 @@ class Container extends React.Component {
     settingsHelper.loadCorrectPaneSettings(this.props, this.props.actions.setToolSettings);
   }
 
-  getCheckInfoCardText(translationWords, articleId, translationHelps) {
-    let currentFile = '';
-    if (translationWords && translationWords[articleId]) {
-      currentFile = translationHelps.translationWords[articleId];
-    }
-
-    let splitLine = currentFile.split('\n');
-    if (splitLine.length === 1 && splitLine[0] === "") return "";
-    let finalArray = [];
-    for (let i = 0; i < splitLine.length; i++) {
-      if (splitLine[i] !== '' && !~splitLine[i].indexOf("#")) {
-        finalArray.push(splitLine[i]);
-      }
-    }
-    let maxLength = 225;
-    let finalString = "";
-    let chosenString = finalArray[0];
-    let splitString = chosenString.split(' ');
-    for (let word of splitString) {
-      if ((finalString + ' ' + word).length >= maxLength) {
-        finalString += '...';
-        break;
-      }
-      finalString += ' ';
-      finalString += word;
-    }
-    return finalString;
-  }
-
   toggleHelps() {
     this.setState({showHelps: !this.state.showHelps});
   }
 
   render() {
     const {
-      translate,
-      toolsReducer,
-      groupMenuReducer,
-      groupsDataReducer,
-      projectDetailsReducer: {currentProjectToolsSelectedGL, manifest, projectSaveLocation},
-      toolsReducer: {currentToolName},
       contextIdReducer: {contextId},
-      groupsIndexReducer,
-      remindersReducer,
-      selectionsReducer: {selections},
-      commentsReducer,
-      resourcesReducer,
-      loginReducer,
-      actions,
     } = this.props;
 
     if (contextId !== null) {
-      let {translationWords} = resourcesReducer.translationHelps ? resourcesReducer.translationHelps : {};
-      const {groupId} = contextId;
-      const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
-      const checkInfoCardPhrase = this.getCheckInfoCardText(translationWords, contextId.groupId, resourcesReducer.translationHelps);
       // const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       return (
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <GroupMenuContainer {...this.props.groupMenu} />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
-            <CheckInfoCard
-              title={title}
-              phrase={checkInfoCardPhrase}
-              seeMoreLabel={translate('see_more')}
-              showSeeMoreButton={this.state.showHelps}
-              onSeeMoreClick={this.toggleHelps.bind(this)} />
+            <CheckInfoCardContainer
+              toggleHelps={this.toggleHelps.bind(this)}
+              showHelps={this.state.showHelps}
+              {...this.props.checkInfoCard} />
             <VerseCheckContainer {...this.props.verseCheck} />
           </div>
           <TranslationHelpsContainer
@@ -177,6 +130,12 @@ const mapStateToProps = (state, ownProps) => {
       resourcesReducer: ownProps.tc.resourcesReducer,
       contextIdReducer: ownProps.tc.contextIdReducer,
       actions: ownProps.tc.actions
+    },
+    checkInfoCard: {
+      translate: ownProps.translate,
+      translationHelps: getResourceByName(ownProps, 'translationHelps'),
+      groupsIndex: getGroupsIndex(ownProps),
+      contextId: getContextId(ownProps)
     }
   };
 };

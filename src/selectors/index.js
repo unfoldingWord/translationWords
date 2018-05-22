@@ -23,3 +23,11 @@ export function getCurrentToolName(state) {
 export function getCurrentProjectToolsSelectedGL(state) {
   return state.projectDetailsReducer.currentProjectToolsSelectedGL;
 }
+
+export function getGroupsIndex(state) {
+  return state.groupsIndexReducer.groupsIndex;
+}
+
+export function getResourceByName(state, resourceName) {
+  return state.resourcesReducer[resourceName] ? state.resourcesReducer[resourceName] : {};
+}
