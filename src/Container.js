@@ -12,7 +12,6 @@ import {
 } from './selectors';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
-import {normalizeString} from './helpers/selectionHelpers';
 import * as tHelpsHelpers from './helpers/tHelpsHelpers';
 //containers
 import GroupMenuContainer from './containers/GroupMenuContainer';
