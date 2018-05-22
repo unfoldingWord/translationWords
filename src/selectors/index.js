@@ -15,3 +15,7 @@ export function getAlignmentData(state) {
   //todo
   return {};
 }
+
+export function getCurrentToolName(state) {
+  return state.toolsReducer.currentToolName;
+}

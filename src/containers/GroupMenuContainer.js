@@ -3,6 +3,17 @@ import {connect} from 'react-redux';
 import {GroupMenu} from 'tc-ui-toolkit';
 
 class GroupMenuContainer extends React.Component {
+  getGroupProgress(groupIndex, groupsData) {
+    let groupId = groupIndex.id;
+    let totalChecks = groupsData[groupId].length;
+    const doneChecks = groupsData[groupId].filter(groupData =>
+      groupData.selections && !groupData.reminders
+    ).length;
+
+    let progress = doneChecks / totalChecks;
+
+    return progress;
+  }
   render() {
     const {
       translate,
@@ -20,7 +31,7 @@ class GroupMenuContainer extends React.Component {
       <GroupMenu
         translate={translate}
         getSelections={(contextId) => actions.getSelectionsFromContextId(contextId, projectSaveLocation)}
-        getGroupProgress={() => {}}
+        getGroupProgress={this.getGroupProgress}
         alignmentData={alignmentData}
         groupsDataReducer={groupsDataReducer}
         groupsIndexReducer={groupsIndexReducer}

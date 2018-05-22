@@ -2,283 +2,31 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
-import fs from 'fs-extra';
 //selectors
-import {getAlignmentData, getContextId, getManifest, getProjectSaveLocation} from './selectors';
+import {
+  getAlignmentData,
+  getContextId,
+  getManifest,
+  getProjectSaveLocation,
+  getCurrentToolName
+} from './selectors';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
-import * as checkAreaHelpers from './helpers/checkAreaHelpers';
-import {optimizeSelections, normalizeString} from './helpers/selectionHelpers';
+import {normalizeString} from './helpers/selectionHelpers';
 import * as tHelpsHelpers from './helpers/tHelpsHelpers';
-import isEqual from 'deep-equal';
-import usfmjs from 'usfm-js';
 //containers
 import GroupMenuContainer from './containers/GroupMenuContainer';
+import VerseCheckContainer from './containers/VerseCheckContainer';
 
 //ui-kit components
-import {VerseCheck, ScripturePane, CheckInfoCard, TranslationHelps} from 'tc-ui-toolkit';
+import {CheckInfoCard, TranslationHelps} from 'tc-ui-toolkit';
 
 class Container extends React.Component {
   constructor(props) {
     super(props);
-    let verseText = usfmjs.removeMarker(this.verseText());
-    const mode = props.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
-    this.state = {
-      mode: mode,
-      comment: undefined,
-      commentChanged: false,
-      verseText: undefined,
-      verseChanged: false,
-      selections: [],
-      tags: [],
-      dialogModalVisibility: false,
-      goToNextOrPrevious: null,
-      showHelps: false,
-      showHelpsModal: false,
-      articleCategory: '',
-      modalArticle: ''
-    };
-    this.saveSelection = this.saveSelection.bind(this);
-    this.cancelSelection = this.cancelSelection.bind(this);
-    this.clearSelection = this.clearSelection.bind(this);
-    this.handleSkip = this.handleSkip.bind(this);
-    this.findIfVerseEdited = this.findIfVerseEdited.bind(this);
-    this.verseText = this.verseText.bind(this);
     this.toggleHelps = this.toggleHelps.bind(this);
     this.toggleHelpsModal = this.toggleHelpsModal.bind(this);
     this.followTHelpsLink = this.followTHelpsLink.bind(this);
-
-    let _this = this;
-
-    this.tagList = [
-      ["spelling", "Spelling"],
-      ["punctuation", "Punctuation"],
-      ["grammar", "Grammar"],
-      ["meaning", "Meaning"],
-      ["wordChoice", "Word Choice"],
-      ["other", "Other"]
-    ];
-
-    this.actions = {
-      handleGoToNext() {
-        if (!_this.props.loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to save progress");
-          return;
-        }
-        props.actions.goToNext();
-      },
-      handleGoToPrevious() {
-        if (!_this.props.loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to save progress");
-          return;
-        }
-        props.actions.goToPrevious();
-      },
-      handleOpenDialog(goToNextOrPrevious) {
-        _this.setState({goToNextOrPrevious});
-        _this.setState({dialogModalVisibility: true});
-      },
-      handleCloseDialog() {
-        _this.setState({dialogModalVisibility: false});
-      },
-      skipToNext() {
-        _this.setState({dialogModalVisibility: false});
-        props.actions.goToNext();
-      },
-      skipToPrevious() {
-        _this.setState({dialogModalVisibility: false});
-        props.actions.goToPrevious();
-      },
-      changeSelectionsInLocalState(selections) {
-        _this.setState({selections});
-      },
-      changeMode(mode) {
-        _this.setState({
-          mode: mode,
-          selections: _this.props.selectionsReducer.selections
-        });
-      },
-      handleComment(e) {
-        const comment = e.target.value;
-        _this.setState({
-          comment: comment
-        });
-      },
-      checkComment(e) {
-        const newcomment = e.target.value || "";
-        const oldcomment = _this.props.commentsReducer.text || "";
-        _this.setState({
-          commentChanged: newcomment !== oldcomment
-        });
-      },
-      cancelComment() {
-        _this.setState({
-          mode: 'default',
-          selections: _this.props.selectionsReducer.selections,
-          comment: undefined,
-          commentChanged: false
-        });
-      },
-      saveComment() {
-        if (!_this.props.loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to leave a comment", 5);
-          return;
-        }
-        _this.props.actions.addComment(_this.state.comment, _this.props.loginReducer.userdata.username);
-        _this.setState({
-          mode: 'default',
-          selections: _this.props.selectionsReducer.selections,
-          comment: undefined,
-          commentChanged: false
-        });
-      },
-      handleTagsCheckbox(tag) {
-        let newState = _this.state;
-        if (newState.tags === undefined) newState.tags = [];
-        if (!newState.tags.includes(tag)) {
-          newState.tags.push(tag);
-        } else {
-          newState.tags = newState.tags.filter(_tag => _tag !== tag);
-        }
-        _this.setState(newState);
-      },
-      handleEditVerse(e) {
-        const verseText = e.target.value;
-        _this.setState({
-          verseText: verseText
-        });
-      },
-      checkVerse(e) {
-        let {chapter, verse} = _this.props.contextIdReducer.contextId.reference;
-        const newverse = e.target.value || "";
-        const oldverse = _this.props.resourcesReducer.bibles.targetLanguage.targetBible[chapter][verse] || "";
-        if (newverse === oldverse) {
-          _this.setState({
-            verseChanged: false,
-            tags: []
-          });
-        } else {
-          _this.setState({
-            verseChanged: true
-          });
-        }
-      },
-      cancelEditVerse() {
-        _this.setState({
-          mode: 'default',
-          selections: _this.props.selectionsReducer.selections,
-          verseText: undefined,
-          verseChanged: false,
-          tags: []
-        });
-      },
-      saveEditVerse() {
-        let {loginReducer, actions, contextIdReducer, resourcesReducer} = _this.props;
-        let {chapter, verse} = contextIdReducer.contextId.reference;
-        let before = resourcesReducer.bibles.targetLanguage.targetBible[chapter][verse];
-        let username = loginReducer.userdata.username;
-        // verseText state is undefined if no changes are made in the text box.
-        if (!loginReducer.loggedInUser) {
-          _this.props.actions.selectModalTab(1, 1, true);
-          _this.props.actions.openAlertDialog("You must be logged in to edit a verse");
-          return;
-        }
-
-        const save = () => {
-          actions.editTargetVerse(chapter, verse, before, _this.state.verseText, _this.state.tags, username);
-          _this.setState({
-            mode: 'default',
-            selections: _this.props.selectionsReducer.selections,
-            verseText: undefined,
-            verseChanged: false,
-            tags: []
-          });
-        };
-        if (_this.state.verseText) {  // if verseText === "" is false
-          save();
-        } else {
-          // alert the user if the text is blank
-          let message = 'You are saving a blank verse. Please confirm.';
-          _this.props.actions.openOptionDialog(message, (option) => {
-            if (option !== "Cancel") save();
-            _this.props.actions.closeAlertDialog();
-          }, "Save Blank Verse", "Cancel");
-        }
-      },
-      validateSelections(verseText) {
-        _this.props.actions.validateSelections(verseText);
-      },
-      toggleReminder() {
-        _this.props.actions.toggleReminder(_this.props.loginReducer.userdata.username);
-      },
-      openAlertDialog(message) {
-        _this.props.actions.openAlertDialog(message);
-      },
-      selectModalTab(tab, section, vis) {
-        _this.props.actions.selectModalTab(tab, section, vis);
-      }
-    };
-  }
-
-  cancelSelection() {
-    this.actions.changeSelectionsInLocalState(this.props.selectionsReducer.selections);
-    this.actions.changeMode('default');
-  }
-
-  clearSelection() {
-    this.setState({
-      selections: []
-    });
-  }
-
-  saveSelection() {
-    let verseText = this.verseText();
-    // optimize the selections to address potential issues and save
-    let selections = optimizeSelections(verseText, this.state.selections);
-    this.props.actions.changeSelections(selections, this.props.loginReducer.userdata.username);
-    this.actions.changeMode('default');
-  }
-
-  verseText() {
-    let verseText = "";
-    if (this.props.contextIdReducer && this.props.contextIdReducer.contextId) {
-      const {chapter, verse, bookId} = this.props.contextIdReducer.contextId.reference;
-      const bookAbbr = this.props.projectDetailsReducer.manifest.project.id;
-      const {targetBible} = this.props.resourcesReducer.bibles.targetLanguage;
-      if (targetBible && targetBible[chapter] && bookId == bookAbbr) {
-        verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
-        if (Array.isArray(verseText)) verseText = verseText[0];
-        // normalize whitespace in case selection has contiguous whitespace _this isn't captured
-        verseText = normalizeString(verseText);
-      }
-    }
-    return verseText;
-  }
-
-
-  findIfVerseEdited() {
-    const {contextIdReducer: {contextId}, groupsDataReducer: {groupsData}} = this.props;
-    let result = false;
-
-    if (groupsData[contextId.groupId]) {
-      let groupData = groupsData[contextId.groupId].filter(groupData => {
-        return isEqual(groupData.contextId, contextId);
-      });
-      result = groupData[0].verseEdits;
-    }
-    return result;
-  }
-
-  handleSkip(e) {
-    e.preventDefault();
-    if (this.state.goToNextOrPrevious == "next") {
-      this.actions.skipToNext();
-    } else if (this.state.goToNextOrPrevious == "previous") {
-      this.actions.skipToPrevious();
-    }
   }
 
   componentWillMount() {
@@ -293,21 +41,6 @@ class Container extends React.Component {
     const nextContextIDReducer = nextProps.contextIdReducer;
     if (contextIdReducer !== nextContextIDReducer) {
       this._reloadArticle(nextProps);
-      let selections = Array.from(nextProps.selectionsReducer.selections);
-      const {chapter, verse} = nextContextIDReducer.contextId.reference || {};
-      const {targetBible} = nextProps.resourcesReducer.bibles.targetLanguage || {};
-      let verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
-      if (Array.isArray(verseText)) verseText = verseText[0];
-      // normalize whitespace in case selection has contiguous whitespace _this isn't captured
-      verseText = normalizeString(verseText);
-      const mode = nextProps.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
-      this.setState({
-        mode: mode,
-        comments: undefined,
-        verseText: undefined,
-        selections,
-        tags: []
-      });
     }
 
     const {contextId} = contextIdReducer;
@@ -343,32 +76,6 @@ class Container extends React.Component {
 
   toggleHelpsModal() {
     this.setState({showHelpsModal: !this.state.showHelpsModal});
-  }
-
-  getGroupProgress(groupIndex, groupsData) {
-    let groupId = groupIndex.id;
-    let totalChecks = groupsData[groupId].length;
-    const doneChecks = groupsData[groupId].filter(groupData =>
-      groupData.selections && !groupData.reminders
-    ).length;
-
-    let progress = doneChecks / totalChecks;
-
-    return progress;
-  }
-
-  getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-    let alignedGLText = contextId.quote;
-    const selectedGL = currentProjectToolsSelectedGL[currentToolName];
-    if (bibles[selectedGL] && bibles[selectedGL]['ult']) {
-      const verseObjects = bibles[selectedGL]['ult'][contextId.reference.chapter][contextId.reference.verse].verseObjects;
-      const wordsToMatch = contextId.quote.split(' ');
-      const alignedText = checkAreaHelpers.getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
-      if (alignedText) {
-        alignedGLText = alignedText;
-      }
-    }
-    return alignedGLText;
   }
 
   getCheckInfoCardText(translationWords, articleId, translationHelps) {
@@ -455,11 +162,8 @@ class Container extends React.Component {
       const languageId = currentProjectToolsSelectedGL[currentToolName];
       const {groupId} = contextId;
       const title = groupsIndexReducer.groupsIndex.filter(item => item.id === groupId)[0].name;
-      const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
-      const alignedGLText = this.getAlignedGLText(
-        currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
+      // const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       const checkInfoCardPhrase = this.getCheckInfoCardText(translationWords, contextId.groupId, resourcesReducer.translationHelps);
-      const verseText = usfmjs.removeMarker(this.verseText());
       //get tHelps article
       const currentFile = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
       const currentFileMarkdown = tHelpsHelpers.convertMarkdownLinks(currentFile, languageId);
@@ -474,32 +178,7 @@ class Container extends React.Component {
               seeMoreLabel={translate('see_more')}
               showSeeMoreButton={this.state.showHelps}
               onSeeMoreClick={this.toggleHelps.bind(this)} />
-            <VerseCheck
-              alignedGLText={alignedGLText}
-              projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
-              loginReducer={loginReducer}
-              resourcesReducer={resourcesReducer}
-              commentsReducer={commentsReducer}
-              selectionsReducer={{selections}}
-              contextIdReducer={{contextId}}
-              translate={translate}
-              toolsReducer={toolsReducer}
-              groupsDataReducer={groupsDataReducer}
-              remindersReducer={remindersReducer}
-              actions={this.actions}
-              verseText={verseText}
-              mode={this.state.mode}
-              dialogModalVisibility={this.state.dialogModalVisibility}
-              commentChanged={this.state.commentChanged}
-              findIfVerseEdited={this.findIfVerseEdited}
-              tags={this.state.tags}
-              verseChanged={this.state.verseChanged}
-              selections={this.state.selections}
-              saveSelection={this.saveSelection}
-              cancelSelection={this.cancelSelection}
-              clearSelection={this.clearSelection}
-              handleSkip={this.handleSkip}
-            />
+            <VerseCheckContainer {...this.props.verseCheck} />
           </div>
           <TranslationHelps
             article={currentFileMarkdown}
@@ -549,7 +228,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     groupMenu: {
       toolsReducer: ownProps.tc.toolsReducer,
-      groupsDataReducer :ownProps.tc.groupsDataReducer,
+      groupsDataReducer: ownProps.tc.groupsDataReducer,
       groupsIndexReducer: ownProps.tc.groupsIndexReducer,
       groupMenuReducer: ownProps.tc.groupMenuReducer,
       translate: ownProps.translate,
@@ -558,9 +237,23 @@ const mapStateToProps = (state, ownProps) => {
       contextId: getContextId(ownProps),
       manifest: getManifest(ownProps),
       projectSaveLocation: getProjectSaveLocation(ownProps)
+    },
+    verseCheck: {
+      translate: ownProps.translate,
+      currentToolName: getCurrentToolName(ownProps),
+      projectDetailsReducer: ownProps.tc.projectDetailsReducer,
+      loginReducer: ownProps.tc.loginReducer,
+      resourcesReducer: ownProps.tc.resourcesReducer,
+      commentsReducer: ownProps.tc.commentsReducer,
+      selectionsReducer: ownProps.tc.selectionsReducer,
+      contextIdReducer: ownProps.tc.contextIdReducer,
+      toolsReducer: ownProps.tc.toolsReducer,
+      groupsDataReducer: ownProps.tc.groupsDataReducer,
+      remindersReducer: ownProps.tc.remindersReducer,
+      actions: ownProps.tc.actions
     }
-  }
-}
+  };
+};
 
 
 export default connect(mapStateToProps)(Container);
