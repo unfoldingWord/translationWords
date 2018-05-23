@@ -31,3 +31,15 @@ export function getGroupsIndex(state) {
 export function getResourceByName(state, resourceName) {
   return state.resourcesReducer[resourceName] ? state.resourcesReducer[resourceName] : {};
 }
+
+export function getSelections(state) {
+  return state.selectionsReducer.selections;
+}
+
+export function getCurrentPaneSettings(state) {
+  return state.settingsReducer.toolsSettings.ScripturePane.currentPaneSettings;
+}
+
+export function getBibles(state) {
+  return state.resourcesReducer.bibles;
+}

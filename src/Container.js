@@ -11,7 +11,10 @@ import {
   getCurrentToolName,
   getCurrentProjectToolsSelectedGL,
   getGroupsIndex,
-  getResourceByName
+  getResourceByName,
+  getSelections,
+  getCurrentPaneSettings,
+  getBibles
 } from './selectors';
 // helpers
 import * as settingsHelper from './helpers/settingsHelper';
@@ -20,6 +23,7 @@ import GroupMenuContainer from './containers/GroupMenuContainer';
 import VerseCheckContainer from './containers/VerseCheckContainer';
 import TranslationHelpsContainer from './containers/TranslationHelpsContainer';
 import CheckInfoCardContainer from './containers/CheckInfoCardContainer';
+import ScripturePaneContainer from './containers/ScripturePaneContainer';
 
 
 class Container extends React.Component {
@@ -46,9 +50,10 @@ class Container extends React.Component {
     if (contextId !== null) {
       // const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       return (
-        <div style={{display: 'flex', flexDirection: 'row'}}>
+        <div style={{display: 'flex', flexDirection: 'row', width: '100vw', height: 'var(--tool-max-height)'}}>
           <GroupMenuContainer {...this.props.groupMenu} />
-          <div style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
+          <div style={{display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'auto'}}>
+            <ScripturePaneContainer {...this.props.scripturePane} />
             <CheckInfoCardContainer
               toggleHelps={this.toggleHelps.bind(this)}
               showHelps={this.state.showHelps}
@@ -136,6 +141,19 @@ const mapStateToProps = (state, ownProps) => {
       translationHelps: getResourceByName(ownProps, 'translationHelps'),
       groupsIndex: getGroupsIndex(ownProps),
       contextId: getContextId(ownProps)
+    },
+    scripturePane: {
+      translate: ownProps.translate,
+      manifest: getManifest(ownProps),
+      selections: getSelections(ownProps),
+      currentPaneSettings: getCurrentPaneSettings(ownProps),
+      bibles: getBibles(ownProps),
+      contextId: getContextId(ownProps),
+      projectDetailsReducer: ownProps.tc.projectDetailsReducer,
+      showPopover: ownProps.tc.actions.showPopover,
+      editTargetVerse: ownProps.tc.actions.editTargetVerse,
+      getLexiconData: ownProps.tc.actions.getLexiconData,
+      setToolSettings: ownProps.tc.actions.setToolSettings
     }
   };
 };
