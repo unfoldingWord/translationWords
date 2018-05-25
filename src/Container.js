@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //selectors
 import {
-  getAlignmentData,
+  getIsVerseFinished,
   getContextId,
   getManifest,
   getProjectSaveLocation,
@@ -110,7 +110,7 @@ const mapStateToProps = (state, ownProps) => {
       groupMenuReducer: ownProps.tc.groupMenuReducer,
       translate: ownProps.translate,
       actions: ownProps.tc.actions,
-      alignmentData: getAlignmentData(ownProps),
+      isVerseFinished: getIsVerseFinished('wordAlignment', ownProps),
       contextId: getContextId(ownProps),
       manifest: getManifest(ownProps),
       projectSaveLocation: getProjectSaveLocation(ownProps)

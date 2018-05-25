@@ -10,10 +10,12 @@ export function getContextId(state) {
   return state.contextIdReducer.contextId;
 }
 
-export function getAlignmentData(state) {
-  const {toolsReducer: {apis}} = state;
-  //todo
-  return {};
+export function getIsVerseFinished(toolName, state) {
+  const {toolsReducer: {apis}, contextIdReducer: {contextId: {reference}}} = state;
+  const toolApi = apis[toolName];
+  const verseFinished = toolApi.triggerForced('getIsVerseFinished', reference.chapter,
+  reference.verse);
+  return verseFinished;
 }
 
 export function getCurrentToolName(state) {

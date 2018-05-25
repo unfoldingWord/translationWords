@@ -18,7 +18,7 @@ class GroupMenuContainer extends React.Component {
     const {
       translate,
       actions,
-      alignmentData,
+      isVerseFinished,
       groupsDataReducer,
       groupsIndexReducer,
       groupMenuReducer,
@@ -32,7 +32,7 @@ class GroupMenuContainer extends React.Component {
         translate={translate}
         getSelections={(contextId) => actions.getSelectionsFromContextId(contextId, projectSaveLocation)}
         getGroupProgress={this.getGroupProgress}
-        alignmentData={alignmentData}
+        isVerseFinished={isVerseFinished}
         groupsDataReducer={groupsDataReducer}
         groupsIndexReducer={groupsIndexReducer}
         groupMenuReducer={groupMenuReducer}
