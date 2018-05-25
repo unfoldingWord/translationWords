@@ -21,9 +21,9 @@ class ScripturePaneContainer extends React.Component {
       selections,
       setToolSettings,
       bibles,
-      currentPaneSetting,
       contextId,
-      translate
+      translate,
+      currentPaneSettings
     } = this.props;
     const titleLabel = "Step 1. Read";
     const closeButtonLabel = "Close";
@@ -37,8 +37,8 @@ class ScripturePaneContainer extends React.Component {
     const expandedScripturePaneTitle = this.makeTitle(manifest);
     return (
       <ScripturePane
+        currentPaneSettings={currentPaneSettings}
         contextId={contextId}
-        currentPaneSetting={currentPaneSetting}
         bibles={bibles}
         titleLabel={titleLabel}
         closeButtonLabel={closeButtonLabel}
