@@ -315,23 +315,24 @@ class VerseCheckContainer extends React.Component {
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
       <VerseCheck
-        alignedGLText={alignedGLText}
-        projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
-        loginReducer={loginReducer}
-        resourcesReducer={resourcesReducer}
-        commentsReducer={commentsReducer}
-        selectionsReducer={{selections}}
-        contextIdReducer={{contextId}}
         translate={translate}
+        commentsReducer={commentsReducer}
+        remindersReducer={remindersReducer}
+        projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
+        contextIdReducer={{contextId}}
+        resourcesReducer={resourcesReducer}
+        selectionsReducer={{selections}}
+        loginReducer={loginReducer}
         toolsReducer={toolsReducer}
         groupsDataReducer={groupsDataReducer}
-        remindersReducer={remindersReducer}
+        alignedGLText={alignedGLText}
         verseText={verseText}
-        actions={this.actions}
         mode={this.state.mode}
+        actions={this.actions}
         dialogModalVisibility={this.state.dialogModalVisibility}
         commentChanged={this.state.commentChanged}
         findIfVerseEdited={this.findIfVerseEdited}
+        findIfVerseInvalidated={this.findIfVerseInvalidated}
         tags={this.state.tags}
         verseChanged={this.state.verseChanged}
         selections={this.state.selections}
