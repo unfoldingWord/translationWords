@@ -3,31 +3,45 @@ import React from 'react';
 import Container from '../src/Container';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
+import {shallow, mount, render} from 'enzyme';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+import toJson from 'enzyme-to-json';
+import TranslationHelpsContainer from '../src/containers/TranslationHelpsContainer';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 const props = {
   ...require('./__fixtures__/basicProps.json'),
-  actions: {
-    setToolSettings: jest.fn(),
-    loadResourceArticle: jest.fn(),
-    getGLQuote: jest.fn(),
-    setFilter: jest.fn(),
-    groupMenuChangeGroup: jest.fn(),
-    groupMenuExpandSubMenu: jest.fn(),
-    getSelectionsFromContextId: () => ''
-  },
   translate: k => k
 };
 
-describe('Container Tests', () => {
+props.tc.actions = {
+  showPopover: jest.fn(),
+  editTargetVerse: jest.fn(),
+  getLexiconData: jest.fn(),
+  setToolSettings: jest.fn(),
+  loadResourceArticle: jest.fn(),
+  getGLQuote: jest.fn(),
+  setFilter: jest.fn(),
+  groupMenuChangeGroup: jest.fn(),
+  groupMenuExpandSubMenu: jest.fn(),
+  getSelectionsFromContextId: () => ''
+};
+
+const store = mockStore({});
+describe.only('Container Tests', () => {
   it('Test Container', () => {
-    const component = renderer.create(
+    const wrapper = render(
       <MuiThemeProvider>
-        <Container {...props} />
+        <Provider store={store}>
+          <Container {...props} />
+        </Provider>
       </MuiThemeProvider>
     );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('Test empty Container', () => {
@@ -37,17 +51,23 @@ describe('Container Tests', () => {
         contextId: null
       }
     };
-    const component = renderer.create(
+    const wrapper = renderer.create(
       <MuiThemeProvider>
-        <Container {...myProps} />
+        <Provider store={store}>
+          <Container {...myProps} />
+        </Provider>
       </MuiThemeProvider>
     );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('Test Container.toggleHelps', () => {
-    const container = shallow(<Container {...props} />).instance();
+    const container = shallow(
+      <Provider store={store}>
+        <Container {...props} />
+      </Provider>)
+      //wierd stuff to get the inner component
+      .dive({context: {store}}).dive().instance();
     expect(container.state.showHelps).toBeFalsy();
     container.toggleHelps();
     expect(container.state.showHelps).toBeTruthy();
@@ -55,72 +75,33 @@ describe('Container Tests', () => {
     expect(container.state.showHelps).toBeFalsy();
   });
 
-  it('Test has ScripturePane', () => {
-    const container = shallow(<Container {...props} />).instance();
-    expect(container.props.actions.setToolSettings).toBeCalled();
-    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", props.settingsReducer.toolsSettings.ScripturePane.currentPaneSettings);
+  it('Test has ScripturePane Panes', () => {
+    const container = mount(
+      <Provider store={store}>
+        <Container {...props} />
+      </Provider>)
+      //wierd stuff to get the inner component
+      .find('.panes-container').children().length;
+    expect(container).toBe(4);
   });
 
   it('Test does not have ScripturePane', () => {
-    props.settingsReducer.toolsSettings = {};
-    const container = shallow(<Container {...props} />).instance();
-    const initialScripturePaneSettings = [{"bibleId": "ult", "languageId": "en"}, {"bibleId": "targetBible", "languageId": "targetLanguage"}];
-    expect(container.props.actions.setToolSettings).toBeCalledWith("ScripturePane", "currentPaneSettings", initialScripturePaneSettings);
+    props.tc.bibles = {};
+    const container = shallow(
+      <Provider store={store}>
+        <Container {...props} />
+      </Provider>)
+      //wierd stuff to get the inner component
+      .find('.panes-container').children().length;
+    expect(container).toBe(0);
   });
 
-  it('Test Container.componentWillReceiveProps', () => {
-    const root = shallow(<Container {...props} />);
-    const wrapper = root.childAt(0);
-    expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(props.contextIdReducer.contextId.groupId);
-    const newGroupId = 'groupId2';
-    const nextProps = {
-      ...props,
-      contextIdReducer: {
-        contextId: {
-          "reference": {
-            "bookId": "tit",
-            "chapter": 1,
-            "verse": 1
-          },
-          "tool": "translationWords",
-          groupId: newGroupId,
-          "quote": "Χριστοῦ",
-          "strong": [
-            "G55470"
-          ],
-          "occurrence": 1,
-        }
-      },
-      toolsReducer: {
-        currentToolName: 'translationWords'
-      },
-      projectDetailsReducer: {
-        projectSaveLocation: '',
-        currentProjectToolsSelectedGL: {'translationWords': 'en'},
-        manifest: {
-          "project": {
-            "id": "tit",
-            "name": "Titus"
-          }
-        }
-      },
-      groupsIndexReducer: {
-        groupsIndex: [
-          {
-            id: 'groupId2',
-            name: 'groupId2, name'
-          }
-        ],
-        loadedFromFileSystem: true
-      },
-    };
-    root.setProps(nextProps, () => {
-      expect(wrapper.props().contextIdReducer.contextId.groupId).toEqual(newGroupId);
-      expect(container.props.actions.loadResourceArticle).toBeCalledWith(
-        nextProps.toolsReducer.currentToolName,
-        nextProps.contextIdReducer.contextId.groupId,
-        nextProps.projectDetailsReducer.currentProjectToolsSelectedGL[nextProps.toolsReducer.currentToolName]
-      );
-    });
+  it('Test TranslationHelps componentWillReceiveProps', () => {
+    const root = mount(
+      <Provider store={store}>
+        <Container {...props} />
+      </Provider>)
+      .find(TranslationHelpsContainer);
+      expect(root.props().actions.loadResourceArticle).toHaveBeenCalledWith("translationWords", "blasphemy", "en");
   });
 });
