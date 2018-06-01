@@ -93,11 +93,13 @@ Container.propTypes = {
   toolsReducer: PropTypes.shape({
     currentToolName: PropTypes.string.isRequired
   }),
-  actions: PropTypes.shape({
-    setToolSettings: PropTypes.func.isRequired,
-    loadResourceArticle: PropTypes.func.isRequired,
-    getGLQuote: PropTypes.func.isRequired,
-    getSelectionsFromContextId: PropTypes.func.isRequired
+  tc: PropTypes.shape({
+    actions: PropTypes.shape({
+      setToolSettings: PropTypes.func.isRequired,
+      loadResourceArticle: PropTypes.func.isRequired,
+      getGLQuote: PropTypes.func.isRequired,
+      getSelectionsFromContextId: PropTypes.func.isRequired
+    })
   })
 };
 

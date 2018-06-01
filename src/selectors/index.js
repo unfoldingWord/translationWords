@@ -11,11 +11,16 @@ export function getContextId(state) {
 }
 
 export function getIsVerseFinished(toolName, state) {
-  const {toolsReducer: {apis}, contextIdReducer: {contextId: {reference}}} = state;
+  const {toolsReducer: {apis}, contextIdReducer: {contextId}} = state;
   const toolApi = apis[toolName];
-  const verseFinished = toolApi.triggerForced('getIsVerseFinished', reference.chapter,
-  reference.verse);
-  return verseFinished;
+  if (toolApi && toolApi.triggerForced && contextId) {
+    const {reference} = contextId;
+    const verseFinished = toolApi.triggerForced('getIsVerseFinished', reference.chapter,
+      reference.verse);
+    return verseFinished;
+  } else {
+    return false;
+  }
 }
 
 export function getCurrentToolName(state) {
