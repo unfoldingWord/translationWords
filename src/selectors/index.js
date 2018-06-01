@@ -10,13 +10,12 @@ export function getContextId(state) {
   return state.contextIdReducer.contextId;
 }
 
-export function getIsVerseFinished(toolName, state) {
-  const {toolsReducer: {apis}, contextIdReducer: {contextId}} = state;
+export function getIsVerseFinished(toolName, state, chapter, verse) {
+  const {toolsReducer: {apis}} = state;
   const toolApi = apis[toolName];
-  if (toolApi && toolApi.triggerForced && contextId) {
-    const {reference} = contextId;
-    const verseFinished = toolApi.triggerForced('getIsVerseFinished', reference.chapter,
-      reference.verse);
+  if (toolApi && toolApi.triggerForced && chapter && verse) {
+    const verseFinished = toolApi.triggerForced('getIsVerseFinished', chapter,
+      verse);
     return verseFinished;
   } else {
     return false;
