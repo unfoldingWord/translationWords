@@ -25,14 +25,6 @@ class ScripturePaneContainer extends React.Component {
       translate,
       currentPaneSettings
     } = this.props;
-    const titleLabel = "Step 1. Read";
-    const closeButtonLabel = "Close";
-    const expandButtonHoverText = "Click to show expanded resource panes";
-    const clickToRemoveResourceLabel = "Click to remove resource";
-    const clickAddResource = "Click to add a resource";
-    const addResourceLabel = "Add Resources";
-    const selectLanguageLabel = "Select language";
-    const selectLabel = "Select";
 
     const expandedScripturePaneTitle = this.makeTitle(manifest);
     return (
@@ -40,15 +32,7 @@ class ScripturePaneContainer extends React.Component {
         currentPaneSettings={currentPaneSettings}
         contextId={contextId}
         bibles={bibles}
-        titleLabel={titleLabel}
-        closeButtonLabel={closeButtonLabel}
         expandedScripturePaneTitle={expandedScripturePaneTitle}
-        expandButtonHoverText={expandButtonHoverText}
-        clickToRemoveResourceLabel={clickToRemoveResourceLabel}
-        clickAddResource={clickAddResource}
-        addResourceLabel={addResourceLabel}
-        selectLanguageLabel={selectLanguageLabel}
-        selectLabel={selectLabel}
         showPopover={showPopover}
         editTargetVerse={editTargetVerse}
         projectDetailsReducer={projectDetailsReducer}
