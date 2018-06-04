@@ -50,7 +50,7 @@ class CheckInfoCardContainer extends React.Component {
         title={title}
         phrase={checkInfoCardPhrase}
         seeMoreLabel={translate('see_more')}
-        showSeeMoreButton={showHelps}
+        showSeeMoreButton={!showHelps}
         onSeeMoreClick={toggleHelps} />
     );
   }
