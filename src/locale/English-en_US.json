@@ -12,7 +12,8 @@
   "buttons": {
     "back_button": "Go Back",
     "cancel_button": "Cancel",
-    "save_button": "Save"
+    "save_button": "Save",
+    "next_button": "Next"
   },
   "see_more": "See more",
   "select": "Select",
@@ -35,6 +36,8 @@
   "meaning": "Meaning",
   "grammar": "Grammar",
   "other": "Other",
+  "select_reasons": "Select reason(s) for change",
+  "edit_verse_title": "Edit Verse - ${passage}",
   "next_change_reason": "Next, select reason(s) for change",
   "first_make_change": "First, make changes to verse above",
   "close": "Close",
