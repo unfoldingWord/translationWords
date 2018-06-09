@@ -53,7 +53,7 @@ class Container extends React.Component {
         <div style={{display: 'flex', flexDirection: 'row', width: '100vw', height: 'var(--tool-max-height)'}}>
           <GroupMenuContainer {...this.props.groupMenu} />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'auto'}}>
-            <div style={{ height: '250px' }}>
+            <div style={{ height: '250px', paddingBottom: '20px' }}>
               <ScripturePaneContainer {...this.props.scripturePane} />
             </div>
             <CheckInfoCardContainer
