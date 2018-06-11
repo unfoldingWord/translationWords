@@ -2561,12 +2561,12 @@ exports[`Container Tests Test Container 1`] = `
           class="title-bar"
         >
           <span>
-            Step 1. Read
+            pane.title
           </span>
           <span
             class="glyphicon glyphicon-fullscreen"
             style="cursor:pointer"
-            title="Click to show expanded resource panes"
+            title="pane.expand_hover"
           />
         </div>
         <div
@@ -2591,7 +2591,7 @@ exports[`Container Tests Test Container 1`] = `
               </div>
               <span
                 class="remove-glyph-icon glyphicon glyphicon-remove"
-                title="Click to remove resource"
+                title="pane.remove_resource"
               />
             </div>
             <div
@@ -2632,7 +2632,7 @@ exports[`Container Tests Test Container 1`] = `
               </div>
               <span
                 class="remove-glyph-icon glyphicon glyphicon-remove"
-                title="Click to remove resource"
+                title="pane.remove_resource"
               />
             </div>
             <div
@@ -2898,7 +2898,7 @@ exports[`Container Tests Test Container 1`] = `
               </div>
               <span
                 class="remove-glyph-icon glyphicon glyphicon-remove"
-                title="Click to remove resource"
+                title="pane.remove_resource"
               />
             </div>
             <div
@@ -3251,7 +3251,7 @@ exports[`Container Tests Test Container 1`] = `
           >
             <div
               style="height:60px;width:60px;cursor:pointer"
-              title="Click to add a resource"
+              title="pane.add_resource"
             >
               <svg
                 height="100%"
@@ -3260,7 +3260,7 @@ exports[`Container Tests Test Container 1`] = `
               >
                 <defs />
                 <title>
-                  Click to add a resource
+                  pane.add_resource
                 </title>
                 <g
                   data-name="Group 1424"
@@ -3331,7 +3331,7 @@ exports[`Container Tests Test Container 1`] = `
           class="phrase"
         />
         <div
-          class="linkInactive"
+          class="linkActive"
         >
           see_more
         </div>
