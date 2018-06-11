@@ -96,7 +96,8 @@ class TranslationHelpsContainer extends React.Component {
       resourcesReducer,
       contextIdReducer: {contextId},
       showHelps,
-      toggleHelps
+      toggleHelps,
+      translate
     } = this.props;
     const languageId = currentProjectToolsSelectedGL[currentToolName];
     const currentFile = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
@@ -104,6 +105,7 @@ class TranslationHelpsContainer extends React.Component {
     const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
     return (
       <TranslationHelps
+        translate={translate}
         article={currentFileMarkdown}
         modalArticle={tHelpsModalMarkdown}
         openExpandedHelpsModal={() => this.toggleHelpsModal()}
