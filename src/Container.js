@@ -35,7 +35,7 @@ class Container extends React.Component {
     this.toggleHelps = this.toggleHelps.bind(this);
   }
   componentWillMount() {
-    settingsHelper.loadCorrectPaneSettings(this.props, this.props.actions.setToolSettings);
+    settingsHelper.loadCorrectPaneSettings(this.props, this.props.tc.actions.setToolSettings);
   }
 
   toggleHelps() {
@@ -53,7 +53,9 @@ class Container extends React.Component {
         <div style={{display: 'flex', flexDirection: 'row', width: '100vw', height: 'var(--tool-max-height)'}}>
           <GroupMenuContainer {...this.props.groupMenu} />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'auto'}}>
-            <ScripturePaneContainer {...this.props.scripturePane} />
+            <div style={{ height: '250px', paddingBottom: '20px' }}>
+              <ScripturePaneContainer {...this.props.scripturePane} />
+            </div>
             <CheckInfoCardContainer
               toggleHelps={this.toggleHelps.bind(this)}
               showHelps={this.state.showHelps}
