@@ -50,7 +50,7 @@ class Container extends React.Component {
     if (contextId !== null) {
       // const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       return (
-        <div style={{display: 'flex', flexDirection: 'row', width: '100vw', height: 'var(--tool-max-height)'}}>
+        <div style={{display: 'flex', flexDirection: 'row', width: '100vw'}}>
           <GroupMenuContainer {...this.props.groupMenu} />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'auto'}}>
             <ScripturePaneContainer {...this.props.scripturePane} />
