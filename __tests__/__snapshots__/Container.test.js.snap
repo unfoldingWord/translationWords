@@ -3331,7 +3331,7 @@ exports[`Container Tests Test Container 1`] = `
           class="phrase"
         />
         <div
-          class="linkActive"
+          class="linkInactive"
         >
           see_more
         </div>
@@ -3476,12 +3476,39 @@ exports[`Container Tests Test Container 1`] = `
     </div>
   </div>
   <div
-    class="helps-sash-closed"
+    class="helps-sash-container"
   >
-    <span
-      class="glyphicon glyphicon-chevron-left"
-      style="cursor:pointer"
-    />
+    <div
+      class="helps-sash-closed"
+    >
+      <span
+        class="glyphicon glyphicon-chevron-right"
+        style="cursor:pointer"
+      />
+    </div>
+    <div
+      class="helps"
+    >
+      <div
+        class="helps-title-bar"
+      >
+        <span
+          class="glyphicon glyphicon-fullscreen"
+          style="cursor:pointer"
+          title="Click to show expanded help pane"
+        />
+      </div>
+      <div
+        class="helps-article"
+      >
+        <div
+          class="remarkableStyling helpsBody"
+          id="helpsbody"
+        >
+          <div />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
