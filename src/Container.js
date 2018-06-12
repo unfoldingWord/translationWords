@@ -35,7 +35,7 @@ class Container extends React.Component {
     this.toggleHelps = this.toggleHelps.bind(this);
   }
   componentWillMount() {
-    settingsHelper.loadCorrectPaneSettings(this.props, this.props.actions.setToolSettings);
+    settingsHelper.loadCorrectPaneSettings(this.props, this.props.tc.actions.setToolSettings);
     this.toggleHelps();
   }
 
