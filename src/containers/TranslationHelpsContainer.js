@@ -39,7 +39,10 @@ class TranslationHelpsContainer extends React.Component {
   }
 
   toggleHelpsModal() {
-    this.setState({showHelpsModal: !this.state.showHelpsModal});
+    this.setState({
+      showHelpsModal: !this.state.showHelpsModal,
+      modalArticle: ''
+    });
   }
 
   /**

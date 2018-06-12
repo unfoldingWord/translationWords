@@ -47,16 +47,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-2 MuiCircularProgress-colorSecondary-4"
+              class="MuiCircularProgress-root-2 MuiCircularProgress-colorSecondary-6 MuiCircularProgress-static-3"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-5 undefined"
+                class="MuiCircularProgress-svg-7"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-7"
+                  class="MuiCircularProgress-circle-8 MuiCircularProgress-circleStatic-9"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -90,16 +90,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-9 MuiCircularProgress-colorSecondary-11"
+              class="MuiCircularProgress-root-11 MuiCircularProgress-colorSecondary-15 MuiCircularProgress-static-12"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-12 undefined"
+                class="MuiCircularProgress-svg-16"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-14"
+                  class="MuiCircularProgress-circle-17 MuiCircularProgress-circleStatic-18"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -133,16 +133,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-16 MuiCircularProgress-colorSecondary-18"
+              class="MuiCircularProgress-root-20 MuiCircularProgress-colorSecondary-24 MuiCircularProgress-static-21"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-19 undefined"
+                class="MuiCircularProgress-svg-25"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-21"
+                  class="MuiCircularProgress-circle-26 MuiCircularProgress-circleStatic-27"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -176,16 +176,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-23 MuiCircularProgress-colorSecondary-25"
+              class="MuiCircularProgress-root-29 MuiCircularProgress-colorSecondary-33 MuiCircularProgress-static-30"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-26 undefined"
+                class="MuiCircularProgress-svg-34"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-28"
+                  class="MuiCircularProgress-circle-35 MuiCircularProgress-circleStatic-36"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -219,16 +219,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-30 MuiCircularProgress-colorSecondary-32"
+              class="MuiCircularProgress-root-38 MuiCircularProgress-colorSecondary-42 MuiCircularProgress-static-39"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-33 undefined"
+                class="MuiCircularProgress-svg-43"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-35"
+                  class="MuiCircularProgress-circle-44 MuiCircularProgress-circleStatic-45"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -330,16 +330,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-37 MuiCircularProgress-colorSecondary-39"
+              class="MuiCircularProgress-root-47 MuiCircularProgress-colorSecondary-51 MuiCircularProgress-static-48"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-40 undefined"
+                class="MuiCircularProgress-svg-52"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-42"
+                  class="MuiCircularProgress-circle-53 MuiCircularProgress-circleStatic-54"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -373,16 +373,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-44 MuiCircularProgress-colorSecondary-46"
+              class="MuiCircularProgress-root-56 MuiCircularProgress-colorSecondary-60 MuiCircularProgress-static-57"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-47 undefined"
+                class="MuiCircularProgress-svg-61"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-49"
+                  class="MuiCircularProgress-circle-62 MuiCircularProgress-circleStatic-63"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -416,16 +416,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-51 MuiCircularProgress-colorSecondary-53"
+              class="MuiCircularProgress-root-65 MuiCircularProgress-colorSecondary-69 MuiCircularProgress-static-66"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-54 undefined"
+                class="MuiCircularProgress-svg-70"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-56"
+                  class="MuiCircularProgress-circle-71 MuiCircularProgress-circleStatic-72"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -459,16 +459,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-58 MuiCircularProgress-colorSecondary-60"
+              class="MuiCircularProgress-root-74 MuiCircularProgress-colorSecondary-78 MuiCircularProgress-static-75"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-61 undefined"
+                class="MuiCircularProgress-svg-79"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-63"
+                  class="MuiCircularProgress-circle-80 MuiCircularProgress-circleStatic-81"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -502,16 +502,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-65 MuiCircularProgress-colorSecondary-67"
+              class="MuiCircularProgress-root-83 MuiCircularProgress-colorSecondary-87 MuiCircularProgress-static-84"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-68 undefined"
+                class="MuiCircularProgress-svg-88"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-70"
+                  class="MuiCircularProgress-circle-89 MuiCircularProgress-circleStatic-90"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -545,16 +545,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-72 MuiCircularProgress-colorSecondary-74"
+              class="MuiCircularProgress-root-92 MuiCircularProgress-colorSecondary-96 MuiCircularProgress-static-93"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-75 undefined"
+                class="MuiCircularProgress-svg-97"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-77"
+                  class="MuiCircularProgress-circle-98 MuiCircularProgress-circleStatic-99"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -588,16 +588,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-79 MuiCircularProgress-colorSecondary-81"
+              class="MuiCircularProgress-root-101 MuiCircularProgress-colorSecondary-105 MuiCircularProgress-static-102"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-82 undefined"
+                class="MuiCircularProgress-svg-106"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-84"
+                  class="MuiCircularProgress-circle-107 MuiCircularProgress-circleStatic-108"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -631,16 +631,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-86 MuiCircularProgress-colorSecondary-88"
+              class="MuiCircularProgress-root-110 MuiCircularProgress-colorSecondary-114 MuiCircularProgress-static-111"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-89 undefined"
+                class="MuiCircularProgress-svg-115"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-91"
+                  class="MuiCircularProgress-circle-116 MuiCircularProgress-circleStatic-117"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -674,16 +674,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-93 MuiCircularProgress-colorSecondary-95"
+              class="MuiCircularProgress-root-119 MuiCircularProgress-colorSecondary-123 MuiCircularProgress-static-120"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-96 undefined"
+                class="MuiCircularProgress-svg-124"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-98"
+                  class="MuiCircularProgress-circle-125 MuiCircularProgress-circleStatic-126"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -717,16 +717,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-100 MuiCircularProgress-colorSecondary-102"
+              class="MuiCircularProgress-root-128 MuiCircularProgress-colorSecondary-132 MuiCircularProgress-static-129"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-103 undefined"
+                class="MuiCircularProgress-svg-133"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-105"
+                  class="MuiCircularProgress-circle-134 MuiCircularProgress-circleStatic-135"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -760,16 +760,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-107 MuiCircularProgress-colorSecondary-109"
+              class="MuiCircularProgress-root-137 MuiCircularProgress-colorSecondary-141 MuiCircularProgress-static-138"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-110 undefined"
+                class="MuiCircularProgress-svg-142"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-112"
+                  class="MuiCircularProgress-circle-143 MuiCircularProgress-circleStatic-144"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -803,16 +803,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-114 MuiCircularProgress-colorSecondary-116"
+              class="MuiCircularProgress-root-146 MuiCircularProgress-colorSecondary-150 MuiCircularProgress-static-147"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-117 undefined"
+                class="MuiCircularProgress-svg-151"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-119"
+                  class="MuiCircularProgress-circle-152 MuiCircularProgress-circleStatic-153"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -846,16 +846,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-121 MuiCircularProgress-colorSecondary-123"
+              class="MuiCircularProgress-root-155 MuiCircularProgress-colorSecondary-159 MuiCircularProgress-static-156"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-124 undefined"
+                class="MuiCircularProgress-svg-160"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-126"
+                  class="MuiCircularProgress-circle-161 MuiCircularProgress-circleStatic-162"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -889,16 +889,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-128 MuiCircularProgress-colorSecondary-130"
+              class="MuiCircularProgress-root-164 MuiCircularProgress-colorSecondary-168 MuiCircularProgress-static-165"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-131 undefined"
+                class="MuiCircularProgress-svg-169"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-133"
+                  class="MuiCircularProgress-circle-170 MuiCircularProgress-circleStatic-171"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -932,16 +932,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-135 MuiCircularProgress-colorSecondary-137"
+              class="MuiCircularProgress-root-173 MuiCircularProgress-colorSecondary-177 MuiCircularProgress-static-174"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-138 undefined"
+                class="MuiCircularProgress-svg-178"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-140"
+                  class="MuiCircularProgress-circle-179 MuiCircularProgress-circleStatic-180"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -975,16 +975,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-142 MuiCircularProgress-colorSecondary-144"
+              class="MuiCircularProgress-root-182 MuiCircularProgress-colorSecondary-186 MuiCircularProgress-static-183"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-145 undefined"
+                class="MuiCircularProgress-svg-187"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-147"
+                  class="MuiCircularProgress-circle-188 MuiCircularProgress-circleStatic-189"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1018,16 +1018,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-149 MuiCircularProgress-colorSecondary-151"
+              class="MuiCircularProgress-root-191 MuiCircularProgress-colorSecondary-195 MuiCircularProgress-static-192"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-152 undefined"
+                class="MuiCircularProgress-svg-196"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-154"
+                  class="MuiCircularProgress-circle-197 MuiCircularProgress-circleStatic-198"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1061,16 +1061,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-156 MuiCircularProgress-colorSecondary-158"
+              class="MuiCircularProgress-root-200 MuiCircularProgress-colorSecondary-204 MuiCircularProgress-static-201"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-159 undefined"
+                class="MuiCircularProgress-svg-205"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-161"
+                  class="MuiCircularProgress-circle-206 MuiCircularProgress-circleStatic-207"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1104,16 +1104,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-163 MuiCircularProgress-colorSecondary-165"
+              class="MuiCircularProgress-root-209 MuiCircularProgress-colorSecondary-213 MuiCircularProgress-static-210"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-166 undefined"
+                class="MuiCircularProgress-svg-214"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-168"
+                  class="MuiCircularProgress-circle-215 MuiCircularProgress-circleStatic-216"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1147,16 +1147,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-170 MuiCircularProgress-colorSecondary-172"
+              class="MuiCircularProgress-root-218 MuiCircularProgress-colorSecondary-222 MuiCircularProgress-static-219"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-173 undefined"
+                class="MuiCircularProgress-svg-223"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-175"
+                  class="MuiCircularProgress-circle-224 MuiCircularProgress-circleStatic-225"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1190,16 +1190,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-177 MuiCircularProgress-colorSecondary-179"
+              class="MuiCircularProgress-root-227 MuiCircularProgress-colorSecondary-231 MuiCircularProgress-static-228"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-180 undefined"
+                class="MuiCircularProgress-svg-232"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-182"
+                  class="MuiCircularProgress-circle-233 MuiCircularProgress-circleStatic-234"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1233,16 +1233,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-184 MuiCircularProgress-colorSecondary-186"
+              class="MuiCircularProgress-root-236 MuiCircularProgress-colorSecondary-240 MuiCircularProgress-static-237"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-187 undefined"
+                class="MuiCircularProgress-svg-241"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-189"
+                  class="MuiCircularProgress-circle-242 MuiCircularProgress-circleStatic-243"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1276,16 +1276,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-191 MuiCircularProgress-colorSecondary-193"
+              class="MuiCircularProgress-root-245 MuiCircularProgress-colorSecondary-249 MuiCircularProgress-static-246"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-194 undefined"
+                class="MuiCircularProgress-svg-250"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-196"
+                  class="MuiCircularProgress-circle-251 MuiCircularProgress-circleStatic-252"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1319,16 +1319,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-198 MuiCircularProgress-colorSecondary-200"
+              class="MuiCircularProgress-root-254 MuiCircularProgress-colorSecondary-258 MuiCircularProgress-static-255"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-201 undefined"
+                class="MuiCircularProgress-svg-259"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-203"
+                  class="MuiCircularProgress-circle-260 MuiCircularProgress-circleStatic-261"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1362,16 +1362,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-205 MuiCircularProgress-colorSecondary-207"
+              class="MuiCircularProgress-root-263 MuiCircularProgress-colorSecondary-267 MuiCircularProgress-static-264"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-208 undefined"
+                class="MuiCircularProgress-svg-268"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-210"
+                  class="MuiCircularProgress-circle-269 MuiCircularProgress-circleStatic-270"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1405,16 +1405,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-212 MuiCircularProgress-colorSecondary-214"
+              class="MuiCircularProgress-root-272 MuiCircularProgress-colorSecondary-276 MuiCircularProgress-static-273"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-215 undefined"
+                class="MuiCircularProgress-svg-277"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-217"
+                  class="MuiCircularProgress-circle-278 MuiCircularProgress-circleStatic-279"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1448,16 +1448,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-219 MuiCircularProgress-colorSecondary-221"
+              class="MuiCircularProgress-root-281 MuiCircularProgress-colorSecondary-285 MuiCircularProgress-static-282"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-222 undefined"
+                class="MuiCircularProgress-svg-286"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-224"
+                  class="MuiCircularProgress-circle-287 MuiCircularProgress-circleStatic-288"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1491,16 +1491,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-226 MuiCircularProgress-colorSecondary-228"
+              class="MuiCircularProgress-root-290 MuiCircularProgress-colorSecondary-294 MuiCircularProgress-static-291"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-229 undefined"
+                class="MuiCircularProgress-svg-295"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-231"
+                  class="MuiCircularProgress-circle-296 MuiCircularProgress-circleStatic-297"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1534,16 +1534,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-233 MuiCircularProgress-colorSecondary-235"
+              class="MuiCircularProgress-root-299 MuiCircularProgress-colorSecondary-303 MuiCircularProgress-static-300"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-236 undefined"
+                class="MuiCircularProgress-svg-304"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-238"
+                  class="MuiCircularProgress-circle-305 MuiCircularProgress-circleStatic-306"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1577,16 +1577,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-240 MuiCircularProgress-colorSecondary-242"
+              class="MuiCircularProgress-root-308 MuiCircularProgress-colorSecondary-312 MuiCircularProgress-static-309"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-243 undefined"
+                class="MuiCircularProgress-svg-313"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-245"
+                  class="MuiCircularProgress-circle-314 MuiCircularProgress-circleStatic-315"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1620,16 +1620,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-247 MuiCircularProgress-colorSecondary-249"
+              class="MuiCircularProgress-root-317 MuiCircularProgress-colorSecondary-321 MuiCircularProgress-static-318"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-250 undefined"
+                class="MuiCircularProgress-svg-322"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-252"
+                  class="MuiCircularProgress-circle-323 MuiCircularProgress-circleStatic-324"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1663,16 +1663,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-254 MuiCircularProgress-colorSecondary-256"
+              class="MuiCircularProgress-root-326 MuiCircularProgress-colorSecondary-330 MuiCircularProgress-static-327"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-257 undefined"
+                class="MuiCircularProgress-svg-331"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-259"
+                  class="MuiCircularProgress-circle-332 MuiCircularProgress-circleStatic-333"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1706,16 +1706,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-261 MuiCircularProgress-colorSecondary-263"
+              class="MuiCircularProgress-root-335 MuiCircularProgress-colorSecondary-339 MuiCircularProgress-static-336"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-264 undefined"
+                class="MuiCircularProgress-svg-340"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-266"
+                  class="MuiCircularProgress-circle-341 MuiCircularProgress-circleStatic-342"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1749,16 +1749,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-268 MuiCircularProgress-colorSecondary-270"
+              class="MuiCircularProgress-root-344 MuiCircularProgress-colorSecondary-348 MuiCircularProgress-static-345"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-271 undefined"
+                class="MuiCircularProgress-svg-349"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-273"
+                  class="MuiCircularProgress-circle-350 MuiCircularProgress-circleStatic-351"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1792,16 +1792,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-275 MuiCircularProgress-colorSecondary-277"
+              class="MuiCircularProgress-root-353 MuiCircularProgress-colorSecondary-357 MuiCircularProgress-static-354"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-278 undefined"
+                class="MuiCircularProgress-svg-358"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-280"
+                  class="MuiCircularProgress-circle-359 MuiCircularProgress-circleStatic-360"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1835,16 +1835,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-282 MuiCircularProgress-colorSecondary-284"
+              class="MuiCircularProgress-root-362 MuiCircularProgress-colorSecondary-366 MuiCircularProgress-static-363"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-285 undefined"
+                class="MuiCircularProgress-svg-367"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-287"
+                  class="MuiCircularProgress-circle-368 MuiCircularProgress-circleStatic-369"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1878,16 +1878,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-289 MuiCircularProgress-colorSecondary-291"
+              class="MuiCircularProgress-root-371 MuiCircularProgress-colorSecondary-375 MuiCircularProgress-static-372"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-292 undefined"
+                class="MuiCircularProgress-svg-376"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-294"
+                  class="MuiCircularProgress-circle-377 MuiCircularProgress-circleStatic-378"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1921,16 +1921,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-296 MuiCircularProgress-colorSecondary-298"
+              class="MuiCircularProgress-root-380 MuiCircularProgress-colorSecondary-384 MuiCircularProgress-static-381"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-299 undefined"
+                class="MuiCircularProgress-svg-385"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-301"
+                  class="MuiCircularProgress-circle-386 MuiCircularProgress-circleStatic-387"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -1964,16 +1964,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-303 MuiCircularProgress-colorSecondary-305"
+              class="MuiCircularProgress-root-389 MuiCircularProgress-colorSecondary-393 MuiCircularProgress-static-390"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-306 undefined"
+                class="MuiCircularProgress-svg-394"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-308"
+                  class="MuiCircularProgress-circle-395 MuiCircularProgress-circleStatic-396"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2007,16 +2007,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-310 MuiCircularProgress-colorSecondary-312"
+              class="MuiCircularProgress-root-398 MuiCircularProgress-colorSecondary-402 MuiCircularProgress-static-399"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-313 undefined"
+                class="MuiCircularProgress-svg-403"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-315"
+                  class="MuiCircularProgress-circle-404 MuiCircularProgress-circleStatic-405"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2050,16 +2050,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-317 MuiCircularProgress-colorSecondary-319"
+              class="MuiCircularProgress-root-407 MuiCircularProgress-colorSecondary-411 MuiCircularProgress-static-408"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-320 undefined"
+                class="MuiCircularProgress-svg-412"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-322"
+                  class="MuiCircularProgress-circle-413 MuiCircularProgress-circleStatic-414"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2093,16 +2093,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-324 MuiCircularProgress-colorSecondary-326"
+              class="MuiCircularProgress-root-416 MuiCircularProgress-colorSecondary-420 MuiCircularProgress-static-417"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-327 undefined"
+                class="MuiCircularProgress-svg-421"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-329"
+                  class="MuiCircularProgress-circle-422 MuiCircularProgress-circleStatic-423"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2136,16 +2136,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-331 MuiCircularProgress-colorSecondary-333"
+              class="MuiCircularProgress-root-425 MuiCircularProgress-colorSecondary-429 MuiCircularProgress-static-426"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-334 undefined"
+                class="MuiCircularProgress-svg-430"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-336"
+                  class="MuiCircularProgress-circle-431 MuiCircularProgress-circleStatic-432"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2179,16 +2179,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-338 MuiCircularProgress-colorSecondary-340"
+              class="MuiCircularProgress-root-434 MuiCircularProgress-colorSecondary-438 MuiCircularProgress-static-435"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-341 undefined"
+                class="MuiCircularProgress-svg-439"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-343"
+                  class="MuiCircularProgress-circle-440 MuiCircularProgress-circleStatic-441"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2222,16 +2222,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-345 MuiCircularProgress-colorSecondary-347"
+              class="MuiCircularProgress-root-443 MuiCircularProgress-colorSecondary-447 MuiCircularProgress-static-444"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-348 undefined"
+                class="MuiCircularProgress-svg-448"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-350"
+                  class="MuiCircularProgress-circle-449 MuiCircularProgress-circleStatic-450"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2265,16 +2265,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="100"
-              class="MuiCircularProgress-root-352 MuiCircularProgress-colorPrimary-353"
+              class="MuiCircularProgress-root-452 MuiCircularProgress-colorPrimary-455 MuiCircularProgress-static-453"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-355 undefined"
+                class="MuiCircularProgress-svg-457"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-357"
+                  class="MuiCircularProgress-circle-458 MuiCircularProgress-circleStatic-459"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2308,16 +2308,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="75"
-              class="MuiCircularProgress-root-359 MuiCircularProgress-colorPrimary-360"
+              class="MuiCircularProgress-root-461 MuiCircularProgress-colorPrimary-464 MuiCircularProgress-static-462"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-362 undefined"
+                class="MuiCircularProgress-svg-466"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-364"
+                  class="MuiCircularProgress-circle-467 MuiCircularProgress-circleStatic-468"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2351,16 +2351,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-366 MuiCircularProgress-colorSecondary-368"
+              class="MuiCircularProgress-root-470 MuiCircularProgress-colorSecondary-474 MuiCircularProgress-static-471"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-369 undefined"
+                class="MuiCircularProgress-svg-475"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-371"
+                  class="MuiCircularProgress-circle-476 MuiCircularProgress-circleStatic-477"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2394,16 +2394,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-373 MuiCircularProgress-colorSecondary-375"
+              class="MuiCircularProgress-root-479 MuiCircularProgress-colorSecondary-483 MuiCircularProgress-static-480"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-376 undefined"
+                class="MuiCircularProgress-svg-484"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-378"
+                  class="MuiCircularProgress-circle-485 MuiCircularProgress-circleStatic-486"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2437,16 +2437,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-380 MuiCircularProgress-colorSecondary-382"
+              class="MuiCircularProgress-root-488 MuiCircularProgress-colorSecondary-492 MuiCircularProgress-static-489"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-383 undefined"
+                class="MuiCircularProgress-svg-493"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-385"
+                  class="MuiCircularProgress-circle-494 MuiCircularProgress-circleStatic-495"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2480,16 +2480,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-387 MuiCircularProgress-colorSecondary-389"
+              class="MuiCircularProgress-root-497 MuiCircularProgress-colorSecondary-501 MuiCircularProgress-static-498"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-390 undefined"
+                class="MuiCircularProgress-svg-502"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-392"
+                  class="MuiCircularProgress-circle-503 MuiCircularProgress-circleStatic-504"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2523,16 +2523,16 @@ exports[`Container Tests Test Container 1`] = `
             />
             <div
               aria-valuenow="0"
-              class="MuiCircularProgress-root-394 MuiCircularProgress-colorSecondary-396"
+              class="MuiCircularProgress-root-506 MuiCircularProgress-colorSecondary-510 MuiCircularProgress-static-507"
               role="progressbar"
               style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
             >
               <svg
-                class="MuiCircularProgress-svg-397 undefined"
+                class="MuiCircularProgress-svg-511"
                 viewBox="0 0 50 50"
               >
                 <circle
-                  class="MuiCircularProgress-circle-399"
+                  class="MuiCircularProgress-circle-512 MuiCircularProgress-circleStatic-513"
                   cx="25"
                   cy="25"
                   fill="none"
@@ -2552,761 +2552,765 @@ exports[`Container Tests Test Container 1`] = `
     style="display:flex;flex-direction:column;width:100%;overflow-x:auto"
   >
     <div
-      class="scripture-pane-container"
+      style="height:250px;padding-bottom:20px"
     >
       <div
-        class="inner-container"
+        class="scripture-pane-container"
       >
         <div
-          class="title-bar"
-        >
-          <span>
-            pane.title
-          </span>
-          <span
-            class="glyphicon glyphicon-fullscreen"
-            style="cursor:pointer"
-            title="pane.expand_hover"
-          />
-        </div>
-        <div
-          class="panes-container"
+          class="inner-container"
         >
           <div
-            class="pane-container"
+            class="title-bar"
+          >
+            <span>
+              pane.title
+            </span>
+            <span
+              class="glyphicon glyphicon-fullscreen"
+              style="cursor:pointer"
+              title="pane.expand_hover"
+            />
+          </div>
+          <div
+            class="panes-container"
           >
             <div
-              class="pane-title-container"
+              class="pane-container"
             >
               <div
-                class="pane-title-container-content"
-              >
-                <span
-                  aria-label="English"
-                  class="pane-title-text"
-                >
-                  English
-                </span>
-                <div />
-              </div>
-              <span
-                class="remove-glyph-icon glyphicon glyphicon-remove"
-                title="pane.remove_resource"
-              />
-            </div>
-            <div
-              class="verse-content-container-ltr"
-            >
-              <div
-                class="verse-container"
+                class="pane-title-container"
               >
                 <div
-                  class="verse-content-ltr"
+                  class="pane-title-container-content"
                 >
-                  <strong>
-                    2:5 
-                  </strong>
-                  <span>
-                    to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.
+                  <span
+                    aria-label="English"
+                    class="pane-title-text"
+                  >
+                    English
                   </span>
+                  <div />
+                </div>
+                <span
+                  class="remove-glyph-icon glyphicon glyphicon-remove"
+                  title="pane.remove_resource"
+                />
+              </div>
+              <div
+                class="verse-content-container-ltr"
+              >
+                <div
+                  class="verse-container"
+                >
+                  <div
+                    class="verse-content-ltr"
+                  >
+                    <strong>
+                      2:5 
+                    </strong>
+                    <span>
+                      to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="pane-container"
-          >
             <div
-              class="pane-title-container"
+              class="pane-container"
             >
               <div
-                class="pane-title-container-content"
-              >
-                <span
-                  aria-label="Koine Greek (UGNT)"
-                  class="pane-title-text"
-                >
-                  Koine Greek (UGNT)
-                </span>
-                <div />
-              </div>
-              <span
-                class="remove-glyph-icon glyphicon glyphicon-remove"
-                title="pane.remove_resource"
-              />
-            </div>
-            <div
-              class="verse-content-container-ltr"
-            >
-              <div
-                class="verse-container"
+                class="pane-title-container"
               >
                 <div
-                  class="verse-content-ltr"
+                  class="pane-title-container-content"
                 >
-                  <strong>
-                    2:5 
-                  </strong>
                   <span
-                    style="cursor:pointer"
+                    aria-label="Koine Greek (UGNT)"
+                    class="pane-title-text"
                   >
-                    <span
-                      style="background-color:#FFFFFF"
-                    />
-                    <span
-                      style="background-color:"
-                    >
-                      σώφρονας
-                    </span>
+                    Koine Greek (UGNT)
                   </span>
-                  <span>
-                    ,
-                  </span>
-                  <span
-                    style="cursor:pointer"
+                  <div />
+                </div>
+                <span
+                  class="remove-glyph-icon glyphicon glyphicon-remove"
+                  title="pane.remove_resource"
+                />
+              </div>
+              <div
+                class="verse-content-container-ltr"
+              >
+                <div
+                  class="verse-container"
+                >
+                  <div
+                    class="verse-content-ltr"
                   >
+                    <strong>
+                      2:5 
+                    </strong>
                     <span
-                      style="background-color:#FFFFFF"
+                      style="cursor:pointer"
                     >
-                       
+                      <span
+                        style="background-color:transparent"
+                      />
+                      <span
+                        style="background-color:"
+                      >
+                        σώφρονας
+                      </span>
+                    </span>
+                    <span>
+                      ,
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      ἁγνάς
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ἁγνάς
+                      </span>
                     </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      οἰκουργούς
-                    </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                    <span>
+                      ,
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      ἀγαθάς
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        οἰκουργούς
+                      </span>
                     </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      ὑποτασσομένας
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                    <span>
+                      ,
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      τοῖς
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ἀγαθάς
+                      </span>
                     </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      ἰδίοις
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                    <span>
+                      ,
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      ἀνδράσιν
-                    </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ὑποτασσομένας
+                      </span>
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      ἵνα
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      μὴ
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        τοῖς
+                      </span>
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      ὁ
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      λόγος
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ἰδίοις
+                      </span>
                     </span>
                     <span
-                      style="background-color:"
+                      style="cursor:pointer"
                     >
-                      τοῦ
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ἀνδράσιν
+                      </span>
                     </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      Θεοῦ
-                    </span>
-                  </span>
-                  <span
-                    style="cursor:pointer"
-                  >
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
+                    <span>
+                      ,
                     </span>
                     <span
-                      style="background-color:var(--highlight-color)"
+                      style="cursor:pointer"
                     >
-                      βλασφημῆται
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ἵνα
+                      </span>
                     </span>
-                  </span>
-                  <span>
-                    .
+                    <span
+                      style="cursor:pointer"
+                    >
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        μὴ
+                      </span>
+                    </span>
+                    <span
+                      style="cursor:pointer"
+                    >
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        ὁ
+                      </span>
+                    </span>
+                    <span
+                      style="cursor:pointer"
+                    >
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        λόγος
+                      </span>
+                    </span>
+                    <span
+                      style="cursor:pointer"
+                    >
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        τοῦ
+                      </span>
+                    </span>
+                    <span
+                      style="cursor:pointer"
+                    >
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        Θεοῦ
+                      </span>
+                    </span>
+                    <span
+                      style="cursor:pointer"
+                    >
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:var(--highlight-color)"
+                      >
+                        βλασφημῆται
+                      </span>
+                    </span>
+                    <span>
+                      .
 
 
-                  </span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="pane-container"
-          >
             <div
-              class="pane-title-container"
+              class="pane-container"
             >
               <div
-                class="pane-title-container-content"
-              >
-                <span
-                  aria-label="English (ULT)"
-                  class="pane-title-text"
-                >
-                  English (ULT)
-                </span>
-                <div />
-              </div>
-              <span
-                class="remove-glyph-icon glyphicon glyphicon-remove"
-                title="pane.remove_resource"
-              />
-            </div>
-            <div
-              class="verse-content-container-ltr"
-            >
-              <div
-                class="verse-container"
+                class="pane-title-container"
               >
                 <div
-                  class="verse-content-ltr"
+                  class="pane-title-container-content"
                 >
-                  <strong>
-                    2:5 
-                  </strong>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    />
-                    <span
-                      style="background-color:"
-                    >
-                      to
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      be
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      sensible
-                    </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      pure
-                    </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      good
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      housekeepers
-                    </span>
-                  </span>
-                  <span>
-                    ,
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      and
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      obedient
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      to
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      their
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      own
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      husbands
-                    </span>
-                  </span>
-                  <span>
-                    .
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      They
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      should
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      do
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      these
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      things
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      so
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      that
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      God
-                    </span>
-                  </span>
-                  <span>
-                    '
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    />
-                    <span
-                      style="background-color:"
-                    >
-                      s
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      word
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      may
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:"
-                    >
-                      not
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:#FFFFFF"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:var(--highlight-color)"
-                    >
-                      be
-                    </span>
-                  </span>
-                  <span>
-                    <span
-                      style="background-color:var(--highlight-color)"
-                    >
-                       
-                    </span>
-                    <span
-                      style="background-color:var(--highlight-color)"
-                    >
-                      insulted
-                    </span>
-                  </span>
                   <span
-                    style="background-color:var(--highlight-color)"
+                    aria-label="English (ULT)"
+                    class="pane-title-text"
                   >
-                    . 
-
+                    English (ULT)
                   </span>
+                  <div />
+                </div>
+                <span
+                  class="remove-glyph-icon glyphicon glyphicon-remove"
+                  title="pane.remove_resource"
+                />
+              </div>
+              <div
+                class="verse-content-container-ltr"
+              >
+                <div
+                  class="verse-container"
+                >
+                  <div
+                    class="verse-content-ltr"
+                  >
+                    <strong>
+                      2:5 
+                    </strong>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      />
+                      <span
+                        style="background-color:"
+                      >
+                        to
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        be
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        sensible
+                      </span>
+                    </span>
+                    <span>
+                      ,
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        pure
+                      </span>
+                    </span>
+                    <span>
+                      ,
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        good
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        housekeepers
+                      </span>
+                    </span>
+                    <span>
+                      ,
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        and
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        obedient
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        to
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        their
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        own
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        husbands
+                      </span>
+                    </span>
+                    <span>
+                      .
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        They
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        should
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        do
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        these
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        things
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        so
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        that
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        God
+                      </span>
+                    </span>
+                    <span>
+                      '
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      />
+                      <span
+                        style="background-color:"
+                      >
+                        s
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        word
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        may
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:"
+                      >
+                        not
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:transparent"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:var(--highlight-color)"
+                      >
+                        be
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        style="background-color:var(--highlight-color)"
+                      >
+                         
+                      </span>
+                      <span
+                        style="background-color:var(--highlight-color)"
+                      >
+                        insulted
+                      </span>
+                    </span>
+                    <span
+                      style="background-color:var(--highlight-color)"
+                    >
+                      . 
+
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="add-bible-button-container"
-          >
             <div
-              style="height:60px;width:60px;cursor:pointer"
-              title="pane.add_resource"
+              class="add-bible-button-container"
             >
-              <svg
-                height="100%"
-                viewBox="-424 2130 45.573 45.724"
-                width="100%"
+              <div
+                style="height:60px;width:60px;cursor:pointer"
+                title="pane.add_resource"
               >
-                <defs />
-                <title>
-                  pane.add_resource
-                </title>
-                <g
-                  data-name="Group 1424"
-                  id="Group_1424"
-                  opacity="0.5"
-                  transform="translate(-1484 1794)"
+                <svg
+                  height="100%"
+                  viewBox="-424 2130 45.573 45.724"
+                  width="100%"
                 >
+                  <defs />
+                  <title>
+                    pane.add_resource
+                  </title>
                   <g
-                    id="Book_font_awesome"
-                    transform="translate(1060 336)"
+                    data-name="Group 1424"
+                    id="Group_1424"
+                    opacity="0.5"
+                    transform="translate(-1484 1794)"
                   >
-                    <path
-                      d="M42.89-1398.733a3.747,3.747,0,0,1,.477,3.416l-7.282,23.99a5.469,5.469,0,0,1-2.026,2.846,5.284,5.284,0,0,1-3.244,1.152H6.376a6.484,6.484,0,0,1-3.932-1.417,7.437,7.437,0,0,1-2.635-3.482,4.8,4.8,0,0,1-.053-3.362q0-.106.079-.715t.106-.98a1.474,1.474,0,0,0-.079-.569,1.31,1.31,0,0,1-.079-.516,1.647,1.647,0,0,1,.212-.556,6.46,6.46,0,0,1,.437-.622,6.505,6.505,0,0,0,.437-.622,17.764,17.764,0,0,0,1.192-2.422,14.377,14.377,0,0,0,.794-2.423,2.066,2.066,0,0,0,.013-.794,2.326,2.326,0,0,1-.013-.741,2.22,2.22,0,0,1,.45-.741,4.328,4.328,0,0,0,.45-.609,16.187,16.187,0,0,0,1.112-2.436,10.842,10.842,0,0,0,.662-2.383,3.831,3.831,0,0,0-.066-.847q-.093-.609.013-.741a2.117,2.117,0,0,1,.583-.808q.477-.464.583-.6a10.921,10.921,0,0,0,1.125-2.238,10.042,10.042,0,0,0,.728-2.555,2.189,2.189,0,0,0-.079-.675,1.719,1.719,0,0,1-.053-.7,1.493,1.493,0,0,1,.238-.477c.124-.177.282-.379.477-.61s.344-.414.45-.556a5.968,5.968,0,0,0,.437-.807c.15-.327.282-.635.4-.927s.256-.609.424-.953a4.56,4.56,0,0,1,.516-.847,3.065,3.065,0,0,1,.7-.622,1.768,1.768,0,0,1,.953-.3,5.5,5.5,0,0,1,1.258.146l-.026.079a7.374,7.374,0,0,1,1.35-.238h20.15a3.488,3.488,0,0,1,3.019,1.483,3.777,3.777,0,0,1,.477,3.442l-7.255,23.99a10.352,10.352,0,0,1-1.893,4.064,4.879,4.879,0,0,1-3.4.914H3.623a1.167,1.167,0,0,0-1.006.4,1.209,1.209,0,0,0-.026,1.139q.635,1.853,3.813,1.853H30.842a2.938,2.938,0,0,0,1.483-.41,1.9,1.9,0,0,0,.927-1.1l7.943-26.134a4.277,4.277,0,0,0,.132-1.509A3.5,3.5,0,0,1,42.89-1398.733Zm-28.173.053a.69.69,0,0,0,.053.6.578.578,0,0,0,.53.252H31.4a1.107,1.107,0,0,0,.675-.252,1.181,1.181,0,0,0,.437-.6l.556-1.695a.69.69,0,0,0-.053-.6.578.578,0,0,0-.53-.252h-16.1a1.108,1.108,0,0,0-.675.252,1.182,1.182,0,0,0-.437.6Zm-2.2,6.779a.689.689,0,0,0,.053.6.577.577,0,0,0,.53.251H29.2a1.106,1.106,0,0,0,.675-.251,1.181,1.181,0,0,0,.437-.6l.556-1.695a.689.689,0,0,0-.053-.6.578.578,0,0,0-.53-.252h-16.1a1.108,1.108,0,0,0-.675.252,1.182,1.182,0,0,0-.437.6Z"
-                      fill="#333"
-                      id="path3029"
-                      transform="translate(0.522 1408)"
-                    />
+                    <g
+                      id="Book_font_awesome"
+                      transform="translate(1060 336)"
+                    >
+                      <path
+                        d="M42.89-1398.733a3.747,3.747,0,0,1,.477,3.416l-7.282,23.99a5.469,5.469,0,0,1-2.026,2.846,5.284,5.284,0,0,1-3.244,1.152H6.376a6.484,6.484,0,0,1-3.932-1.417,7.437,7.437,0,0,1-2.635-3.482,4.8,4.8,0,0,1-.053-3.362q0-.106.079-.715t.106-.98a1.474,1.474,0,0,0-.079-.569,1.31,1.31,0,0,1-.079-.516,1.647,1.647,0,0,1,.212-.556,6.46,6.46,0,0,1,.437-.622,6.505,6.505,0,0,0,.437-.622,17.764,17.764,0,0,0,1.192-2.422,14.377,14.377,0,0,0,.794-2.423,2.066,2.066,0,0,0,.013-.794,2.326,2.326,0,0,1-.013-.741,2.22,2.22,0,0,1,.45-.741,4.328,4.328,0,0,0,.45-.609,16.187,16.187,0,0,0,1.112-2.436,10.842,10.842,0,0,0,.662-2.383,3.831,3.831,0,0,0-.066-.847q-.093-.609.013-.741a2.117,2.117,0,0,1,.583-.808q.477-.464.583-.6a10.921,10.921,0,0,0,1.125-2.238,10.042,10.042,0,0,0,.728-2.555,2.189,2.189,0,0,0-.079-.675,1.719,1.719,0,0,1-.053-.7,1.493,1.493,0,0,1,.238-.477c.124-.177.282-.379.477-.61s.344-.414.45-.556a5.968,5.968,0,0,0,.437-.807c.15-.327.282-.635.4-.927s.256-.609.424-.953a4.56,4.56,0,0,1,.516-.847,3.065,3.065,0,0,1,.7-.622,1.768,1.768,0,0,1,.953-.3,5.5,5.5,0,0,1,1.258.146l-.026.079a7.374,7.374,0,0,1,1.35-.238h20.15a3.488,3.488,0,0,1,3.019,1.483,3.777,3.777,0,0,1,.477,3.442l-7.255,23.99a10.352,10.352,0,0,1-1.893,4.064,4.879,4.879,0,0,1-3.4.914H3.623a1.167,1.167,0,0,0-1.006.4,1.209,1.209,0,0,0-.026,1.139q.635,1.853,3.813,1.853H30.842a2.938,2.938,0,0,0,1.483-.41,1.9,1.9,0,0,0,.927-1.1l7.943-26.134a4.277,4.277,0,0,0,.132-1.509A3.5,3.5,0,0,1,42.89-1398.733Zm-28.173.053a.69.69,0,0,0,.053.6.578.578,0,0,0,.53.252H31.4a1.107,1.107,0,0,0,.675-.252,1.181,1.181,0,0,0,.437-.6l.556-1.695a.69.69,0,0,0-.053-.6.578.578,0,0,0-.53-.252h-16.1a1.108,1.108,0,0,0-.675.252,1.182,1.182,0,0,0-.437.6Zm-2.2,6.779a.689.689,0,0,0,.053.6.577.577,0,0,0,.53.251H29.2a1.106,1.106,0,0,0,.675-.251,1.181,1.181,0,0,0,.437-.6l.556-1.695a.689.689,0,0,0-.053-.6.578.578,0,0,0-.53-.252h-16.1a1.108,1.108,0,0,0-.675.252,1.182,1.182,0,0,0-.437.6Z"
+                        fill="#333"
+                        id="path3029"
+                        transform="translate(0.522 1408)"
+                      />
+                    </g>
+                    <g
+                      id="ic_add"
+                      transform="translate(1069.493 345.644)"
+                    >
+                      <path
+                        d="M26.047-6.973h-9.02v9.02H14.02v-9.02H5V-9.98h9.02V-19h3.007v9.02h9.02v3.007Z"
+                        fill="#f8f8f8"
+                        fill-rule="evenodd"
+                        stroke="#333"
+                        stroke-width="4px"
+                        transform="translate(2.517 26.517)"
+                      />
+                      <path
+                        d="M26.047-6.973h-9.02v9.02H14.02v-9.02H5V-9.98h9.02V-19h3.007v9.02h9.02v3.007Z"
+                        fill="#f8f8f8"
+                        fill-rule="evenodd"
+                        stroke="#f8f8f8"
+                        transform="translate(2.517 26.517)"
+                      />
+                      <path
+                        d="M36.08,12.08H0V-24H36.08Z"
+                        fill="none"
+                        fill-rule="evenodd"
+                        transform="translate(0 24)"
+                      />
+                    </g>
                   </g>
-                  <g
-                    id="ic_add"
-                    transform="translate(1069.493 345.644)"
-                  >
-                    <path
-                      d="M26.047-6.973h-9.02v9.02H14.02v-9.02H5V-9.98h9.02V-19h3.007v9.02h9.02v3.007Z"
-                      fill="#f8f8f8"
-                      fill-rule="evenodd"
-                      stroke="#333"
-                      stroke-width="4px"
-                      transform="translate(2.517 26.517)"
-                    />
-                    <path
-                      d="M26.047-6.973h-9.02v9.02H14.02v-9.02H5V-9.98h9.02V-19h3.007v9.02h9.02v3.007Z"
-                      fill="#f8f8f8"
-                      fill-rule="evenodd"
-                      stroke="#f8f8f8"
-                      transform="translate(2.517 26.517)"
-                    />
-                    <path
-                      d="M36.08,12.08H0V-24H36.08Z"
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(0 24)"
-                    />
-                  </g>
-                </g>
-              </svg>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
