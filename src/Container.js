@@ -36,6 +36,7 @@ class Container extends React.Component {
   }
   componentWillMount() {
     settingsHelper.loadCorrectPaneSettings(this.props, this.props.tc.actions.setToolSettings);
+    this.toggleHelps();
   }
 
   toggleHelps() {
@@ -134,6 +135,7 @@ const mapStateToProps = (state, ownProps) => {
       actions: ownProps.tc.actions
     },
     translationHelps: {
+      translate: ownProps.translate,
       currentProjectToolsSelectedGL: getCurrentProjectToolsSelectedGL(ownProps),
       toolsReducer: ownProps.tc.toolsReducer,
       resourcesReducer: ownProps.tc.resourcesReducer,
