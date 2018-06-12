@@ -2,7 +2,7 @@
 
 exports[`Container Tests Test Container 1`] = `
 <div
-  style="display:flex;flex-direction:row;width:100vw;height:var(--tool-max-height)"
+  style="display:flex;flex-direction:row;width:100vw"
 >
   <div
     id="groups-menu-container"
