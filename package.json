@@ -28,11 +28,6 @@
   },
   "homepage": "https://github.com/translationCoreApps/translationWords#readme",
   "display": "app",
-  "include": {
-    "ScripturePane": "1.0.2",
-    "VerseCheck": "1.0.0",
-    "TranslationHelps": "1.0.0"
-  },
   "devDependencies": {
     "babel-eslint": "8.2.2",
     "babel-jest": "21.2.0",
