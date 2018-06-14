@@ -71,17 +71,17 @@ class TranslationHelpsContainer extends React.Component {
     const articleData = this.props.resourcesReducer.translationHelps[resourceDir][article];
 
     let newState;
-    const tHelpsModalVisibility = true;
+    const showHelpsModal = true;
     const articleCategory = category;
     if (articleData) {
       newState = {
-        tHelpsModalVisibility,
+        showHelpsModal,
         articleCategory,
         modalArticle: articleData
       };
     } else {
       newState = {
-        tHelpsModalVisibility,
+        showHelpsModal,
         articleCategory,
         modalArticle: 'Cannot find an article for ' + link
       };
