@@ -68,11 +68,11 @@ describe.only('Container Tests', () => {
       </Provider>)
       //wierd stuff to get the inner component
       .dive({context: {store}}).dive().instance();
-    expect(container.state.showHelps).toBeFalsy();
-    container.toggleHelps();
     expect(container.state.showHelps).toBeTruthy();
     container.toggleHelps();
     expect(container.state.showHelps).toBeFalsy();
+    container.toggleHelps();
+    expect(container.state.showHelps).toBeTruthy();
   });
 
   it('Test has ScripturePane Panes', () => {
