@@ -39,7 +39,10 @@ class TranslationHelpsContainer extends React.Component {
   }
 
   toggleHelpsModal() {
-    this.setState({showHelpsModal: !this.state.showHelpsModal});
+    this.setState({
+      showHelpsModal: !this.state.showHelpsModal,
+      modalArticle: ''
+    });
   }
 
   /**
@@ -68,17 +71,17 @@ class TranslationHelpsContainer extends React.Component {
     const articleData = this.props.resourcesReducer.translationHelps[resourceDir][article];
 
     let newState;
-    const tHelpsModalVisibility = true;
+    const showHelpsModal = true;
     const articleCategory = category;
     if (articleData) {
       newState = {
-        tHelpsModalVisibility,
+        showHelpsModal,
         articleCategory,
         modalArticle: articleData
       };
     } else {
       newState = {
-        tHelpsModalVisibility,
+        showHelpsModal,
         articleCategory,
         modalArticle: 'Cannot find an article for ' + link
       };
@@ -96,7 +99,8 @@ class TranslationHelpsContainer extends React.Component {
       resourcesReducer,
       contextIdReducer: {contextId},
       showHelps,
-      toggleHelps
+      toggleHelps,
+      translate
     } = this.props;
     const languageId = currentProjectToolsSelectedGL[currentToolName];
     const currentFile = tHelpsHelpers.getArticleFromState(resourcesReducer, contextId);
@@ -104,6 +108,7 @@ class TranslationHelpsContainer extends React.Component {
     const tHelpsModalMarkdown = tHelpsHelpers.convertMarkdownLinks(this.state.modalArticle, languageId, this.state.articleCategory);
     return (
       <TranslationHelps
+        translate={translate}
         article={currentFileMarkdown}
         modalArticle={tHelpsModalMarkdown}
         openExpandedHelpsModal={() => this.toggleHelpsModal()}
