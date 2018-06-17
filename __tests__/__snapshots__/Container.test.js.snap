@@ -24,7 +24,6 @@ exports[`Container Tests Test Container 1`] = `
           <span
             class="filter-icon collapsed glyphicon glyphicon-filter"
           />
-          0
         </div>
       </div>
     </div>
