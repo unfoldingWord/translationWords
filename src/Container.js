@@ -35,7 +35,8 @@ class Container extends React.Component {
     this.toggleHelps = this.toggleHelps.bind(this);
   }
   componentWillMount() {
-    settingsHelper.loadCorrectPaneSettings(this.props, this.props.tc.actions.setToolSettings);
+    const { bibles } = this.props.scripturePane;
+    settingsHelper.loadCorrectPaneSettings(this.props, this.props.tc.actions.setToolSettings, bibles);
   }
 
   toggleHelps() {
@@ -102,7 +103,8 @@ Container.propTypes = {
       getGLQuote: PropTypes.func.isRequired,
       getSelectionsFromContextId: PropTypes.func.isRequired
     })
-  })
+  }),
+  scripturePane: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
