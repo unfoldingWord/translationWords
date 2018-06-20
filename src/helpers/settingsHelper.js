@@ -10,9 +10,9 @@ export const loadCorrectPaneSettings = (props, setToolSettings, bibles) => {
   };
 
   // make sure bibles in currentPaneSettings are found in the bibles object in the resourcesReducer
-  currentPaneSettings = currentPaneSettings.filter((paneSetting) => {
+  currentPaneSettings = currentPaneSettings ? currentPaneSettings.filter((paneSetting) => {
     return bibles[paneSetting.languageId] && bibles[paneSetting.languageId][paneSetting.bibleId] ? true : false;
-  });
+  }) : currentPaneSettings;
 
   // making sure the right ult or ulb language is displayed in the scripture pane
   if (currentPaneSettings && !currentPaneSettings.some(paneSeetingsIncludeGLandUlbOrUlt) && currentPaneSettings.length > 0) {
