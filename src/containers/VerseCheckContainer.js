@@ -25,6 +25,7 @@ class VerseCheckContainer extends React.Component {
     this.clearSelection = this.clearSelection.bind(this);
     this.handleSkip = this.handleSkip.bind(this);
     this.findIfVerseEdited = this.findIfVerseEdited.bind(this);
+    this.findIfVerseInvalidated = this.findIfVerseInvalidated.bind(this);
 
     let verseText = usfmjs.removeMarker(this.verseText());
     const mode = props.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
@@ -259,18 +260,37 @@ class VerseCheckContainer extends React.Component {
     this.actions.changeMode('default');
   }
 
-
+  /**
+   * returns true if current verse has been edited
+   * @return {boolean}
+   */
   findIfVerseEdited() {
-    const {contextIdReducer: {contextId}, groupsDataReducer: {groupsData}} = this.props;
-    let result = false;
+    const groupItem = this.getGroupDatumForCurrentContext();
+    return !!(groupItem && groupItem.verseEdits);
+  }
 
+  /**
+   * returns true if current verse has been invalidated
+   * @return {boolean}
+   */
+  findIfVerseInvalidated() {
+    const groupItem = this.getGroupDatumForCurrentContext();
+    return !!(groupItem && groupItem.invalidated);
+  }
+
+  /**
+   * finds group data for current context (verse)
+   * @return {*}
+   */
+  getGroupDatumForCurrentContext() {
+    const {contextIdReducer: {contextId}, groupsDataReducer: {groupsData}} = this.props;
+    let groupItem = null;
     if (groupsData[contextId.groupId]) {
-      let groupData = groupsData[contextId.groupId].filter(groupData => {
+      groupItem = groupsData[contextId.groupId].find(groupData => {
         return isEqual(groupData.contextId, contextId);
       });
-      result = groupData[0].verseEdits;
     }
-    return result;
+    return groupItem;
   }
 
   handleSkip(e) {
@@ -315,23 +335,24 @@ class VerseCheckContainer extends React.Component {
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
       <VerseCheck
-        alignedGLText={alignedGLText}
-        projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
-        loginReducer={loginReducer}
-        resourcesReducer={resourcesReducer}
-        commentsReducer={commentsReducer}
-        selectionsReducer={{selections}}
-        contextIdReducer={{contextId}}
         translate={translate}
+        commentsReducer={commentsReducer}
+        remindersReducer={remindersReducer}
+        projectDetailsReducer={{currentProjectToolsSelectedGL, manifest, projectSaveLocation}}
+        contextIdReducer={{contextId}}
+        resourcesReducer={resourcesReducer}
+        selectionsReducer={{selections}}
+        loginReducer={loginReducer}
         toolsReducer={toolsReducer}
         groupsDataReducer={groupsDataReducer}
-        remindersReducer={remindersReducer}
+        alignedGLText={alignedGLText}
         verseText={verseText}
-        actions={this.actions}
         mode={this.state.mode}
+        actions={this.actions}
         dialogModalVisibility={this.state.dialogModalVisibility}
         commentChanged={this.state.commentChanged}
         findIfVerseEdited={this.findIfVerseEdited}
+        findIfVerseInvalidated={this.findIfVerseInvalidated}
         tags={this.state.tags}
         verseChanged={this.state.verseChanged}
         selections={this.state.selections}

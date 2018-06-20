@@ -30,7 +30,7 @@ class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showHelps: false
+      showHelps: true
     };
     this.toggleHelps = this.toggleHelps.bind(this);
   }
@@ -51,7 +51,7 @@ class Container extends React.Component {
     if (contextId !== null) {
       // const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       return (
-        <div style={{display: 'flex', flexDirection: 'row', width: '100vw', height: 'var(--tool-max-height)'}}>
+        <div style={{display: 'flex', flexDirection: 'row', width: '100vw'}}>
           <GroupMenuContainer {...this.props.groupMenu} />
           <div style={{display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'auto'}}>
             <div style={{ height: '250px', paddingBottom: '20px' }}>
@@ -136,6 +136,7 @@ const mapStateToProps = (state, ownProps) => {
       actions: ownProps.tc.actions
     },
     translationHelps: {
+      translate: ownProps.translate,
       currentProjectToolsSelectedGL: getCurrentProjectToolsSelectedGL(ownProps),
       toolsReducer: ownProps.tc.toolsReducer,
       resourcesReducer: ownProps.tc.resourcesReducer,

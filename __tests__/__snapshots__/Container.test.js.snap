@@ -2,7 +2,7 @@
 
 exports[`Container Tests Test Container 1`] = `
 <div
-  style="display:flex;flex-direction:row;width:100vw;height:var(--tool-max-height)"
+  style="display:flex;flex-direction:row;width:100vw"
 >
   <div
     id="groups-menu-container"
@@ -24,2526 +24,2529 @@ exports[`Container Tests Test Container 1`] = `
           <span
             class="filter-icon collapsed glyphicon glyphicon-filter"
           />
-          0
         </div>
       </div>
     </div>
     <div
-      class="group"
+      class="groups"
     >
       <div
-        class="menu-item-heading-normal"
-      >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
-            <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-2 MuiCircularProgress-colorSecondary-6 MuiCircularProgress-static-3"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
-            >
-              <svg
-                class="MuiCircularProgress-svg-7"
-                viewBox="0 0 50 50"
-              >
-                <circle
-                  class="MuiCircularProgress-circle-8 MuiCircularProgress-circleStatic-9"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
-            </div>
-          </div>
-          apostle, apostles, apostleship
-        </div>
-      </div>
-    </div>
-    <div
-      class="group"
-    >
-      <div
-        class="menu-item-heading-normal"
-      >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
-            <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-11 MuiCircularProgress-colorSecondary-15 MuiCircularProgress-static-12"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
-            >
-              <svg
-                class="MuiCircularProgress-svg-16"
-                viewBox="0 0 50 50"
-              >
-                <circle
-                  class="MuiCircularProgress-circle-17 MuiCircularProgress-circleStatic-18"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
-            </div>
-          </div>
-          authority, authorities
-        </div>
-      </div>
-    </div>
-    <div
-      class="group"
-    >
-      <div
-        class="menu-item-heading-normal"
-      >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
-            <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-20 MuiCircularProgress-colorSecondary-24 MuiCircularProgress-static-21"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
-            >
-              <svg
-                class="MuiCircularProgress-svg-25"
-                viewBox="0 0 50 50"
-              >
-                <circle
-                  class="MuiCircularProgress-circle-26 MuiCircularProgress-circleStatic-27"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
-            </div>
-          </div>
-          believe, believes, believed, believer, belief, unbeliever, unbelievers, unbelief
-        </div>
-      </div>
-    </div>
-    <div
-      class="group"
-    >
-      <div
-        class="menu-item-heading-normal"
-      >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
-            <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-29 MuiCircularProgress-colorSecondary-33 MuiCircularProgress-static-30"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
-            >
-              <svg
-                class="MuiCircularProgress-svg-34"
-                viewBox="0 0 50 50"
-              >
-                <circle
-                  class="MuiCircularProgress-circle-35 MuiCircularProgress-circleStatic-36"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
-            </div>
-          </div>
-          blameless
-        </div>
-      </div>
-    </div>
-    <div
-      class="group"
-    >
-      <div
-        class="menu-item-heading-current"
-      >
-        <span
-          class="glyphicon glyphicon-chevron-down"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
-            <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-38 MuiCircularProgress-colorSecondary-42 MuiCircularProgress-static-39"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
-            >
-              <svg
-                class="MuiCircularProgress-svg-43"
-                viewBox="0 0 50 50"
-              >
-                <circle
-                  class="MuiCircularProgress-circle-44 MuiCircularProgress-circleStatic-45"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
-            </div>
-          </div>
-          blasphemy, blaspheme, blasphemed, blasphemous, blasphemies
-        </div>
-      </div>
-      <div
-        class="group-item active active-submenu-item"
+        class="group"
       >
         <div
-          class="status-badge-wrapper"
-        >
-          <div
-            class="status-badge"
-          >
-            <div
-              class="glyphicon glyphicon-blank status-icon-blank"
-            />
-          </div>
-        </div>
-        <span
-          class="selection"
-          data-class="selection-tooltip"
-          data-delay-hide="100"
-          data-effect="float"
-          data-place="bottom"
-          data-tip=""
-          data-type="dark"
+          class="menu-item-heading-normal"
         >
           <span
-            class="group-item-text"
-          >
-             Titus 2:5 
-          </span>
-        </span>
-        <div
-          class="__react_component_tooltip place-top type-dark "
-          data-id="tooltip"
-        />
-      </div>
-      <div
-        class="group-item submenu-item"
-      >
-        <div
-          class="status-badge-wrapper"
-        >
-          <div
-            class="status-badge"
-          >
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              class="glyphicon glyphicon-blank status-icon-blank"
-            />
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            >
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-2 MuiCircularProgress-colorPrimary-5 MuiCircularProgress-static-3"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
+              >
+                <svg
+                  class="MuiCircularProgress-svg-7"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-8 MuiCircularProgress-circleStatic-9"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
+            </div>
+            apostle, apostles, apostleship
           </div>
         </div>
-        <span
-          class="selection"
-          data-class="selection-tooltip"
-          data-delay-hide="100"
-          data-effect="float"
-          data-place="bottom"
-          data-tip=""
-          data-type="dark"
+      </div>
+      <div
+        class="group"
+      >
+        <div
+          class="menu-item-heading-normal"
         >
           <span
-            class="group-item-text"
-          >
-             Titus 3:2 
-          </span>
-        </span>
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
+            <div
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            >
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-11 MuiCircularProgress-colorPrimary-14 MuiCircularProgress-static-12"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
+              >
+                <svg
+                  class="MuiCircularProgress-svg-16"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-17 MuiCircularProgress-circleStatic-18"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
+            </div>
+            authority, authorities
+          </div>
+        </div>
+      </div>
+      <div
+        class="group"
+      >
         <div
-          class="__react_component_tooltip place-top type-dark "
-          data-id="tooltip"
-        />
-      </div>
-    </div>
-    <div
-      class="group"
-    >
-      <div
-        class="menu-item-heading-normal"
-      >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-47 MuiCircularProgress-colorSecondary-51 MuiCircularProgress-static-48"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-52"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-20 MuiCircularProgress-colorPrimary-23 MuiCircularProgress-static-21"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-53 MuiCircularProgress-circleStatic-54"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-25"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-26 MuiCircularProgress-circleStatic-27"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            believe, believes, believed, believer, belief, unbeliever, unbelievers, unbelief
           </div>
-          bless, blessed, blessing
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-56 MuiCircularProgress-colorSecondary-60 MuiCircularProgress-static-57"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-61"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-29 MuiCircularProgress-colorPrimary-32 MuiCircularProgress-static-30"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-62 MuiCircularProgress-circleStatic-63"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-34"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-35 MuiCircularProgress-circleStatic-36"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            blameless
           </div>
-          born again, born of God, new birth
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
+        <div
+          class="menu-item-heading-current"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-down"
+            style="float:right;margin-top:3px"
+          />
+          <div>
+            <div
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            >
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-38 MuiCircularProgress-colorPrimary-41 MuiCircularProgress-static-39"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
+              >
+                <svg
+                  class="MuiCircularProgress-svg-43"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-44 MuiCircularProgress-circleStatic-45"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
+            </div>
+            blasphemy, blaspheme, blasphemed, blasphemous, blasphemies
+          </div>
+        </div>
+        <div
+          class="group-item active active-submenu-item"
+        >
           <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            class="status-badge-wrapper"
           >
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-65 MuiCircularProgress-colorSecondary-69 MuiCircularProgress-static-66"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              class="status-badge"
             >
-              <svg
-                class="MuiCircularProgress-svg-70"
-                viewBox="0 0 50 50"
-              >
-                <circle
-                  class="MuiCircularProgress-circle-71 MuiCircularProgress-circleStatic-72"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+              <div
+                class="glyphicon glyphicon-blank status-icon-blank"
+              />
             </div>
           </div>
-          children, child
+          <span
+            class="selection"
+            data-class="selection-tooltip"
+            data-delay-hide="100"
+            data-effect="float"
+            data-place="bottom"
+            data-tip=""
+            data-type="dark"
+          >
+            <span
+              class="group-item-text"
+            >
+               Titus 2:5 
+            </span>
+          </span>
+          <div
+            class="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          />
+        </div>
+        <div
+          class="group-item submenu-item"
+        >
+          <div
+            class="status-badge-wrapper"
+          >
+            <div
+              class="status-badge"
+            >
+              <div
+                class="glyphicon glyphicon-blank status-icon-blank"
+              />
+            </div>
+          </div>
+          <span
+            class="selection"
+            data-class="selection-tooltip"
+            data-delay-hide="100"
+            data-effect="float"
+            data-place="bottom"
+            data-tip=""
+            data-type="dark"
+          >
+            <span
+              class="group-item-text"
+            >
+               Titus 3:2 
+            </span>
+          </span>
+          <div
+            class="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          />
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-74 MuiCircularProgress-colorSecondary-78 MuiCircularProgress-static-75"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-79"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-47 MuiCircularProgress-colorPrimary-50 MuiCircularProgress-static-48"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-80 MuiCircularProgress-circleStatic-81"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-52"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-53 MuiCircularProgress-circleStatic-54"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            bless, blessed, blessing
           </div>
-          chosen one, chosen ones, choose, chosen people, Chosen One, elect
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-83 MuiCircularProgress-colorSecondary-87 MuiCircularProgress-static-84"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-88"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-56 MuiCircularProgress-colorPrimary-59 MuiCircularProgress-static-57"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-89 MuiCircularProgress-circleStatic-90"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-61"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-62 MuiCircularProgress-circleStatic-63"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            born again, born of God, new birth
           </div>
-          Christ, Messiah
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-92 MuiCircularProgress-colorSecondary-96 MuiCircularProgress-static-93"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-97"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-65 MuiCircularProgress-colorPrimary-68 MuiCircularProgress-static-66"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-98 MuiCircularProgress-circleStatic-99"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-70"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-71 MuiCircularProgress-circleStatic-72"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            children, child
           </div>
-          circumcise, circumcised, circumcision, uncircumcised, uncircumcision
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-101 MuiCircularProgress-colorSecondary-105 MuiCircularProgress-static-102"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-106"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-74 MuiCircularProgress-colorPrimary-77 MuiCircularProgress-static-75"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-107 MuiCircularProgress-circleStatic-108"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-79"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-80 MuiCircularProgress-circleStatic-81"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            chosen one, chosen ones, choose, chosen people, Chosen One, elect
           </div>
-          command, commands, commanded, commandment, commandments
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-110 MuiCircularProgress-colorSecondary-114 MuiCircularProgress-static-111"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-115"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-83 MuiCircularProgress-colorPrimary-86 MuiCircularProgress-static-84"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-116 MuiCircularProgress-circleStatic-117"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-88"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-89 MuiCircularProgress-circleStatic-90"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            Christ, Messiah
           </div>
-          condemn, condemns, condemned, condemnation
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-119 MuiCircularProgress-colorSecondary-123 MuiCircularProgress-static-120"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-124"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-92 MuiCircularProgress-colorPrimary-95 MuiCircularProgress-static-93"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-125 MuiCircularProgress-circleStatic-126"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-97"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-98 MuiCircularProgress-circleStatic-99"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            circumcise, circumcised, circumcision, uncircumcised, uncircumcision
           </div>
-          conscience, consciences
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-128 MuiCircularProgress-colorSecondary-132 MuiCircularProgress-static-129"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-133"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-101 MuiCircularProgress-colorPrimary-104 MuiCircularProgress-static-102"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-134 MuiCircularProgress-circleStatic-135"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-106"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-107 MuiCircularProgress-circleStatic-108"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            command, commands, commanded, commandment, commandments
           </div>
-          discipline, disciplines, disciplined, self-discipline
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-137 MuiCircularProgress-colorSecondary-141 MuiCircularProgress-static-138"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-142"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-110 MuiCircularProgress-colorPrimary-113 MuiCircularProgress-static-111"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-143 MuiCircularProgress-circleStatic-144"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-115"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-116 MuiCircularProgress-circleStatic-117"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            condemn, condemns, condemned, condemnation
           </div>
-          eternity, everlasting, eternal, forever
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-146 MuiCircularProgress-colorSecondary-150 MuiCircularProgress-static-147"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-151"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-119 MuiCircularProgress-colorPrimary-122 MuiCircularProgress-static-120"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-152 MuiCircularProgress-circleStatic-153"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-124"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-125 MuiCircularProgress-circleStatic-126"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            conscience, consciences
           </div>
-          evil, wicked, wickedness
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-155 MuiCircularProgress-colorSecondary-159 MuiCircularProgress-static-156"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-160"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-128 MuiCircularProgress-colorPrimary-131 MuiCircularProgress-static-129"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-161 MuiCircularProgress-circleStatic-162"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-133"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-134 MuiCircularProgress-circleStatic-135"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            discipline, disciplines, disciplined, self-discipline
           </div>
-          exhort, exhortation
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-164 MuiCircularProgress-colorSecondary-168 MuiCircularProgress-static-165"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-169"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-137 MuiCircularProgress-colorPrimary-140 MuiCircularProgress-static-138"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-170 MuiCircularProgress-circleStatic-171"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-142"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-143 MuiCircularProgress-circleStatic-144"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            eternity, everlasting, eternal, forever
           </div>
-          faith
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-173 MuiCircularProgress-colorSecondary-177 MuiCircularProgress-static-174"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-178"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-146 MuiCircularProgress-colorPrimary-149 MuiCircularProgress-static-147"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-179 MuiCircularProgress-circleStatic-180"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-151"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-152 MuiCircularProgress-circleStatic-153"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            evil, wicked, wickedness
           </div>
-          faithful, faithfulness, unfaithful, unfaithfulness
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-182 MuiCircularProgress-colorSecondary-186 MuiCircularProgress-static-183"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-187"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-155 MuiCircularProgress-colorPrimary-158 MuiCircularProgress-static-156"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-188 MuiCircularProgress-circleStatic-189"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-160"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-161 MuiCircularProgress-circleStatic-162"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            exhort, exhortation
           </div>
-          fool, fools, foolish, folly
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-191 MuiCircularProgress-colorSecondary-195 MuiCircularProgress-static-192"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-196"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-164 MuiCircularProgress-colorPrimary-167 MuiCircularProgress-static-165"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-197 MuiCircularProgress-circleStatic-198"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-169"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-170 MuiCircularProgress-circleStatic-171"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            faith
           </div>
-          glory, glorious, glorify, glorifies
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-200 MuiCircularProgress-colorSecondary-204 MuiCircularProgress-static-201"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-205"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-173 MuiCircularProgress-colorPrimary-176 MuiCircularProgress-static-174"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-206 MuiCircularProgress-circleStatic-207"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-178"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-179 MuiCircularProgress-circleStatic-180"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            faithful, faithfulness, unfaithful, unfaithfulness
           </div>
-          God
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-209 MuiCircularProgress-colorSecondary-213 MuiCircularProgress-static-210"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-214"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-182 MuiCircularProgress-colorPrimary-185 MuiCircularProgress-static-183"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-215 MuiCircularProgress-circleStatic-216"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-187"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-188 MuiCircularProgress-circleStatic-189"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            fool, fools, foolish, folly
           </div>
-          God the Father, heavenly Father, Father
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-218 MuiCircularProgress-colorSecondary-222 MuiCircularProgress-static-219"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-223"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-191 MuiCircularProgress-colorPrimary-194 MuiCircularProgress-static-192"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-224 MuiCircularProgress-circleStatic-225"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-196"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-197 MuiCircularProgress-circleStatic-198"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            glory, glorious, glorify, glorifies
           </div>
-          godly, godliness, ungodly, godless, ungodliness, godlessness
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-227 MuiCircularProgress-colorSecondary-231 MuiCircularProgress-static-228"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-232"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-200 MuiCircularProgress-colorPrimary-203 MuiCircularProgress-static-201"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-233 MuiCircularProgress-circleStatic-234"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-205"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-206 MuiCircularProgress-circleStatic-207"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            God
           </div>
-          good, goodness
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-236 MuiCircularProgress-colorSecondary-240 MuiCircularProgress-static-237"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-241"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-209 MuiCircularProgress-colorPrimary-212 MuiCircularProgress-static-210"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-242 MuiCircularProgress-circleStatic-243"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-214"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-215 MuiCircularProgress-circleStatic-216"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            God the Father, heavenly Father, Father
           </div>
-          grace, gracious
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-245 MuiCircularProgress-colorSecondary-249 MuiCircularProgress-static-246"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-250"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-218 MuiCircularProgress-colorPrimary-221 MuiCircularProgress-static-219"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-251 MuiCircularProgress-circleStatic-252"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-223"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-224 MuiCircularProgress-circleStatic-225"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            godly, godliness, ungodly, godless, ungodliness, godlessness
           </div>
-          holy, holiness, unholy, sacred
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-254 MuiCircularProgress-colorSecondary-258 MuiCircularProgress-static-255"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-259"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-227 MuiCircularProgress-colorPrimary-230 MuiCircularProgress-static-228"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-260 MuiCircularProgress-circleStatic-261"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-232"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-233 MuiCircularProgress-circleStatic-234"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            good, goodness
           </div>
-          Holy Spirit, Spirit of God, Spirit of the Lord, Spirit
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-263 MuiCircularProgress-colorSecondary-267 MuiCircularProgress-static-264"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-268"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-236 MuiCircularProgress-colorPrimary-239 MuiCircularProgress-static-237"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-269 MuiCircularProgress-circleStatic-270"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-241"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-242 MuiCircularProgress-circleStatic-243"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            grace, gracious
           </div>
-          hope, hoped, hopes
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-272 MuiCircularProgress-colorSecondary-276 MuiCircularProgress-static-273"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-277"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-245 MuiCircularProgress-colorPrimary-248 MuiCircularProgress-static-246"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-278 MuiCircularProgress-circleStatic-279"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-250"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-251 MuiCircularProgress-circleStatic-252"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            holy, holiness, unholy, sacred
           </div>
-          humble, humbles, humbled, humility
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-281 MuiCircularProgress-colorSecondary-285 MuiCircularProgress-static-282"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-286"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-254 MuiCircularProgress-colorPrimary-257 MuiCircularProgress-static-255"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-287 MuiCircularProgress-circleStatic-288"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-259"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-260 MuiCircularProgress-circleStatic-261"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            Holy Spirit, Spirit of God, Spirit of the Lord, Spirit
           </div>
-          Jesus, Jesus Christ, Christ Jesus
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-290 MuiCircularProgress-colorSecondary-294 MuiCircularProgress-static-291"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-295"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-263 MuiCircularProgress-colorPrimary-266 MuiCircularProgress-static-264"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-296 MuiCircularProgress-circleStatic-297"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-268"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-269 MuiCircularProgress-circleStatic-270"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            hope, hoped, hopes
           </div>
-          Jew, Jewish, Jews
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-299 MuiCircularProgress-colorSecondary-303 MuiCircularProgress-static-300"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-304"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-272 MuiCircularProgress-colorPrimary-275 MuiCircularProgress-static-273"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-305 MuiCircularProgress-circleStatic-306"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-277"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-278 MuiCircularProgress-circleStatic-279"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            humble, humbles, humbled, humility
           </div>
-          just, justice, unjust, unjustly, injustice, justly, justify, justification
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-308 MuiCircularProgress-colorSecondary-312 MuiCircularProgress-static-309"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-313"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-281 MuiCircularProgress-colorPrimary-284 MuiCircularProgress-static-282"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-314 MuiCircularProgress-circleStatic-315"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-286"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-287 MuiCircularProgress-circleStatic-288"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            Jesus, Jesus Christ, Christ Jesus
           </div>
-          law, law of Moses, God's law, law of Yahweh
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-317 MuiCircularProgress-colorSecondary-321 MuiCircularProgress-static-318"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-322"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-290 MuiCircularProgress-colorPrimary-293 MuiCircularProgress-static-291"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-323 MuiCircularProgress-circleStatic-324"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-295"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-296 MuiCircularProgress-circleStatic-297"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            Jew, Jewish, Jews
           </div>
-          life, live, lived, lives, living, alive
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-326 MuiCircularProgress-colorSecondary-330 MuiCircularProgress-static-327"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-331"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-299 MuiCircularProgress-colorPrimary-302 MuiCircularProgress-static-300"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-332 MuiCircularProgress-circleStatic-333"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-304"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-305 MuiCircularProgress-circleStatic-306"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            just, justice, unjust, unjustly, injustice, justly, justify, justification
           </div>
-          lord, lords, Lord, master, masters, sir, sirs
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-335 MuiCircularProgress-colorSecondary-339 MuiCircularProgress-static-336"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-340"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-308 MuiCircularProgress-colorPrimary-311 MuiCircularProgress-static-309"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-341 MuiCircularProgress-circleStatic-342"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-313"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-314 MuiCircularProgress-circleStatic-315"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            law, law of Moses, God's law, law of Yahweh
           </div>
-          love, loves, loving, loved
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-344 MuiCircularProgress-colorSecondary-348 MuiCircularProgress-static-345"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-349"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-317 MuiCircularProgress-colorPrimary-320 MuiCircularProgress-static-318"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-350 MuiCircularProgress-circleStatic-351"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-322"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-323 MuiCircularProgress-circleStatic-324"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            life, live, lived, lives, living, alive
           </div>
-          mercy, merciful
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-353 MuiCircularProgress-colorSecondary-357 MuiCircularProgress-static-354"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-358"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-326 MuiCircularProgress-colorPrimary-329 MuiCircularProgress-static-327"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-359 MuiCircularProgress-circleStatic-360"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-331"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-332 MuiCircularProgress-circleStatic-333"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            lord, lords, Lord, master, masters, sir, sirs
           </div>
-          power, powers
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-362 MuiCircularProgress-colorSecondary-366 MuiCircularProgress-static-363"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-367"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-335 MuiCircularProgress-colorPrimary-338 MuiCircularProgress-static-336"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-368 MuiCircularProgress-circleStatic-369"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-340"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-341 MuiCircularProgress-circleStatic-342"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            love, loves, loving, loved
           </div>
-          promise, promises, promised
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-371 MuiCircularProgress-colorSecondary-375 MuiCircularProgress-static-372"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-376"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-344 MuiCircularProgress-colorPrimary-347 MuiCircularProgress-static-345"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-377 MuiCircularProgress-circleStatic-378"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-349"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-350 MuiCircularProgress-circleStatic-351"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            mercy, merciful
           </div>
-          prophet, prophets, prophecy, prophesy, seer, prophetess
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-380 MuiCircularProgress-colorSecondary-384 MuiCircularProgress-static-381"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-385"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-353 MuiCircularProgress-colorPrimary-356 MuiCircularProgress-static-354"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-386 MuiCircularProgress-circleStatic-387"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-358"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-359 MuiCircularProgress-circleStatic-360"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            power, powers
           </div>
-          pure, purify, purification
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-389 MuiCircularProgress-colorSecondary-393 MuiCircularProgress-static-390"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-394"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-362 MuiCircularProgress-colorPrimary-365 MuiCircularProgress-static-363"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-395 MuiCircularProgress-circleStatic-396"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-367"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-368 MuiCircularProgress-circleStatic-369"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            promise, promises, promised
           </div>
-          redeem, redeems, redemption, redeemer
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-398 MuiCircularProgress-colorSecondary-402 MuiCircularProgress-static-399"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-403"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-371 MuiCircularProgress-colorPrimary-374 MuiCircularProgress-static-372"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-404 MuiCircularProgress-circleStatic-405"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-376"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-377 MuiCircularProgress-circleStatic-378"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            prophet, prophets, prophecy, prophesy, seer, prophetess
           </div>
-          reveal, reveals, revealed, revelation
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-407 MuiCircularProgress-colorSecondary-411 MuiCircularProgress-static-408"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-412"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-380 MuiCircularProgress-colorPrimary-383 MuiCircularProgress-static-381"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-413 MuiCircularProgress-circleStatic-414"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-385"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-386 MuiCircularProgress-circleStatic-387"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            pure, purify, purification
           </div>
-          righteous, righteousness, unrighteous, unrighteousness, upright, uprightness
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-416 MuiCircularProgress-colorSecondary-420 MuiCircularProgress-static-417"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-421"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-389 MuiCircularProgress-colorPrimary-392 MuiCircularProgress-static-390"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-422 MuiCircularProgress-circleStatic-423"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-394"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-395 MuiCircularProgress-circleStatic-396"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            redeem, redeems, redemption, redeemer
           </div>
-          save, saves, saved, safe, salvation
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-425 MuiCircularProgress-colorSecondary-429 MuiCircularProgress-static-426"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-430"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-398 MuiCircularProgress-colorPrimary-401 MuiCircularProgress-static-399"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-431 MuiCircularProgress-circleStatic-432"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-403"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-404 MuiCircularProgress-circleStatic-405"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            reveal, reveals, revealed, revelation
           </div>
-          Savior, savior
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-434 MuiCircularProgress-colorSecondary-438 MuiCircularProgress-static-435"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-439"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-407 MuiCircularProgress-colorPrimary-410 MuiCircularProgress-static-408"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-440 MuiCircularProgress-circleStatic-441"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-412"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-413 MuiCircularProgress-circleStatic-414"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            righteous, righteousness, unrighteous, unrighteousness, upright, uprightness
           </div>
-          sin, sins, sinned, sinful, sinner, sinning
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-443 MuiCircularProgress-colorSecondary-447 MuiCircularProgress-static-444"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-448"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-416 MuiCircularProgress-colorPrimary-419 MuiCircularProgress-static-417"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-449 MuiCircularProgress-circleStatic-450"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-421"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-422 MuiCircularProgress-circleStatic-423"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            save, saves, saved, safe, salvation
           </div>
-          son, sons
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="100"
-              class="MuiCircularProgress-root-452 MuiCircularProgress-colorPrimary-455 MuiCircularProgress-static-453"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-457"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-425 MuiCircularProgress-colorPrimary-428 MuiCircularProgress-static-426"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-458 MuiCircularProgress-circleStatic-459"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:0.000px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-430"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-431 MuiCircularProgress-circleStatic-432"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            Savior, savior
           </div>
-          testimony, testify, witness, witnesses, eyewitness, eyewitnesses
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="75"
-              class="MuiCircularProgress-root-461 MuiCircularProgress-colorPrimary-464 MuiCircularProgress-static-462"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-466"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-434 MuiCircularProgress-colorPrimary-437 MuiCircularProgress-static-435"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-467 MuiCircularProgress-circleStatic-468"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:31.416px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-439"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-440 MuiCircularProgress-circleStatic-441"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            sin, sins, sinned, sinful, sinner, sinning
           </div>
-          true, truth, truths
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-470 MuiCircularProgress-colorSecondary-474 MuiCircularProgress-static-471"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-475"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-443 MuiCircularProgress-colorPrimary-446 MuiCircularProgress-static-444"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-476 MuiCircularProgress-circleStatic-477"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-448"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-449 MuiCircularProgress-circleStatic-450"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            son, sons
           </div>
-          trust, trusts, trusted, trustworthy, trustworthiness
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-479 MuiCircularProgress-colorSecondary-483 MuiCircularProgress-static-480"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-484"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="100"
+                class="MuiCircularProgress-root-452 MuiCircularProgress-colorPrimary-455 MuiCircularProgress-static-453"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-485 MuiCircularProgress-circleStatic-486"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-457"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-458 MuiCircularProgress-circleStatic-459"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:0.000px"
+                  />
+                </svg>
+              </div>
             </div>
+            testimony, testify, witness, witnesses, eyewitness, eyewitnesses
           </div>
-          word of God, words of God, word of Yahweh, word of the Lord, word of truth, scripture, scriptures
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-488 MuiCircularProgress-colorSecondary-492 MuiCircularProgress-static-489"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-493"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="75"
+                class="MuiCircularProgress-root-461 MuiCircularProgress-colorPrimary-464 MuiCircularProgress-static-462"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-494 MuiCircularProgress-circleStatic-495"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-466"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-467 MuiCircularProgress-circleStatic-468"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:31.416px"
+                  />
+                </svg>
+              </div>
             </div>
+            true, truth, truths
           </div>
-          works, deeds, work, acts
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-497 MuiCircularProgress-colorSecondary-501 MuiCircularProgress-static-498"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-502"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-470 MuiCircularProgress-colorPrimary-473 MuiCircularProgress-static-471"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-503 MuiCircularProgress-circleStatic-504"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-475"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-476 MuiCircularProgress-circleStatic-477"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            trust, trusts, trusted, trustworthy, trustworthiness
           </div>
-          world, worldly
         </div>
       </div>
-    </div>
-    <div
-      class="group"
-    >
       <div
-        class="menu-item-heading-normal"
+        class="group"
       >
-        <span
-          class="glyphicon glyphicon-chevron-right"
-          style="float:right;margin-top:3px"
-        />
-        <div>
-          <div
-            style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
-          >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
             <div
-              style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
-            />
-            <div
-              aria-valuenow="0"
-              class="MuiCircularProgress-root-506 MuiCircularProgress-colorSecondary-510 MuiCircularProgress-static-507"
-              role="progressbar"
-              style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute"
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
             >
-              <svg
-                class="MuiCircularProgress-svg-511"
-                viewBox="0 0 50 50"
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-479 MuiCircularProgress-colorPrimary-482 MuiCircularProgress-static-480"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
               >
-                <circle
-                  class="MuiCircularProgress-circle-512 MuiCircularProgress-circleStatic-513"
-                  cx="25"
-                  cy="25"
-                  fill="none"
-                  r="20"
-                  stroke-width="10"
-                  style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
-                />
-              </svg>
+                <svg
+                  class="MuiCircularProgress-svg-484"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-485 MuiCircularProgress-circleStatic-486"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
             </div>
+            word of God, words of God, word of Yahweh, word of the Lord, word of truth, scripture, scriptures
           </div>
-          zeal, zealous
+        </div>
+      </div>
+      <div
+        class="group"
+      >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
+            <div
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            >
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-488 MuiCircularProgress-colorPrimary-491 MuiCircularProgress-static-489"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
+              >
+                <svg
+                  class="MuiCircularProgress-svg-493"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-494 MuiCircularProgress-circleStatic-495"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
+            </div>
+            works, deeds, work, acts
+          </div>
+        </div>
+      </div>
+      <div
+        class="group"
+      >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
+            <div
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            >
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-497 MuiCircularProgress-colorPrimary-500 MuiCircularProgress-static-498"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
+              >
+                <svg
+                  class="MuiCircularProgress-svg-502"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-503 MuiCircularProgress-circleStatic-504"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
+            </div>
+            world, worldly
+          </div>
+        </div>
+      </div>
+      <div
+        class="group"
+      >
+        <div
+          class="menu-item-heading-normal"
+        >
+          <span
+            class="glyphicon glyphicon-chevron-right"
+            style="float:right;margin-top:3px"
+          />
+          <div>
+            <div
+              style="position:relative;justify-content:center;height:20px;width:20px;display:flex;margin-right:10px;float:left"
+            >
+              <div
+                style="height:20px;width:20px;border:white solid 3px;border-radius:50%"
+              />
+              <div
+                aria-valuenow="0"
+                class="MuiCircularProgress-root-506 MuiCircularProgress-colorPrimary-509 MuiCircularProgress-static-507"
+                role="progressbar"
+                style="width:20px;height:20px;transform:rotate(-90deg);align-self:center;position:absolute;color:#40BDF2"
+              >
+                <svg
+                  class="MuiCircularProgress-svg-511"
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle-512 MuiCircularProgress-circleStatic-513"
+                    cx="25"
+                    cy="25"
+                    fill="none"
+                    r="20"
+                    stroke-width="10"
+                    style="stroke-dasharray:125.664;stroke-dashoffset:125.664px"
+                  />
+                </svg>
+              </div>
+            </div>
+            zeal, zealous
+          </div>
         </div>
       </div>
     </div>
@@ -3335,7 +3338,7 @@ exports[`Container Tests Test Container 1`] = `
           class="phrase"
         />
         <div
-          class="linkActive"
+          class="linkInactive"
         >
           see_more
         </div>
@@ -3354,7 +3357,7 @@ exports[`Container Tests Test Container 1`] = `
             class="title-bar"
           >
             <span>
-              select
+              step2_check
             </span>
             <div
               style="display:flex;justify-content:flex-end"
@@ -3385,7 +3388,7 @@ exports[`Container Tests Test Container 1`] = `
             class="check-area"
           >
             <div
-              style="flex:1;display:flex;flex-direction:column"
+              style="-webkit-user-select:none;flex:1;display:flex;flex-direction:column"
             >
               <div
                 class="verse-title"
@@ -3405,16 +3408,23 @@ exports[`Container Tests Test Container 1`] = `
                     Titus 2:5
                   </span>
                 </div>
+                <div>
+                  <span
+                    class="glyphicon glyphicon-fullscreen"
+                    style="cursor:pointer"
+                    title="click_show_expanded"
+                  />
+                </div>
               </div>
-              <div>
+              <div
+                class="ltr-content"
+              >
                 <div
-                  class="ltr-content"
+                  style="user-select:none;color:var(--text-color-light)"
                 >
-                  <div>
-                    <span>
-                      to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.
-                    </span>
-                  </div>
+                  <span>
+                    to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.
+                  </span>
                 </div>
               </div>
             </div>
@@ -3422,21 +3432,13 @@ exports[`Container Tests Test Container 1`] = `
               style="border-left:1px solid var(--border-color);flex:1;overflow-y:auto;display:flex;justify-content:center"
             >
               <div
-                style="-webkit-user-select:none;display:flex;flex:1;justify-content:center;align-items:center;overflow:auto"
+                style="-webkit-user-select:none;display:flex;justify-content:center;align-items:center;height:100%"
               >
                 <div
                   class="instructions-area"
                 >
                   <span>
-                    please_select
-                  </span>
-                  <br />
-                  <span>
-                    <strong
-                      style="color:var(--accent-color)"
-                    >
-                      "be insulted"
-                    </strong>
+                    no_selection
                   </span>
                   <br />
                 </div>
@@ -3446,46 +3448,138 @@ exports[`Container Tests Test Container 1`] = `
           <div
             class="actions-area"
           >
-            <button
-              class="btn-second"
-              style="align-self:flex-start"
-            >
-              cancel
-            </button>
-            <button
-              class="btn-second"
-              disabled=""
+            <label
+              class="MuiFormControlLabel-root-535"
+              style="padding-left:10px"
             >
               <span
-                class="glyphicon glyphicon-erase"
-                style="margin-right:10px"
-              />
-              clear_selection
-            </button>
-            <button
-              class="btn-prime"
-              disabled=""
-            >
+                class="MuiSwitch-root-538"
+              >
+                <span
+                  class="MuiButtonBase-root-557 MuiIconButton-root-551 MuiSwitchBase-root-547 MuiSwitch-switchBase-541 MuiSwitch-colorPrimary-543 Bookmark-colorPrimary-534"
+                >
+                  <span
+                    class="MuiIconButton-label-556"
+                  >
+                    <span
+                      class="MuiSwitch-icon-539"
+                    />
+                    <input
+                      class="MuiSwitchBase-input-550"
+                      type="checkbox"
+                      value="bookmark"
+                    />
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root-560"
+                  />
+                </span>
+                <span
+                  class="MuiSwitch-bar-546"
+                />
+              </span>
               <span
-                class="glyphicon glyphicon-ok"
-                style="margin-right:10px"
-              />
-              save
-            </button>
+                class="MuiTypography-root-567 MuiTypography-body1-576 MuiFormControlLabel-label-537 Bookmark-label-533"
+              >
+                bookmark
+              </span>
+            </label>
+            <div
+              style="display:flex;margin-left:auto"
+            >
+              <button
+                class="btn-second"
+                style="width:140px;margin-rigth:5px"
+              >
+                <span
+                  class="glyphicon glyphicon-ok"
+                  style="margin-right:10px"
+                />
+                select
+              </button>
+              <button
+                class="btn-second"
+                style="width:140px;margin-rigth:5px"
+              >
+                <span
+                  class="glyphicon glyphicon-pencil"
+                  style="margin-right:10px"
+                />
+                edit_verse
+              </button>
+              <button
+                class="btn-second"
+                style="width:140px"
+              >
+                <span
+                  class="glyphicon glyphicon-comment"
+                  style="margin-right:10px"
+                />
+                comment
+              </button>
+            </div>
           </div>
         </div>
-        <div />
+        <div
+          class="save-area"
+        >
+          <button
+            class="btn-second"
+          >
+            <span
+              class="glyphicon glyphicon-share-alt"
+              style="margin-right:10px;transform:scaleX(-1)"
+            />
+            save_previous
+          </button>
+          <button
+            class="btn-prime"
+          >
+            save_continue
+            <span
+              class="glyphicon glyphicon-share-alt"
+              style="margin-left:10px"
+            />
+          </button>
+        </div>
       </div>
       <div />
     </div>
   </div>
   <div
-    class="helps-sash-closed"
+    class="helps-sash-container"
   >
-    <span
-      class="glyphicon glyphicon-chevron-left"
-      style="cursor:pointer"
-    />
+    <div
+      class="helps-sash-closed"
+    >
+      <span
+        class="glyphicon glyphicon-chevron-right"
+        style="cursor:pointer"
+      />
+    </div>
+    <div
+      class="helps"
+    >
+      <div
+        class="helps-title-bar"
+      >
+        <span
+          class="glyphicon glyphicon-fullscreen"
+          style="cursor:pointer"
+          title="Click to show expanded help pane"
+        />
+      </div>
+      <div
+        class="helps-article"
+      >
+        <div
+          class="remarkableStyling helpsBody"
+          id="helpsbody"
+        >
+          <div />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
