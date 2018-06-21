@@ -1,14 +1,19 @@
 
-
-export const loadCorrectPaneSettings = (props, setToolSettings) => {
+export const loadCorrectPaneSettings = (props, setToolSettings, bibles) => {
   const { currentToolName } = props.toolsReducer;
   const { currentProjectToolsSelectedGL } = props.projectDetailsReducer;
   const languageId = currentProjectToolsSelectedGL[currentToolName];
   const { ScripturePane } = props.settingsReducer.toolsSettings;
-  const currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
+  let currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
   const paneSeetingsIncludeGLandUlbOrUlt = (paneSetting) => {
     return paneSetting.languageId === languageId && (paneSetting.bibleId === 'ulb' || paneSetting.bibleId === 'ult');
   };
+
+  // make sure bibles in currentPaneSettings are found in the bibles object in the resourcesReducer
+  currentPaneSettings = currentPaneSettings ? currentPaneSettings.filter((paneSetting) => {
+    return bibles[paneSetting.languageId] && bibles[paneSetting.languageId][paneSetting.bibleId] ? true : false;
+  }) : currentPaneSettings;
+
   // making sure the right ult or ulb language is displayed in the scripture pane
   if (currentPaneSettings && !currentPaneSettings.some(paneSeetingsIncludeGLandUlbOrUlt) && currentPaneSettings.length > 0) {
     const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
