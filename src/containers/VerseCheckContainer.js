@@ -8,6 +8,12 @@ import {VerseCheck} from 'tc-ui-toolkit';
 class VerseCheckContainer extends React.Component {
   constructor(props) {
     super(props);
+
+    let verseText = usfmjs.removeMarker(this.verseText());
+    const mode = props.selectionsReducer &&
+      props.selectionsReducer.selections &&
+      props.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
+
     this.state = {
       mode: mode,
       comment: undefined,
@@ -26,9 +32,6 @@ class VerseCheckContainer extends React.Component {
     this.handleSkip = this.handleSkip.bind(this);
     this.findIfVerseEdited = this.findIfVerseEdited.bind(this);
     this.findIfVerseInvalidated = this.findIfVerseInvalidated.bind(this);
-
-    let verseText = usfmjs.removeMarker(this.verseText());
-    const mode = props.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
 
     //TODO: factor out actions object to individual functions
     //Will require changes to the ui kit

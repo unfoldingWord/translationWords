@@ -3357,7 +3357,7 @@ exports[`Container Tests Test Container 1`] = `
             class="title-bar"
           >
             <span>
-              step2_check
+              select
             </span>
             <div
               style="display:flex;justify-content:flex-end"
@@ -3388,7 +3388,7 @@ exports[`Container Tests Test Container 1`] = `
             class="check-area"
           >
             <div
-              style="-webkit-user-select:none;flex:1;display:flex;flex-direction:column"
+              style="flex:1;display:flex;flex-direction:column"
             >
               <div
                 class="verse-title"
@@ -3408,23 +3408,16 @@ exports[`Container Tests Test Container 1`] = `
                     Titus 2:5
                   </span>
                 </div>
-                <div>
-                  <span
-                    class="glyphicon glyphicon-fullscreen"
-                    style="cursor:pointer"
-                    title="click_show_expanded"
-                  />
-                </div>
               </div>
-              <div
-                class="ltr-content"
-              >
+              <div>
                 <div
-                  style="user-select:none;color:var(--text-color-light)"
+                  class="ltr-content"
                 >
-                  <span>
-                    to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.
-                  </span>
+                  <div>
+                    <span>
+                      to be sensible, pure, good housekeepers, and obedient to their own husbands, so that God's word may not be insulted.
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3432,13 +3425,21 @@ exports[`Container Tests Test Container 1`] = `
               style="border-left:1px solid var(--border-color);flex:1;overflow-y:auto;display:flex;justify-content:center"
             >
               <div
-                style="-webkit-user-select:none;display:flex;justify-content:center;align-items:center;height:100%"
+                style="-webkit-user-select:none;display:flex;flex:1;justify-content:center;align-items:center;overflow:auto"
               >
                 <div
                   class="instructions-area"
                 >
                   <span>
-                    no_selection
+                    please_select
+                  </span>
+                  <br />
+                  <span>
+                    <strong
+                      style="color:var(--accent-color)"
+                    >
+                      "be insulted"
+                    </strong>
                   </span>
                   <br />
                 </div>
@@ -3448,100 +3449,35 @@ exports[`Container Tests Test Container 1`] = `
           <div
             class="actions-area"
           >
-            <label
-              class="MuiFormControlLabel-root-535"
-              style="padding-left:10px"
+            <button
+              class="btn-second"
+              style="align-self:flex-start"
+            >
+              cancel
+            </button>
+            <button
+              class="btn-second"
+              disabled=""
             >
               <span
-                class="MuiSwitch-root-538"
-              >
-                <span
-                  class="MuiButtonBase-root-557 MuiIconButton-root-551 MuiSwitchBase-root-547 MuiSwitch-switchBase-541 MuiSwitch-colorPrimary-543 Bookmark-colorPrimary-534"
-                >
-                  <span
-                    class="MuiIconButton-label-556"
-                  >
-                    <span
-                      class="MuiSwitch-icon-539"
-                    />
-                    <input
-                      class="MuiSwitchBase-input-550"
-                      type="checkbox"
-                      value="bookmark"
-                    />
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root-560"
-                  />
-                </span>
-                <span
-                  class="MuiSwitch-bar-546"
-                />
-              </span>
-              <span
-                class="MuiTypography-root-567 MuiTypography-body1-576 MuiFormControlLabel-label-537 Bookmark-label-533"
-              >
-                bookmark
-              </span>
-            </label>
-            <div
-              style="display:flex;margin-left:auto"
+                class="glyphicon glyphicon-erase"
+                style="margin-right:10px"
+              />
+              clear_selection
+            </button>
+            <button
+              class="btn-prime"
+              disabled=""
             >
-              <button
-                class="btn-second"
-                style="width:140px;margin-rigth:5px"
-              >
-                <span
-                  class="glyphicon glyphicon-ok"
-                  style="margin-right:10px"
-                />
-                select
-              </button>
-              <button
-                class="btn-second"
-                style="width:140px;margin-rigth:5px"
-              >
-                <span
-                  class="glyphicon glyphicon-pencil"
-                  style="margin-right:10px"
-                />
-                edit_verse
-              </button>
-              <button
-                class="btn-second"
-                style="width:140px"
-              >
-                <span
-                  class="glyphicon glyphicon-comment"
-                  style="margin-right:10px"
-                />
-                comment
-              </button>
-            </div>
+              <span
+                class="glyphicon glyphicon-ok"
+                style="margin-right:10px"
+              />
+              save
+            </button>
           </div>
         </div>
-        <div
-          class="save-area"
-        >
-          <button
-            class="btn-second"
-          >
-            <span
-              class="glyphicon glyphicon-share-alt"
-              style="margin-right:10px;transform:scaleX(-1)"
-            />
-            save_previous
-          </button>
-          <button
-            class="btn-prime"
-          >
-            save_continue
-            <span
-              class="glyphicon glyphicon-share-alt"
-              style="margin-left:10px"
-            />
-          </button>
-        </div>
+        <div />
       </div>
       <div />
     </div>
