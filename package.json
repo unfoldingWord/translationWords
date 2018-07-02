@@ -62,7 +62,7 @@
     "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.3.0",
     "tc-tool": "^1.5.0",
-    "tc-ui-toolkit": "^0.9.13",
+    "tc-ui-toolkit": "0.9.14",
     "usfm-js": "1.0.0-beta.17.2",
     "usfm-parser": "0.1.6",
     "xregexp": "3.2.0"
