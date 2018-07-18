@@ -28,11 +28,6 @@
   },
   "homepage": "https://github.com/translationCoreApps/translationWords#readme",
   "display": "app",
-  "include": {
-    "ScripturePane": "1.0.2",
-    "VerseCheck": "1.0.0",
-    "TranslationHelps": "1.0.0"
-  },
   "devDependencies": {
     "babel-eslint": "8.2.2",
     "babel-jest": "21.2.0",
@@ -50,22 +45,27 @@
     "jest": "^21.2.1",
     "material-ui": "0.20.0",
     "prop-types": "15.6.0",
-    "react": "16.2.0",
+    "react": "16.3.0",
     "react-addons-test-utils": "15.6.2",
     "react-bootstrap": "0.32.0",
     "react-container-dimensions": "1.3.3",
-    "react-dom": "16.2.0",
+    "react-dom": "16.3.0",
     "react-redux": "5.0.7",
     "react-test-renderer": "16.2.0",
     "redux": "3.7.2"
   },
   "dependencies": {
+    "deep-equal": "^1.0.1",
+    "enzyme-to-json": "^3.3.4",
     "natural": "0.4.0",
     "react-remarkable": "1.1.1",
-    "tc-tool": "1.3.0",
+    "redux-mock-store": "^1.5.1",
+    "redux-thunk": "^2.3.0",
+    "tc-tool": "^1.5.0",
+    "tc-ui-toolkit": "0.9.15",
+    "usfm-js": "1.0.0-beta.17.2",
     "usfm-parser": "0.1.6",
-    "xregexp": "3.2.0",
-    "usfm-js": "1.0.0-beta.17.2"
+    "xregexp": "3.2.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",

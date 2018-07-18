@@ -1,69 +1,42 @@
 /* eslint-env jest */
-
+import {connect} from 'react-redux';
 import React from 'react';
-
-import View from './components/View.js';
 import PropTypes from 'prop-types';
+//selectors
+import {
+  getIsVerseFinished,
+  getContextId,
+  getManifest,
+  getProjectSaveLocation,
+  getCurrentToolName,
+  getCurrentProjectToolsSelectedGL,
+  getGroupsIndex,
+  getResourceByName,
+  getSelections,
+  getCurrentPaneSettings,
+  getBibles
+} from './selectors';
+// helpers
+import * as settingsHelper from './helpers/settingsHelper';
+//containers
+import GroupMenuContainer from './containers/GroupMenuContainer';
+import VerseCheckContainer from './containers/VerseCheckContainer';
+import TranslationHelpsContainer from './containers/TranslationHelpsContainer';
+import CheckInfoCardContainer from './containers/CheckInfoCardContainer';
+import ScripturePaneContainer from './containers/ScripturePaneContainer';
+
 
 class Container extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      showHelps: true,
+      showHelps: true
     };
+    this.toggleHelps = this.toggleHelps.bind(this);
   }
-
   componentWillMount() {
-    const { currentToolName } = this.props.toolsReducer;
-    const { currentProjectToolsSelectedGL } = this.props.projectDetailsReducer;
-    const languageId = currentProjectToolsSelectedGL[currentToolName];
-    const { ScripturePane } = this.props.settingsReducer.toolsSettings;
-    const currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
-    // making sure the right ult language is displayed in the scripture pane
-    if (currentPaneSettings && !currentPaneSettings.some(paneSetting => paneSetting.languageId === languageId)) {
-      const newCurrentPaneSettings = currentPaneSettings.map((paneSetting) => {
-        if (paneSetting.bibleId === 'ult') paneSetting.languageId = languageId;
-        return paneSetting;
-      });
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", newCurrentPaneSettings);
-    }
-    if (!ScripturePane || currentPaneSettings.length === 0) {
-      // initializing the ScripturePane settings if not found.
-      const initialCurrentPaneSettings = [
-        {
-          languageId,
-          bibleId: 'ult'
-        },
-        {
-          languageId: 'targetLanguage',
-          bibleId: 'targetBible'
-        }
-      ];
-      this.props.actions.setToolSettings("ScripturePane", "currentPaneSettings", initialCurrentPaneSettings);
-    }
-    this._reloadArticle(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.contextIdReducer && this.props.contextIdReducer !== nextProps.contextIdReducer) {
-      this._reloadArticle(nextProps);
-    }
-  }
-
-  /**
-   * Loads the resource article
-   * @param props
-   * @private
-   */
-  _reloadArticle(props) {
-    const {contextIdReducer, toolsReducer, projectDetailsReducer, actions} = props;
-    const {contextId} = contextIdReducer;
-    if(contextId) {
-      const articleId = contextId.groupId;
-      const {currentToolName} = toolsReducer;
-      const languageId = projectDetailsReducer.currentProjectToolsSelectedGL[currentToolName];
-      actions.loadResourceArticle(currentToolName, articleId, languageId);
-    }
+    const { bibles } = this.props.scripturePane;
+    settingsHelper.loadCorrectPaneSettings(this.props, this.props.tc.actions.setToolSettings, bibles);
   }
 
   toggleHelps() {
@@ -71,23 +44,30 @@ class Container extends React.Component {
   }
 
   render() {
-    const { translate, projectDetailsReducer: { currentProjectToolsSelectedGL }, toolsReducer: { currentToolName } } = this.props;
-    const { contextId } = this.props.contextIdReducer;
+    const {
+      contextIdReducer: {contextId},
+    } = this.props;
 
     if (contextId !== null) {
-      const languageId = currentProjectToolsSelectedGL[currentToolName];
-      const { groupId } = this.props.contextIdReducer.contextId;
-      const title = this.props.groupsIndexReducer.groupsIndex.filter(item=>item.id===groupId)[0].name;
-      const glQuote = this.props.actions.getGLQuote(languageId, groupId, currentToolName);
+      // const glQuote = actions.getGLQuote(languageId, groupId, currentToolName);
       return (
-        <View
-          {...this.props}
-          glQuote={glQuote}
-          translate={translate}
-          title={title}
-          showHelps={this.state.showHelps}
-          toggleHelps={this.toggleHelps.bind(this)}
-        />
+        <div style={{display: 'flex', flexDirection: 'row', width: '100vw'}}>
+          <GroupMenuContainer {...this.props.groupMenu} />
+          <div style={{display: 'flex', flexDirection: 'column', width: '100%', overflowX: 'auto'}}>
+            <div style={{ height: '250px', paddingBottom: '20px' }}>
+              <ScripturePaneContainer {...this.props.scripturePane} />
+            </div>
+            <CheckInfoCardContainer
+              toggleHelps={this.toggleHelps.bind(this)}
+              showHelps={this.state.showHelps}
+              {...this.props.checkInfoCard} />
+            <VerseCheckContainer {...this.props.verseCheck} />
+          </div>
+          <TranslationHelpsContainer
+            toggleHelps={this.toggleHelps.bind(this)}
+            showHelps={this.state.showHelps}
+            {...this.props.translationHelps} />
+        </div>
       );
     } else {
       return null;
@@ -116,11 +96,74 @@ Container.propTypes = {
   toolsReducer: PropTypes.shape({
     currentToolName: PropTypes.string.isRequired
   }),
-  actions: PropTypes.shape({
-    setToolSettings: PropTypes.func.isRequired,
-    loadResourceArticle: PropTypes.func.isRequired,
-    getGLQuote: PropTypes.func.isRequired
-  })
+  tc: PropTypes.shape({
+    actions: PropTypes.shape({
+      setToolSettings: PropTypes.func.isRequired,
+      loadResourceArticle: PropTypes.func.isRequired,
+      getGLQuote: PropTypes.func.isRequired,
+      getSelectionsFromContextId: PropTypes.func.isRequired
+    })
+  }),
+  scripturePane: PropTypes.object.isRequired
 };
 
-export default Container;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    groupMenu: {
+      toolsReducer: ownProps.tc.toolsReducer,
+      groupsDataReducer: ownProps.tc.groupsDataReducer,
+      groupsIndexReducer: ownProps.tc.groupsIndexReducer,
+      groupMenuReducer: ownProps.tc.groupMenuReducer,
+      translate: ownProps.translate,
+      actions: ownProps.tc.actions,
+      isVerseFinished: (chapter, verse) => getIsVerseFinished('wordAlignment', ownProps, chapter, verse),
+      contextId: getContextId(ownProps),
+      manifest: getManifest(ownProps),
+      projectSaveLocation: getProjectSaveLocation(ownProps)
+    },
+    verseCheck: {
+      translate: ownProps.translate,
+      currentToolName: getCurrentToolName(ownProps),
+      projectDetailsReducer: ownProps.tc.projectDetailsReducer,
+      loginReducer: ownProps.tc.loginReducer,
+      resourcesReducer: ownProps.tc.resourcesReducer,
+      commentsReducer: ownProps.tc.commentsReducer,
+      selectionsReducer: ownProps.tc.selectionsReducer,
+      contextIdReducer: ownProps.tc.contextIdReducer,
+      toolsReducer: ownProps.tc.toolsReducer,
+      groupsDataReducer: ownProps.tc.groupsDataReducer,
+      remindersReducer: ownProps.tc.remindersReducer,
+      actions: ownProps.tc.actions
+    },
+    translationHelps: {
+      translate: ownProps.translate,
+      currentProjectToolsSelectedGL: getCurrentProjectToolsSelectedGL(ownProps),
+      toolsReducer: ownProps.tc.toolsReducer,
+      resourcesReducer: ownProps.tc.resourcesReducer,
+      contextIdReducer: ownProps.tc.contextIdReducer,
+      actions: ownProps.tc.actions
+    },
+    checkInfoCard: {
+      translate: ownProps.translate,
+      translationHelps: getResourceByName(ownProps, 'translationHelps'),
+      groupsIndex: getGroupsIndex(ownProps),
+      contextId: getContextId(ownProps)
+    },
+    scripturePane: {
+      translate: ownProps.translate,
+      manifest: getManifest(ownProps),
+      selections: getSelections(ownProps),
+      currentPaneSettings: getCurrentPaneSettings(ownProps),
+      bibles: getBibles(ownProps),
+      contextId: getContextId(ownProps),
+      projectDetailsReducer: ownProps.tc.projectDetailsReducer,
+      showPopover: ownProps.tc.actions.showPopover,
+      editTargetVerse: ownProps.tc.actions.editTargetVerse,
+      getLexiconData: ownProps.tc.actions.getLexiconData,
+      setToolSettings: ownProps.tc.actions.setToolSettings
+    }
+  };
+};
+
+
+export default connect(mapStateToProps)(Container);

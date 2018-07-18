@@ -1,11 +1,9 @@
 import Container from './src/Container';
 import {connectTool} from 'tc-tool';
 import path from 'path';
+import api from './src/api';
 
-const NAMESPACE = "translationWords";
-const LOCALE_DIR = path.join(__dirname, './locale');
-
-export default {
-  name: NAMESPACE,
-  container: connectTool(LOCALE_DIR)(Container)
-};
+export default connectTool('translationWords', {
+  localeDir: path.join(__dirname, './src/locale'),
+  api: new api()
+})(Container);
