@@ -70,8 +70,8 @@
     "add_resource_label": "Add Resources",
     "select_language": "Select language"
   },
-  "lemma": "Lemma",
-  "morph": "Morphology",
-  "strongs": "Strongs",
-  "lexicon": "Lexicon"
+  "lemma": "Lemma:",
+  "morphology": "Morphology:",
+  "strongs": "Strongs:",
+  "lexicon": "Lexicon:"
 }
