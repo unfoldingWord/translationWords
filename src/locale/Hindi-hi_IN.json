@@ -70,8 +70,8 @@
     "add_resource_label": "संसाधन जोड़ें",
     "select_language": "भाषा चुनिए"
   },
-  "lemma": "लेम्मा",
-  "morph": "आकृति विज्ञान",
-  "strongs": "मजबूत की",
-  "lexicon": "शब्दकोश"
+  "lemma": "Lemma:",
+  "morphology": "Morphology:",
+  "strongs": "Strongs:",
+  "lexicon": "Lexicon:"
 }
