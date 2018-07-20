@@ -43,7 +43,8 @@ export function getSelections(state) {
 }
 
 export function getCurrentPaneSettings(state) {
-  return state.settingsReducer.toolsSettings.ScripturePane.currentPaneSettings;
+  const {ScripturePane} = state.settingsReducer.toolsSettings;
+  return ScripturePane ? ScripturePane.currentPaneSettings : [];
 }
 
 export function getBibles(state) {
