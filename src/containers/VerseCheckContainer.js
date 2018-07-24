@@ -305,20 +305,6 @@ class VerseCheckContainer extends React.Component {
     }
   }
 
-  getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-    let alignedGLText = contextId.quote;
-    const selectedGL = currentProjectToolsSelectedGL[currentToolName];
-    if (bibles[selectedGL] && bibles[selectedGL]['ult']) {
-      const verseObjects = bibles[selectedGL]['ult'][contextId.reference.chapter][contextId.reference.verse].verseObjects;
-      const wordsToMatch = contextId.quote.split(' ');
-      const alignedText = checkAreaHelpers.getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
-      if (alignedText) {
-        alignedGLText = alignedText;
-      }
-    }
-    return alignedGLText;
-  }
-
   render() {
     const {
       translate,
@@ -334,7 +320,7 @@ class VerseCheckContainer extends React.Component {
       remindersReducer
     } = this.props;
     const verseText = usfmjs.removeMarker(this.verseText());
-    const alignedGLText = this.getAlignedGLText(
+    const alignedGLText = checkAreaHelpers.getAlignedGLText( 
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
       <VerseCheck

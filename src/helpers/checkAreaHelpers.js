@@ -70,3 +70,30 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
   });
   return text;
 };
+
+export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
+  //debugger;
+  let alignedGLText = contextId.quote;
+  const selectedGL = currentProjectToolsSelectedGL[currentToolName];
+
+// Some resources have the old translation type. The following code
+// allows for current and previous types
+// TBD this fix should be replaced by support for arbitrary document types to translate
+  let translationType = 'ult'; // unfoldingword literal text replaces
+  const oldType = 'ulb';       // unlocked literal bible
+
+  if (bibles[selectedGL] && (bibles[selectedGL][translationType] || bibles[selectedGL][oldType])) {
+    if (bibles[selectedGL][oldType]) {
+      translationType = oldType;
+    }
+
+    const verseObjects = bibles[selectedGL][translationType][contextId.reference.chapter][contextId.reference.verse].verseObjects;
+    const wordsToMatch = contextId.quote.split(' ');
+    const alignedText = getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
+    if (alignedText) {
+      alignedGLText = alignedText;
+    }
+  }
+
+  return alignedGLText;
+}
