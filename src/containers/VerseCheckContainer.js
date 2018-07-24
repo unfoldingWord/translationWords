@@ -320,7 +320,7 @@ class VerseCheckContainer extends React.Component {
       remindersReducer
     } = this.props;
     const verseText = usfmjs.removeMarker(this.verseText());
-    const alignedGLText = checkAreaHelpers.getAlignedGLText( // was this.
+    const alignedGLText = checkAreaHelpers.getAlignedGLText( 
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
       <VerseCheck
