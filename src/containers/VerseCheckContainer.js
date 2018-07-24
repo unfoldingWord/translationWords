@@ -305,32 +305,6 @@ class VerseCheckContainer extends React.Component {
     }
   }
 
-  getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-    //debugger;
-    let alignedGLText = contextId.quote;
-    const selectedGL = currentProjectToolsSelectedGL[currentToolName];
-
-  // Some resources have the old translation type. The following code
-  // allows for current and previous types
-    let translationType = 'ult'; // unfoldingword literal text replaces
-    const oldType = 'ulb';       // unlocked literal bible
-
-    if (bibles[selectedGL] && (bibles[selectedGL][translationType] || bibles[selectedGL][oldType])) {
-      if (bibles[selectedGL][oldType]) {
-        translationType = oldType;
-      }
-
-      const verseObjects = bibles[selectedGL][translationType][contextId.reference.chapter][contextId.reference.verse].verseObjects;
-      const wordsToMatch = contextId.quote.split(' ');
-      const alignedText = checkAreaHelpers.getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
-      if (alignedText) {
-        alignedGLText = alignedText;
-      }
-    }
-
-    return alignedGLText;
-  }
-
   render() {
     const {
       translate,
@@ -346,7 +320,7 @@ class VerseCheckContainer extends React.Component {
       remindersReducer
     } = this.props;
     const verseText = usfmjs.removeMarker(this.verseText());
-    const alignedGLText = this.getAlignedGLText(
+    const alignedGLText = checkAreaHelpers.getAlignedGLText( // was this.
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
       <VerseCheck
