@@ -14,7 +14,7 @@ export default class Api extends ToolApi {
    * Lifecycle method
    */
   toolWillConnect() {
-
+    // TODO: implement
   }
 
   /**
@@ -23,7 +23,7 @@ export default class Api extends ToolApi {
    * @param prevState
    */
   stateChangeThrottled(nextState, prevState) {
-    // TODO: save the tool data
+    // TODO: implement
   }
 
   /**
@@ -32,7 +32,7 @@ export default class Api extends ToolApi {
    * @param props
    */
   mapStateToProps(state, props) {
-    // TODO: map custom props
+    // TODO: implement
   }
 
   /**
@@ -40,7 +40,7 @@ export default class Api extends ToolApi {
    * @param dispatch
    */
   mapDispatchToProps(dispatch) {
-    // TODO: map custom props
+    // TODO: implement
     return {};
   }
 
@@ -48,15 +48,16 @@ export default class Api extends ToolApi {
    * Lifecycle method
    */
   toolWillDisconnect() {
-    // TODO: cleanup
+    // TODO: implement
   }
 
   toolWillReceiveProps(nextProps) {
-    // TODO:
+    // TODO: implement
   }
 
   /**
    * Returns the alignment memory generated from selections made in tW.
+   * @return {{sourceText : string, targetText : string}[]}
    */
   getAlignmentMemory() {
     // TODO: perform initial selection loading when the tool connects.
@@ -64,6 +65,7 @@ export default class Api extends ToolApi {
     const selections = this._loadBookSelections(this.props);
     const alignmentMemory = [];
 
+    // format selections as alignment memory
     for(const chapter of Object.keys(selections)) {
       for(const verse of Object.keys(selections[chapter])) {
         for(const selection of selections[chapter][verse]) {
@@ -81,6 +83,11 @@ export default class Api extends ToolApi {
     return alignmentMemory;
   }
 
+  /**
+   * Loads the selection data for the entire book
+   * @param props
+   * @private
+   */
   _loadBookSelections(props) {
     const {
       tc: {
@@ -104,6 +111,14 @@ export default class Api extends ToolApi {
     return selections;
   }
 
+  /**
+   * Loads the selection data for a verse
+   * @param {string} chapter
+   * @param {string} verse
+   * @param props
+   * @return {Array}
+   * @private
+   */
   _loadVerseSelections(chapter, verse, props) {
     const {
       tc: {
