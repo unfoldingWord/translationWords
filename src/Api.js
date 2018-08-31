@@ -131,7 +131,7 @@ export default class Api extends ToolApi {
 
     const verseDir = path.join('checkData/selections/', bookId, chapter, verse);
     const selections = [];
-    const foundGroupIds = [];
+    const foundSelections = [];
     if(projectFileExistsSync(verseDir)) {
 
       let files = readProjectDirSync(verseDir);
@@ -149,9 +149,9 @@ export default class Api extends ToolApi {
         }
 
         if(data && data.contextId) {
-          const groupId = data.contextId.groupId;
-          if (foundGroupIds.indexOf(groupId) === -1) {
-            foundGroupIds.push(groupId);
+          const id = `${data.contextId.groupId}:${data.contextId.quote}`;
+          if (foundSelections.indexOf(id) === -1) {
+            foundSelections.push(id);
             selections.push(data);
           }
         }
