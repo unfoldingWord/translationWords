@@ -14,7 +14,7 @@ export default class Api extends ToolApi {
    * Lifecycle method
    */
   toolWillConnect() {
-    this._loadBookSelections(this.props);
+
   }
 
   /**
@@ -59,7 +59,26 @@ export default class Api extends ToolApi {
    * Returns the alignment memory generated from selections made in tW.
    */
   getAlignmentMemory() {
-    return [];
+    // TODO: perform initial selection loading when the tool connects.
+    // This must wait until after all selection logic is migrated to tW.
+    const selections = this._loadBookSelections(this.props);
+    const alignmentMemory = [];
+
+    for(const chapter of Object.keys(selections)) {
+      for(const verse of Object.keys(selections[chapter])) {
+        for(const selection of selections[chapter][verse]) {
+          if(selection.selections.length === 0) continue;
+          const sourceText = selection.contextId.quote;
+          const targetText = selection.selections.map(s => s.text).join(' ');
+          alignmentMemory.push({
+            sourceText,
+            targetText
+          });
+        }
+      }
+    }
+
+    return alignmentMemory;
   }
 
   _loadBookSelections(props) {
@@ -82,6 +101,7 @@ export default class Api extends ToolApi {
       }
     }
     // TODO: store selection data in tool reducer.
+    return selections;
   }
 
   _loadVerseSelections(chapter, verse, props) {
@@ -90,17 +110,37 @@ export default class Api extends ToolApi {
         contextId: {reference: {bookId}},
         projectFileExistsSync,
         readProjectDataSync,
-        targetBible
+        readProjectDirSync
       }
     } = props;
 
     const verseDir = path.join('checkData/selections/', bookId, chapter, verse);
     const selections = [];
+    const foundGroupIds = [];
     if(projectFileExistsSync(verseDir)) {
-      // TODO: need to list files in directory.
-      // I'll need to add a method to do so.
-      console.warn('searching for selections in ', verseDir);
 
+      let files = readProjectDirSync(verseDir);
+      files = files.filter(f => path.extname(f) === '.json');
+      files = files.sort().reverse();
+      for(let i = 0; i < files.length; i ++) {
+        let filePath = path.join(verseDir, files[i]);
+
+        let data;
+        try {
+          data = JSON.parse(readProjectDataSync(filePath));
+        } catch (err) {
+          console.error(`failed to read selection data from ${filePath}`, err);
+          continue;
+        }
+
+        if(data && data.contextId) {
+          const groupId = data.contextId.groupId;
+          if (foundGroupIds.indexOf(groupId) === -1) {
+            foundGroupIds.push(groupId);
+            selections.push(data);
+          }
+        }
+      }
     }
     return selections;
   }
