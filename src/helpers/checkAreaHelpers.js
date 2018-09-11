@@ -4,7 +4,7 @@ const DEFAULT_SEPARATOR = ' ';
 /**
  * getAlignedText - returns a string of the text found in an array of verseObjects that matches the words to find
  *                  and their occurrence in the verse.
- * @param {Array} verseObjects 
+ * @param {Array} verseObjects
  * @param {Array} wordsToMatch
  * @param {int} occurrenceToMatch
  * @param {boolean} isMatch - if true, all verseObjects will be considered a match and will be included in the returned text
@@ -43,7 +43,7 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
         }
       } else if (verseObject.children) {
         // Did not find a match, yet still need to go through all the children and see if there's match.
-        // If there isn't a match here, i.e. childText is empty, and we have text, we still need 
+        // If there isn't a match here, i.e. childText is empty, and we have text, we still need
         // an ellipsis if a later match is found since there was some text here
         let childText = getAlignedText(verseObject.children, wordsToMatch, occurrenceToMatch, isMatch);
         if (childText) {
@@ -72,7 +72,7 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
 };
 
 export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-  //debugger;
+  debugger;
   let alignedGLText = contextId.quote;
   const selectedGL = currentProjectToolsSelectedGL[currentToolName];
 
@@ -83,7 +83,7 @@ export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bible
   const oldType = 'ulb';       // unlocked literal bible
 
   if (bibles[selectedGL] && (bibles[selectedGL][translationType] || bibles[selectedGL][oldType])) {
-    if (bibles[selectedGL][oldType]) {
+    if (! bibles[selectedGL][translationType] && bibles[selectedGL][oldType]) {
       translationType = oldType;
     }
 
