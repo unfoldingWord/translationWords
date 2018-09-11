@@ -72,7 +72,6 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
 };
 
 export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-  debugger;
   let alignedGLText = contextId.quote;
   const selectedGL = currentProjectToolsSelectedGL[currentToolName];
 
