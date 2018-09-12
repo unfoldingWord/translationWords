@@ -72,27 +72,31 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
 };
 
 export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-  let alignedGLText = contextId.quote;
   const selectedGL = currentProjectToolsSelectedGL[currentToolName];
-
-// Some resources have the old translation type. The following code
-// allows for current and previous types
-// TBD this fix should be replaced by support for arbitrary document types to translate
-  let translationType = 'ult'; // unfoldingword literal text replaces
-  const oldType = 'ulb';       // unlocked literal bible
-
-  if (bibles[selectedGL] && (bibles[selectedGL][translationType] || bibles[selectedGL][oldType])) {
-    if (! bibles[selectedGL][translationType] && bibles[selectedGL][oldType]) {
-      translationType = oldType;
-    }
-
-    const verseObjects = bibles[selectedGL][translationType][contextId.reference.chapter][contextId.reference.verse].verseObjects;
-    const wordsToMatch = contextId.quote.split(' ');
-    const alignedText = getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
-    if (alignedText) {
-      alignedGLText = alignedText;
+  if(! bibles || ! bibles[selectedGL] || ! Object.keys(bibles[selectedGL]).length)
+    return contextId.quote;
+  const sortedBibleIds = Object.keys(bibles[selectedGL]).sort(bibleIdSort);
+  for (let i = 0; i < sortedBibleIds.length; ++i) {
+    const bible = bibles[selectedGL][sortedBibleIds[i]];
+    if(bible && bible[contextId.reference.chapter] && bible[contextId.reference.chapter][contextId.reference.verse] && bible[contextId.reference.chapter][contextId.reference.verse].verseObjects) {
+      const verseObjects = bible[contextId.reference.chapter][contextId.reference.verse].verseObjects;
+      const wordsToMatch = contextId.quote.split(' ');
+      const alignedText = getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
+      if (alignedText)
+        return alignedText;
     }
   }
+  return contextId.quote;
+}
 
-  return alignedGLText;
+export function bibleIdSort(a, b) {
+  const biblePrecedence = ['irv', 'ult', 'ulb', 'ust', 'udb']; // these should come first in this order if more than one aligned Bible
+  if(biblePrecedence.indexOf(a) >= 0 && biblePrecedence.indexOf(b) >= 0)
+    return biblePrecedence.indexOf(a) - biblePrecedence.indexOf(b);
+  else if(biblePrecedence.indexOf(a) >= 0)
+    return -1;
+  else if(biblePrecedence.indexOf(b) >= 0)
+    return 1;
+  else
+    return (a < b? -1 : a > b ? 1 : 0);
 }
