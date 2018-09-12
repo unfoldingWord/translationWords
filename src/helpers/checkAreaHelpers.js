@@ -90,13 +90,9 @@ export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bible
 }
 
 export function bibleIdSort(a, b) {
-  const biblePrecedence = ['irv', 'ult', 'ulb', 'ust', 'udb']; // these should come first in this order if more than one aligned Bible
-  if(biblePrecedence.indexOf(a) >= 0 && biblePrecedence.indexOf(b) >= 0)
-    return biblePrecedence.indexOf(a) - biblePrecedence.indexOf(b);
-  else if(biblePrecedence.indexOf(a) >= 0)
-    return -1;
-  else if(biblePrecedence.indexOf(b) >= 0)
-    return 1;
-  else
+  const biblePrecedence = ['udb', 'ust', 'ulb', 'ult', 'irv']; // these should come first in this order if more than one aligned Bible, from least to greatest
+  if (biblePrecedence.indexOf(a) == biblePrecedence.indexOf(b))
     return (a < b? -1 : a > b ? 1 : 0);
+  else
+    return biblePrecedence.indexOf(b) - biblePrecedence.indexOf(a); // this plays off the fact other Bible IDs will be -1
 }
