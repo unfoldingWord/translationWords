@@ -159,7 +159,9 @@ const mapStateToProps = (state, ownProps) => {
       showPopover: ownProps.tc.actions.showPopover,
       editTargetVerse: ownProps.tc.actions.editTargetVerse,
       getLexiconData: ownProps.tc.actions.getLexiconData,
-      setToolSettings: ownProps.tc.actions.setToolSettings
+      setToolSettings: ownProps.tc.actions.setToolSettings,
+      getAvailableScripturePaneSelections: ownProps.tc.actions.getAvailableScripturePaneSelections,
+      makeSureBiblesLoadedForTool: ownProps.tc.actions.makeSureBiblesLoadedForTool
     }
   };
 };
