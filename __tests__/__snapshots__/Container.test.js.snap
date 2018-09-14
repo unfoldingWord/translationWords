@@ -28,6 +28,10 @@ exports[`Container Tests Test Container 1`] = `
       </div>
     </div>
     <div
+      class="__react_component_tooltip place-top type-dark "
+      data-id="tooltip"
+    />
+    <div
       class="groups"
     >
       <div
@@ -273,10 +277,6 @@ exports[`Container Tests Test Container 1`] = `
                Titus 2:5 
             </span>
           </span>
-          <div
-            class="__react_component_tooltip place-top type-dark "
-            data-id="tooltip"
-          />
         </div>
         <div
           class="group-item submenu-item"
@@ -307,10 +307,6 @@ exports[`Container Tests Test Container 1`] = `
                Titus 3:2 
             </span>
           </span>
-          <div
-            class="__react_component_tooltip place-top type-dark "
-            data-id="tooltip"
-          />
         </div>
       </div>
       <div
