@@ -4,7 +4,7 @@ const DEFAULT_SEPARATOR = ' ';
 /**
  * getAlignedText - returns a string of the text found in an array of verseObjects that matches the words to find
  *                  and their occurrence in the verse.
- * @param {Array} verseObjects 
+ * @param {Array} verseObjects
  * @param {Array} wordsToMatch
  * @param {int} occurrenceToMatch
  * @param {boolean} isMatch - if true, all verseObjects will be considered a match and will be included in the returned text
@@ -43,7 +43,7 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
         }
       } else if (verseObject.children) {
         // Did not find a match, yet still need to go through all the children and see if there's match.
-        // If there isn't a match here, i.e. childText is empty, and we have text, we still need 
+        // If there isn't a match here, i.e. childText is empty, and we have text, we still need
         // an ellipsis if a later match is found since there was some text here
         let childText = getAlignedText(verseObject.children, wordsToMatch, occurrenceToMatch, isMatch);
         if (childText) {
@@ -72,28 +72,27 @@ export const getAlignedText = (verseObjects, wordsToMatch, occurrenceToMatch, is
 };
 
 export function getAlignedGLText(currentProjectToolsSelectedGL, contextId, bibles, currentToolName) {
-  //debugger;
-  let alignedGLText = contextId.quote;
   const selectedGL = currentProjectToolsSelectedGL[currentToolName];
-
-// Some resources have the old translation type. The following code
-// allows for current and previous types
-// TBD this fix should be replaced by support for arbitrary document types to translate
-  let translationType = 'ult'; // unfoldingword literal text replaces
-  const oldType = 'ulb';       // unlocked literal bible
-
-  if (bibles[selectedGL] && (bibles[selectedGL][translationType] || bibles[selectedGL][oldType])) {
-    if (bibles[selectedGL][oldType]) {
-      translationType = oldType;
-    }
-
-    const verseObjects = bibles[selectedGL][translationType][contextId.reference.chapter][contextId.reference.verse].verseObjects;
-    const wordsToMatch = contextId.quote.split(' ');
-    const alignedText = getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
-    if (alignedText) {
-      alignedGLText = alignedText;
+  if(! bibles || ! bibles[selectedGL] || ! Object.keys(bibles[selectedGL]).length)
+    return contextId.quote;
+  const sortedBibleIds = Object.keys(bibles[selectedGL]).sort(bibleIdSort);
+  for (let i = 0; i < sortedBibleIds.length; ++i) {
+    const bible = bibles[selectedGL][sortedBibleIds[i]];
+    if(bible && bible[contextId.reference.chapter] && bible[contextId.reference.chapter][contextId.reference.verse] && bible[contextId.reference.chapter][contextId.reference.verse].verseObjects) {
+      const verseObjects = bible[contextId.reference.chapter][contextId.reference.verse].verseObjects;
+      const wordsToMatch = contextId.quote.split(' ');
+      const alignedText = getAlignedText(verseObjects, wordsToMatch, contextId.occurrence);
+      if (alignedText)
+        return alignedText;
     }
   }
+  return contextId.quote;
+}
 
-  return alignedGLText;
+export function bibleIdSort(a, b) {
+  const biblePrecedence = ['udb', 'ust', 'ulb', 'ult', 'irv']; // these should come first in this order if more than one aligned Bible, from least to greatest
+  if (biblePrecedence.indexOf(a) == biblePrecedence.indexOf(b))
+    return (a < b? -1 : a > b ? 1 : 0);
+  else
+    return biblePrecedence.indexOf(b) - biblePrecedence.indexOf(a); // this plays off the fact other Bible IDs will be -1
 }
