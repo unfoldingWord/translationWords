@@ -23,7 +23,9 @@ class ScripturePaneContainer extends React.Component {
       bibles,
       contextId,
       translate,
-      currentPaneSettings
+      currentPaneSettings,
+      getAvailableScripturePaneSelections,
+      makeSureBiblesLoadedForTool
     } = this.props;
 
     const expandedScripturePaneTitle = this.makeTitle(manifest);
@@ -39,7 +41,10 @@ class ScripturePaneContainer extends React.Component {
         translate={translate}
         getLexiconData={getLexiconData}
         selections={selections}
-        setToolSettings={setToolSettings} />
+        setToolSettings={setToolSettings}
+        getAvailableScripturePaneSelections={getAvailableScripturePaneSelections}
+        makeSureBiblesLoadedForTool={makeSureBiblesLoadedForTool}
+      />
     );
   }
 }
