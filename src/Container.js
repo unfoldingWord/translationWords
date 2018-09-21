@@ -45,7 +45,7 @@ class Container extends React.Component {
 
   render() {
     const {
-      contextIdReducer: {contextId},
+      contextIdReducer: {contextId}
     } = this.props;
 
     if (contextId !== null) {
