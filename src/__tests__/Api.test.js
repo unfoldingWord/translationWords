@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import Api from '../Api';
 
 describe('alignment memory', () => {
