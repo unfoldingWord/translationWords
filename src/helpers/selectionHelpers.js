@@ -1,5 +1,6 @@
 /* eslint-disable no-constant-condition */
 import _ from 'lodash';
+import * as stringHelpers from './stringHelpers';
 
 /**
  * Splice string into array of ranges, flagging what is selected
@@ -88,8 +89,8 @@ export const selectionsToRanges = (string, selections) => {
  */
 export const selectionArray = (string, selections) => {
     let selectionArray = [];
-    let ranges = module.exports.selectionsToRanges(string, selections);
-    selectionArray = module.exports.spliceStringOnRanges(string, ranges);
+    let ranges = selectionsToRanges(string, selections);
+    selectionArray = spliceStringOnRanges(string, ranges);
     return selectionArray;
 };
 //
@@ -147,24 +148,25 @@ export const optimizeRanges = (ranges) => {
  * @returns {array} - array of selection objects
  */
 export const rangesToSelections = (string, ranges) => {
-    let selections = [];
-    ranges.forEach(function (range) {
-        let start = range[0], end = range[1];
-        let length = end - start + 1;
-        let text = string.substr(start, length); // get text
-        let regex = eval('/' + text + '/g');
-        let beforeText = string.substr(0, start);
-        let beforeMatches = beforeText.match(regex);
-        let occurrence = (beforeMatches !== null ? beforeMatches.length : 0) + 1; // get number of this occurrence
-        let occurrences = string.match(regex).length; // get occurrences in string
-        let selection = {
-            text: text,
-            occurrence: occurrence,
-            occurrences: occurrences
-        };
-        selections.push(selection);
-    });
-    return selections;
+  let selections = [];
+  ranges.forEach( range => {
+    const start = range[0], end = range[1]; // set the start and end point
+    const length = end - start + 1; // get the length of the sub string
+    const subString = string.substr(start, length); // get text of the sub string
+    const beforeText = string.substr(0, start); // get the string prior to the range
+    const beforeMatches = stringHelpers.occurrencesInString(beforeText, subString); // get occurrences prior to range
+    const occurrence = beforeMatches + 1; // get number of this occurrence
+    const occurrences = stringHelpers.occurrencesInString(string, subString); // get occurrences in string
+    const selection = {
+      text: subString,
+      occurrence: occurrence,
+      occurrences: occurrences
+    };
+    if (occurrences > 0) { // there are some edge cases where empty strings get through but don't have occurrences
+      selections.push(selection);
+    }
+  });
+  return selections;
 };
 //
 // Use the following lines to test the previous function
@@ -184,9 +186,9 @@ export const rangesToSelections = (string, ranges) => {
  */
 export const optimizeSelections = (string, selections) => {
     let optimizedSelections; // return
-    let ranges = module.exports.selectionsToRanges(string, selections).map(rangeObject => rangeObject.range); // get char ranges of each selection
-    ranges = module.exports.optimizeRanges(ranges); // optimize the ranges
-    optimizedSelections = module.exports.rangesToSelections(string, ranges); // convert optimized ranges into selections
+    let ranges = selectionsToRanges(string, selections).map(rangeObject => rangeObject.range); // get char ranges of each selection
+    ranges = optimizeRanges(ranges); // optimize the ranges
+    optimizedSelections = rangesToSelections(string, ranges); // convert optimized ranges into selections
     return optimizedSelections;
 };
 //

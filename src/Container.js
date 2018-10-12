@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 //selectors
 import {
-  getIsVerseFinished,
   getContextId,
   getManifest,
   getProjectSaveLocation,
@@ -45,7 +44,7 @@ class Container extends React.Component {
 
   render() {
     const {
-      contextIdReducer: {contextId},
+      contextIdReducer: {contextId}
     } = this.props;
 
     if (contextId !== null) {
@@ -76,6 +75,10 @@ class Container extends React.Component {
 }
 
 Container.propTypes = {
+  translationHelps: PropTypes.any,
+  groupMenu: PropTypes.any,
+  verseCheck: PropTypes.any,
+  checkInfoCard: PropTypes.any,
   translate: PropTypes.func,
   settingsReducer: PropTypes.shape({
     toolsSettings: PropTypes.shape({

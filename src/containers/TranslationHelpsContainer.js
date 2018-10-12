@@ -1,6 +1,8 @@
 import React from 'react';
-import * as tHelpsHelpers from '../helpers/tHelpsHelpers';
+import PropTypes from 'prop-types';
 import {TranslationHelps} from 'tc-ui-toolkit';
+// helpers
+import * as tHelpsHelpers from '../helpers/tHelpsHelpers';
 
 class TranslationHelpsContainer extends React.Component {
   constructor(props) {
@@ -118,5 +120,20 @@ class TranslationHelpsContainer extends React.Component {
     );
   }
 }
+
+TranslationHelpsContainer.propTypes = {
+  currentProjectToolsSelectedGL: PropTypes.object,
+  translate: PropTypes.func,
+  resourcesReducer: PropTypes.object,
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.object.isRequired
+  }),
+  toolsReducer: PropTypes.object,
+  actions: PropTypes.shape({
+    loadResourceArticle: PropTypes.func.isRequired,
+  }),
+  showHelps: PropTypes.func.isRequired,
+  toggleHelps: PropTypes.func.isRequired,
+};
 
 export default TranslationHelpsContainer;
