@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {CheckInfoCard} from 'tc-ui-toolkit';
 
 class CheckInfoCardContainer extends React.Component {
@@ -55,5 +56,14 @@ class CheckInfoCardContainer extends React.Component {
     );
   }
 }
+
+CheckInfoCardContainer.propTypes = {
+  translate: PropTypes.func,
+  translationHelps: PropTypes.any,
+  groupsIndex: PropTypes.any,
+  contextId: PropTypes.object.isRequired,
+  showHelps: PropTypes.func.isRequired,
+  toggleHelps: PropTypes.func.isRequired,
+};
 
 export default CheckInfoCardContainer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {GroupMenu} from 'tc-ui-toolkit';
 
@@ -43,5 +44,21 @@ class GroupMenuContainer extends React.Component {
     );
   }
 }
+
+GroupMenuContainer.propTypes = {
+  translate: PropTypes.func,
+  isVerseFinished: PropTypes.any,
+  projectSaveLocation: PropTypes.string,
+  groupMenuReducer: PropTypes.object,
+  manifest: PropTypes.object,
+  groupsIndexReducer: PropTypes.object,
+  groupsDataReducer: PropTypes.object,
+  contextId: PropTypes.object.isRequired,
+  toolsReducer: PropTypes.object,
+  actions: PropTypes.shape({
+    getSelectionsFromContextId: PropTypes.func.isRequired,
+  }),
+  projectDetailsReducer: PropTypes.object.isRequired
+};
 
 export default connect()(GroupMenuContainer);
