@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import usfmjs from 'usfm-js';
 import isEqual from 'deep-equal';
 import {optimizeSelections, normalizeString} from '../helpers/selectionHelpers';
@@ -206,7 +207,7 @@ class VerseCheckContainer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {contextIdReducer, resourcesReducer} = this.props || {};
+    const {contextIdReducer} = this.props || {};
     const nextContextIDReducer = nextProps.contextIdReducer;
     if (contextIdReducer !== nextContextIDReducer) {
       let selections = Array.from(nextProps.selectionsReducer.selections);
@@ -319,10 +320,9 @@ class VerseCheckContainer extends React.Component {
       groupsDataReducer,
       remindersReducer
     } = this.props;
-
     const unfilteredVerseText = this.verseText();
     const verseText = usfmjs.removeMarker(unfilteredVerseText);
-    const alignedGLText = checkAreaHelpers.getAlignedGLText( 
+    const alignedGLText = checkAreaHelpers.getAlignedGLText(
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
       <VerseCheck
@@ -355,5 +355,28 @@ class VerseCheckContainer extends React.Component {
     );
   }
 }
+
+VerseCheckContainer.propTypes = {
+  translate: PropTypes.func,
+  currentToolName: PropTypes.string,
+  remindersReducer: PropTypes.object,
+  commentsReducer: PropTypes.object,
+  resourcesReducer: PropTypes.object,
+  selectionsReducer: PropTypes.shape({
+    selections: PropTypes.array
+  }),
+  groupsDataReducer: PropTypes.object,
+  loginReducer: PropTypes.object,
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.object.isRequired
+  }),
+  toolsReducer: PropTypes.object,
+  actions: PropTypes.shape({
+    changeSelections: PropTypes.func.isRequired,
+    goToNext: PropTypes.func.isRequired,
+    goToPrevious: PropTypes.func.isRequired,
+  }),
+  projectDetailsReducer: PropTypes.object.isRequired
+};
 
 export default VerseCheckContainer;
