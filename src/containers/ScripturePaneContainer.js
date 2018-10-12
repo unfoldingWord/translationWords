@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {ScripturePane} from 'tc-ui-toolkit';
 
 class ScripturePaneContainer extends React.Component {
@@ -48,5 +49,34 @@ class ScripturePaneContainer extends React.Component {
     );
   }
 }
+
+ScripturePaneContainer.propTypes = {
+  bibles: PropTypes.object,
+  contextId: PropTypes.object,
+  translate: PropTypes.func,
+  currentToolName: PropTypes.string,
+  manifest: PropTypes.object,
+  commentsReducer: PropTypes.object,
+  projectDetailsReducer: PropTypes.object,
+  selections: PropTypes.array,
+  currentPaneSettings: PropTypes.array,
+  groupsDataReducer: PropTypes.object,
+  loginReducer: PropTypes.object,
+  contextIdReducer: PropTypes.shape({
+    contextId: PropTypes.object.isRequired
+  }),
+  toolsReducer: PropTypes.object,
+  actions: PropTypes.shape({
+    changeSelections: PropTypes.func.isRequired,
+    goToNext: PropTypes.func.isRequired,
+    goToPrevious: PropTypes.func.isRequired,
+  }),
+  showPopover: PropTypes.func.isRequired,
+  editTargetVerse: PropTypes.func.isRequired,
+  makeSureBiblesLoadedForTool: PropTypes.func.isRequired,
+  getAvailableScripturePaneSelections: PropTypes.func.isRequired,
+  getLexiconData: PropTypes.func.isRequired,
+  setToolSettings: PropTypes.func.isRequired,
+};
 
 export default ScripturePaneContainer;
