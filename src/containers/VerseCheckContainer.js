@@ -10,7 +10,7 @@ class VerseCheckContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    let verseText = usfmjs.removeMarker(this.verseText());
+    let verseText = this.verseText();
     const mode = props.selectionsReducer &&
       props.selectionsReducer.selections &&
       props.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
@@ -320,7 +320,8 @@ class VerseCheckContainer extends React.Component {
       groupsDataReducer,
       remindersReducer
     } = this.props;
-    const verseText = usfmjs.removeMarker(this.verseText());
+    const unfilteredVerseText = this.verseText();
+    const verseText = usfmjs.removeMarker(unfilteredVerseText);
     const alignedGLText = checkAreaHelpers.getAlignedGLText(
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
@@ -337,6 +338,7 @@ class VerseCheckContainer extends React.Component {
         groupsDataReducer={groupsDataReducer}
         alignedGLText={alignedGLText}
         verseText={verseText}
+        unfilteredVerseText={unfilteredVerseText}
         mode={this.state.mode}
         actions={this.actions}
         dialogModalVisibility={this.state.dialogModalVisibility}
