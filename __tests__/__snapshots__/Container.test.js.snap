@@ -279,7 +279,7 @@ exports[`Container Tests Test Container 1`] = `
             data-effect="float"
             data-place="bottom"
             data-tip=""
-            data-type="dark"
+            data-type="light"
             style="min-width:0"
           >
             <span
@@ -310,7 +310,7 @@ exports[`Container Tests Test Container 1`] = `
             data-effect="float"
             data-place="bottom"
             data-tip=""
-            data-type="dark"
+            data-type="light"
             style="min-width:0"
           >
             <span
