@@ -10,7 +10,7 @@ class VerseCheckContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    let verseText = this.verseText();
+    let {verseText} = this.getVerseText();
     const mode = props.selectionsReducer &&
       props.selectionsReducer.selections &&
       props.selectionsReducer.selections.length > 0 || verseText.length === 0 ? 'default' : 'select';
@@ -26,7 +26,7 @@ class VerseCheckContainer extends React.Component {
       dialogModalVisibility: false,
       goToNextOrPrevious: null,
     };
-    this.verseText = this.verseText.bind(this);
+    this.getVerseText = this.getVerseText.bind(this);
     this.saveSelection = this.saveSelection.bind(this);
     this.cancelSelection = this.cancelSelection.bind(this);
     this.clearSelection = this.clearSelection.bind(this);
@@ -175,7 +175,7 @@ class VerseCheckContainer extends React.Component {
             tags: []
           });
         };
-        if (_this.state.verseText) {  // if verseText === "" is false
+        if (_this.state.verseText) {
           save();
         } else {
           // alert the user if the text is blank
@@ -228,20 +228,25 @@ class VerseCheckContainer extends React.Component {
     }
   }
 
-  verseText() {
+  /**
+   * get filtered and unfiltered verse text
+   * @return {{verseText: string, unfilteredVerseText: string}}
+   */
+  getVerseText() {
+    let unfilteredVerseText = "";
     let verseText = "";
     if (this.props.contextIdReducer && this.props.contextIdReducer.contextId) {
       const {chapter, verse, bookId} = this.props.contextIdReducer.contextId.reference;
       const bookAbbr = this.props.projectDetailsReducer.manifest.project.id;
       const {targetBible} = this.props.resourcesReducer.bibles.targetLanguage;
-      if (targetBible && targetBible[chapter] && bookId == bookAbbr) {
-        verseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
-        if (Array.isArray(verseText)) verseText = verseText[0];
+      if (targetBible && targetBible[chapter] && bookId === bookAbbr) {
+        unfilteredVerseText = targetBible && targetBible[chapter] ? targetBible[chapter][verse] : "";
+        if (Array.isArray(unfilteredVerseText)) unfilteredVerseText = unfilteredVerseText[0];
         // normalize whitespace in case selection has contiguous whitespace _this isn't captured
-        verseText = normalizeString(verseText);
+        verseText = normalizeString(unfilteredVerseText);
       }
     }
-    return verseText;
+    return {unfilteredVerseText, verseText};
   }
 
 
@@ -257,7 +262,7 @@ class VerseCheckContainer extends React.Component {
   }
 
   saveSelection() {
-    let verseText = this.verseText();
+    let {verseText} = this.getVerseText();
     // optimize the selections to address potential issues and save
     let selections = optimizeSelections(verseText, this.state.selections);
     this.props.actions.changeSelections(selections, this.props.loginReducer.userdata.username);
@@ -320,8 +325,8 @@ class VerseCheckContainer extends React.Component {
       groupsDataReducer,
       remindersReducer
     } = this.props;
-    const unfilteredVerseText = this.verseText();
-    const verseText = usfmjs.removeMarker(unfilteredVerseText);
+    let {unfilteredVerseText, verseText} = this.getVerseText();
+    verseText = usfmjs.removeMarker(verseText);
     const alignedGLText = checkAreaHelpers.getAlignedGLText(
       currentProjectToolsSelectedGL, contextId, resourcesReducer.bibles, currentToolName);
     return (
