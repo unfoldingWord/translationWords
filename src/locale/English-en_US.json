@@ -68,7 +68,8 @@
     "remove_resource": "Click to remove resource",
     "add_resource": "Click to add a resource",
     "add_resource_label": "Add Resources",
-    "select_language": "Select language"
+    "select_language": "Select language",
+    "Gateway Language": "Gateway Language"
   },
   "lemma": "Lemma:",
   "morphology": "Morphology:",
