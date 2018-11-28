@@ -223,5 +223,6 @@
   "palpel": "palpel",
   "ithpalpel": "ithpalpel",
   "ithpolel": "ithpolel",
-  "ittaphal": "ittaphal"
+  "ittaphal": "ittaphal",
+  "morph_missing": "Morphology not found"
 }
