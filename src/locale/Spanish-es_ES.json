@@ -178,9 +178,9 @@
   "cohortative": "Cohortative",
   "jussive": "Jussive",
   "participle_active": "Participio Activo",
-  "participle_passive": "Participle Passive",
-  "infinitive_absolute": "Infinitive Absolute",
-  "infinitive_construct": "Infinitive Construct",
+  "participle_passive": "Participio Pasivo",
+  "infinitive_absolute": "Infinitivo Absoluto",
+  "infinitive_construct": "Infinitivo Constructo",
   "qal": "qal",
   "niphal": "niphal",
   "piel": "piel",
@@ -195,7 +195,7 @@
   "poal": "poal",
   "palel": "palel",
   "pulal": "pulal",
-  "qal_passive": "qal passive",
+  "qal_passive": "qal pasivo",
   "pilpel": "pilpel",
   "polpal": "polpal",
   "hithpalpel": "hithpalpel",
@@ -227,5 +227,5 @@
   "ithpalpel": "ithpalpel",
   "ithpolel": "ithpolel",
   "ittaphal": "ittaphal",
-  "morph_missing": "Morphology not found"
+  "morph_missing": "Morfología no encontrada"
 }
