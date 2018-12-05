@@ -173,8 +173,8 @@
   "pronominal": "Pronominal",
   "perfect_qatal": "Perfect (qatal)",
   "sequential_perfect_weqatal": "Sequential Perfect (weqatal)",
-  "imperfect_yiqtol": "Imperfect (yiqtol)",
-  "sequential_imperfect_wayyiqtol": "Sequential Imperfect (wayyiqtol)",
+  "imperfect_yiqtol": "Imperfeito (yiqtol)",
+  "sequential_imperfect_wayyiqtol": "Imperfeito Sequencial (wayyiqtol)",
   "cohortative": "Cohortative",
   "jussive": "Jussivo",
   "participle_active": "Particípio Ativo",
@@ -227,5 +227,5 @@
   "ithpalpel": "ithpalpel",
   "ithpolel": "ithpolel",
   "ittaphal": "ittaphal",
-  "morph_missing": "Morphology not found"
+  "morph_missing": "Morfologia não encontrado"
 }
