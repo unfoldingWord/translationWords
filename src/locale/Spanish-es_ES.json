@@ -154,7 +154,7 @@
   "cardinal_number": "Número Cardinal",
   "gentilic": "Gentilic",
   "ordinal_number": "Número Ordinal",
-  "both_genders": "Ambos Sexos",
+  "both_genders": "Ambos Géneros",
   "common_gender": "Género Común",
   "common": "Común",
   "proper_name": "Nombre Propio",
@@ -167,9 +167,9 @@
   "absolute": "Absoluta",
   "construct": "Construir",
   "determined": "Determinado",
-  "directional_he": "Direccional de él",
-  "paragogic_he": "Paragógica él",
-  "paragogic_nun": "Paragógica nun",
+  "directional_he": "Directional he",
+  "paragogic_he": "Paragogic he",
+  "paragogic_nun": "Paragogic nun",
   "pronominal": "Pronominal",
   "perfect_qatal": "Perfecto (qatal)",
   "sequential_perfect_weqatal": "Perfecto Secuencial (weqatal)",
@@ -227,5 +227,5 @@
   "ithpalpel": "ithpalpel",
   "ithpolel": "ithpolel",
   "ittaphal": "ittaphal",
-  "morph_missing": "Morfología no encontrada"
+  "morph_missing": "Morfología no encontrado"
 }
