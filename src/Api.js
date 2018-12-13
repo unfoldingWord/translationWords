@@ -6,6 +6,8 @@ export default class Api extends ToolApi {
   constructor() {
     super();
     this.getAlignmentMemory = this.getAlignmentMemory.bind(this);
+    this.getInvalidChecks = this.getInvalidChecks.bind(this);
+    this.getProgress = this.getProgress.bind(this);
     this._loadBookSelections = this._loadBookSelections.bind(this);
     this._loadVerseSelections = this._loadVerseSelections.bind(this);
   }
@@ -56,6 +58,54 @@ export default class Api extends ToolApi {
   }
 
   /**
+   * Returns the total number of invalided checks
+   * @returns {number}
+   */
+  getInvalidChecks() {
+    return 0;
+  }
+
+  /**
+   * Returns the % progress of completion for the project.
+   * @returns {number} - a value between 0 and 1
+   */
+  getProgress() {
+    // const {
+    //   tc: {
+    //     projectDataPathExistsSync,
+    //     readProjectData,
+    //     readProjectDirSync,
+    //     contextId: {
+    //       reference: {bookId}
+    //     }
+    //   }
+    // } = this.props;
+    //
+    // const checksDataPath = path.join('index', 'translationWords', bookId);
+    // const categories = []; // TODO: where can we get this?
+    //
+    // if(projectDataPathExistsSync(checksDataPath)) {
+    //   const groupsData = readProjectDirSync(checksDataPath).filter(file => {
+    //     return file !== '.DS_Store' && path.extname(file) === '.json';
+    //   });
+    //   const availableCheckCategories = [];
+    //   // TRICKY: translationWords only uses checks that are also available in the greek (OL)
+    //   const languageId = 'grc';
+    //   // TODO: this is a horrible hack. There needs to be a way for tools to read resources without know where they actually are.
+    //   // can't the checks be passed down into the tool?
+    //   const USER_RESOURCES_PATH = path.join(ospath.home(), 'translationCore', 'resources');
+    //   const toolResourcePath = path.join(USER_RESOURCES_PATH, languageId, 'translationHelps', toolName);
+    //   // TODO: tc should provide the appropriate resource path to the tool.
+    //   // const versionPath = ResourceHelpers.getLatestVersionInPath(toolResourcePath) || toolResourcePath;
+    //
+    //   // we don't actually need the path to the full resources. These can be updated to be copied over
+    //   // when the project is selected. Then the tool will just have to look in it's own data directory.
+    // }
+
+    return 0;
+  }
+
+  /**
    * Returns the alignment memory generated from selections made in tW.
    * @return {{sourceText : string, targetText : string}[]}
    */
@@ -66,10 +116,10 @@ export default class Api extends ToolApi {
     const alignmentMemory = [];
 
     // format selections as alignment memory
-    for(const chapter of Object.keys(selections)) {
-      for(const verse of Object.keys(selections[chapter])) {
-        for(const selection of selections[chapter][verse]) {
-          if(selection.selections.length === 0) continue;
+    for (const chapter of Object.keys(selections)) {
+      for (const verse of Object.keys(selections[chapter])) {
+        for (const selection of selections[chapter][verse]) {
+          if (selection.selections.length === 0) continue;
           const sourceText = selection.contextId.quote;
           const targetText = selection.selections.map(s => s.text).join(' ');
           alignmentMemory.push({
@@ -96,11 +146,12 @@ export default class Api extends ToolApi {
     } = props;
 
     const selections = {};
-    for(const chapter of Object.keys(targetBible)) {
-      for(const verse of Object.keys(targetBible[chapter])) {
-        const verseSelections = this._loadVerseSelections(chapter, verse, props);
-        if(verseSelections.length > 0) {
-          if(!selections[chapter]) {
+    for (const chapter of Object.keys(targetBible)) {
+      for (const verse of Object.keys(targetBible[chapter])) {
+        const verseSelections = this._loadVerseSelections(chapter, verse,
+          props);
+        if (verseSelections.length > 0) {
+          if (!selections[chapter]) {
             selections[chapter] = {};
           }
           selections[chapter][verse] = verseSelections;
@@ -132,12 +183,12 @@ export default class Api extends ToolApi {
     const verseDir = path.join('checkData/selections/', bookId, chapter, verse);
     const selections = [];
     const foundSelections = [];
-    if(projectFileExistsSync(verseDir)) {
+    if (projectFileExistsSync(verseDir)) {
 
       let files = readProjectDirSync(verseDir);
       files = files.filter(f => path.extname(f) === '.json');
       files = files.sort().reverse();
-      for(let i = 0; i < files.length; i ++) {
+      for (let i = 0; i < files.length; i++) {
         let filePath = path.join(verseDir, files[i]);
 
         let data;
@@ -148,7 +199,7 @@ export default class Api extends ToolApi {
           continue;
         }
 
-        if(data && data.contextId) {
+        if (data && data.contextId) {
           const id = `${data.contextId.groupId}:${data.contextId.quote}`;
           if (foundSelections.indexOf(id) === -1) {
             foundSelections.push(id);
