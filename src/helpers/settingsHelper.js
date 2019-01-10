@@ -1,6 +1,6 @@
 
 export const loadCorrectPaneSettings = (props, setToolSettings, bibles) => {
-  const { currentToolName } = props.toolsReducer;
+  const { tc: {selectedToolName: currentToolName}} = props;
   const { currentProjectToolsSelectedGL } = props.projectDetailsReducer;
   const languageId = currentProjectToolsSelectedGL[currentToolName];
   const { ScripturePane } = props.settingsReducer.toolsSettings;
