@@ -71,7 +71,7 @@ describe('selection data', () => {
     const props = {
       tc: {
         contextId: {reference: {bookId: 'book'}},
-        projectFileExistsSync: jest.fn(() => true),
+        projectDataPathExistsSync: jest.fn(() => true),
         readProjectDataSync: jest.fn(() => generator.next().value),
         readProjectDataDirSync: jest.fn(() => {
           return ['1.json', '1_dup.json', '2.json'];

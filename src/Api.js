@@ -239,7 +239,7 @@ export default class Api extends ToolApi {
     const {
       tc: {
         contextId: {reference: {bookId}},
-        projectFileExistsSync,
+        projectDataPathExistsSync,
         readProjectDataSync,
         readProjectDataDirSync
       }
@@ -248,7 +248,7 @@ export default class Api extends ToolApi {
     const verseDir = path.join('checkData/selections/', bookId, chapter, verse);
     const selections = [];
     const foundSelections = [];
-    if (projectFileExistsSync(verseDir)) {
+    if (projectDataPathExistsSync(verseDir)) {
 
       let files = readProjectDataDirSync(verseDir);
       files = files.filter(f => path.extname(f) === '.json');
