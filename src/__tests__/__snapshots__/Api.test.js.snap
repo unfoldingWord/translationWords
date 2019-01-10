@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check data loads check data 1`] = `
+Object {
+  "contextId": Object {
+    "groupId": "figs_metaphor",
+    "occurrence": 1,
+    "quote": "that he put before them",
+  },
+}
+`;
