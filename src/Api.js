@@ -10,6 +10,7 @@ export default class Api extends ToolApi {
     this.getProgress = this.getProgress.bind(this);
     this._loadBookSelections = this._loadBookSelections.bind(this);
     this._loadVerseSelections = this._loadVerseSelections.bind(this);
+    this._loadCheckData = this._loadCheckData.bind(this);
   }
 
   /**
@@ -57,52 +58,117 @@ export default class Api extends ToolApi {
     // TODO: implement
   }
 
-  /**
-   * Returns the total number of invalided checks
-   * @returns {number}
-   */
-  getInvalidChecks() {
-    return 0;
+  _loadCheckData(check, contextId) {
+    const {tc:{project}} = this.props;
+    const {reference: {bookId, chapter, verse}} = contextId;
+
+    const loadPath = path.join('checkData', check, bookId, `${chapter}`, `${verse}`);
+    let checkDataObject;
+
+    if (project.dataPathExistsSync(loadPath)) {
+      let files = project.readDataDirSync(loadPath);
+
+      files = files.filter(file => { // filter the filenames to only use .json
+        return path.extname(file) === '.json';
+      });
+      let sorted = files.sort().reverse(); // sort the files to use latest
+      let checkDataObjects = [];
+
+      for (let i = 0, len = sorted.length; i < len; i++) {
+        const file = sorted[i];
+        // get the json of all files to later filter by contextId
+        try {
+          let readPath = path.join(loadPath, file);
+          let _checkDataObject = JSON.parse(project.readDataFileSync(readPath));
+          checkDataObjects.push(_checkDataObject);
+        } catch (err) {
+          console.warn('File exists but could not be loaded \n', err);
+          checkDataObjects.push(undefined);
+        }
+      }
+
+      checkDataObjects = checkDataObjects.filter(_checkDataObject => {
+        // filter the checkDataObjects to only use the ones that match the current contextId
+        return _checkDataObject &&
+          _checkDataObject.contextId.groupId === contextId.groupId &&
+          _checkDataObject.contextId.quote === contextId.quote &&
+          _checkDataObject.contextId.occurrence === contextId.occurrence;
+      });
+      // return the first one since it is the latest modified one
+      checkDataObject = checkDataObjects[0];
+    }
+    /**
+     * @description Will return undefined if checkDataObject was not populated
+     * so that the load method returns and then dispatches an empty action object
+     * to initialized the reducer.
+     */
+    return checkDataObject;
   }
 
   /**
-   * Returns the % progress of completion for the project.
+   * Returns the total number of invalided checks
+   * TODO: move category selection management into the tool so we don't need this param
+   * @param {string[]} selectedCategories - an array of categories to include in the calculation.
+   * @returns {number} - the number of invalid checks
+   */
+  getInvalidChecks(selectedCategories) {
+    const {tc: {project}, tool: {}} = this.props;
+    const name = "translationWords";
+
+    let invalidChecks = 0;
+
+    for (const category of selectedCategories) {
+      const groups = project.getCategoryGroupIds(name, category);
+      for (const group of groups) {
+        const data = project.getGroupData(name, group);
+        if (data && data.constructor === Array) {
+          for (const check of data) {
+            const checkData = this._loadCheckData("invalidated", check.contextId);
+            if(checkData && checkData.invalidated === true) {
+              invalidChecks ++;
+            }
+          }
+        } else {
+          console.warn(`Invalid group data found for "${selectedGroups[i]}"`);
+        }
+      }
+    }
+
+    return invalidChecks;
+  }
+
+  /**
+   * Returns the percent progress of completion for the project.
+   * TODO: move category selection management into the tool so we don't need this param
+   * @param {string[]} selectedCategories -  an array of categories to include in the calculation.
    * @returns {number} - a value between 0 and 1
    */
-  getProgress() {
-    // const {
-    //   tc: {
-    //     projectDataPathExistsSync,
-    //     readProjectData,
-    //     readProjectDirSync,
-    //     contextId: {
-    //       reference: {bookId}
-    //     }
-    //   }
-    // } = this.props;
-    //
-    // const checksDataPath = path.join('index', 'translationWords', bookId);
-    // const categories = []; // TODO: where can we get this?
-    //
-    // if(projectDataPathExistsSync(checksDataPath)) {
-    //   const groupsData = readProjectDirSync(checksDataPath).filter(file => {
-    //     return file !== '.DS_Store' && path.extname(file) === '.json';
-    //   });
-    //   const availableCheckCategories = [];
-    //   // TRICKY: translationWords only uses checks that are also available in the greek (OL)
-    //   const languageId = 'grc';
-    //   // TODO: this is a horrible hack. There needs to be a way for tools to read resources without know where they actually are.
-    //   // can't the checks be passed down into the tool?
-    //   const USER_RESOURCES_PATH = path.join(ospath.home(), 'translationCore', 'resources');
-    //   const toolResourcePath = path.join(USER_RESOURCES_PATH, languageId, 'translationHelps', toolName);
-    //   // TODO: tc should provide the appropriate resource path to the tool.
-    //   // const versionPath = ResourceHelpers.getLatestVersionInPath(toolResourcePath) || toolResourcePath;
-    //
-    //   // we don't actually need the path to the full resources. These can be updated to be copied over
-    //   // when the project is selected. Then the tool will just have to look in it's own data directory.
-    // }
+  getProgress(selectedCategories) {
+    const {tc: {project}, tool: {}} = this.props;
+    const name = "translationWords";
+    let totalChecks = 0;
+    let completedChecks = 0;
 
-    return 0;
+    for (const category of selectedCategories) {
+      const groups = project.getCategoryGroupIds(name, category);
+      for (const group of groups) {
+        const data = project.getGroupData(name, group);
+        if (data && data.constructor === Array) {
+          for (const check of data) {
+            totalChecks++;
+            completedChecks += check.selections ? 1 : 0;
+          }
+        } else {
+          console.warn(`Invalid group data found for "${selectedGroups[i]}"`);
+        }
+      }
+    }
+
+    if (totalChecks === 0) {
+      return 0;
+    } else {
+      return completedChecks / totalChecks;
+    }
   }
 
   /**
