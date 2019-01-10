@@ -73,7 +73,7 @@ describe('selection data', () => {
         contextId: {reference: {bookId: 'book'}},
         projectFileExistsSync: jest.fn(() => true),
         readProjectDataSync: jest.fn(() => generator.next().value),
-        readProjectDirSync: jest.fn(() => {
+        readProjectDataDirSync: jest.fn(() => {
           return ['1.json', '1_dup.json', '2.json'];
         }),
         targetBook: {

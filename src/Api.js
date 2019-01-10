@@ -241,7 +241,7 @@ export default class Api extends ToolApi {
         contextId: {reference: {bookId}},
         projectFileExistsSync,
         readProjectDataSync,
-        readProjectDirSync
+        readProjectDataDirSync
       }
     } = props;
 
@@ -250,7 +250,7 @@ export default class Api extends ToolApi {
     const foundSelections = [];
     if (projectFileExistsSync(verseDir)) {
 
-      let files = readProjectDirSync(verseDir);
+      let files = readProjectDataDirSync(verseDir);
       files = files.filter(f => path.extname(f) === '.json');
       files = files.sort().reverse();
       for (let i = 0; i < files.length; i++) {
