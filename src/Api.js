@@ -113,8 +113,7 @@ export default class Api extends ToolApi {
    * @returns {number} - the number of invalid checks
    */
   getInvalidChecks(selectedCategories) {
-    const {tc: {project}} = this.props;
-    const name = "translationWords";
+    const {tc: {project}, tool: {name}} = this.props;
     let invalidChecks = 0;
 
     for (const category of selectedCategories) {
@@ -145,8 +144,7 @@ export default class Api extends ToolApi {
    * @returns {number} - a value between 0 and 1
    */
   getProgress(selectedCategories) {
-    const {tc: {project}} = this.props;
-    const name = "translationWords";
+    const {tc: {project}, tool: {name}} = this.props;
     let totalChecks = 0;
     let completedChecks = 0;
 
