@@ -2,7 +2,7 @@
   "name": "translationWords",
   "version": "1.0.3",
   "description": "A tool to comprehensively check the meaning of key terms in the Bible using a set of clear, concise definitions and including suggestions for translation.",
-  "title": "translationWords (Part 1)",
+  "title": "translationWords",
   "main": "index.js",
   "scripts": {
     "test": "eslint ./src ./index.js && jest"
