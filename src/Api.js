@@ -58,52 +58,46 @@ export default class Api extends ToolApi {
     // TODO: implement
   }
 
+  /**
+   * Loads the most recent check data for the context id
+   * @param {string} check - the check to look up e.g. "invalidated"
+   * @param {object} contextId - the context id for the check to look up
+   * @returns {object|null} - the check data record or null if one cannot be found
+   * @private
+   */
   _loadCheckData(check, contextId) {
     const {tc: {project}} = this.props;
-    const {reference: {bookId, chapter, verse}} = contextId;
-
+    const {reference: {bookId, chapter, verse}, groupId, quote, occurrence} = contextId;
     const loadPath = path.join('checkData', check, bookId, `${chapter}`,
       `${verse}`);
-    let checkDataObject;
 
     if (project.dataPathExistsSync(loadPath)) {
-      let files = project.readDataDirSync(loadPath);
-
-      files = files.filter(file => { // filter the filenames to only use .json
+      // sort and filter check records
+      const files = project.readDataDirSync(loadPath).filter(file => {
         return path.extname(file) === '.json';
       });
-      let sorted = files.sort().reverse(); // sort the files to use latest
-      let checkDataObjects = [];
+      let sortedRecords = files.sort().reverse();
 
-      for (let i = 0, len = sorted.length; i < len; i++) {
-        const file = sorted[i];
-        // get the json of all files to later filter by contextId
+      // load check data
+      for (let i = 0, len = sortedRecords.length; i < len; i++) {
+        const record = sortedRecords[i];
+        const recordPath = path.join(loadPath, record);
         try {
-          let readPath = path.join(loadPath, file);
-          let _checkDataObject = JSON.parse(project.readDataFileSync(readPath));
-          checkDataObjects.push(_checkDataObject);
-        } catch (err) {
-          console.warn('File exists but could not be loaded \n', err);
-          checkDataObjects.push(undefined);
+          const recordData = JSON.parse(project.readDataFileSync(recordPath));
+
+          // return first match
+          if (recordData.contextId.groupId === groupId &&
+            recordData.contextId.quote === quote &&
+            recordData.contextId.occurrence === occurrence) {
+            return recordData;
+          }
+        } catch (e) {
+          console.warn(`Failed to load check record from ${recordPath}`, e);
         }
       }
-
-      checkDataObjects = checkDataObjects.filter(_checkDataObject => {
-        // filter the checkDataObjects to only use the ones that match the current contextId
-        return _checkDataObject &&
-          _checkDataObject.contextId.groupId === contextId.groupId &&
-          _checkDataObject.contextId.quote === contextId.quote &&
-          _checkDataObject.contextId.occurrence === contextId.occurrence;
-      });
-      // return the first one since it is the latest modified one
-      checkDataObject = checkDataObjects[0];
     }
-    /**
-     * @description Will return undefined if checkDataObject was not populated
-     * so that the load method returns and then dispatches an empty action object
-     * to initialized the reducer.
-     */
-    return checkDataObject;
+
+    return null;
   }
 
   /**
