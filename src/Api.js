@@ -59,10 +59,11 @@ export default class Api extends ToolApi {
   }
 
   _loadCheckData(check, contextId) {
-    const {tc:{project}} = this.props;
+    const {tc: {project}} = this.props;
     const {reference: {bookId, chapter, verse}} = contextId;
 
-    const loadPath = path.join('checkData', check, bookId, `${chapter}`, `${verse}`);
+    const loadPath = path.join('checkData', check, bookId, `${chapter}`,
+      `${verse}`);
     let checkDataObject;
 
     if (project.dataPathExistsSync(loadPath)) {
@@ -112,9 +113,8 @@ export default class Api extends ToolApi {
    * @returns {number} - the number of invalid checks
    */
   getInvalidChecks(selectedCategories) {
-    const {tc: {project}, tool: {}} = this.props;
+    const {tc: {project}} = this.props;
     const name = "translationWords";
-
     let invalidChecks = 0;
 
     for (const category of selectedCategories) {
@@ -123,13 +123,14 @@ export default class Api extends ToolApi {
         const data = project.getGroupData(name, group);
         if (data && data.constructor === Array) {
           for (const check of data) {
-            const checkData = this._loadCheckData("invalidated", check.contextId);
-            if(checkData && checkData.invalidated === true) {
-              invalidChecks ++;
+            const checkData = this._loadCheckData('invalidated',
+              check.contextId);
+            if (checkData && checkData.invalidated === true) {
+              invalidChecks++;
             }
           }
         } else {
-          console.warn(`Invalid group data found for "${selectedGroups[i]}"`);
+          console.warn(`Invalid group data found for "${group}"`);
         }
       }
     }
@@ -144,7 +145,7 @@ export default class Api extends ToolApi {
    * @returns {number} - a value between 0 and 1
    */
   getProgress(selectedCategories) {
-    const {tc: {project}, tool: {}} = this.props;
+    const {tc: {project}} = this.props;
     const name = "translationWords";
     let totalChecks = 0;
     let completedChecks = 0;
@@ -159,7 +160,7 @@ export default class Api extends ToolApi {
             completedChecks += check.selections ? 1 : 0;
           }
         } else {
-          console.warn(`Invalid group data found for "${selectedGroups[i]}"`);
+          console.warn(`Invalid group data found for "${group}"`);
         }
       }
     }
@@ -207,13 +208,13 @@ export default class Api extends ToolApi {
   _loadBookSelections(props) {
     const {
       tc: {
-        targetBible
+        targetBook
       }
     } = props;
 
     const selections = {};
-    for (const chapter of Object.keys(targetBible)) {
-      for (const verse of Object.keys(targetBible[chapter])) {
+    for (const chapter of Object.keys(targetBook)) {
+      for (const verse of Object.keys(targetBook[chapter])) {
         const verseSelections = this._loadVerseSelections(chapter, verse,
           props);
         if (verseSelections.length > 0) {

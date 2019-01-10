@@ -76,7 +76,7 @@ describe('selection data', () => {
         readProjectDirSync: jest.fn(() => {
           return ['1.json', '1_dup.json', '2.json'];
         }),
-        targetBible: {
+        targetBook: {
           '1': {
             '1': {}
           }
