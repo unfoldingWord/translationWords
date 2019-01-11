@@ -132,7 +132,7 @@ TranslationHelpsContainer.propTypes = {
   actions: PropTypes.shape({
     loadResourceArticle: PropTypes.func.isRequired,
   }),
-  showHelps: PropTypes.func.isRequired,
+  showHelps: PropTypes.bool.isRequired,
   toggleHelps: PropTypes.func.isRequired,
 };
 
