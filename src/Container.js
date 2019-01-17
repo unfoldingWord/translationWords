@@ -110,15 +110,16 @@ const mapStateToProps = (state, ownProps) => {
   const legacyToolsReducer = {currentToolName: ownProps.tc.selectedToolName};
   return {
     groupMenu: {
-      toolsReducer: legacyToolsReducer,
+      tc: ownProps.tc,
+      // toolsReducer: legacyToolsReducer,
       groupsDataReducer: ownProps.tc.groupsDataReducer,
       groupsIndexReducer: ownProps.tc.groupsIndexReducer,
-      groupMenuReducer: ownProps.tc.groupMenuReducer,
+      // groupMenuReducer: ownProps.tc.groupMenuReducer,
       translate: ownProps.translate,
-      actions: ownProps.tc.actions,
-      contextId: getContextId(ownProps),
-      manifest: getManifest(ownProps),
-      projectSaveLocation: getProjectSaveLocation(ownProps)
+      // actions: ownProps.tc.actions,
+      // contextId: getContextId(ownProps),
+      // manifest: getManifest(ownProps),
+      // projectSaveLocation: getProjectSaveLocation(ownProps)
     },
     verseCheck: {
       translate: ownProps.translate,
