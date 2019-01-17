@@ -111,15 +111,10 @@ const mapStateToProps = (state, ownProps) => {
   return {
     groupMenu: {
       tc: ownProps.tc,
-      // toolsReducer: legacyToolsReducer,
+      toolApi: ownProps.tool.api,
       groupsDataReducer: ownProps.tc.groupsDataReducer,
       groupsIndexReducer: ownProps.tc.groupsIndexReducer,
-      // groupMenuReducer: ownProps.tc.groupMenuReducer,
-      translate: ownProps.translate,
-      // actions: ownProps.tc.actions,
-      // contextId: getContextId(ownProps),
-      // manifest: getManifest(ownProps),
-      // projectSaveLocation: getProjectSaveLocation(ownProps)
+      translate: ownProps.translate
     },
     verseCheck: {
       translate: ownProps.translate,

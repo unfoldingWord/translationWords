@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 import InvalidatedIcon from "../components/icons/Invalidated";
 import CheckIcon from '@material-ui/icons/Check';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
@@ -11,18 +10,6 @@ import GroupMenu, {generateMenuData} from '../components/GroupMenu';
 import Api from '../Api';
 
 class GroupMenuContainer extends React.Component {
-
-  getGroupProgress(groupIndex, groupsData) {
-    let groupId = groupIndex.id;
-    let totalChecks = groupsData[groupId].length;
-    const doneChecks = groupsData[groupId].filter(groupData =>
-      groupData.selections && !groupData.reminders
-    ).length;
-
-    let progress = doneChecks / totalChecks;
-
-    return progress;
-  }
 
   /**
    * Handles click events from the menu
@@ -39,7 +26,7 @@ class GroupMenuContainer extends React.Component {
    * @returns {object} the updated item
    */
   onProcessItem = item => {
-    const {tc: {project}, toolApi} = this.props;
+    const {tc: {project}} = this.props;
     const bookName = project.getBookName();
 
     const {
@@ -62,9 +49,7 @@ class GroupMenuContainer extends React.Component {
 
     return {
       ...item,
-      title: `${passageText} ${selectionText}`,
-      // completed: false,//toolApi.getIsVerseFinished(chapter, verse), // TODO: I could read from state if I load these into the reducer at startup.
-      // invalid: false//toolApi.getIsVerseInvalid(chapter, verse)
+      title: `${passageText} ${selectionText}`
     };
   };
 
@@ -118,7 +103,7 @@ class GroupMenuContainer extends React.Component {
     const statusIcons = [
       {
         key: 'selections',
-        icon: <CheckIcon style={{color: "white"}}/>
+        icon: <CheckIcon style={{color: "#58c17a"}}/>
       },
       {
         key: 'reminders',
@@ -154,18 +139,6 @@ class GroupMenuContainer extends React.Component {
         emptyNotice={translate('menu.no_results')}
         title={translate('menu.menu')}
         onItemClick={this.handleClick}
-        // translate={translate}
-        // getSelections={(contextId) => actions.getSelectionsFromContextId(
-        //   contextId, projectSaveLocation)}
-        // getGroupProgress={this.getGroupProgress}
-        // isVerseFinished={isVerseFinished}
-        // groupsDataReducer={groupsDataReducer}
-        // groupsIndexReducer={groupsIndexReducer}
-        // groupMenuReducer={groupMenuReducer}
-        // toolsReducer={toolsReducer}
-        // contextIdReducer={{contextId}}
-        // projectDetailsReducer={{manifest, projectSaveLocation}}
-        // actions={actions}
       />
     );
   }
@@ -175,20 +148,8 @@ GroupMenuContainer.propTypes = {
   tc: PropTypes.object.isRequired,
   toolApi: PropTypes.instanceOf(Api),
   translate: PropTypes.func.isRequired,
-
-  // translate: PropTypes.func,
-  // isVerseFinished: PropTypes.any,
-  // projectSaveLocation: PropTypes.string,
-  // groupMenuReducer: PropTypes.object,
-  // manifest: PropTypes.object,
   groupsIndexReducer: PropTypes.object,
-  groupsDataReducer: PropTypes.object,
-  // contextId: PropTypes.object.isRequired,
-  // toolsReducer: PropTypes.object,
-  // actions: PropTypes.shape({
-  //   getSelectionsFromContextId: PropTypes.func.isRequired
-  // }),
-  // projectDetailsReducer: PropTypes.object
+  groupsDataReducer: PropTypes.object
 };
 
-export default connect()(GroupMenuContainer);
+export default GroupMenuContainer;
