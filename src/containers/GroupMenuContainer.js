@@ -6,7 +6,7 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BlockIcon from '@material-ui/icons/Block';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import EditIcon from '@material-ui/icons/Edit';
-import GroupMenu, {generateMenuData} from '../components/GroupMenu';
+import GroupMenu, {generateMenuData, generateMenuItem} from '../components/GroupMenu';
 import Api from '../Api';
 
 class GroupMenuContainer extends React.Component {
@@ -15,7 +15,7 @@ class GroupMenuContainer extends React.Component {
    * Handles click events from the menu
    * @param {object} contextId - the menu item's context id
    */
-  handleClick = contextId => {
+  handleClick = ({contextId}) => {
     const {tc: {actions: {changeCurrentContextId}}} = this.props;
     changeCurrentContextId(contextId);
   };
@@ -31,6 +31,8 @@ class GroupMenuContainer extends React.Component {
 
     const {
       contextId: {
+        quote,
+        occurrence,
         reference: {bookId, chapter, verse}
       }
     } = item;
@@ -49,7 +51,8 @@ class GroupMenuContainer extends React.Component {
 
     return {
       ...item,
-      title: `${passageText} ${selectionText}`
+      title: `${passageText} ${selectionText}`,
+      itemId: `${occurrence}:${bookId}:${chapter}:${verse}:${quote}`
     };
   };
 
@@ -130,11 +133,13 @@ class GroupMenuContainer extends React.Component {
       this.onProcessItem
     );
 
+    const activeEntry = generateMenuItem(contextId, this.onProcessItem);
+    
     return (
       <GroupMenu
         filters={filters}
         entries={entries}
-        active={contextId}
+        active={activeEntry}
         statusIcons={statusIcons}
         emptyNotice={translate('menu.no_results')}
         title={translate('menu.menu')}
