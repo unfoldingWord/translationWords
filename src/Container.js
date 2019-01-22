@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {
   getContextId,
   getManifest,
-  getProjectSaveLocation,
   getCurrentProjectToolsSelectedGL,
   getGroupsIndex,
   getResourceByName,
@@ -111,7 +110,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     groupMenu: {
       tc: ownProps.tc,
-      toolApi: ownProps.tool.api,
       groupsDataReducer: ownProps.tc.groupsDataReducer,
       groupsIndexReducer: ownProps.tc.groupsIndexReducer,
       translate: ownProps.translate

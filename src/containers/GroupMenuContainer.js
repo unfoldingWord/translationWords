@@ -6,7 +6,6 @@ import BlockIcon from '@material-ui/icons/Block';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import EditIcon from '@material-ui/icons/Edit';
 import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon} from 'tc-ui-toolkit';
-import Api from '../Api';
 
 class GroupMenuContainer extends React.Component {
 
@@ -150,7 +149,6 @@ class GroupMenuContainer extends React.Component {
 
 GroupMenuContainer.propTypes = {
   tc: PropTypes.object.isRequired,
-  toolApi: PropTypes.instanceOf(Api),
   translate: PropTypes.func.isRequired,
   groupsIndexReducer: PropTypes.object,
   groupsDataReducer: PropTypes.object
