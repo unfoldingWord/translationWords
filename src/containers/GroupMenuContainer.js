@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InvalidatedIcon from "../components/icons/Invalidated";
 import CheckIcon from '@material-ui/icons/Check';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BlockIcon from '@material-ui/icons/Block';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import EditIcon from '@material-ui/icons/Edit';
-import GroupMenu, {generateMenuData, generateMenuItem} from '../components/GroupMenu';
+import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon} from 'tc-ui-toolkit';
 import Api from '../Api';
 
 class GroupMenuContainer extends React.Component {
@@ -134,9 +133,9 @@ class GroupMenuContainer extends React.Component {
     );
 
     const activeEntry = generateMenuItem(contextId, this.onProcessItem);
-    
+
     return (
-      <GroupMenu
+      <GroupedMenu
         filters={filters}
         entries={entries}
         active={activeEntry}
