@@ -29,13 +29,12 @@ export default class Api extends ToolApi {
         targetBook
       }
     } = this.props;
-    // iterate through target chapters and validate selections
-    const results = {selectionsChanged: false};
+    let selectionsChanged;
     for (const chapter of Object.keys(targetBook)) {
       if (isNaN(chapter) || parseInt(chapter) === -1) continue;
-      this.validateChapter(chapter, results);
+      selectionsChanged = this.validateChapter(chapter);
     }
-    if (results.selectionsChanged) {
+    if (selectionsChanged) {
       this._showResetDialog();
     }
   }
@@ -45,16 +44,15 @@ export default class Api extends ToolApi {
  * This expects the book resources to have already been loaded.
  * Books are loaded when a project is selected.
  * @param {String} chapter
- * @param {Object} results - for keeping track if any selections have been reset.
  */
-  validateChapter(chapter, results) {
+  validateChapter(chapter) {
     const {
       tc: {
         targetBook,
         contextId: {reference: {bookId}},
       }
     } = this.props;
-    let changed = results.selectionsChanged; // save initial state
+    let selectionsChanged = false;
     if (targetBook[chapter]) {
       const bibleChapter = targetBook[chapter];
       if (bibleChapter) {
@@ -67,25 +65,22 @@ export default class Api extends ToolApi {
               verse: parseInt(verse)
             }
           };
-          results.selectionsChanged = false;
-          this.validateVerse(verseText, results, false, contextId);
-          changed = changed || results.selectionsChanged;
+          selectionsChanged = selectionsChanged || this.validateVerse(verseText, false, contextId);
         }
       }
     }
-    results.selectionsChanged = changed;
+    return selectionsChanged;
   }
 
   /**
   * verify all selections for current verse
   * @param {string} targetVerse - new text for verse
-  * @param {object} results - keeps state of
   * @param {Boolean} skipCurrent - if true, then skip over validation of current contextId
   * @param {Object} contextId - optional contextId to use, otherwise will use current
   * @param {Boolean} warnOnError - if true, then will show message on selection change
   * @return {Function}
   */
-  validateVerse(targetVerse, results, skipCurrent = false, contextId = null, warnOnError = false) {
+  validateVerse(targetVerse, skipCurrent = false, contextId = null, warnOnError = false) {
     let {
       tc: {
         username,
@@ -96,11 +91,9 @@ export default class Api extends ToolApi {
       },
       tool: {name}
     } = this.props;
-    const initialSelectionsChanged = results.selectionsChanged;
     const groupsDataForVerse = getGroupDataForVerse(getGroupsData, contextId, name);
     let filtered = null;
-    results.selectionsChanged = false;
-
+    let selectionsChanged = false;
     for (let groupItemKey of Object.keys(groupsDataForVerse)) {
       const groupItem = groupsDataForVerse[groupItemKey];
       for (let checkingOccurrence of groupItem) {
@@ -112,7 +105,7 @@ export default class Api extends ToolApi {
             }
             const validSelections = checkSelectionOccurrences(filtered, selections);
             if (selections.length !== validSelections.length) {
-              results.selectionsChanged = true;
+              selectionsChanged = true;
               changeSelections([], username, true, checkingOccurrence.contextId); // clear selection
             }
           }
@@ -120,9 +113,10 @@ export default class Api extends ToolApi {
       }
     }
 
-    if (warnOnError && (initialSelectionsChanged || results.selectionsChanged)) {
+    if (warnOnError && (selectionsChanged)) {
       this._showResetDialog();
     }
+    return selectionsChanged;
   }
 
   /**
