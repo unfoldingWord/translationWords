@@ -15,6 +15,7 @@
     "save_button": "Save",
     "next_button": "Next"
   },
+  "selections_invalidated": "Some selections are no longer valid and are removed.",
   "see_more": "See more",
   "select": "Select",
   "step2_check": "Step 2. Check",
