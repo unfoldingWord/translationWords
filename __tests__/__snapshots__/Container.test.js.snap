@@ -30,6 +30,7 @@ exports[`Container Tests Test Container 1`] = `
     <div
       class="__react_component_tooltip place-top type-dark "
       data-id="tooltip"
+      id="groups-tooltip"
     />
     <div
       class="groups"
@@ -277,6 +278,7 @@ exports[`Container Tests Test Container 1`] = `
             data-class="selection-tooltip"
             data-delay-hide="100"
             data-effect="float"
+            data-for="groups-tooltip"
             data-place="bottom"
             data-tip=""
             data-type="light"
@@ -308,6 +310,7 @@ exports[`Container Tests Test Container 1`] = `
             data-class="selection-tooltip"
             data-delay-hide="100"
             data-effect="float"
+            data-for="groups-tooltip"
             data-place="bottom"
             data-tip=""
             data-type="light"

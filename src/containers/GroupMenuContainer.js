@@ -58,7 +58,7 @@ GroupMenuContainer.propTypes = {
   actions: PropTypes.shape({
     getSelectionsFromContextId: PropTypes.func.isRequired,
   }),
-  projectDetailsReducer: PropTypes.object.isRequired
+  projectDetailsReducer: PropTypes.object
 };
 
 export default connect()(GroupMenuContainer);

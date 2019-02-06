@@ -62,7 +62,7 @@ CheckInfoCardContainer.propTypes = {
   translationHelps: PropTypes.any,
   groupsIndex: PropTypes.any,
   contextId: PropTypes.object.isRequired,
-  showHelps: PropTypes.func.isRequired,
+  showHelps: PropTypes.bool.isRequired,
   toggleHelps: PropTypes.func.isRequired,
 };
 

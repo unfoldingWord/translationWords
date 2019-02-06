@@ -7,7 +7,6 @@ import {
   getContextId,
   getManifest,
   getProjectSaveLocation,
-  getCurrentToolName,
   getCurrentProjectToolsSelectedGL,
   getGroupsIndex,
   getResourceByName,
@@ -96,9 +95,6 @@ Container.propTypes = {
   projectDetailsReducer: PropTypes.shape({
     currentProjectToolsSelectedGL: PropTypes.object.isRequired
   }),
-  toolsReducer: PropTypes.shape({
-    currentToolName: PropTypes.string.isRequired
-  }),
   tc: PropTypes.shape({
     actions: PropTypes.shape({
       setToolSettings: PropTypes.func.isRequired,
@@ -111,9 +107,10 @@ Container.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  const legacyToolsReducer = {currentToolName: ownProps.tc.selectedToolName};
   return {
     groupMenu: {
-      toolsReducer: ownProps.tc.toolsReducer,
+      toolsReducer: legacyToolsReducer,
       groupsDataReducer: ownProps.tc.groupsDataReducer,
       groupsIndexReducer: ownProps.tc.groupsIndexReducer,
       groupMenuReducer: ownProps.tc.groupMenuReducer,
@@ -125,14 +122,14 @@ const mapStateToProps = (state, ownProps) => {
     },
     verseCheck: {
       translate: ownProps.translate,
-      currentToolName: getCurrentToolName(ownProps),
+      currentToolName: ownProps.tc.selectedToolName,
       projectDetailsReducer: ownProps.tc.projectDetailsReducer,
       loginReducer: ownProps.tc.loginReducer,
       resourcesReducer: ownProps.tc.resourcesReducer,
       commentsReducer: ownProps.tc.commentsReducer,
       selectionsReducer: ownProps.tc.selectionsReducer,
       contextIdReducer: ownProps.tc.contextIdReducer,
-      toolsReducer: ownProps.tc.toolsReducer,
+      toolsReducer: legacyToolsReducer,
       groupsDataReducer: ownProps.tc.groupsDataReducer,
       remindersReducer: ownProps.tc.remindersReducer,
       actions: ownProps.tc.actions
@@ -140,7 +137,7 @@ const mapStateToProps = (state, ownProps) => {
     translationHelps: {
       translate: ownProps.translate,
       currentProjectToolsSelectedGL: getCurrentProjectToolsSelectedGL(ownProps),
-      toolsReducer: ownProps.tc.toolsReducer,
+      toolsReducer: legacyToolsReducer,
       resourcesReducer: ownProps.tc.resourcesReducer,
       contextIdReducer: ownProps.tc.contextIdReducer,
       actions: ownProps.tc.actions

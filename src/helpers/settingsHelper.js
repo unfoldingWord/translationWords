@@ -1,8 +1,8 @@
 
 export const loadCorrectPaneSettings = (props, setToolSettings, bibles) => {
-  const { currentToolName } = props.toolsReducer;
+  const { tc: {selectedToolName}} = props;
   const { currentProjectToolsSelectedGL } = props.projectDetailsReducer;
-  const languageId = currentProjectToolsSelectedGL[currentToolName];
+  const languageId = currentProjectToolsSelectedGL[selectedToolName];
   const { ScripturePane } = props.settingsReducer.toolsSettings;
   let currentPaneSettings = ScripturePane ? ScripturePane.currentPaneSettings : null;
   const paneSeetingsIncludeGLandUlbOrUlt = (paneSetting) => {
