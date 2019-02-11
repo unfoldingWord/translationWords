@@ -1,5 +1,8 @@
 import {ToolApi} from 'tc-tool';
 import path from 'path-extra';
+import usfm from "usfm-js";
+import {checkSelectionOccurrences} from 'selections';
+import {getGroupDataForVerse, sameContext} from './helpers/groupDataHelpers';
 
 export default class Api extends ToolApi {
 
@@ -17,7 +20,135 @@ export default class Api extends ToolApi {
    * Lifecycle method
    */
   toolWillConnect() {
-    // TODO: implement
+    this.validateBook(this.props);
+  }
+
+  validateBook() {
+    const {
+      tc: {
+        targetBook
+      }
+    } = this.props;
+    let selectionsChanged;
+    for (const chapter of Object.keys(targetBook)) {
+      if (isNaN(chapter) || parseInt(chapter) === -1) continue;
+      selectionsChanged = this.validateChapter(chapter);
+    }
+    if (selectionsChanged) {
+      this._showResetDialog();
+    }
+  }
+
+  /**
+ * verifies all the selections for chapter to make sure they are still valid.
+ * This expects the book resources to have already been loaded.
+ * Books are loaded when a project is selected.
+ * @param {String} chapter
+ */
+  validateChapter(chapter) {
+    const {
+      tc: {
+        targetBook,
+        contextId: {reference: {bookId}},
+      }
+    } = this.props;
+    let selectionsChanged = false;
+    if (targetBook[chapter]) {
+      const bibleChapter = targetBook[chapter];
+      if (bibleChapter) {
+        for (let verse of Object.keys(bibleChapter)) {
+          const verseText = bibleChapter[verse];
+          const contextId = {
+            reference: {
+              bookId,
+              chapter: parseInt(chapter),
+              verse: parseInt(verse)
+            }
+          };
+          selectionsChanged = selectionsChanged || this.validateVerse(verseText, false, contextId);
+        }
+      }
+    }
+    return selectionsChanged;
+  }
+
+  /**
+  * verify all selections for current verse
+  * @param {string} targetVerse - new text for verse
+  * @param {Boolean} skipCurrent - if true, then skip over validation of current contextId
+  * @param {Object} contextId - optional contextId to use, otherwise will use current
+  * @param {Boolean} warnOnError - if true, then will show message on selection change
+  * @return {Function}
+  */
+  validateVerse(targetVerse, skipCurrent = false, contextId = null, warnOnError = false) {
+    let {
+      tc: {
+        username,
+        changeSelections,
+        project: {
+          getGroupsData
+        }
+      },
+      tool: {name}
+    } = this.props;
+    const groupsDataForVerse = getGroupDataForVerse(getGroupsData, contextId, name);
+    let filtered = null;
+    let selectionsChanged = false;
+    for (let groupItemKey of Object.keys(groupsDataForVerse)) {
+      const groupItem = groupsDataForVerse[groupItemKey];
+      for (let checkingOccurrence of groupItem) {
+        const selections = checkingOccurrence.selections;
+        if (!skipCurrent || !sameContext(contextId, checkingOccurrence.contextId)) {
+          if (selections && selections.length) {
+            if (!filtered) {  // for performance, we filter the verse only once and only if there is a selection
+              filtered = usfm.removeMarker(targetVerse); // remove USFM markers
+            }
+            const validSelections = checkSelectionOccurrences(filtered, selections);
+            if (selections.length !== validSelections.length) {
+              selectionsChanged = true;
+              changeSelections([], username, true, checkingOccurrence.contextId); // clear selection
+            }
+          }
+        }
+      }
+    }
+
+    if (warnOnError && (selectionsChanged)) {
+      this._showResetDialog();
+    }
+    return selectionsChanged;
+  }
+
+  /**
+ * Returns the percent progress of completion for the project.
+ * @param {string[]} selectedCategories -  an array of categories to include in the calculation.
+ * @returns {number} - a value between 0 and 1
+ */
+  getProgress(selectedCategories) {
+    const {tc: {project}, tool: {name}} = this.props;
+    let totalChecks = 0;
+    let completedChecks = 0;
+
+    for (const category of selectedCategories) {
+      const groups = project.getCategoryGroupIds(name, category);
+      for (const group of groups) {
+        const data = project.getGroupData(name, group);
+        if (data && data.constructor === Array) {
+          for (const check of data) {
+            totalChecks++;
+            completedChecks += check.selections ? 1 : 0;
+          }
+        } else {
+          console.warn(`Invalid group data found for "${group}"`);
+        }
+      }
+    }
+
+    if (totalChecks === 0) {
+      return 0;
+    } else {
+      return completedChecks / totalChecks;
+    }
   }
 
   /**
@@ -132,39 +263,6 @@ export default class Api extends ToolApi {
   }
 
   /**
-   * Returns the percent progress of completion for the project.
-   * TODO: move category selection management into the tool so we don't need this param
-   * @param {string[]} selectedCategories -  an array of categories to include in the calculation.
-   * @returns {number} - a value between 0 and 1
-   */
-  getProgress(selectedCategories) {
-    const {tc: {project}, tool: {name}} = this.props;
-    let totalChecks = 0;
-    let completedChecks = 0;
-
-    for (const category of selectedCategories) {
-      const groups = project.getCategoryGroupIds(name, category);
-      for (const group of groups) {
-        const data = project.getGroupData(name, group);
-        if (data && data.constructor === Array) {
-          for (const check of data) {
-            totalChecks++;
-            completedChecks += check.selections ? 1 : 0;
-          }
-        } else {
-          console.warn(`Invalid group data found for "${group}"`);
-        }
-      }
-    }
-
-    if (totalChecks === 0) {
-      return 0;
-    } else {
-      return completedChecks / totalChecks;
-    }
-  }
-
-  /**
    * Returns the alignment memory generated from selections made in tW.
    * @return {{sourceText : string, targetText : string}[]}
    */
@@ -270,4 +368,12 @@ export default class Api extends ToolApi {
     return selections;
   }
 
+  _showResetDialog() {
+    const {
+      tool: {
+        translate
+      }
+    } = this.props;
+    this.props.tc.showIgnorableAlert('selections_invalidated', translate('selections_invalidated'));
+  }
 }

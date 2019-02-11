@@ -13,9 +13,16 @@ import TranslationHelpsContainer from '../src/containers/TranslationHelpsContain
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+const basicProps = require('./__fixtures__/basicProps.json');
 const props = {
-  ...require('./__fixtures__/basicProps.json'),
-  translate: k => k
+  ...basicProps,
+  translate: k => k,
+  tc: {
+    ...basicProps.tc,
+    project: {
+      getBookName: () => () => "gen"
+    }
+  }
 };
 
 props.tc.actions = {
@@ -26,6 +33,11 @@ props.tc.actions = {
   loadResourceArticle: jest.fn(),
   getGLQuote: jest.fn(),
   setFilter: jest.fn(),
+  changeSelections: jest.fn(),
+  goToNext: jest.fn(),
+  goToPrevious: jest.fn(),
+  getAvailableScripturePaneSelections: jest.fn(),
+  makeSureBiblesLoadedForTool: jest.fn(),
   groupMenuChangeGroup: jest.fn(),
   groupMenuExpandSubMenu: jest.fn(),
   getSelectionsFromContextId: () => ''
@@ -76,7 +88,7 @@ describe.only('Container Tests', () => {
   });
 
   it('Test has ScripturePane Panes', () => {
-    const container = mount(
+    const container = render(
       <Provider store={store}>
         <Container {...props} />
       </Provider>)
@@ -97,11 +109,11 @@ describe.only('Container Tests', () => {
   });
 
   it('Test TranslationHelps componentWillReceiveProps', () => {
-    const root = mount(
+    const root = render(
       <Provider store={store}>
         <Container {...props} />
       </Provider>)
       .find(TranslationHelpsContainer);
-      expect(root.props().actions.loadResourceArticle).toHaveBeenCalledWith("translationWords", "blasphemy", "en");
+      expect(props.tc.actions.loadResourceArticle).toHaveBeenCalledWith("translationWords", "blasphemy", "en");
   });
 });

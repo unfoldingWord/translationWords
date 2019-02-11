@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {
   getContextId,
   getManifest,
-  getProjectSaveLocation,
   getCurrentProjectToolsSelectedGL,
   getGroupsIndex,
   getResourceByName,
@@ -110,15 +109,10 @@ const mapStateToProps = (state, ownProps) => {
   const legacyToolsReducer = {currentToolName: ownProps.tc.selectedToolName};
   return {
     groupMenu: {
-      toolsReducer: legacyToolsReducer,
+      tc: ownProps.tc,
       groupsDataReducer: ownProps.tc.groupsDataReducer,
       groupsIndexReducer: ownProps.tc.groupsIndexReducer,
-      groupMenuReducer: ownProps.tc.groupMenuReducer,
-      translate: ownProps.translate,
-      actions: ownProps.tc.actions,
-      contextId: getContextId(ownProps),
-      manifest: getManifest(ownProps),
-      projectSaveLocation: getProjectSaveLocation(ownProps)
+      translate: ownProps.translate
     },
     verseCheck: {
       translate: ownProps.translate,
