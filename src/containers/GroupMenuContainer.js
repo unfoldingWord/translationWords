@@ -50,7 +50,8 @@ class GroupMenuContainer extends React.Component {
     return {
       ...item,
       title: `${passageText} ${selectionText}`,
-      itemId: `${occurrence}:${bookId}:${chapter}:${verse}:${quote}`
+      itemId: `${occurrence}:${bookId}:${chapter}:${verse}:${quote}`,
+      finished: !!item.selections && !item.invalidated
     };
   };
 
@@ -77,16 +78,16 @@ class GroupMenuContainer extends React.Component {
       },
       {
         label: translate('menu.selected'),
-        key: 'selections',
-        disables: ['no-selections'],
+        key: 'finished',
+        disables: ['not-finished'],
         icon: <CheckIcon/>
       },
       {
         label: translate('menu.no_selection'),
-        id: 'no-selections',
-        key: 'selections',
+        id: 'not-finished',
+        key: 'finished',
         value: false,
-        disables: ['selections'],
+        disables: ['finished'],
         icon: <BlockIcon/>
       },
       {
@@ -103,7 +104,7 @@ class GroupMenuContainer extends React.Component {
 
     const statusIcons = [
       {
-        key: 'selections',
+        key: 'finished',
         icon: <CheckIcon style={{color: "#58c17a"}}/>
       },
       {
