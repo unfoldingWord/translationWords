@@ -1,8 +1,10 @@
 import {ToolApi} from 'tc-tool';
 import path from 'path-extra';
 import usfm from "usfm-js";
+import fs from 'fs-extra';
 import {checkSelectionOccurrences} from 'selections';
-import {getGroupDataForVerse, sameContext} from './helpers/groupDataHelpers';
+import {getGroupDataForVerse, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/groupDataHelpers';
+import {generateTimestamp} from './helpers/groupDataHelpers';
 
 export default class Api extends ToolApi {
 
@@ -29,13 +31,9 @@ export default class Api extends ToolApi {
         targetBook
       }
     } = this.props;
-    let selectionsChanged;
     for (const chapter of Object.keys(targetBook)) {
       if (isNaN(chapter) || parseInt(chapter) === -1) continue;
-      selectionsChanged = this.validateChapter(chapter);
-    }
-    if (selectionsChanged) {
-      this._showResetDialog();
+      this.validateChapter(chapter);
     }
   }
 
@@ -52,7 +50,6 @@ export default class Api extends ToolApi {
         contextId: {reference: {bookId}},
       }
     } = this.props;
-    let selectionsChanged = false;
     if (targetBook[chapter]) {
       const bibleChapter = targetBook[chapter];
       if (bibleChapter) {
@@ -65,11 +62,10 @@ export default class Api extends ToolApi {
               verse: parseInt(verse)
             }
           };
-          selectionsChanged = selectionsChanged || this.validateVerse(verseText, false, contextId);
+          this.validateVerse(verseText, false, contextId);
         }
       }
     }
-    return selectionsChanged;
   }
 
   /**
@@ -80,17 +76,26 @@ export default class Api extends ToolApi {
   * @param {Boolean} warnOnError - if true, then will show message on selection change
   * @return {Function}
   */
-  validateVerse(targetVerse, skipCurrent = false, contextId = null, warnOnError = false) {
+  validateVerse(targetVerse, skipCurrent = false, contextId = null, ) {
     let {
       tc: {
         username,
         changeSelections,
         project: {
-          getGroupsData
+          getGroupsData,
+          _projectPath: projectSaveLocation
         }
       },
       tool: {name}
     } = this.props;
+    const {reference: {chapter, verse, bookId} } = contextId;
+    const selectionsObject = getSelectionsFromChapterAndVerseCombo(
+      bookId,
+      chapter,
+      verse,
+      projectSaveLocation
+    );
+    const {contextId: contextIdFromSelectionsObject, gatewayLanguageCode, gatewayLanguageQuote} = selectionsObject;
     const groupsDataForVerse = getGroupDataForVerse(getGroupsData, contextId, name);
     let filtered = null;
     let selectionsChanged = false;
@@ -105,19 +110,32 @@ export default class Api extends ToolApi {
             }
             const validSelections = checkSelectionOccurrences(filtered, selections);
             if (selections.length !== validSelections.length) {
+              //If selections are changed, they need to be clearded
               selectionsChanged = true;
               changeSelections([], username, true, checkingOccurrence.contextId); // clear selection
+              const modifiedTimestamp = generateTimestamp();
+              const invalidted = {
+                contextId: contextIdFromSelectionsObject,
+                invalidated: true,
+                userName: username,
+                modifiedTimestamp: modifiedTimestamp,
+                gatewayLanguageCode,
+                gatewayLanguageQuote
+              };
+              const newFilename = modifiedTimestamp + '.json';
+              const invalidatedCheckPath = path.join(projectSaveLocation, '.apps', 'translationCore', 'checkData', 'invalidated', bookId, chapter.toString(), verse.toString());
+              fs.outputJSONSync(path.join(invalidatedCheckPath, newFilename.replace(/[:"]/g, '_')), invalidted);
             }
           }
         }
       }
     }
 
-    if (warnOnError && (selectionsChanged)) {
+    if (selectionsChanged) {
       this._showResetDialog();
     }
-    return selectionsChanged;
   }
+
 
   /**
  * Returns the percent progress of completion for the project.
