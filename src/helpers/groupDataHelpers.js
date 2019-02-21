@@ -62,7 +62,7 @@ export function generateTimestamp(str){
   } else {
     return (new Date(str)).toJSON();
   }
-};
+}
 
 export function getSelectionsFromChapterAndVerseCombo(bookId, chapter, verse, projectSaveLocation) {
   let selectionsObject = {};
@@ -85,7 +85,7 @@ export function getSelectionsFromChapterAndVerseCombo(bookId, chapter, verse, pr
     selectionsObject = fs.readJsonSync(path.join(selectionsPath, filename));
   }
   return selectionsObject;
-};
+}
 
 /**
  * Generates the output directory.
