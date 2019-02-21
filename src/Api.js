@@ -80,10 +80,12 @@ export default class Api extends ToolApi {
     let {
       tc: {
         username,
-        changeSelections,
         project: {
           getGroupsData,
           _projectPath: projectSaveLocation
+        },
+        actions: {
+          changeSelections
         }
       },
       tool: {name}
