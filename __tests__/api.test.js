@@ -25,7 +25,9 @@ describe('api.validateBook', () => {
         },
         contextId: {reference: {bookId: 'tit'}},
         username: 'royalsix',
-        changeSelections: jest.fn(() => {}),
+        actions: {
+          changeSelections: jest.fn(() => {})
+        },
         project: {
           _projectPath: projectPath,
           getGroupData: jest.fn(() => {}),
@@ -42,7 +44,7 @@ describe('api.validateBook', () => {
     api.props = props;
     api.validateBook();
     expect(props.tc.showIgnorableAlert).toHaveBeenCalled();
-    expect(props.tc.changeSelections).toHaveBeenCalled();
+    expect(props.tc.actions.changeSelections).toHaveBeenCalled();
     expect(fs.outputJSONSync).toHaveBeenCalledWith(
       expect.stringContaining(path.join(projectPath, '.apps/translationCore/checkData/invalidated/tit/2/12/')),
       {
