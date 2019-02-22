@@ -3,8 +3,8 @@ import path from 'path-extra';
 import usfm from "usfm-js";
 import fs from 'fs-extra';
 import {checkSelectionOccurrences} from 'selections';
-import {getGroupDataForVerse, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/groupDataHelpers';
-import {generateTimestamp} from './helpers/groupDataHelpers';
+import {getGroupDataForVerse} from './helpers/groupDataHelpers';
+import {generateTimestamp, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/invalidationHelpers';
 
 export default class Api extends ToolApi {
 
@@ -54,7 +54,6 @@ export default class Api extends ToolApi {
       if (bibleChapter) {
         for (let verse of Object.keys(bibleChapter)) {
           const targetVerse = bibleChapter[verse];
-          debugger;
           this._validateVerse(targetVerse, chapter, verse);
         }
       }
@@ -67,7 +66,7 @@ export default class Api extends ToolApi {
         targetBook
       }
     } = this.props;
-    const bibleChapter = targetBook[chapter]
+    const bibleChapter = targetBook[chapter];
     const targetVerse = bibleChapter[verse];
     this._validateVerse(targetVerse, chapter, verse);
   }
