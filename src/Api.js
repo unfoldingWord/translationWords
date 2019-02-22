@@ -46,39 +46,42 @@ export default class Api extends ToolApi {
   validateChapter(chapter) {
     const {
       tc: {
-        targetBook,
-        contextId: {reference: {bookId}},
+        targetBook
       }
     } = this.props;
     if (targetBook[chapter]) {
       const bibleChapter = targetBook[chapter];
       if (bibleChapter) {
         for (let verse of Object.keys(bibleChapter)) {
-          const verseText = bibleChapter[verse];
-          const contextId = {
-            reference: {
-              bookId,
-              chapter: parseInt(chapter),
-              verse: parseInt(verse)
-            }
-          };
-          this.validateVerse(verseText, false, contextId);
+          const targetVerse = bibleChapter[verse];
+          debugger;
+          this._validateVerse(targetVerse, chapter, verse);
         }
       }
     }
   }
 
+  validateVerse(chapter, verse) {
+    const {
+      tc: {
+        targetBook
+      }
+    } = this.props;
+    const bibleChapter = targetBook[chapter]
+    const targetVerse = bibleChapter[verse];
+    this._validateVerse(targetVerse, chapter, verse);
+  }
+
   /**
   * verify all selections for current verse
-  * @param {string} targetVerse - new text for verse
-  * @param {Boolean} skipCurrent - if true, then skip over validation of current contextId
-  * @param {Object} contextId - optional contextId to use, otherwise will use current
-  * @param {Boolean} warnOnError - if true, then will show message on selection change
+  * @param {number} chapter
+  * @param {number} verse
   * @return {Function}
   */
-  validateVerse(targetVerse, skipCurrent = false, contextId = null, ) {
+  _validateVerse(targetVerse, chapter, verse) {
     let {
       tc: {
+        contextId: {reference: {bookId}},
         username,
         project: {
           getGroupsData,
@@ -90,7 +93,13 @@ export default class Api extends ToolApi {
       },
       tool: {name}
     } = this.props;
-    const {reference: {chapter, verse, bookId} } = contextId;
+    const contextId = {
+      reference: {
+        bookId,
+        chapter: parseInt(chapter),
+        verse: parseInt(verse)
+      }
+    };
     const selectionsObject = getSelectionsFromChapterAndVerseCombo(
       bookId,
       chapter,
@@ -105,7 +114,7 @@ export default class Api extends ToolApi {
       const groupItem = groupsDataForVerse[groupItemKey];
       for (let checkingOccurrence of groupItem) {
         const selections = checkingOccurrence.selections;
-        if (!skipCurrent || !sameContext(contextId, checkingOccurrence.contextId)) {
+        if (!sameContext(contextId, checkingOccurrence.contextId)) {
           if (selections && selections.length) {
             if (!filtered) {  // for performance, we filter the verse only once and only if there is a selection
               filtered = usfm.removeMarker(targetVerse); // remove USFM markers
