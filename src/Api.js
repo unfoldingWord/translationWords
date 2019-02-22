@@ -4,7 +4,7 @@ import usfm from "usfm-js";
 import fs from 'fs-extra';
 import {checkSelectionOccurrences} from 'selections';
 import {getGroupDataForVerse} from './helpers/groupDataHelpers';
-import {generateTimestamp, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/invalidationHelpers';
+import {generateTimestamp, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/validationHelpers';
 
 export default class Api extends ToolApi {
 
