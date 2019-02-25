@@ -1,6 +1,6 @@
 import Api from '../src/Api';
-jest.mock('../src/helpers/groupDataHelpers', () => ({
-  ...require.requireActual('../src/helpers/groupDataHelpers'),
+jest.mock('../src/helpers/validationHelpers', () => ({
+  ...require.requireActual('../src/helpers/validationHelpers'),
   getSelectionsFromChapterAndVerseCombo: () => require('./__fixtures__/selectionObject.json')
 }));
 jest.mock('fs-extra', () => ({
