@@ -65,7 +65,6 @@ class GroupMenuContainer extends React.Component {
         groupsIndexReducer: {groupsIndex}
       }
     } = this.props;
-    debugger;
     const filters = [
       {
         label: translate('menu.invalidated'),
