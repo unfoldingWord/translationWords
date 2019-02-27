@@ -4,7 +4,8 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BlockIcon from '@material-ui/icons/Block';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import EditIcon from '@material-ui/icons/Edit';
-import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon, CheckIcon} from 'tc-ui-toolkit';
+import CheckIcon from "@material-ui/icons/Check";
+import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon} from 'tc-ui-toolkit';
 
 class GroupMenuContainer extends React.Component {
 
@@ -64,7 +65,7 @@ class GroupMenuContainer extends React.Component {
         groupsIndexReducer: {groupsIndex}
       }
     } = this.props;
-
+    debugger;
     const filters = [
       {
         label: translate('menu.invalidated'),
@@ -133,7 +134,6 @@ class GroupMenuContainer extends React.Component {
     );
 
     const activeEntry = generateMenuItem(contextId, this.onProcessItem);
-
     return (
       <GroupedMenu
         filters={filters}
