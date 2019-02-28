@@ -33,6 +33,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "crowdin-api": "^2.0.2",
     "deep-equal": "^1.0.1",
