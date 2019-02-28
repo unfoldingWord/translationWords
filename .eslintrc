@@ -23,13 +23,12 @@
     "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
     "no-console": "off"
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
-    },
-    "parser": "babel-eslint",
-    "sourceType": "module"
+    }
   },
   "env": {
     "browser": true,
