@@ -23,7 +23,6 @@
     "semi": ["error", "always", {"omitLastInOneLineBlock": true}],
     "no-console": "off"
   },
-  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
