@@ -69,16 +69,19 @@ class GroupMenuContainer extends React.Component {
       {
         label: translate('menu.invalidated'),
         key: 'invalidated',
+        order: 1,
         icon: <InvalidatedIcon/>
       },
       {
         label: translate('menu.bookmarks'),
         key: 'reminders',
+        order: 2,
         icon: <BookmarkIcon/>
       },
       {
         label: translate('menu.selected'),
         key: 'finished',
+        order: 3,
         disables: ['not-finished'],
         icon: <CheckIcon/>
       },
@@ -86,6 +89,7 @@ class GroupMenuContainer extends React.Component {
         label: translate('menu.no_selection'),
         id: 'not-finished',
         key: 'finished',
+        order: 4,
         value: false,
         disables: ['finished'],
         icon: <BlockIcon/>
@@ -93,11 +97,13 @@ class GroupMenuContainer extends React.Component {
       {
         label: translate('menu.verse_edit'),
         key: 'verseEdits',
+        order: 5,
         icon: <EditIcon/>
       },
       {
         label: translate('menu.comments'),
         key: 'comments',
+        order: 6,
         icon: <ModeCommentIcon/>
       }
     ];
