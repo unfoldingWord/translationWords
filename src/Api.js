@@ -2,6 +2,7 @@ import {ToolApi} from 'tc-tool';
 import path from 'path-extra';
 import usfm from "usfm-js";
 import fs from 'fs-extra';
+import ospath from 'ospath';
 import {checkSelectionOccurrences} from 'selections';
 import {getGroupDataForVerse} from './helpers/groupDataHelpers';
 import {generateTimestamp, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/validationHelpers';
@@ -404,6 +405,22 @@ export default class Api extends ToolApi {
     } = this.props;
     this.props.tc.showIgnorableAlert('selections_invalidated', translate('selections_invalidated'));
   }
-
-  
+  getAvailableCheckCategories() {
+    const {
+      tool:{
+        name:toolName
+      },
+      tc: {
+        currentProjectToolsSelectedGL,
+        resources:ResourceAPI
+      }
+    } = this.props;
+    const gatewayLanguage = currentProjectToolsSelectedGL[toolName] || 'en';
+    const toolResourceDirectory = path.join(ospath.home(), 'translationCore', 'resources', gatewayLanguage, 'translationHelps', toolName);
+    const categoriesLocation = ResourceAPI.getLatestVersion(toolResourceDirectory) || toolResourceDirectory;
+    let catFiles = [];
+    catFiles = fs.readdirSync(categoriesLocation).filter((dirName) =>
+      fs.lstatSync(path.join(categoriesLocation, dirName)).isDirectory())
+    return catFiles;
+  }
 }
