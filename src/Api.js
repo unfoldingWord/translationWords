@@ -404,4 +404,6 @@ export default class Api extends ToolApi {
     } = this.props;
     this.props.tc.showIgnorableAlert('selections_invalidated', translate('selections_invalidated'));
   }
+
+  
 }
