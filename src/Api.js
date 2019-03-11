@@ -120,17 +120,17 @@ export default class Api extends ToolApi {
               selectionsChanged = true;
               const invalidatedCheckPath = path.join(projectSaveLocation, '.apps', 'translationCore', 'checkData', 'invalidated', bookId, chapter.toString(), verse.toString());
               const invalidatedPayload = {
+                ...selectionsObject,
                 invalidated: true,
-                userName,
-                ...selectionsObject
+                userName
               };
               this.writeCheckData(invalidatedPayload, invalidatedCheckPath);
 
               const selectionsCheckPath = path.join(projectSaveLocation, '.apps', 'translationCore', 'checkData', 'selections', bookId, chapter.toString(), verse.toString());
               const selectionsPayload = {
+                ...selectionsObject,
                 selections: [],
-                userName,
-                ...selectionsObject
+                userName
               };
               this.writeCheckData(selectionsPayload, selectionsCheckPath);
             }
@@ -146,7 +146,7 @@ export default class Api extends ToolApi {
 
   writeCheckData(payload = {}, checkPath) {
     const modifiedTimestamp = generateTimestamp();
-    const newFilename = modifiedTimestamp + '.json';;
+    const newFilename = modifiedTimestamp + '.json';
     payload.modifiedTimestamp = newFilename;
     fs.outputJSONSync(path.join(checkPath, newFilename.replace(/[:"]/g, '_')), payload);
   }
