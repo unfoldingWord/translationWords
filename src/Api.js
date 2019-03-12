@@ -114,7 +114,8 @@ export default class Api extends ToolApi {
                 bookId,
                 chapter,
                 verse,
-                projectSaveLocation
+                projectSaveLocation,
+                checkingOccurrence.contextId.quote
               );
               //If selections are changed, they need to be clearded
               selectionsChanged = true;
@@ -122,6 +123,7 @@ export default class Api extends ToolApi {
               const invalidatedPayload = {
                 ...selectionsObject,
                 invalidated: true,
+                selections: [],
                 userName
               };
               this.writeCheckData(invalidatedPayload, invalidatedCheckPath);
@@ -147,7 +149,7 @@ export default class Api extends ToolApi {
   writeCheckData(payload = {}, checkPath) {
     const modifiedTimestamp = generateTimestamp();
     const newFilename = modifiedTimestamp + '.json';
-    payload.modifiedTimestamp = newFilename;
+    payload.modifiedTimestamp = modifiedTimestamp;
     fs.outputJSONSync(path.join(checkPath, newFilename.replace(/[:"]/g, '_')), payload);
   }
 
