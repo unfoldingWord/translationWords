@@ -55,7 +55,7 @@ export function getSelectionsFromChapterAndVerseCombo(bookId, chapter, verse, pr
       sorted = sorted.filter((filename) => {
         const currentSelectionsObject = fs.readJsonSync(path.join(selectionsPath, filename));
         return currentSelectionsObject.contextId.quote === quote;
-      })
+      });
     }
     const filename = sorted[0];
     selectionsObject = fs.readJsonSync(path.join(selectionsPath, filename));
