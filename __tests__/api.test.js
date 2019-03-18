@@ -25,9 +25,6 @@ describe('api.validateBook', () => {
         },
         contextId: {reference: {bookId: 'tit'}},
         username: 'royalsix',
-        actions: {
-          changeSelections: jest.fn(() => {})
-        },
         project: {
           _projectPath: projectPath,
           getGroupData: jest.fn(() => {}),
@@ -37,31 +34,35 @@ describe('api.validateBook', () => {
               [{"priority": 1, "comments": false, "reminders": false, "selections": [{"text": "godlessness ", "occurrence": 1, "occurrences": 1}], "verseEdits": false, "contextId": {"reference": {"bookId": "tit", "chapter": 2, "verse": 12}, "tool": "translationWords", "groupId": "age", "quote": "αἰῶνι", "strong": ["G01650"], "occurrence": 1}, "invalidated": false}]
           })),
         },
-        showIgnorableAlert: jest.fn(() => {})
+        showIgnorableDialog: jest.fn(() => {})
       }
     };
     const api = new Api();
+    const writeCheckDataSpy = jest.spyOn(api, 'writeCheckData');
     api.props = props;
     api.validateBook();
-    expect(props.tc.showIgnorableAlert).toHaveBeenCalled();
-    expect(props.tc.actions.changeSelections).toHaveBeenCalled();
+    expect(props.tc.showIgnorableDialog).toHaveBeenCalled();
+    expect(writeCheckDataSpy).toHaveBeenCalled();
     expect(fs.outputJSONSync).toHaveBeenCalledWith(
-      expect.stringContaining(path.join(projectPath, '.apps/translationCore/checkData/invalidated/tit/2/12/')),
+      expect.stringContaining(path.join(projectPath, '.apps/translationCore/checkData/selections/tit/2/12/')),
       {
-        contextId:
-        {
-          reference: {bookId: 'tit', chapter: 1, verse: 6},
-          tool: 'translationWords',
-          groupId: 'accuse',
-          quote: 'κατηγορίᾳ',
-          strong: ['G27240'],
-          occurrence: 1
+        contextId: {
+          groupId: "accuse",
+          occurrence: 1,
+          quote: "κατηγορίᾳ",
+          reference: {
+            bookId: "tit",
+            chapter: 1,
+            verse: 6
+          },
+          strong: ["G27240"],
+          tool: "translationWords"
         },
-        invalidated: true,
-        userName: 'royalsix',
+        gatewayLanguageCode: "en",
+        gatewayLanguageQuote: "accused",
         modifiedTimestamp: expect.any(String),
-        gatewayLanguageCode: 'en',
-        gatewayLanguageQuote: 'accused'
+        selections: [],
+        userName: "royalsix"
       }
     );
   });

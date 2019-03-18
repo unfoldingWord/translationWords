@@ -81,13 +81,10 @@ export default class Api extends ToolApi {
     let {
       tc: {
         contextId: {reference: {bookId}},
-        username,
+        username: userName,
         project: {
           getGroupsData,
           _projectPath: projectSaveLocation
-        },
-        actions: {
-          changeSelections
         }
       },
       tool: {name}
@@ -99,13 +96,6 @@ export default class Api extends ToolApi {
         verse: parseInt(verse)
       }
     };
-    const selectionsObject = getSelectionsFromChapterAndVerseCombo(
-      bookId,
-      chapter,
-      verse,
-      projectSaveLocation
-    );
-    const {contextId: contextIdFromSelectionsObject, gatewayLanguageCode, gatewayLanguageQuote} = selectionsObject;
     const groupsDataForVerse = getGroupDataForVerse(getGroupsData, contextId, name);
     let filtered = null;
     let selectionsChanged = false;
@@ -120,21 +110,31 @@ export default class Api extends ToolApi {
             }
             const validSelections = checkSelectionOccurrences(filtered, selections);
             if (selections.length !== validSelections.length) {
+              const selectionsObject = getSelectionsFromChapterAndVerseCombo(
+                bookId,
+                chapter,
+                verse,
+                projectSaveLocation,
+                checkingOccurrence.contextId.quote
+              );
               //If selections are changed, they need to be clearded
               selectionsChanged = true;
-              changeSelections([], username, true, checkingOccurrence.contextId); // clear selection
-              const modifiedTimestamp = generateTimestamp();
-              const invalidted = {
-                contextId: contextIdFromSelectionsObject,
-                invalidated: true,
-                userName: username,
-                modifiedTimestamp: modifiedTimestamp,
-                gatewayLanguageCode,
-                gatewayLanguageQuote
-              };
-              const newFilename = modifiedTimestamp + '.json';
               const invalidatedCheckPath = path.join(projectSaveLocation, '.apps', 'translationCore', 'checkData', 'invalidated', bookId, chapter.toString(), verse.toString());
-              fs.outputJSONSync(path.join(invalidatedCheckPath, newFilename.replace(/[:"]/g, '_')), invalidted);
+              const invalidatedPayload = {
+                ...selectionsObject,
+                invalidated: true,
+                selections: [],
+                userName
+              };
+              this.writeCheckData(invalidatedPayload, invalidatedCheckPath);
+
+              const selectionsCheckPath = path.join(projectSaveLocation, '.apps', 'translationCore', 'checkData', 'selections', bookId, chapter.toString(), verse.toString());
+              const selectionsPayload = {
+                ...selectionsObject,
+                selections: [],
+                userName
+              };
+              this.writeCheckData(selectionsPayload, selectionsCheckPath);
             }
           }
         }
@@ -144,6 +144,13 @@ export default class Api extends ToolApi {
     if (selectionsChanged) {
       this._showResetDialog();
     }
+  }
+
+  writeCheckData(payload = {}, checkPath) {
+    const modifiedTimestamp = generateTimestamp();
+    const newFilename = modifiedTimestamp + '.json';
+    payload.modifiedTimestamp = modifiedTimestamp;
+    fs.outputJSONSync(path.join(checkPath, newFilename.replace(/[:"]/g, '_')), payload);
   }
 
 
@@ -268,7 +275,6 @@ export default class Api extends ToolApi {
   getInvalidChecks(selectedCategories) {
     const {tc: {project}, tool: {name}} = this.props;
     let invalidChecks = 0;
-
     for (const category of selectedCategories) {
       const groups = project.getCategoryGroupIds(name, category);
       for (const group of groups) {
@@ -286,7 +292,6 @@ export default class Api extends ToolApi {
         }
       }
     }
-
     return invalidChecks;
   }
 
@@ -402,6 +407,6 @@ export default class Api extends ToolApi {
         translate
       }
     } = this.props;
-    this.props.tc.showIgnorableAlert('selections_invalidated', translate('selections_invalidated'));
+    this.props.tc.showIgnorableDialog('selections_invalidated', translate('selections_invalidated'));
   }
 }
