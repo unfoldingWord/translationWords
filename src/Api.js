@@ -405,22 +405,4 @@ export default class Api extends ToolApi {
     } = this.props;
     this.props.tc.showIgnorableAlert('selections_invalidated', translate('selections_invalidated'));
   }
-  getAvailableCheckCategories() {
-    const {
-      tool:{
-        name:toolName
-      },
-      tc: {
-        currentProjectToolsSelectedGL,
-        resources:ResourceAPI
-      }
-    } = this.props;
-    const gatewayLanguage = currentProjectToolsSelectedGL[toolName] || 'en';
-    const toolResourceDirectory = path.join(ospath.home(), 'translationCore', 'resources', gatewayLanguage, 'translationHelps', toolName);
-    const categoriesLocation = ResourceAPI.getLatestVersion(toolResourceDirectory) || toolResourceDirectory;
-    let catFiles = [];
-    catFiles = fs.readdirSync(categoriesLocation).filter((dirName) =>
-      fs.lstatSync(path.join(categoriesLocation, dirName)).isDirectory())
-    return catFiles;
-  }
 }
