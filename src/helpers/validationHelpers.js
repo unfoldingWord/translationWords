@@ -26,7 +26,7 @@ export function sameContext(contextId1, contextId2) {
  * @param {String} str A date string. If null, will be current date
  * @return {String} The timestamp in milliseconds
  ******************************************************************************/
-export function generateTimestamp(str){
+export function generateTimestamp(str) {
   if (!str) {
     return (new Date()).toJSON();
   } else {
@@ -34,7 +34,7 @@ export function generateTimestamp(str){
   }
 }
 
-export function getSelectionsFromChapterAndVerseCombo(bookId, chapter, verse, projectSaveLocation) {
+export function getSelectionsFromChapterAndVerseCombo(bookId, chapter, verse, projectSaveLocation, quote = "") {
   let selectionsObject = {};
   const contextId = {
     reference: {
@@ -50,7 +50,13 @@ export function getSelectionsFromChapterAndVerseCombo(bookId, chapter, verse, pr
     files = files.filter(file => { // filter the filenames to only use .json
       return path.extname(file) === '.json';
     });
-    const sorted = files.sort().reverse(); // sort the files to use latest
+    let sorted = files.sort().reverse(); // sort the files to use latest
+    if (quote) {
+      sorted = sorted.filter((filename) => {
+        const currentSelectionsObject = fs.readJsonSync(path.join(selectionsPath, filename));
+        return currentSelectionsObject.contextId.quote === quote;
+      });
+    }
     const filename = sorted[0];
     selectionsObject = fs.readJsonSync(path.join(selectionsPath, filename));
   }
