@@ -2,7 +2,6 @@ import {ToolApi} from 'tc-tool';
 import path from 'path-extra';
 import usfm from "usfm-js";
 import fs from 'fs-extra';
-import ospath from 'ospath';
 import {checkSelectionOccurrences} from 'selections';
 import {getGroupDataForVerse} from './helpers/groupDataHelpers';
 import {generateTimestamp, sameContext, getSelectionsFromChapterAndVerseCombo} from './helpers/validationHelpers';
@@ -166,7 +165,7 @@ export default class Api extends ToolApi {
     let completedChecks = 0;
     const selectedCategories = project.getSelectedCategories(name, true);
     for (const categoryName in selectedCategories) {
-      const groups = selectedCategories[categoryName]
+      const groups = selectedCategories[categoryName];
       for (const group of groups) {
         const data = project.getGroupData(name, group);
         if (data && data.constructor === Array) {
