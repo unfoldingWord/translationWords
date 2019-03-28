@@ -5,10 +5,14 @@
   "title": "translationWords",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./index.js && jest index.test.js"
+    "test": "eslint ./index.js && jest"
   },
   "jest": {
-    "verbose": true
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "coverage"
   },
   "repository": {
     "type": "git",
@@ -29,7 +33,7 @@
     "crowdin-api": "2.0.2",
     "eslint": "^5.15.3",
     "gulp": "^3.9.1",
-    "jest": "^24.5.0",
+    "jest": "^24.1.0",
     "react-redux": "5.0.7",
     "redux": "^4.0.1",
     "tc-tool": "2.1.0"
