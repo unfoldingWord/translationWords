@@ -5,7 +5,7 @@
   "title": "translationWords",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./index.js && jest --passWithNoTests"
+    "test": "eslint ./index.js && jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   "homepage": "https://github.com/translationCoreApps/translationWords#readme",
   "display": "app",
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
     "checking-tool-wrapper": "^0.4.0",
     "eslint": "^5.15.3",
     "jest": "^24.5.0",
