@@ -7,6 +7,9 @@
   "scripts": {
     "test": "eslint ./index.js && jest"
   },
+  "jest": {
+    "verbose": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/translationCoreApps/translationWords.git"
