@@ -13,4 +13,4 @@ install:
 before_script:
   - if [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "develop" ]]; then gulp crowdin; fi
 script:
-  - npm test
+  - eslint ./index.js && jest index.test.js
