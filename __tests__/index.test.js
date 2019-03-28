@@ -1,4 +1,4 @@
-import translationWords from '../src/index';
+import translationWords from '../index';
 
 describe('Testing tool index.js', () => {
   test('Should return an object with all the required fields', () => {

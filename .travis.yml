@@ -14,3 +14,4 @@ before_script:
   - if [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "develop" ]]; then gulp crowdin; fi
 script:
   - eslint ./src && jest --coverage
+  - codecov
