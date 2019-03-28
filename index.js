@@ -5,7 +5,7 @@ import {
   Api,
   Container,
   mapStateToProps
-} from 'tc-tool-wrapper';
+} from 'checking-tool-wrapper';
 
 export default connectTool('translationWords', {
   localeDir: path.join(__dirname, './src/locale'),
