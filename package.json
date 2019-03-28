@@ -7,13 +7,6 @@
   "scripts": {
     "test": "eslint ./index.js && jest"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "index.js",
-      "!**/node_modules/**"
-    ],
-    "coverageDirectory": "coverage"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/translationCoreApps/translationWords.git"
