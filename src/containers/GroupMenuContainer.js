@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CheckIcon from '@material-ui/icons/Check';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BlockIcon from '@material-ui/icons/Block';
 import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import EditIcon from '@material-ui/icons/Edit';
-import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon} from 'tc-ui-toolkit';
+import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon, CheckIcon} from 'tc-ui-toolkit';
 
 class GroupMenuContainer extends React.Component {
 
@@ -50,7 +49,9 @@ class GroupMenuContainer extends React.Component {
     return {
       ...item,
       title: `${passageText} ${selectionText}`,
-      itemId: `${occurrence}:${bookId}:${chapter}:${verse}:${quote}`
+      itemId: `${occurrence}:${bookId}:${chapter}:${verse}:${quote}`,
+      finished: !!item.selections && !item.invalidated,
+      tooltip: selectionText
     };
   };
 
@@ -77,16 +78,16 @@ class GroupMenuContainer extends React.Component {
       },
       {
         label: translate('menu.selected'),
-        key: 'selections',
-        disables: ['no-selections'],
+        key: 'finished',
+        disables: ['not-finished'],
         icon: <CheckIcon/>
       },
       {
         label: translate('menu.no_selection'),
-        id: 'no-selections',
-        key: 'selections',
+        id: 'not-finished',
+        key: 'finished',
         value: false,
-        disables: ['selections'],
+        disables: ['finished'],
         icon: <BlockIcon/>
       },
       {
@@ -103,24 +104,24 @@ class GroupMenuContainer extends React.Component {
 
     const statusIcons = [
       {
-        key: 'selections',
-        icon: <CheckIcon style={{color: "#58c17a"}}/>
+        key: 'invalidated',
+        icon: <InvalidatedIcon style={{color: "white"}}/>
       },
       {
         key: 'reminders',
         icon: <BookmarkIcon style={{color: "white"}}/>
       },
       {
-        key: 'invalidated',
-        icon: <InvalidatedIcon style={{color: "white"}}/>
-      },
-      {
-        key: 'comments',
-        icon: <ModeCommentIcon style={{color: "white"}}/>
+        key: 'finished',
+        icon: <CheckIcon style={{color: "#58c17a"}}/>
       },
       {
         key: 'verseEdits',
         icon: <EditIcon style={{color: "white"}}/>
+      },
+      {
+        key: 'comments',
+        icon: <ModeCommentIcon style={{color: "white"}}/>
       }
     ];
 
