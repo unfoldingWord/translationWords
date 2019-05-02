@@ -15,7 +15,7 @@
     "save_button": "Guardar",
     "next_button": "Siguiente"
   },
-  "selections_invalidated": "Some selections are no longer valid and are removed.",
+  "selections_invalidated": "Algunas selecciones ya no son válidas y se eliminan.",
   "see_more": "Ver más",
   "select": "Seleccionar",
   "step2_check": "Paso 2. Verificación",
@@ -163,7 +163,7 @@
   "affirmation": "Afirmación",
   "definite_article": "Artículo Definido",
   "exhortation": "Exhortación",
-  "negative": "Negative",
+  "negative": "Negativo",
   "direct_object_marker": "Marcador del Objeto Directo",
   "absolute": "Absoluto",
   "construct": "Construir",
