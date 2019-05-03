@@ -6,7 +6,7 @@ import ModeCommentIcon from '@material-ui/icons/ModeComment';
 import EditIcon from '@material-ui/icons/Edit';
 import {GroupedMenu, generateMenuData, generateMenuItem, InvalidatedIcon, CheckIcon} from 'tc-ui-toolkit';
 
-function generateItemId(occurrence, bookId, chapter, verse, quote) {
+export function generateItemId(occurrence, bookId, chapter, verse, quote) {
   let quoteId = "";
   if (Array.isArray(quote)) { // is a bit more complicated
     const parts = [];
