@@ -11,13 +11,14 @@ function generateItemId(occurrence, bookId, chapter, verse, quote) {
   if (Array.isArray(quote)) { // is a bit more complicated
     const parts = [];
     for (let i = 0, l = quote.length; i < l; i++) {
-      parts.push(quote.occurrence + ":" + quote.word);
+      const quotePart = quote[i];
+      parts.push(quotePart.occurrence + ":" + quotePart.word);
     }
     quoteId = parts.join(":");
   } else {
     quoteId = `${occurrence}:${quote}`;
   }
-  return `${bookId}:${chapter}:${verse}:${quoteId}`;
+  return `${quoteId}:${verse}:${chapter}:${bookId}`;
 }
 
 class GroupMenuContainer extends React.Component {
