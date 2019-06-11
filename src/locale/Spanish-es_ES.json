@@ -70,7 +70,7 @@
     "add_resource_label": "Añadir Recursos",
     "select_language": "Seleccionar idioma",
     "gateway_language": "Idioma fuente",
-    "target_language": "Idioma a ser traducido",
+    "target_language": "Idioma receptor",
     "original_language": "Idioma Original"
   },
   "lemma": "Lema:",
@@ -164,7 +164,7 @@
   "exhortation": "Exhortación",
   "negative": "Negative",
   "direct_object_marker": "Marcador del Objeto Directo",
-  "absolute": "Absoluta",
+  "absolute": "Absoluto",
   "construct": "Construir",
   "determined": "Determinado",
   "directional_he": "Direccional He",
@@ -175,12 +175,12 @@
   "sequential_perfect_weqatal": "Perfecto Secuencial (Weqatal)",
   "imperfect_yiqtol": "Imperfecto (Yiqtol)",
   "sequential_imperfect_wayyiqtol": "Imperfecto Secuencial (Wayyiqtol)",
-  "cohortative": "Cohortative",
+  "cohortative": "Cohortativo",
   "jussive": "Jussive",
   "participle_active": "Participio Activo",
   "participle_passive": "Participio Pasivo",
   "infinitive_absolute": "Infinitivo Absoluto",
-  "infinitive_construct": "Infinitivo Constructo",
+  "infinitive_construct": "Construcción Infinitiva",
   "qal": "Qal",
   "niphal": "Niphal",
   "piel": "Piel",
@@ -227,5 +227,5 @@
   "ithpalpel": "Ithpalpel",
   "ithpolel": "Ithpolel",
   "ittaphal": "Ittaphal",
-  "morph_missing": "Morfología no encontrado"
+  "morph_missing": "No se encontró la Morfología"
 }
