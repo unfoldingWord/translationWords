@@ -26,6 +26,8 @@
   "save_continue": "Сохранить и продолжить",
   "empty_verse": "Не удается сделать выбор, потому что стих пуст.<br/>Вы можете исправить это, отредактировав стих.<br/>Вы также можете оставить комментарий или сделать закладку этой проверки.",
   "no_selection": "Не удается сделать выбор.<br/>Нажмите кнопку Выбрать, затем выберите перевод для этой проверки.",
+  "no_selection_needed_description": "No selection has been made.<br/>This check has been marked as:",
+  "no_selection_needed": "No selection needed",
   "please_select": "Пожалуйста, выберите перевод для:",
   "selection_invalidated": "Выбор для этой проверки был аннулирован.",
   "invalidated_tooltip": "Выбор недействителен, если выбранные слова были отредактированы.",
