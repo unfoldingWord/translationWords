@@ -14,7 +14,7 @@
     "cancel_button": "Cancelar",
     "save_button": "Salvar",
     "next_button": "Próximo",
-    "discard_changes": "Discard Changes"
+    "discard_changes": "Descartar Alterações"
   },
   "quote_invalid": "Invalid Original Language Quote for Check: '${quote}'",
   "nothing_to_select_description": "When selected, the check will be marked as complete. Use when the translation is correct but a selection cannot be made.",
