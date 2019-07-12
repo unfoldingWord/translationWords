@@ -64,7 +64,7 @@
     "bookmarked": "Эта проверка сделали закладкой для пересмотра",
     "not_bookmarked": "Эта проверка не была закладкой для пересмотра"
   },
-  "select_too_many": "Щелкните предыдущее выделение, чтобы удалить его перед добавлением нового. Чтобы выбрать более 4 слов, выделите фразу вместо отдельных слов.",
+  "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
   "oops": "Хм!",
   "pane": {
     "current_project": "Текущий проект",
