@@ -18,7 +18,7 @@
   },
   "quote_invalid": "Citação de idioma original inválida para verificação: ‘${quote}’",
   "nothing_to_select_description": "Quando selecionado, a verificação será marcada como completo. Use quando a tradução estiver correta, mas não será possível fazer uma seleção.",
-  "selections_invalidated": "Algumas seleções não são mais válidas e são removidas.",
+  "selections_invalidated": "Algumas seleções não são mais válidas e foram removidas.",
   "see_more": "Ver mais",
   "select": "Selecionar",
   "step2_check": "Passo 2. Verificar",
@@ -64,7 +64,7 @@
     "bookmarked": "Esta verificação foi marcada para revisão",
     "not_bookmarked": "Esta verificação não foi marcada para revisão"
   },
-  "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
+  "select_too_many": "Clique em uma seleção anterior para removê-la antes de adicionar uma nova seleção. Para selecionar mais de 4 palavras, destaque frases em vez de palavras individuais.",
   "oops": "Opa!",
   "pane": {
     "current_project": "Projeto atual",
@@ -75,7 +75,7 @@
     "add_resource": "Clique para adicionar um recurso",
     "add_resource_label": "Adicionar Recursos",
     "select_language": "Selecionar o idioma",
-    "gateway_language": "Lingua Ponte",
+    "gateway_language": "Língua de Entrada",
     "target_language": "Idioma de destino",
     "original_language": "Idioma original"
   },
