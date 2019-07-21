@@ -64,7 +64,7 @@
     "bookmarked": "This check has been bookmarked for review",
     "not_bookmarked": "This check has not been bookmarked for review"
   },
-  "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
+  "select_too_many": "Nautun halibole karne agete chuniya tu click kuribi. Arubi ${maximum} pora bishi kotha khan chunibole karne, nijor bekti kotha khan nohoikena ashol kotha khan he.",
   "oops": "Oops!",
   "pane": {
     "current_project": "Current project",
@@ -75,9 +75,9 @@
     "add_resource": "Click to add a resource",
     "add_resource_label": "Add Resources",
     "select_language": "Select language",
-    "gateway_language": "Gateway Language",
-    "target_language": "Target Language",
-    "original_language": "Original Language"
+    "gateway_language": "Rasta khuli diya bhasa",
+    "target_language": "Laksya bhasa",
+    "original_language": "Ashol bhasa"
   },
   "lemma": "Lemma:",
   "morphology": "Morphology:",
@@ -156,7 +156,7 @@
   "superlatives": "Superlative",
   "indeclinable": "Indeclinable",
   "diminutive": "Diminutive",
-  "suffix": "Suffix",
+  "suffix": "Juri diya",
   "cardinal_number": "Cardinal Number",
   "gentilic": "Gentilic",
   "ordinal_number": "Ordinal Number",
