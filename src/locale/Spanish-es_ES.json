@@ -29,7 +29,7 @@
   "empty_verse": "No se puede hacer ninguna selección porque el versículo está en blanco.<br/>Puedes solucionar esto editando el versículo.<br/>Si deseas, puede dejar un comentario o un marcador para esta verificación.",
   "no_selection": "No se ha realizado ninguna selección. <br/>Haz clic en el botón seleccionar, luego selecciona la traducción para esta verificación.",
   "no_selection_needed_description": "No selection has been made.<br/>This check has been marked as:",
-  "no_selection_needed": "No selection needed",
+  "no_selection_needed": "No se necesita selección",
   "please_select": "Por favor, selecciona la traducción para:",
   "selection_invalidated": "La selección para esta verificación fue invalidada.",
   "invalidated_tooltip": "Una selección es invalidada si las palabras seleccionadas fueron editadas.",
@@ -64,7 +64,7 @@
     "bookmarked": "Esta verificación ha sido marcada para revisión",
     "not_bookmarked": "Esta verificación no ha sido marcada para revisión"
   },
-  "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
+  "select_too_many": "Haz clic en una selección previa para eliminarla antes de añadir una nueva. Para seleccionar más de 4 palabras, resalta las frases en lugar de palabras individuales.",
   "oops": "¡Uy!",
   "pane": {
     "current_project": "Proyecto actual",
@@ -234,5 +234,5 @@
   "ithpolel": "Ithpolel",
   "ittaphal": "Ittaphal",
   "morph_missing": "No se encontró la Morfología",
-  "unsaved_changes": "You have unsaved changes."
+  "unsaved_changes": "Hay cambios sin guardar"
 }
