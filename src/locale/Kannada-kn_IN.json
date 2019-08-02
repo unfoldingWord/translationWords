@@ -16,9 +16,9 @@
     "next_button": "Next",
     "discard_changes": "ಬದಲಾವಣೆಗಳನ್ನು ತ್ಯಜಿಸಿ"
   },
-  "quote_invalid": "Invalid Original Language Quote for Check: '${quote}'",
-  "nothing_to_select_description": "When selected, the check will be marked as complete. Use when the translation is correct but a selection cannot be made.",
-  "selections_invalidated": "Some selections are no longer valid and are removed.",
+  "quote_invalid": "ಪರಿಶೀಲನೆಗಾಗಿ ಅಮಾನ್ಯ ಮೂಲ ಭಾಷಾ ಉಲ್ಲೇಖ:'${quote}'",
+  "nothing_to_select_description": "ಆಯ್ಕೆ ಮಾಡಿದಾಗ, ಪರಿಶೀಲನೆ ಸಂಪೂರ್ಣವಾಗಿದೆ ಎಂದು ಗುರುತುಹಾಕಲ್ಪಡುತ್ತದೆ. ಅನುವಾದ ಸರಿಯಾಗಿದ್ದಾಗ ಬಳಸಿ ಆದರೆ ಆಯ್ಕೆ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+  "selections_invalidated": "ಕೆಲವು ಆಯ್ಕೆಗಳು ಇನ್ನು ಮುಂದೆ ಮಾನ್ಯವಾಗಿಲ್ಲ ಮತ್ತು ಅವುಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.",
   "see_more": "See more",
   "select": "Select",
   "step2_check": "Step 2. Check",
