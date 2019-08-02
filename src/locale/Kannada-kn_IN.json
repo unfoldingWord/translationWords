@@ -28,8 +28,8 @@
   "save_continue": "Save & Continue",
   "empty_verse": "No selection can be made because the verse is blank.<br/>You may fix this by editing the verse.<br/>If desired, you may also leave a comment or bookmark this check.",
   "no_selection": "No selection has been made.<br/>Click the Select button, then select the translation for this check.",
-  "no_selection_needed_description": "No selection has been made.<br/>This check has been marked as:",
-  "no_selection_needed": "No selection needed",
+  "no_selection_needed_description": "ಯಾವುದೇ ಆಯ್ಕೆ ಮಾಡಲಾಗಲಿಲ್ಲ.<br/>ಈ ಪರಿಶೀಲನೆಯನ್ನು ಹೀಗೆ ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ:",
+  "no_selection_needed": "ಯಾವುದೇ ಆಯ್ಕೆ ಅಗತ್ಯವಿಲ್ಲ",
   "please_select": "Please select the translation for:",
   "selection_invalidated": "The selection for this check was invalidated.",
   "invalidated_tooltip": "A selection is invalidated if the words selected were then edited.",
@@ -64,7 +64,7 @@
     "bookmarked": "This check has been bookmarked for review",
     "not_bookmarked": "This check has not been bookmarked for review"
   },
-  "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
+  "select_too_many": "ಹೊಸ ಆಯ್ಕೆಯನ್ನು ಸೇರಿಸುವ ಮೊದಲು ಅದನ್ನು ತೆಗೆದುಹಾಕಲು ಹಿಂದಿನ ಆಯ್ಕೆಯನ್ನು ಒತ್ತಿರಿ. ${maximum} ಪದಗಳಿಗಿಂತ ಹೆಚ್ಚಿನ ಪದಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲು, ಪ್ರತಿಯೊಂದು ಪದವನ್ನು ಆಯ್ಕೆ ಮಾಡದೇ ನುಡಿಗಟ್ಟುಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿರಿ.",
   "oops": "Oops!",
   "pane": {
     "current_project": "Current project",
@@ -75,7 +75,7 @@
     "add_resource": "Click to add a resource",
     "add_resource_label": "Add Resources",
     "select_language": "Select language",
-    "gateway_language": "Gateway Language",
+    "gateway_language": "ಉಪಯೋಗಿಸಲ್ಪಡುವ ಭಾಷೆ",
     "target_language": "Target Language",
     "original_language": "Original Language"
   },
