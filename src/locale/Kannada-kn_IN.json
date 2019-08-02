@@ -76,8 +76,8 @@
     "add_resource_label": "Add Resources",
     "select_language": "Select language",
     "gateway_language": "ಉಪಯೋಗಿಸಲ್ಪಡುವ ಭಾಷೆ",
-    "target_language": "Target Language",
-    "original_language": "Original Language"
+    "target_language": "ಆಕಾಂಕ್ಷಿತ ಭಾಷೆ",
+    "original_language": "ಮೂಲ ಭಾಷೆ"
   },
   "lemma": "Lemma:",
   "morphology": "Morphology:",
@@ -156,8 +156,8 @@
   "superlatives": "Superlative",
   "indeclinable": "Indeclinable",
   "diminutive": "Diminutive",
-  "suffix": "Suffix",
-  "cardinal_number": "Cardinal Number",
+  "suffix": "ಪ್ರತ್ಯಯ",
+  "cardinal_number": "ಪ್ರಧಾನ ಸಂಖ್ಯೆ",
   "gentilic": "Gentilic",
   "ordinal_number": "Ordinal Number",
   "both_genders": "Both Genders",
