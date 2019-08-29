@@ -29,7 +29,7 @@
   "empty_verse": "No selection can be made because the verse is blank.<br/>You may fix this by editing the verse.<br/>If desired, you may also leave a comment or bookmark this check.",
   "no_selection": "No selection has been made.<br/>Click the Select button, then select the translation for this check.",
   "no_selection_needed_description": "କିଛି ଚୟନ କରାଯାଇ ନାହିଁ।<br/>ଏହିରୂପେ ଏହି ଚେକ୍‍କୁ ଚିହ୍ନିତ କରାଯାଇଅଛି:",
-  "no_selection_needed": "କୌଣସି ମନୋନୟନର ଆବଶ୍ୟକତା ନାହିଁ",
+  "no_selection_needed": "କୌଣସି ଚୟନର ଆବଶ୍ୟକତା ନାହିଁ",
   "please_select": "Please select the translation for:",
   "selection_invalidated": "The selection for this check was invalidated.",
   "invalidated_tooltip": "A selection is invalidated if the words selected were then edited.",
