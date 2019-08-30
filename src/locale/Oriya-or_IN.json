@@ -1,6 +1,6 @@
 {
   "menu": {
-    "no_results": "No results",
+    "no_results": "କିଛି ପରିଣାମ ନାହିଁ",
     "invalidated": "Invalidated",
     "bookmarks": "Bookmarks",
     "selected": "Selected",
@@ -16,8 +16,8 @@
     "next_button": "Next",
     "discard_changes": "ପରିବର୍ତ୍ତନଗୁଡିକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"
   },
-  "quote_invalid": "Invalid Original Language Quote for Check: '${quote}'",
-  "nothing_to_select_description": "When selected, the check will be marked as complete. Use when the translation is correct but a selection cannot be made.",
+  "quote_invalid": "ପରୀକ୍ଷା କରିବା ପାଇଁ ମୂଳ ଭାଷାର ଉଦ୍ଧୃତି ଚିହ୍ନକୁ ଅବୈଧ କରନ୍ତୁ: '${quote}'",
+  "nothing_to_select_description": "ଚୟନ କରାଯିବା ପରେ, ଚେକ୍ ପୂର୍ଣ୍ଣ ରୂପରେ ଚିହ୍ନିତ ହେବ। ଯଦି ଅନୁବାଦ ସଠିକ୍ ଅଛି ତେବେ ବ୍ୟବହାର କରନ୍ତୁ କିନ୍ତୁ ମନୋନୟନ କରାଯାଇ ପାରିବ ନାହିଁ।  ",
   "selections_invalidated": "ବର୍ତ୍ତମାନ କେତେକ ଚୟନଗୁଡିକ ଯଥାର୍ଥ ନୁହେଁ ଏବଂ ସେଗୁଡିକୁ ହଟାଇ ଦିଆଯାଇଅଛି।",
   "see_more": "See more",
   "select": "Select",
@@ -234,5 +234,5 @@
   "ithpolel": "ଇଥ୍‍‍ପୋଲେଲ୍",
   "ittaphal": "ଇତ୍ତାଫାଲ୍",
   "morph_missing": "ପଦବିଜ୍ଞାନ ମିଳିଲା ନାହିଁ",
-  "unsaved_changes": "ଆପଣଙ୍କ ପାଖରେ ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନଗୁଡିକୁ ଅଛି।"
+  "unsaved_changes": "ଆପଣଙ୍କ ପାଖରେ ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନଗୁଡିକ ଅଛି।"
 }
