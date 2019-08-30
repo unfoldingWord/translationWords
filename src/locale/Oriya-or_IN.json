@@ -1,18 +1,18 @@
 {
   "menu": {
     "no_results": "କିଛି ପରିଣାମ ନାହିଁ",
-    "invalidated": "Invalidated",
-    "bookmarks": "Bookmarks",
-    "selected": "Selected",
-    "no_selection": "No selection",
-    "verse_edit": "Verse edit",
-    "comments": "Comments",
-    "menu": "Menu"
+    "invalidated": "ଅବୈଧ ହୋଇଅଛି",
+    "bookmarks": "ବୁକ୍‍ମାର୍କ୍ସ",
+    "selected": "ଚୟନ ହୋଇଅଛି",
+    "no_selection": "କିଛି ଚୟନ ହୋଇନାହିଁ",
+    "verse_edit": "ପଦର ସଂଶୋଧନ",
+    "comments": "ମନ୍ତବ୍ୟଗୁଡିକ",
+    "menu": "ତାଲିକା"
   },
   "buttons": {
-    "back_button": "Go Back",
-    "cancel_button": "Cancel",
-    "save_button": "Save",
+    "back_button": "ପଛକୁ ଯାଆନ୍ତୁ",
+    "cancel_button": "ରଦ୍ଦ କରନ୍ତୁ",
+    "save_button": "ସୁରକ୍ଷିତ ରଖନ୍ତୁ",
     "next_button": "Next",
     "discard_changes": "ପରିବର୍ତ୍ତନଗୁଡିକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"
   },
@@ -234,5 +234,5 @@
   "ithpolel": "ଇଥ୍‍‍ପୋଲେଲ୍",
   "ittaphal": "ଇତ୍ତାଫାଲ୍",
   "morph_missing": "ପଦବିଜ୍ଞାନ ମିଳିଲା ନାହିଁ",
-  "unsaved_changes": "ଆପଣଙ୍କ ପାଖରେ ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନଗୁଡିକ ଅଛି।"
+  "unsaved_changes": "ଆପଣଙ୍କ ପାଖରେ ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନଗୁଡିକୁ ଅଛି।"
 }
