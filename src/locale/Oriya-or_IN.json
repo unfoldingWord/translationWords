@@ -13,15 +13,15 @@
     "back_button": "ପଛକୁ ଯାଆନ୍ତୁ",
     "cancel_button": "ରଦ୍ଦ କରନ୍ତୁ",
     "save_button": "ସୁରକ୍ଷିତ ରଖନ୍ତୁ",
-    "next_button": "Next",
+    "next_button": "ପରବର୍ତ୍ତୀ",
     "discard_changes": "ପରିବର୍ତ୍ତନଗୁଡିକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"
   },
   "quote_invalid": "ପରୀକ୍ଷା କରିବା ପାଇଁ ମୂଳ ଭାଷାର ଉଦ୍ଧୃତି ଚିହ୍ନକୁ ଅବୈଧ କରନ୍ତୁ: '${quote}'",
   "nothing_to_select_description": "ଚୟନ କରାଯିବା ପରେ, ଚେକ୍ ପୂର୍ଣ୍ଣ ରୂପରେ ଚିହ୍ନିତ ହେବ। ଯଦି ଅନୁବାଦ ସଠିକ୍ ଅଛି ତେବେ ବ୍ୟବହାର କରନ୍ତୁ କିନ୍ତୁ ମନୋନୟନ କରାଯାଇ ପାରିବ ନାହିଁ।  ",
   "selections_invalidated": "ବର୍ତ୍ତମାନ କେତେକ ଚୟନଗୁଡିକ ଯଥାର୍ଥ ନୁହେଁ ଏବଂ ସେଗୁଡିକୁ ହଟାଇ ଦିଆଯାଇଅଛି।",
-  "see_more": "See more",
-  "select": "Select",
-  "step2_check": "Step 2. Check",
+  "see_more": "ଅଧିକ ଦେଖନ୍ତୁ",
+  "select": "ଚୟନ କରନ୍ତୁ",
+  "step2_check": "ଦ୍ଵିତୀୟ ପଦକ୍ଷେପ: ପରୀକ୍ଷା ",
   "comment": "Comment",
   "edit_verse": "Edit Verse",
   "save_previous": "Save & Previous",
@@ -234,5 +234,5 @@
   "ithpolel": "ଇଥ୍‍‍ପୋଲେଲ୍",
   "ittaphal": "ଇତ୍ତାଫାଲ୍",
   "morph_missing": "ପଦବିଜ୍ଞାନ ମିଳିଲା ନାହିଁ",
-  "unsaved_changes": "ଆପଣଙ୍କ ପାଖରେ ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନଗୁଡିକୁ ଅଛି।"
+  "unsaved_changes": "ଆପଣଙ୍କ ପାଖରେ ଅସୁରକ୍ଷିତ ପରିବର୍ତ୍ତନଗୁଡିକ ଅଛି।"
 }
