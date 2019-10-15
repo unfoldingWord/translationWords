@@ -29,18 +29,23 @@
     "@babel/preset-env": "^7.4.2",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
-    "checking-tool-wrapper": "^0.4.0",
+    "checking-tool-wrapper": "^0.7.3",
     "crowdin-api": "2.0.2",
     "eslint": "^5.15.3",
     "gulp": "^3.9.1",
     "jest": "^24.1.0",
     "react-dom": "^16.8.6",
-    "react-redux": "5.0.7",
-    "redux": "^4.0.1",
-    "tc-tool": "2.1.0"
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "tc-tool": "^3.0.0"
   },
   "peerDependencies": {
     "tc-tool": "^2.1.0",
     "react-redux": "^5.0.6"
+  },
+  "dependencies": {
+    "i": "^0.3.6",
+    "npm": "^6.12.0",
+    "redux-batched-actions": "^0.4.1"
   }
 }
