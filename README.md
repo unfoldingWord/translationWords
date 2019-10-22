@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/translationCoreApps/translationWords.svg?branch=master)](https://travis-ci.org/translationCoreApps/translationWords)
-[![codecov](https://codecov.io/gh/translationCoreApps/translationWords/branch/master/graph/badge.svg)](https://codecov.io/gh/translationCoreApps/translationWords)
+[![Build Status](https://travis-ci.org/unfoldingWord/translationWords.svg?branch=master)](https://travis-ci.org/unfoldingWord/translationWords)
+[![codecov](https://codecov.io/gh/unfoldingWord/translationWords/branch/master/graph/badge.svg)](https://codecov.io/gh/unfoldingWord/translationWords)
 
 # translationWords
 
