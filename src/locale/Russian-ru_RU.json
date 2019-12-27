@@ -13,8 +13,11 @@
     "back_button": "Назад",
     "cancel_button": "Отменить",
     "save_button": "Сохранить",
-    "next_button": "Далее"
+    "next_button": "Далее",
+    "discard_changes": "Discard Changes"
   },
+  "quote_invalid": "Invalid Original Language Quote for Check: '${quote}'",
+  "nothing_to_select_description": "When selected, the check will be marked as complete. Use when the translation is correct but a selection cannot be made.",
   "selections_invalidated": "Некоторые варианты больше не действительны и удалены.",
   "see_more": "Посмотреть больше",
   "select": "Выбрать",
@@ -23,8 +26,10 @@
   "edit_verse": "Редактировать стих",
   "save_previous": "Сохранить и вернуться",
   "save_continue": "Сохранить и продолжить",
-  "empty_verse": "Не удается сделать выбор, потому что стих пуст.<br/>Вы можете исправить это, отредактировав стих.<br/>Вы также можете оставить комментарий или закладку этой проверки.",
+  "empty_verse": "Не удается сделать выбор, потому что стих пуст.<br/>Вы можете исправить это, отредактировав стих.<br/>Вы также можете оставить комментарий или сделать закладку этой проверки.",
   "no_selection": "Не удается сделать выбор.<br/>Нажмите кнопку Выбрать, затем выберите перевод для этой проверки.",
+  "no_selection_needed_description": "No selection has been made.<br/>This check has been marked as:",
+  "no_selection_needed": "No selection needed",
   "please_select": "Пожалуйста, выберите перевод для:",
   "selection_invalidated": "Выбор для этой проверки был аннулирован.",
   "invalidated_tooltip": "Выбор недействителен, если выбранные слова были отредактированы.",
@@ -44,6 +49,7 @@
   "next_change_reason": "Выберите причину(ы) изменения",
   "first_make_change": "Во-первых, внести изменения в стихе выше",
   "close": "Закрыть",
+  "load": "Load",
   "attention": "Внимание:",
   "select_translation": "Пожалуйста ${span} выберите ${span} правильный перевод для текущей проверки.",
   "can_skip": "Если вы не можете выполнить эту проверку, вы сможете ${span} ${span} пропустить её и вернуться к ней позже.",
@@ -52,14 +58,14 @@
   "icons": {
     "selections_found": "Выбранное было найдено для этой проверки",
     "no_selections_found": "Для этой проверки не найдено ни одной отметки",
-    "verse_edits_found": "Стихи, которые были найдены для этой проверки",
-    "no_verse_edits_found": "Стихи не были найдены для этой проверки",
+    "verse_edits_found": "Правки стихов, которые были найдены для этой проверки",
+    "no_verse_edits_found": "Правки стихов не были найдены для этой проверки",
     "comments_found": "Комментарии, которые были найдены для этой проверки",
     "no_comments_found": "Нет комментариев для этой проверки",
-    "bookmarked": "Эта проверка была закладкой для пересмотра",
+    "bookmarked": "Эта проверка сделали закладкой для пересмотра",
     "not_bookmarked": "Эта проверка не была закладкой для пересмотра"
   },
-  "select_too_many": "Щелкните предыдущее выделение, чтобы удалить его перед добавлением нового. Чтобы выбрать более 4 слов, выделите фразу вместо отдельных слов.",
+  "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
   "oops": "Хм!",
   "pane": {
     "current_project": "Текущий проект",
@@ -228,5 +234,6 @@
   "ithpalpel": "Итпалпэль",
   "ithpolel": "Итполэль",
   "ittaphal": "Иттафаль",
-  "morph_missing": "Морфология не найдена"
+  "morph_missing": "Морфология не найдена",
+  "unsaved_changes": "You have unsaved changes."
 }
