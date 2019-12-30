@@ -29,7 +29,7 @@
   "empty_verse": "Не удается сделать выбор, потому что стих пуст.<br/>Вы можете исправить это, отредактировав стих.<br/>Вы также можете оставить комментарий или сделать закладку этой проверки.",
   "no_selection": "Не удается сделать выбор.<br/>Нажмите кнопку Выбрать, затем выберите перевод для этой проверки.",
   "no_selection_needed_description": "No selection has been made.<br/>This check has been marked as:",
-  "no_selection_needed": "No selection needed",
+  "no_selection_needed": "Выделение не требуется",
   "please_select": "Пожалуйста, выберите перевод для:",
   "selection_invalidated": "Выбор для этой проверки был аннулирован.",
   "invalidated_tooltip": "Выбор недействителен, если выбранные слова были отредактированы.",
@@ -52,7 +52,7 @@
   "load": "Загрузить",
   "attention": "Внимание:",
   "select_translation": "Пожалуйста ${span} выберите ${span} правильный перевод для текущей проверки.",
-  "can_skip": "Если вы не можете выполнить эту проверку, вы сможете ${span} ${span} пропустить её и вернуться к ней позже.",
+  "can_skip": "Если вы не можете выполнить эту проверку, вы сможете ${span} пропустить её ${span} и вернуться к этому позже.",
   "skip": "Пропустить",
   "click_show_expanded": "Нажмите, чтобы показать расширенно стихи",
   "icons": {
@@ -62,8 +62,8 @@
     "no_verse_edits_found": "Правки стихов не были найдены для этой проверки",
     "comments_found": "Комментарии, которые были найдены для этой проверки",
     "no_comments_found": "Нет комментариев для этой проверки",
-    "bookmarked": "Эта проверка сделали закладкой для пересмотра",
-    "not_bookmarked": "Эта проверка не была закладкой для пересмотра"
+    "bookmarked": "Эта проверка была добавлена в закладки для проверки",
+    "not_bookmarked": "Эта проверка не была добавлена в закладки для проверки"
   },
   "select_too_many": "Click a previous selection to remove it before adding a new one. To select more than ${maximum} words, highlight phrases instead of individual words.",
   "oops": "Хм!",
