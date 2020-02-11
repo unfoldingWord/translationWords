@@ -16,6 +16,9 @@
     "next_button": "ಮುಂದಿನ",
     "discard_changes": "ಬದಲಾವಣೆಗಳನ್ನು ತ್ಯಜಿಸಿ"
   },
+  "alignments_reset_wa_tool": "Changes have been detected in your project which have invalidated some of your alignments.\nThese verses display an icon of a broken chain next to the reference in the side menu.",
+  "invalid_verse_alignments_and_selections": "Changes have been detected in your project which have invalidated some selections and some alignments. These verses display an icon of a broken chain next to the reference in the side menu.",
+  "invalidation_checking": "Checking if this edit conflicts with saved selections and alignments...",
   "quote_invalid": "ಪರಿಶೀಲನೆಗಾಗಿ ಅಮಾನ್ಯ ಮೂಲ ಭಾಷಾ ಉಲ್ಲೇಖ:'${quote}'",
   "nothing_to_select_description": "ಆಯ್ಕೆ ಮಾಡಿದಾಗ, ಪರಿಶೀಲನೆ ಸಂಪೂರ್ಣವಾಗಿದೆ ಎಂದು ಗುರುತುಹಾಕಲ್ಪಡುತ್ತದೆ. ಅನುವಾದ ಸರಿಯಾಗಿದ್ದಾಗ ಬಳಸಿ ಆದರೆ ಆಯ್ಕೆ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ.",
   "selections_invalidated": "ಕೆಲವು ಆಯ್ಕೆಗಳು ಇನ್ನು ಮುಂದೆ ಮಾನ್ಯವಾಗಿಲ್ಲ ಮತ್ತು ಅವುಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.",
