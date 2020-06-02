@@ -31,12 +31,12 @@
   "edit_verse": "Edit Ayat",
   "save_previous": "Simpan & Sebelumnya",
   "save_continue": "Simpan & Lanjutkan",
-  "empty_verse": "Tidak ada pilihan yang dapat dibuat karena ayat tersebut adalah kosong.<br/>Anda dapat memperbaiki hal ini dengan mengedit ayat ini.<br/>Jika diinginkan, Anda juga dapat meninggalkan komentar atau bookmark cek ini.",
+  "empty_verse": "Tidak ada pilihan yang dapat dibuat karena ayat tersebut adalah kosong.<br/>Anda dapat memperbaiki hal ini dengan mengedit ayat ini.<br/>Jika diinginkan, Anda juga dapat meninggalkan komentar atau bookmark pemeriksaan ini.",
   "no_selection": "Tidak ada pilihan yang dibuat. Klik tombol Pilih, kemudian pilih terjemahan untuk pemeriksaan ini.",
   "no_selection_needed_description": "Tidak ada pilihan telah dibuat.<br/>pemeriksaan ini telah ditandai sebagai:",
   "no_selection_needed": "Tidak ada pilihan yang dibutuhkan",
   "please_select": "Silahakan pilih terjemahan untuk:",
-  "selection_invalidated": "Pemilihan untuk pemeriksaan ini adalah tidak valid.",
+  "selection_invalidated": "Pilihan untuk pemeriksaan ini adalah tidak valid.",
   "invalidated_tooltip": "Pilihan tidak valid jika kata-kata yang dipilih kemudian diedit.",
   "translated_as": "telah diterjemahakan sebagai:",
   "bookmark": "Bookmark",
@@ -239,6 +239,6 @@
   "ithpalpel": "Ithpalpel",
   "ithpolel": "Ithpolel",
   "ittaphal": "Ittaphal",
-  "morph_missing": "Morphology not found",
-  "unsaved_changes": "You have unsaved changes."
+  "morph_missing": "Morfologi tidak ditemukan",
+  "unsaved_changes": "Anda memiliki perubahan yang belum disimpan"
 }
