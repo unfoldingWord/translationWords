@@ -85,7 +85,8 @@
     "select_language": "Select language",
     "gateway_language": "Rasta khuli diya bhasa",
     "target_language": "Laksya bhasa",
-    "original_language": "Ashol bhasa"
+    "original_language": "Ashol bhasa",
+    "select_font_label": "Select Font"
   },
   "lemma": "Lemma:",
   "morphology": "Morphology:",
