@@ -10,10 +10,10 @@
     "menu": "Menú"
   },
   "buttons": {
-    "ok_button": "OK",
+    "ok_button": "Aceptar",
     "back_button": "Volver",
     "cancel_button": "Cancelar",
-    "reset_button": "Reset",
+    "reset_button": "Reiniciar",
     "save_button": "Guardar",
     "next_button": "Siguiente",
     "discard_changes": "Descartar cambios"
@@ -60,7 +60,7 @@
   "can_skip": "Si no puedes realizar esta verificación, puedes ${span} omitirla ${span} y volver a ella más tarde.",
   "skip": "Omitir",
   "click_show_expanded": "Haz clic para ver más versículos.",
-  "expand_verses": "Expand verses",
+  "expand_verses": "Expandir versículos",
   "icons": {
     "selections_found": "Se encontraron selecciones para esta verificación",
     "no_selections_found": "No se encontraron selecciones para esta verificación",
@@ -79,14 +79,14 @@
     "title": "Paso 1. Leer",
     "expand_hover": "Haz clic para ver ampliado los paneles de recursos",
     "remove_resource": "Haga clic para eliminar el recurso",
-    "remove_resource_label": "Remove resource",
+    "remove_resource_label": "Eliminar recurso",
     "add_resource": "Haga clic para añadir un recurso",
     "add_resource_label": "Añadir Recursos",
     "select_language": "Seleccionar idioma",
     "gateway_language": "Idioma fuente",
     "target_language": "Idioma receptor",
     "original_language": "Idioma Original",
-    "select_font_label": "Select Font"
+    "select_font_label": "Seleccionar fuente"
   },
   "lemma": "Lema:",
   "morphology": "Morfología:",
