@@ -8,7 +8,8 @@
     "verse_edit": "Edição do versículo",
     "comments": "Comentários",
     "menu": "Menu",
-    "grouping": "Organize by Reference"
+    "grouping": "Organize by Reference",
+    "select_locale": "Select Locale"
   },
   "buttons": {
     "ok_button": "OK",
@@ -17,7 +18,8 @@
     "reset_button": "Redefinir",
     "save_button": "Salvar",
     "next_button": "Próximo",
-    "discard_changes": "Descartar Alterações"
+    "discard_changes": "Descartar Alterações",
+    "close_button": "Close"
   },
   "alignments_reset_wa_tool": "Foram detectadas alterações no seu projeto que invalidam alguns dos seus alinhamentos.\nOs versículos alterados têm o ícone de corrente quebrada ao lado da referência no menu lateral.",
   "invalid_verse_alignments_and_selections": "Alterações foram detectadas em seu projeto que invalidaram alguns de seus alinhamentos. Esses versículos apresentam um ícone de corrente quebrada ao lado da referência no menu lateral.",
