@@ -8,7 +8,8 @@
     "verse_edit": "Edit Ayat",
     "comments": "Komentar",
     "menu": "Menu",
-    "grouping": "Atur Berdasarkan Referensi"
+    "grouping": "Atur Berdasarkan Referensi",
+    "select_locale": "Select Locale"
   },
   "buttons": {
     "ok_button": "Oke",
@@ -17,7 +18,8 @@
     "reset_button": "Atur ulang",
     "save_button": "Simpan",
     "next_button": "Berikutnya",
-    "discard_changes": "Membuang Perubahan"
+    "discard_changes": "Membuang Perubahan",
+    "close_button": "Close"
   },
   "alignments_reset_wa_tool": "Perubahan telah terdeteksi di proyek Anda yang telah membuat sebagian penyelarasan Anda menjadi tidak valid.\nAyat-ayat ini menampilkan ikon rantai rusak di sebelah referensi di menu samping.",
   "invalid_verse_alignments_and_selections": "Perubahan telah terdeteksi di proyek Anda yang telah membatalkan beberapa pilihan dan beberapa penyelarasan. Ayat-ayat ini menampilkan ikon rantai rusak di sebelah referensi di menu samping.",

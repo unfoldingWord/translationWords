@@ -8,7 +8,8 @@
     "verse_edit": "Édition de verset",
     "comments": "Commentaires",
     "menu": "Menu",
-    "grouping": "Organize by Reference"
+    "grouping": "Organize by Reference",
+    "select_locale": "Select Locale"
   },
   "buttons": {
     "ok_button": "OK",
@@ -17,7 +18,8 @@
     "reset_button": "Réinitialiser",
     "save_button": "Sauvegarder",
     "next_button": "Suivant",
-    "discard_changes": "Abandonner les modifications"
+    "discard_changes": "Abandonner les modifications",
+    "close_button": "Close"
   },
   "alignments_reset_wa_tool": "Des changements ont été détectés dans votre projet qui ont invalidé certains de vos alignements.\nCes versets affichent une icône d'une chaîne cassée à côté de la référence dans le menu latéral.",
   "invalid_verse_alignments_and_selections": "Des changements ont été détectés dans votre projet qui ont invalidé certains de vos sélections et alignements.\nCes versets affichent une icône d'une chaîne cassée à côté de la référence dans le menu latéral.",

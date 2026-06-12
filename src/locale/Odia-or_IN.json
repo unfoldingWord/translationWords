@@ -8,7 +8,8 @@
     "verse_edit": "ପଦର ସଂଶୋଧନ",
     "comments": "ମନ୍ତବ୍ୟଗୁଡ଼ିକ",
     "menu": "ମେନ୍ୟୁ",
-    "grouping": "Organize by Reference"
+    "grouping": "Organize by Reference",
+    "select_locale": "Select Locale"
   },
   "buttons": {
     "ok_button": "ଠିକ୍ ଅଛି",
@@ -17,7 +18,8 @@
     "reset_button": "ପୁନଃସେଟ୍",
     "save_button": "ସଂରକ୍ଷଣ କରନ୍ତୁ",
     "next_button": "ପରବର୍ତ୍ତୀ",
-    "discard_changes": "ପରିବର୍ତ୍ତନଗୁଡ଼ିକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ"
+    "discard_changes": "ପରିବର୍ତ୍ତନଗୁଡ଼ିକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ",
+    "close_button": "Close"
   },
   "alignments_reset_wa_tool": "Changes have been detected in your project which have invalidated some of your alignments.\nThese verses display an icon of a broken chain next to the reference in the side menu.",
   "invalid_verse_alignments_and_selections": "Changes have been detected in your project which have invalidated some selections and some alignments. These verses display an icon of a broken chain next to the reference in the side menu.",
