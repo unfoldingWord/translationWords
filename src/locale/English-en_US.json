@@ -294,7 +294,7 @@
     "unknown_model": "Unknown",
     "suggestion_item": "${number}: ${selections} - Confidence: ${confidence}%",
     "no_selections_item": "${number}: No selections",
-    "apply": "Apply",
+    "apply": "APPLY",
     "apply_tooltip": "Replace the current selections with this suggestion",
     "no_suggestions": "No suggestions",
     "ai_error": "<AI ERROR>",
