@@ -271,6 +271,8 @@
     "maximize_requests_tooltip": "If enabled AI requests will be made in background to get suggestions for all empty checks.  Otherwise it will only be done for current group.",
     "enable_thinking": "Enable AI thinking",
     "enable_thinking_tooltip": "If enabled the AI reasons through each check before answering. This may improve suggestions but is much slower.",
+    "use_alignment_history": "Use word alignments",
+    "use_alignment_history_tooltip": "If enabled, words aligned in this project and in other projects of the same language and Bible are added to the previous selections that suggestions are made from.",
     "api_token": "AI API Token:",
     "api_token_tooltip": "Enter the AI API token used by the suggestion server.",
     "api_token_placeholder": "AI API token",
